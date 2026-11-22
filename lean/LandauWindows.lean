@@ -20,5 +20,7 @@ import LandauWindows.Statement
 import LandauWindows.Soft.ZetaWindowed
 import LandauWindows.Soft.MellinRamp
 import LandauWindows.Soft.ZetaPoleData
+import LandauWindows.Soft.ZeroFreeOfRpowWindow
+import LandauWindows.Soft.ZetaLandau
 import LandauWindows.T1
 import LandauWindows.Axioms

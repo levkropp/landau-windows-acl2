@@ -49,7 +49,21 @@ def ZetaLandauEps : Prop :=
 
 (There is also a smoothed variant `ZetaLandauBar` with `Gzbar x = ∫₁² u · Gz(x/u) du`. See the archive.)
 
-## 2. The windowed version (the statement the architecture actually needs)
+
+**Status (2026-11-22): both statements are proved in our Lean soft layer**
+(`lean/LandauWindows/Soft/ZetaLandau.lean`). The `s0 = 1` (ceiling)
+direction is unconditional (the windowed lemma it rests on is discharged);
+the `s0 = -1` (mirror, floor) direction is `landau_window` applied to the
+negated statistic, which requires - and receives, as a named hypothesis in
+the hypothesis-injection discipline - exactly one classical input,
+`ZetaNoRealStripZeros`: zeta has no real zeros in the open strip
+(classically, zeta < 0 on (0,1)). This is the same fact the classical
+proof above uses (its `H` is holomorphic on real `s > theta` because zeta
+has no real zeros in (0,1)); it is not a technicality - a real zero would
+contribute a *positive* growing term to `Gz` and be invisible to a floor
+bound, which is precisely what the residue-sign clause of the `PoleData`
+machinery detects. Mathlib at our pin does not yet carry this sign lemma;
+its discharge plan is recorded in `lean/README.md`.## 2. The windowed version (the statement the architecture actually needs)
 
 **Source:** Rubinstein's draft (Nov 21, 2026), Lemma "the same, on intervals"; also present in Alpöge's Lean (`Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/`, and the ζ-facing machinery in `src/Formalism/`).
 

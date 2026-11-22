@@ -12,10 +12,17 @@ and (iii) to record, per theorem, whether it is lifted or ours.
 import LandauWindows.Statement
 import LandauWindows.Soft.ZetaWindowed
 import LandauWindows.Soft.ZetaPoleData
+import LandauWindows.Soft.ZeroFreeOfRpowWindow
+import LandauWindows.Soft.ZetaLandau
 import LandauWindows.T1
 
 -- The lifted abstract windowed Landau theorem (ours = the lift itself):
 #print axioms Deduction.landau_window
+
+-- The lifted family-level finale (windowed ceilings on the family
+-- statistic give zero-freeness for every character of the family):
+#print axioms Deduction.lemmaL
+#print axioms Deduction.zeroFree_of_rpow_window
 
 -- Our ζ-instantiation (proved modulo the named hypothesis ZetaPoleData):
 #print axioms LandauWindows.zeta_landau_windowed
@@ -30,6 +37,13 @@ import LandauWindows.T1
 
 -- T1 in the soft layer (ours), derived logically from the above:
 #print axioms LandauWindows.t1Soft
+
+-- The mirror (s₀ = -1) direction and the full archive statements
+-- (ours), reduced to the named classical input ZetaNoRealStripZeros:
+#print axioms LandauWindows.poleData_neg
+#print axioms LandauWindows.zeta_landau_windowed_floor
+#print axioms LandauWindows.zeta_landau
+#print axioms LandauWindows.zeta_landau_eps
 
 -- Statement-only (definitions of Props; no proofs to audit):
 #print axioms Formalism.ZetaLandau

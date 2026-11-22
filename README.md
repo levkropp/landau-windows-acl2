@@ -133,7 +133,7 @@ The point, in one sentence: **a one-page logical conversion should not need a 17
 |-------|-------------|------|--------|
 | 0 | Statements, prior-art survey, this README | `docs/` | ✅ done (this commit) |
 | 1 | Classical paper: explicit windowed Landau with computable constants + certificate algorithm | `classical/` | 🟡 core drafted & compiled ([`paper.pdf`](classical/paper.pdf), 27 pp.); numerics pending |
-| 2 | Lean formalization: soft layer + choice-free effective shadow | `lean/` | 🟢 soft layer main theorems **proved**: the windowed Landau lemma for ζ with *no hypotheses* (archive core + character-family construction lifted, instantiated at the trivial family) and **T1 proved** in the soft layer; shadow pending ([`lean/`](lean/README.md)) |
+| 2 | Lean formalization: soft layer + choice-free effective shadow | `lean/` | 🟢 soft layer main theorems **proved**: the windowed Landau lemma for ζ with *no hypotheses* (archive core + character-family construction lifted, instantiated at the trivial family) and **T1 proved** in the soft layer; the archive's one-sided ZetaLandau/ZetaLandauEps proved for both signs (the floor/mirror direction reduced to one named classical input); the whole windowed cluster lifted; shadow pending ([`lean/`](lean/README.md)) |
 | 3 | Reverse-math placement of the effective shadow (expect something in the RCA₀–PA range; a genuinely new datapoint for analytic number theory) | `docs/` | ⬜ |
 | 4 | ACL2 certificate checker: the finite core, checked | `acl2/` | ⬜ |
 

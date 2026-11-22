@@ -24,7 +24,7 @@ effective version, which subsumes this soft statement) and
 -/
 import LandauWindows.Soft.PoleData
 import LandauWindows.Soft.landauWindow
-import LandauWindows.Soft.windowHyp
+import LandauWindows.Soft.WindowHypOfRpow
 import LandauWindows.Statement
 
 open Complex MeasureTheory Set Filter Topology Formalism Deduction

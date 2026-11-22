@@ -42,20 +42,29 @@ lean/
 ## What is lifted and what is ours
 
 **Lifted** (`Soft/*.lean`, each file carries a provenance header naming its
-source in the archive): the *entire* abstract windowed-Landau machinery —
-`PoleData` (the Mellin-transform certificate: measurability, crude growth,
-Laplace representation, pole structure), `WindowHypU` (recurring windows with a
-ceiling), and the twelve kernel/pole/Cauchy files behind
-`Deduction.landau_window`. The lift is mechanical (import paths only; the one
-trim is `PoleData.lean`, which drops the archive's character-family-specific
-definitions that the abstract theorem does not use). This was possible because
-Alpöge's own architecture factors the argument abstractly — the same factoring
-our classical paper uses.
+source in the archive): the *entire* windowed-Landau cluster of the archive's
+`DedekindLFunctions` tree - now including the character-family side.
+Concretely: the abstract core (`PoleData` restored in full, `WindowHypU`, and
+the twelve kernel/pole/Cauchy files behind `Deduction.landau_window`), the
+character-family construction (`CharFamily`, `PoleDataConstruction` - the
+archive's `poleData.lean`, renamed for a Windows case-insensitive filename
+collision - plus the analytic chain: `measurableGchi`, `GchiConj`,
+`GchiGrowth`, `mertensUpper`, `mellinGchiOfNeOne`, `mellinGchiModOne`,
+`LogDerivLocal`, `LFunctionConj`, `CharFamilyLFunctionNeZeroOfOneLeRe`), and
+the family-level finale (`WindowHypOfRpow`, `WindowHypUOfWindowHyp` - both in
+full, replacing an earlier partial lift `windowHyp.lean` - `lemmaL`,
+`ZeroFreeOfRpowWindow`: windowed ceilings on the family statistic give
+zero-freeness for every character of the family, unconditionally).  The lift
+is mechanical (import paths only).  Every `LandauTheorems` file of the archive
+is lifted except the `Ch*`/`SplitInertia`/`RunBase...` files, which are the
+archive's step-3 arithmetic core (constructing the even-character family and
+its ceiling) and deliberately out of scope for this step-2 project.
 
 **Ours**: `Statement.lean`'s provenance notes, `ZetaWindowed.lean` (the
-ζ-instantiation and the windowed statement), and everything in `Shadow/` when
-it exists.
-
+zeta-instantiation and the windowed statement), `ZetaPoleData.lean` (the
+trivial-family discharge), `ZetaLandau.lean` (the mirror direction and the
+full archive statements), `T1.lean`, `Axioms.lean`, and everything in
+`Shadow/` when it exists.
 ## The two-layer discipline
 
 The **soft layer** proves the theorems the way a mathematician would (reals,
@@ -108,12 +117,25 @@ the archive file named in its header.
     lemma for zeta, **with no hypotheses at all**;
   - `LandauWindows.t1Soft : T1Soft` - **T1 proved in the soft layer**
     (pure logic from the unconditional lemma).
+- **The archive's tail is lifted** (`WindowHypOfRpow` and
+  `WindowHypUOfWindowHyp` in full - replacing the earlier partial lift
+  `windowHyp.lean` - plus `lemmaL` and `ZeroFreeOfRpowWindow`): the
+  family-level windowed Landau lemma
+  `Deduction.zeroFree_of_rpow_window` is now available verbatim from the
+  archive.
+- **The mirror (`s0 = -1`) direction is DONE modulo one named input**
+  (see the section after next): `zeta_landau : Formalism.ZetaLandau`
+  (both signs) and `zeta_landau_eps : Formalism.ZetaLandauEps` are
+  **proved**, the floor direction reduced to the single named classical
+  input `ZetaNoRealStripZeros`.
 - **Axiom audit** (`LandauWindows/Axioms.lean`, runs on every build):
   every theorem in the chain - `Deduction.landau_window`,
+  `Deduction.lemmaL`, `Deduction.zeroFree_of_rpow_window`,
   `zeta_landau_windowed`, `windowHypU_of_ceiling`, `zetaPoleData`,
-  `zeta_landau_windowed_unconditional`, `t1Soft` - depends on exactly
-  `[propext, Classical.choice, Quot.sound]` - no `sorryAx`, no extra
-  axioms.
+  `zeta_landau_windowed_unconditional`, `t1Soft`, `poleData_neg`,
+  `zeta_landau_windowed_floor`, `zeta_landau`, `zeta_landau_eps` -
+  depends on exactly `[propext, Classical.choice, Quot.sound]` - no
+  `sorryAx`, no extra axioms.
 - **T1's soft statement** (`LandauWindows/T1.lean`): the certificate data
   (`IsolationRect`), the derived clearance quantities of paper 5.2 as
   explicit definitions (`dbar`, `r_z`, `eps_z`, `D_R`, `D_min`, `r'`,
@@ -159,9 +181,78 @@ Lean axioms, verified on every build):
   give a zero with `Re > theta`, so ceilings must fail somewhere in
   every window beyond some threshold.
 
+## The mirror direction (`s0 = -1`) - DONE modulo one named input (2026-11-22)
+
+`Formalism.ZetaLandau` (the archive's statement) is one-sided in TWO
+senses: the bound `s0 * Gz x <= C x^theta` may hold with either sign
+`s0 in {1, -1}`.  The `s0 = 1` (ceiling) direction is the one the windowed
+machinery proves; the `s0 = -1` (mirror, floor) direction is NOT more of
+the same - it cannot be obtained by the functional equation (the FE maps
+zeros to reflected zeros, but the statement is about the SAME right half
+plane, and a real strip zero would contribute a *positive* growing term
+to `Gz`, invisible to any floor bound).  The correct route is that a floor
+on `Gz` is a ceiling on `-Gz`, so `Deduction.landau_window` applies to the
+NEGATED statistic:
+
+- `poleData_neg` (ours, `Soft/ZetaLandau.lean`): `PoleData g Phi Z` passes
+  to `(fun u => -g u, fun s => -Phi s)` provided `Z` has no real points.
+  Every field is linearity except `pole`: the residue at a zero is negated,
+  and at a REAL zero the `pole` field demands a *positive real* residue -
+  which is exactly the mathematical content (a positive-residue pole grows
+  upward and cannot contradict a floor).  Away from the real axis only
+  nonvanishing of the residue is needed, and the windowed contradiction is
+  a magnitude argument.
+- `ZetaNoRealStripZeros` (ours): the single named classical input - zeta
+  has no real zeros in the open strip `(0,1)`, classically because
+  `zeta(sigma) < 0` there.  This is the same fact the classical proof of
+  the one-sided theorem uses (see ../docs/statement.md section 1, whose
+  auxiliary `H` is holomorphic on the real axis precisely because of it).
+- `zeta_landau_windowed_floor` (ours): the windowed mirror lemma - floors
+  `-Gz x <= C x^theta` on arbitrarily large windows exclude zeros with
+  real part `> theta`, given `ZetaNoRealStripZeros`.
+- `windowed_of_eventual` (ours): an eventual one-sided bound holds
+  throughout every sufficiently large window (the classical statements
+  are eventual, the machinery windowed).
+- `zeta_landau : Formalism.ZetaLandau` and
+  `zeta_landau_eps : Formalism.ZetaLandauEps` (ours): the archive's
+  statement-level targets, both signs, proved.
+
+### Discharge plan for `ZetaNoRealStripZeros`
+
+Mathlib at our pin has: the Laurent data at 1
+(`riemannZeta_residue_one`, `riemannZeta_eq_inv_sub_add` with an entire
+remainder `riemannZeta1`), the functional equation
+(`riemannZeta_one_sub`), nonvanishing at `1 <= re`
+(`riemannZeta_ne_zero_of_one_le_re`), the value `riemannZeta 0 = -1/2`,
+and - decisive for us - the Loeffler-Tao fractional-part machinery
+(`Mathlib.NumberTheory.Harmonic.ZetaAsymp`): `termTSum s = 1/(s-1) -
+zeta(s)/s` for real `s > 1`, with `termTSum` a sum of NONNEGATIVE
+elementary integrals, continuous on `[1, inf)` with `termTSum 1 = 1 - gamma`.
+The identity extends to `0 < s < 1` - where it reads
+`zeta(s) = s/(s-1) - s * termTSum s <= s/(s-1) < 0` - by analytic
+continuation: extend `termTSum` to complex `s` with `re s > 0` (the term
+series converges locally uniformly there by an M-test against
+`(1/2) u^{-sigma-1}`), do the Abel-summation computation
+`zeta(s) = s/(s-1) - s * termTSum s` for complex `re s > 1` against
+mathlib's `zeta_eq_tsum_one_div_nat_cpow`, and conclude by the identity
+theorem on the punctured half-plane `re s > 0 \ {1}` (both sides analytic
+there; no removability needed).  Cost estimate: an afternoon-sized file
+(term-analyticity via the closed form + M-test, or a parameter-integral
+lemma; the Abel computation ~40 lines; connectedness of the punctured
+half-plane the only geometry).  Until then the input stays a named
+hypothesis - never an axiom - and everything downstream of it is proved.
+
 ## Not yet done
 
-- The `s0 = -1` mirror direction of `ZetaLandau` (needs the functional
-  equation reflection); T1's effective content (explicit constants from
-  the paper's Definition 6.1, computed address - the shadow, `Shadow/`);
-  the `Y0` in `t1Soft` made explicit.
+- The discharge of `ZetaNoRealStripZeros` (the plan is above; until then
+  the mirror direction carries it as its single named hypothesis).
+- T1's effective content (explicit constants from the paper's Definition
+  6.1, computed address - the shadow, `Shadow/`); the `Y0` in `t1Soft`
+  made explicit.
+- T1-L: the archive's even-character statements - the family-level
+  machinery is fully lifted (`zeroFree_of_rpow_window`), but the
+  non-trivial-character instantiation (`Gchi` at `chi != 1`, the `L'`/`L`
+  correction) and the `Schi`-facing statements are not yet ours.  Note
+  that for L-functions the mirror direction is NOT available on the cheap:
+  real strip zeros (Siegel zeros) genuinely exist as a possibility, so the
+  `s0 = -1` disjunct there needs the stronger zero-free input.
