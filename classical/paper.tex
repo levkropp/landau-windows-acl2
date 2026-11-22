@@ -1,0 +1,1760 @@
+% Landau's ceiling step on windows, with explicit constants.
+% Phase 1 deliverable of the landau-windows project (see ../README.md, ../docs/).
+% Compiles with plain LaTeX + AMS classes; no exotic packages.
+%
+% STATUS (honest): complete draft.  Every constant is rational and listed in
+% the Constant Registry (Section 9).  The quoted standard estimates (Inputs
+% 5.2--5.4: low zero data; local zero count; the zeta'/zeta partial-fraction
+% bound) are cited with deliberately conservative constants and are flagged
+% for tightening / self-containment during the effective-shadow work.
+
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{assumption}[theorem]{Input}
+
+\numberwithin{equation}{section}
+
+% Notation macros
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\ZZ}{\zeta}
+\newcommand{\res}{\operatorname{Res}}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\Sig}{\sigma}
+\newcommand{\Lam}{\Lambda}
+\newcommand{\Euler}{\gamma}
+
+\begin{document}
+
+\title{Landau's ceiling step on windows, with explicit constants\\
+\large I. The effective windowed Landau theorem for the Riemann zeta function}
+
+\author{the \texttt{landau-windows} project}
+
+\date{November 21, 2026. Working draft (Phase 1).}
+
+\begin{abstract}
+We prove an explicit, completely effective form of the ``windowed Landau
+theorem'': if a smoothed prime-power sum
+$S(x)=\sum_{n\le x}\Lam(n)(x/n-1)$ satisfies the one-sided bound
+$G(x) \le C x^{\theta}$ on a single long window $[Y, Y^{3/2}]$, then a
+certified zero of the Riemann zeta function with real part $>\theta$
+cannot exist. In the contrapositive direction, from a zero-isolation
+certificate and the ceiling data we compute an explicit \emph{address}
+$x \in [Y, Y^{3/2}]$ at which the ceiling is violated, together with an
+explicit margin; the verification at $x$ is a finite sum over prime powers
+checked by rational interval arithmetic. Every constant in the proof is a
+rational number, explicitly displayed, and every existence statement is
+replaced by a terminating search. The non-effective statement we
+effectivize is due to Rubinstein (2026), building on Landau (1905) and the
+P\'olya--Ingham high-derivative method; our contribution is the
+explicitness, the certificate formulation, and the computable address. This
+is the classical layer (target T1) of a program whose ultimate aim is an
+ACL2-strength (approximately primitive-recursive-arithmetic) proof of this
+step.
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}\label{sec:intro}
+
+\subsection{The step this paper effectivizes}
+
+The Riemann hypothesis has a three-step architecture (we follow the
+explanatory video guide of \cite{RieVideo} and the explanatory draft of
+Rubinstein \cite{Rub26}, which in turn explain the announced Lean
+development of Alp\"oge \cite{Alp26}):
+
+\begin{enumerate}
+\item zeros of the zeta function mirror across the critical line, so it
+suffices to exclude zeros \emph{on the right} of the line;
+\item \textbf{Landau's ceiling step}: a \emph{one-sided} bound on the
+prime-counting error excludes zeros on the right --- even when the bound is
+available only on recurring windows $[Y, Y^{3/2}]$;
+\item building the ceiling (the arithmetic core).
+\end{enumerate}
+
+This repo is occupied with step 2, and specifically with the fact that
+although the windowed form of step 2 exists in the literature as a
+one-page non-effective argument \cite{Rub26} (Part~II, \S1), it has never
+been written down with explicit constants, formalized in any proof
+assistant, or placed on a primitive-recursive track. The present paper does
+the first of these three, classically.
+
+To state what ``the ceiling'' is, let $\Lam$ denote the von Mangoldt
+function and define, following the Alp\"oge development's conventions
+(\texttt{Sz}, \texttt{Gz} in \texttt{StatementOC.lean}; see
+\texttt{../docs/statement.md}),
+\begin{equation}\label{eq:SG}
+S(x) \;=\; \sum_{n \le x} \Lam(n)\Bigl(\frac{x}{n} - 1\Bigr),
+\qquad
+G(x) \;=\; S(x) - x\log x + (1+\Euler)\,x,
+\end{equation}
+where $\Euler$ is the Euler--Mascheroni constant. The statistic $S$ is the
+Chebyshev-style sum weighted by the ramp $(x/n-1)^+$, and $G$ is its
+deviation from the main term; $G$ oscillates around $\log 2\pi$ with
+amplitude governed by the zeros of $\zeta$ (a zero with real part $\beta$
+forces fluctuations of size $x^{\beta}$).
+
+The non-effective statement we take as our starting point is the
+following, stated and proved in one page in \cite{Rub26} (Part~I, \S1.1, and
+Part~II, \S1).
+
+\begin{lemma}[Rubinstein, ``the same, on intervals'']\label{lem:rubinstein}
+Let $0 < \theta < 1$. If there are arbitrarily large $Y$ such that
+$G(x) \le x^{\theta}$ for all $x \in [Y, Y^{3/2}]$, then
+$\zeta(s) \ne 0$ for $\re s > \theta$.
+\end{lemma}
+
+Its one-page proof replaces Landau's theorem on Mellin transforms of
+one-signed functions \cite{Lan05, MV07} by an estimate of high derivatives
+of the Mellin transform $F$ of $G$: a high derivative ``sees only one
+interval at a time'', so a ceiling that holds on a single window $[Y,
+Y^{3/2}]$ already forces the high derivatives at a suitable scale to be
+small, while a nearby pole of $F$ (i.e.\ a nearby zero of $\zeta$) forces
+them to be large. The kernel of the argument is the P\'olya--Ingham
+high-derivative method \cite{Ing32}.
+
+\subsection{What is proved here}
+
+Lemma~\ref{lem:rubinstein} is an existence proof by contradiction: it
+concludes that a ceiling and a rogue zero cannot both stand, but it
+neither says \emph{where} the ceiling breaks, nor \emph{by how much}, nor
+with \emph{which} constants. The theorem of this paper (Theorem~\ref{thm:main})
+is the effective refinement. Informally:
+
+\begin{quote}
+\textbf{Theorem (informal).} Fix $\tfrac12 \le \theta < 1$ and ceiling
+constants $C \ge 1$. Given (i) a zero-isolation certificate: a rational
+rectangle $R$ in $\re s > \theta$ certified to isolate exactly one simple
+zero $\rho$ of $\zeta$, inside a certified zero-free slab to the right of
+the critical line; and (ii) a window $[Y, Y^{3/2}]$ with $Y$ at least an
+explicitly computable threshold $Y_0$ --- one can \emph{compute} an address
+$x \in [Y, Y^{3/2}]$ and a margin $m > 0$ such that
+\[
+G(x) \;\ge\; (C + m)\, x^{\theta},
+\]
+and the verification of this inequality at $x$ is a finite sum over prime
+powers compared with rational interval arithmetic.
+\end{quote}
+
+Contrapositive reading: \emph{if the ceiling claim is verified to hold
+throughout a large window, then no certificate-bearing zero can exist to
+the right of $\theta$}. Certificate reading: \emph{a rogue zero and a
+ceiling cannot both stand; we name where the ceiling breaks, by how much,
+and how to check it finitely}. This is exactly the contract required by the
+surrounding architecture: the arithmetic side (step 3, not our concern)
+produces ceilings on windows of the form $[Y, Y^{3/2}]$, and the interface
+demands that such partial information suffice to exclude zeros.
+
+The formal, precise statement, with the complete list of validity
+conditions on the certificate and the complete formulas for all
+thresholds, is Theorem~\ref{thm:main} in \S\ref{sec:main}. The algorithm
+that computes the address is given in \S\ref{sec:algorithm} and specified
+for implementers in the companion file \texttt{certificates.md}. A
+self-contained sanity check of the constants is planned for
+\texttt{numerics/}.
+
+\subsection{Design decisions, made explicit}\label{sec:design}
+
+\textbf{Hypothesis injection.} We never produce zeros of $\zeta$, and we
+never verify zero-free regions ourselves. The certificate \emph{asserts}
+(upstream, by interval arithmetic, in the style of rigorous zero
+computations) that a certain slab contains exactly one zero of $\zeta$ to
+the right of the critical line, inside a certain rectangle. Everything we
+do is conditional on that assertion; the assertion is a hypothesis, never
+an axiom. This follows the discipline of recent explicit number theory in
+proof assistants, and it is what keeps the eventual PA-track (see
+\S\ref{sec:pa}) low: the transcendental content enters as a hypothesis of
+arithmetic form.
+
+\textbf{One zero at a time.} The certificate isolates a \emph{single}
+zero. Distinct off-line zeros that lie within the (necessarily tall,
+see~\S\ref{sec:limits}) certified zero-free slab of one another cannot be
+handled by the present argument, which needs the isolated pole's
+principal part to dominate uncontested; see \S\ref{sec:limits} for what is
+lost and how it might be recovered. A multiple zero at a single point is
+not an obstruction (the pole of the Mellin transform is then simple with
+residue scaled by multiplicity) but our certificate as formulated demands
+a simple zero; the generalization is routine and omitted.
+
+\textbf{Terrible constants, on purpose.} We track constants with
+deliberately safe margins (e.g.\ $\Sig = 252$ where any sufficiently large
+integer works, $4x^2$ where $x^2$ is true for large $x$). The point of
+this paper is computability, not competitiveness; a
+verification-grade version is a natural follow-up with the community that
+does that for a living. Every displayed constant is a rational number.
+
+\textbf{Quoted standard estimates.} Three inputs are quoted from the
+classical literature rather than re-derived with our own constants
+(Lemmas~\ref{lem:zeta-prime-prime}, \ref{lem:zlow}, \ref{lem:backlund}):
+an explicit partial-fraction bound for $\zeta'/\zeta$ away from zeros; the
+classical low-lying zero data (first zero at height $14.1347\ldots$, no
+zeros below, first zeros on the line); and an explicit local zero count.
+We state them with conservative constants, flag them as such, and note
+that any explicit version suffices for every use we make of them. The
+effective-shadow work (Phase 2) will need to re-prove them anyway, and
+that is the natural home for tightening.
+
+\textbf{Honesty about the Alp\"oge claim.} The announced Lean-formalized
+proof of RH \cite{Alp26} is, as of November 21, 2026, unverified: no public
+end-to-end compile exists. Nothing in this paper depends on that claim
+surviving. The windowed lemma (Lemma~\ref{lem:rubinstein}) and its
+one-page proof exist in the classical literature as of November 21, 2026
+\cite{Rub26}, credited there; our contribution is the explicitness, the
+certificate formulation, and the computable address.
+
+\subsection{Overview of the argument}
+
+Write $u = \log x$, $g(u) = G(e^{u})$, and let
+\begin{equation}\label{eq:Fdef}
+F(s) \;=\; \int_1^\infty G(x)\, x^{-s-1}\,dx
+      \;=\; \int_0^\infty g(u)\, e^{-su}\,du
+      \;=\; -\frac{\zeta'(s)}{\zeta(s)} \cdot \frac{1}{s(s-1)}
+            \;-\; \frac{1}{(s-1)^2} \;+\; \frac{1+\Euler}{s-1},
+\end{equation}
+the Mellin transform of $G$, meromorphic on $\C$ with simple poles at the
+nontrivial zeros $\rho$ of $\zeta$ (residue $-\nu_{\rho}/(\rho(\rho-1))$,
+with $\nu_\rho$ the multiplicity), at $s=0$, and at the trivial zeros.
+Let
+\[
+A_j(s) \;=\; \frac{(-1)^j F^{(j)}(s)}{j!},
+\qquad
+K_j(u) \;=\; \frac{u^j e^{-\Sig u}}{j!},
+\]
+so that for $\re s = \Sig > 2$ and real $t$,
+$A_j(\Sig + it) = \int_0^\infty g(u) e^{-itu} K_j(u)\,du$.
+The kernel $K_j$ peaks at $u = j/\Sig$; with $U = \log Y$ and $j$ the
+nearest integer to $1.23(\Sig-2)U$, the peak sits in the middle of the
+window $[U, \tfrac32 U]$ and the mass of $K_j$ outside the window is
+exponentially small (Lemma~\ref{lem:tail}), with decay $e^{-cj}$ paying
+exactly for the conversion between the scales $(\Sig-2)$ and
+$(\Sig-\theta)$ at the cost constant $e^{c}$ --- this is the numerical
+content of Rubinstein's choices $\eta$, $c$, $\Sig \ge 252$.
+
+The ceiling hypothesis $G \le C'x^{\theta}$ on the window, together with
+the crude unconditional bound $|G(x)| \le 4x^2$ (\S\ref{sec:statistic}),
+controls the \emph{positive part} of $g$, hence (via
+$|g| + g = 2\max(g,0)$, applied to the pair of points
+$\Sig+it$, $\Sig$) controls $|A_j(\Sig+it)| + A_j(\Sig)$.
+A Cauchy estimate at the real point controls $A_j(\Sig)$
+(Lemma~\ref{lem:sigcauchy}), so $|A_j(z)|$ itself is small for every real
+$t$: small like $(\Sig-\theta)^{-j}$.
+
+On the other hand, the certified zero $\rho$ with $\beta = \re\rho > \theta$
+is a pole of $F$ at distance $d \approx \Sig - \beta < \Sig - \theta$ from
+the explicit point $z = \Sig + i\,\mathrm{mid}(R)$ on the line
+$\re s = \Sig$; subtracting its principal part and applying Cauchy on a
+circle that the certificate guarantees contains no other pole
+(Lemma~\ref{lem:pole-lower}) gives $|A_j(z)| \ge c_1 d^{-j-1}$, which
+beats $(\Sig-\theta)^{-j}$ by the exponential factor
+$((\Sig-\theta)/d)^{j+1}$.
+
+The contradiction is made \emph{quantitative}: if the ceiling holds with
+constant $C'$, then $C' \ge Q(j)$ where $Q(j)$ is an explicit huge number
+growing like $((\Sig-\theta)/d)^{j}$ (Theorem~\ref{thm:main}); since $Q(j)
+\to \infty$ along $j \sim 1.23(\Sig-2)\log Y$, the ceiling must fail, and
+by continuity of $G$ it must fail at an attainable maximum of $G(x)/x^\theta$
+over the window, with margin $m = Q(j) - C$. A grid search with explicit
+mesh, evaluating $G$ by rigorous interval arithmetic, then \emph{finds}
+the address (Proposition~\ref{prop:search}), with a proof of termination;
+the total work is polynomial in $Y$.
+
+Everything needed for this is contained in \S\ref{sec:statistic}--\S
+\ref{sec:main}. \S\ref{sec:algorithm} specifies the certificate checker's
+algorithm. \S\ref{sec:limits} states limitations (clusters, quoted
+inputs), \S\ref{sec:lfunction} sketches the Dirichlet $L$-function
+variant, \S\ref{sec:pa} records notes toward the Lean two-layer
+formalization and the PA track, and \S\ref{sec:registry} is the constant
+registry. Appendix~\ref{sec:app:elementary} collects the elementary
+inequalities with proofs.
+
+\subsection{Acknowledgments}
+
+The windowed lemma and its one-page proof are due to Michael Rubinstein's
+explanatory draft \cite{Rub26} (with AI co-authors), which in turn
+explains the Alp\"oge development \cite{Alp26}; the classical skeleton is
+Landau's \cite{Lan05} with the P\'olya--Ingham kernel method
+\cite{Ing32}. We claim credit only for the effectivization, the
+certificate formulation, and the computational track. The layman-facing
+exposition we mirror is the segment ``Step two: the ceiling'' of
+\cite{RieVideo}.
+
+\section{The statistic and its Mellin transform}\label{sec:statistic}
+
+\subsection{Notation}
+
+$\Lam(n)$ is the von Mangoldt function: $\log p$ if $n = p^k$ is a prime
+power, $0$ otherwise. $\psi(x) = \sum_{n\le x}\Lam(n)$. $\Euler$ is the
+Euler--Mascheroni constant. $\zeta$ is the Riemann zeta function;
+``zeros'' always means nontrivial zeros, which satisfy
+$0 < \beta < 1$ and (since $\zeta(\sigma)<0$ on $0<\sigma<1$) are
+non-real. The classical first zero has height
+$\gamma_1 = 14.134725\ldots$, there are no zeros with
+$0<|\im s| < \gamma_1$, and the first zeros lie on the critical line
+(Lemma~\ref{lem:zlow}). $e$ and $\log$ are the natural exponential and
+logarithm; $x^{\theta}$ for real $x>0$ is $e^{\theta\log x}$.
+
+Throughout the paper $\Sig = 252$, $c = 0.008$ and
+\begin{equation}\label{eq:sigma-c}
+\frac{\Sig - \theta}{\Sig - 2} \;\le\; e^{c}
+\qquad\text{for every } 0 < \theta < 1,
+\end{equation}
+since $\Sig - \theta \le 252 < 250\,e^{0.008} = 252.008\ldots \le
+(\Sig-2)e^{c}$.
+
+\subsection{Elementary size of the statistic}
+
+\begin{lemma}[$G$ is small and piecewise linear]\label{lem:G-size}\
+\begin{enumerate}
+\item For all $x \ge 1$: $|G(x)| \le 4x^2$.
+\item $G$ is continuous on $[1,\infty)$; on the interval between two
+consecutive prime powers it is linear in $x$; in particular $G$ is
+Lipschitz on any bounded interval with constant
+$L_G(x) := \tfrac12(\log x)^2 + 2\log x + 1.6$ on $[2, x]$:
+$|G(x_2)-G(x_1)| \le L_G(x_2)\,|x_2-x_1|$ for $2 \le x_1 \le x_2$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) First, $S(x) = x\int_1^x \psi(t)\,t^{-2}\,dt$: each term
+$\Lam(n)(x/n - 1)$ equals $\Lam(n)\,x\int_n^x t^{-2}\,dt$, and the sum
+over $n \le t$ is $\psi(t)$. Since $\psi(t) \le \sum_{n \le t}\log n \le
+t\log t$ (and $\psi(t) = 0$ for $t < 2$),
+\[
+S(x) \;\le\; x \int_2^x \frac{\log t}{t}\,dt
+\;=\; \frac{x}{2}\bigl((\log x)^2 - (\log 2)^2\bigr) \;\le\;
+\frac{x(\log x)^2}{2}.
+\]
+Also $x\log x \le x(\log x)^2$ and $(1+\Euler)x \le 1.6\,x(\log x)^2$
+for $x \ge e$. Hence $|G(x)| \le 3.1\,x(\log x)^2$ for $x \ge e$, and
+$3.1(\log x)^2 \le 4x$ there (the function $4x - 3.1(\log x)^2$
+increases for $x \ge e$ and is positive at $x=e$). For $1 \le x < e$ we
+have $S(x) \le \Lam(2)(x/2 - 1) \le 0.35$ (only $n=2$ can contribute),
+so $|G(x)| \le 0.35 + x\log x + (1+\Euler)x \le 0.35 + e + 1.6e \le
+7.1 \le 4x^2$ on $[1, 2]$, and on $[2,e]$, $|G(x)| \le 0.35 + e + 1.6e
+\le 7.1 \le 16 \le 4x^2$. This proves (1).
+
+(2) $S$ is continuous: as $x$ crosses a prime power $n$, the summand
+$\Lam(n)(x/n-1)$ switches on and vanishes at $x = n$. Between prime
+powers, $S(x) = x A(x) - \psi(x)$ with $A(x) = \sum_{n\le x}\Lam(n)/n$
+and $\psi(x)$ constant, so $S$ is linear there and so is $G$, with slope
+$G'(x) = A(x) - \log x + 1 + \Euler$. Finally
+\[
+A(x) \;=\; \frac{\psi(x)}{x} + \int_1^x \frac{\psi(t)}{t^2}\,dt
+\;\le\; \log x + \frac{(\log x)^2}{2},
+\]
+so $|G'| \le \tfrac12(\log x)^2 + 2\log x + 1.6$ where defined, and the
+Lipschitz claim follows since a continuous, piecewise linear function is
+Lipschitz with any upper bound for its slopes.
+\end{proof}
+
+\subsection{The Mellin transform and its poles}
+
+\begin{proposition}\label{prop:mellin}\
+\begin{enumerate}
+\item For $\re s > 1$ the integral \eqref{eq:Fdef} converges and
+\[
+F(s) \;=\; \sum_{n\ge1} \frac{\Lam(n)\,n^{-s}}{s(s-1)}
+\;-\; \frac{1}{(s-1)^2} \;+\; \frac{1+\Euler}{s-1}
+\;=\; -\frac{\zeta'(s)}{\zeta(s)}\cdot\frac{1}{s(s-1)}
+\;-\; \frac{1}{(s-1)^2} \;+\; \frac{1+\Euler}{s-1}.
+\]
+\item The right-hand side is meromorphic on $\C$; at a zero $\rho$ of
+$\zeta$ of multiplicity $\nu$, $F$ has a simple pole with residue
+\[
+\res_{s=\rho} F \;=\; -\frac{\nu}{\rho(\rho-1)}.
+\]
+$F$ is holomorphic at $s = 1$ (the principal parts cancel), and has poles
+at $s=0$ and at the trivial zeros $-2, -4, \ldots$
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For $\re s > 1$, termwise integration gives
+$\int_1^\infty (x/n-1)^+ x^{-s-1}dx = n^{-s}/(s(s-1))$ (substitute
+$x = nt$), so the transform of $S$ is
+$\frac{1}{s(s-1)}\sum \Lam(n)n^{-s} = -\zeta'(s)/\zeta(s) \cdot
+\frac{1}{s(s-1)}$; the transform of $-x\log x$ is $-\int_1^\infty
+x^{-s}\log x \,dx = -1/(s-1)^2$ and that of $(1+\Euler)x$ is
+$(1+\Euler)/(s-1)$. Convergence of $\int_1^\infty G(x)x^{-s-1}dx$ for
+$\re s > 1$ follows from Lemma~\ref{lem:G-size} and
+$S(x) \le \tfrac12 x(\log x)^2$.
+
+(2) $\zeta'/\zeta$ is meromorphic with simple poles of residue $\nu$ at
+each zero $\rho$; multiplying by the holomorphic non-vanishing factor
+$1/(s(s-1))$ (non-vanishing because $\rho \notin \{0,1\}$) gives a simple
+pole of residue $-\nu/(\rho(\rho-1))$ at $\rho$ and a pole at $s=0$.
+At $s = 1$: $\zeta(s) = \frac{1}{s-1} + \Euler + O(s-1)$, so
+$-\zeta'/\zeta \cdot \frac{1}{s(s-1)} = \frac{1}{(s-1)^2} -
+\frac{1+\Euler}{s-1} + O(1)$, which cancels the two remaining terms.
+\end{proof}
+
+\begin{remark}
+We never use the explicit formula for $G$; only the transform identity
+\eqref{eq:Fdef}, its meromorphic continuation, and the residue formula
+enter the proof.
+\end{remark}
+
+\begin{lemma}[differentiation under the integral]\label{lem:diff}
+For $\re s \ge \Sig$ (indeed $\re s > 2$) and $j \ge 0$,
+\[
+A_j(s) \;=\; \int_0^\infty (-u)^j g(u) e^{-su}\,\frac{du}{j!},
+\]
+the integral being absolutely convergent. In particular, for real $t$,
+\begin{equation}\label{eq:Atau}
+A_j(\Sig + it) \;=\; \int_0^\infty g(u)\, e^{-itu}\, K_j(u)\,du.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:G-size}(1), $|g(u)| \le 4e^{2u}$, so
+$u^j g(u) e^{-su}$ is dominated by $4u^j e^{-(\re s - 2)u}$, integrable
+for $\re s > 2$; differentiate $j$ times under the integral sign.
+\end{proof}
+
+\section{The kernel and its window}\label{sec:kernel}
+
+Fix for the rest of the paper:
+\[
+\Sig = 252, \qquad c = 0.008, \qquad \eta_* = 0.983, \qquad
+[v_-, v_+] = [0.88,\, 1.12],
+\]
+and recall \eqref{eq:sigma-c}. All four are rationals; the roles are:
+$\Sig$ the abscissa at which derivatives are taken, $c$ the tail decay
+rate (which also pays for the scale conversion), $\eta_*$ the cap on the
+P\'olyya kernel outside the window, and $[v_-,v_+]$ the fixed interval
+about the peak inside which the kernel is large.
+
+\begin{lemma}[choice of $j$]\label{lem:j-range}
+Let $U \ge 3$ and let $j$ be the nearest integer to $1.23(\Sig-2)U$.
+Then $j \ge 1$ and, writing
+\[
+v_1 = \frac{(\Sig-2)U}{j}, \qquad v_2 = \frac{\tfrac32(\Sig-2)U}{j},
+\]
+we have
+\begin{equation}\label{eq:vwindow}
+0 < v_1 \;\le\; 0.825, \qquad v_2 \;\ge\; 1.2,
+\end{equation}
+and $[v_-,v_+] \subseteq [v_1, v_2]$.
+\end{lemma}
+
+\begin{proof}
+$j \ge 1.23 \cdot 250 \cdot 3 - \tfrac12 > 921$. For the upper bound,
+$j \le 1.23(\Sig-2)U + \tfrac12 \le 1.25(\Sig-2)U$ iff $0.02 \cdot 250
+\cdot U \ge \tfrac12$, i.e.\ $U \ge 0.1$; then $v_1 \ge 0.8$. For the
+lower bound, $j \ge 1.23(\Sig-2)U - \tfrac12 \ge 1.2122(\Sig-2)U$ iff
+$0.0178 \cdot 250 U \ge \tfrac12$, i.e.\ $U \ge 0.112$; then $v_1 \le
+1/1.2122 = 0.8249 \le 0.825$ and $v_2 = 1.5/1.2122$-to-$1.25 \ge 1.2$.
+Since $v_1 \le 0.825 < 0.88$ and $v_2 \ge 1.2 > 1.12$, the last claim
+holds.
+\end{proof}
+
+\begin{lemma}[tail of the P\'olya kernel]\label{lem:tail}
+Let $U \ge 3$, $j$ as in Lemma~\ref{lem:j-range}, and $v_1, v_2$ as in
+\eqref{eq:vwindow}. Put $b(v) = v e^{1-v}$ (so $b(1)=1$, $b$ increasing
+on $[0,1]$, decreasing on $[1,\infty)$). Then:
+\begin{enumerate}
+\item (\emph{outside is capped}) $b(v_1) \le b(0.825) < 0.983 = \eta_*$
+and $b(v_2) \le b(1.2) < 0.983 = \eta_*$; and for $v \notin [v_1,v_2]$
+(within $[0,\infty)$) we have $b(v) \le \eta_*$.
+\item (\emph{inside is large}) $b(v) \ge 0.9921$ for all
+$v \in [v_-,v_+] = [0.88,1.12]$.
+\item (\emph{fraction bound})
+\[
+\frac{\displaystyle\int_{[0,v_1]\cup[v_2,\infty)} b(v)^j\,dv}
+     {\displaystyle\int_0^\infty b(v)^j\,dv}
+\;\le\; 13\, e^{-cj}.
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) Numerically (all values rational-rounded to safety; see
+Appendix~\ref{sec:app:elementary} for the displayed arithmetic):
+$b(0.825) = 0.825 e^{0.175} \le 0.983$, $b(1.2) = 1.2e^{-0.2} \le
+0.983$. On $[0,v_1]$, $b$ is increasing, so $b \le b(v_1) \le \eta_*$; on
+$[v_2,\infty)$, $b$ is decreasing, so $b \le b(v_2) \le \eta_*$.
+
+(2) $b(0.88) = 0.88e^{0.12} \ge 0.9921$ and $b(1.12) = 1.12e^{-0.12}
+\ge 0.9921$, and $b \ge \min\{b(0.88), b(1.12)\}$ on $[0.88,1.12]$
+because $b$ increases then decreases with its peak at $1$ inside the
+interval.
+
+(3) Numerator: $\int_0^{v_1} b^j \le v_1 b(v_1)^j \le
+0.83\,\eta_*^j$
+(monotonicity); $\int_{v_2}^{2v_2} b^j \le v_2 \eta_*^j \le
+1.24\,\eta_*^j$ (here $v_2 \le \tfrac{1.5}{1.2122} < 1.24$ by the proof
+of Lemma~\ref{lem:j-range}); and for $v \ge 2v_2 \ge 2.4$, writing
+$w = v/2 \ge 1.2$ we have $b(v) = 2\,b(w)\,e^{-w} < 2\,e^{-w} =
+2\,e^{-v/2}$ (since $b(w) \le b(1.2) < 1$), hence
+$b(v)^j < 2^j e^{-jv/2}$ and, shifting the origin to $2.4$,
+$b(v)^j < (2e^{-1.2})^j e^{-j(v-2.4)/2} < (0.61)^j e^{-j(v-2.4)/2}$,
+so $\int_{2v_2}^\infty b^j\,dv \le 0.61^j
+\int_0^\infty e^{-jv/2}\,dv = 0.61^j\,\frac{2}{j} \le \eta_*^j$ for
+$j \ge 4$. Total numerator $\le (0.83 + 1.24 + 1)\,\eta_*^j \le
+3.1\,\eta_*^j$.
+Denominator $\ge \int_{v_-}^{v_+} b^j \ge 0.24 \cdot (0.9921)^j$.
+Hence the fraction is at most
+$\frac{3.1}{0.24}\bigl(\frac{0.983}{0.9921}\bigr)^{j} < 12.92 \cdot
+(0.99083)^{j} \le 13\,e^{-0.008j}$, since $0.99083 \le e^{-0.008} =
+0.99203$. This holds for every $j \ge 4$, and our $j$ exceeds $900$.
+\end{proof}
+
+\begin{remark}
+The constant pair $(\eta_*, c)$ mirrors Rubinstein's
+$\eta = \max(0.8e^{0.2}, 1.2e^{-0.2}) = 0.9825\ldots$ and
+$c = 0.008 < \log\frac{1+\eta}{2\eta} = 0.00887\ldots$: the crucial
+inequality is $\frac{2\eta_*}{1+\eta_*} \le e^{-c}$, i.e.\ the capped
+outside loses to the inside at exponential rate at least $c$. We chose
+slightly worse $\eta_* = 0.983$ than $\eta$ to buy rounding room.
+\end{remark}
+
+\begin{remark}[the window exponent is symbolic]\label{rem:exponent}
+The architecture's window exponent $3/2$ enters only through the
+numbers in this section. For a general window $[Y, Y^{\omega}]$
+with $1 < \omega < 2$, the kernel range is $j \in
+[(\Sig-2)U/v_L^{\omega}, (\Sig-2)U\omega/v_R^{\omega}]$ with the
+$v$-window $[v_L^{\omega}, v_R^{\omega}] := [1/\sqrt{\omega},
+\sqrt{\omega}]$ (plus rounding), the outside cap becomes
+\[
+\eta_{\omega} := \max\bigl(b(1/\sqrt{\omega}),\; b(\sqrt{\omega})\bigr)
+= \max_{\epsilon > 0} \text{rounding margins},
+\]
+any $c_{\omega} < \log\frac{1+\eta_{\omega}}{2\eta_{\omega}}$ replaces
+$c$, and $\Sig$ is re-chosen as the least integer with
+$(\Sig-\theta)/(\Sig-2) \le e^{c_{\omega}}$ for all $\theta \in (0,1)$.
+For $\omega = 3/2$: $1/\sqrt{\omega} \approx 0.816$,
+$\sqrt{\omega} \approx 1.225$, $\eta_{\omega} \approx 0.981$, and the
+choices above are compatible with these values plus rounding room. The
+rest of the paper is unchanged; we fix $\omega = 3/2$ because that is
+the architecture's constant (the $L$-function side of the archive
+additionally uses $\omega = 2$, for which the same formulas apply).
+\end{remark}
+
+\begin{lemma}[mass outside the window]\label{lem:tail2}
+Let $U \ge 3$, $j$ as in Lemma~\ref{lem:j-range}. Then, for any
+(measurable) set $E \subseteq [0,\infty) \setminus [U,
+\tfrac32 U]$,
+\[
+\int_E 4\,e^{2u} K_j(u)\,du \;\le\; 52\, e^{-cj}\,(\Sig-2)^{-j-1}
+\;\le\; 52\, e^{c}\,(\Sig-\theta)^{-j-1},
+\]
+the second inequality by \eqref{eq:sigma-c}.
+\end{lemma}
+
+\begin{proof}
+Substitute $u = jv/(\Sig-2)$, $du = j\,dv/(\Sig-2)$: then
+$u^j e^{-(\Sig-2)u}\,du = \bigl(\tfrac{j}{\Sig-2}\bigr)^{j+1} e^{-j}
+b(v)^j\,dv$, the window $[U, \tfrac32 U]$ becomes $[v_1, v_2]$, and the
+normalizing constant is the same for the full integral, which equals
+$\int_0^\infty u^j e^{-(\Sig-2)u}du = j!\,(\Sig-2)^{-j-1}$. Hence
+\[
+\int_E 4\,e^{2u}K_j(u)\,du
+\;=\; 4\,(\Sig-2)^{-j-1}\cdot
+  \frac{\int_{E'} b(v)^j\,dv}{\int_0^\infty b(v)^j\,dv}
+\;\le\; 4 \cdot 13\,e^{-cj}\,(\Sig-2)^{-j-1}
+\;=\; 52\,e^{-cj}(\Sig-2)^{-j-1},
+\]
+where $E'$ is the image of $E$ under the substitution and we used
+Lemma~\ref{lem:tail}(3).
+\end{proof}
+
+\begin{lemma}[mass inside the window]\label{lem:inside}
+For any $\theta' \ge 0$ and any $E \subseteq [0,\infty)$,
+\[
+\int_E e^{\theta' u} K_j(u)\,du \;\le\; (\Sig-\theta')^{-j-1},
+\]
+whenever $\theta' < \Sig$.
+\end{lemma}
+
+\begin{proof}
+$\int_E e^{\theta'u}u^j e^{-\Sig u}\frac{du}{j!} \le \int_0^\infty
+u^j e^{-(\Sig-\theta')u}\frac{du}{j!} = (\Sig-\theta')^{-j-1}$.
+\end{proof}
+
+\section{The one-sided Mellin bound}\label{sec:onesided}
+
+Throughout this section, fix $U \ge 3$ (so $Y = e^U \ge 20$), let $j$ be
+the nearest integer to $1.23(\Sig-2)U$, and let $C' \ge 0$ be arbitrary.
+Recall $K_j(u) = u^j e^{-\Sig u}/j!$ and \eqref{eq:Atau}.
+
+\begin{lemma}[one-sided control]\label{lem:onesided}
+Suppose
+\[
+G(x) \;\le\; C' x^{\theta} \qquad \text{for all } x \in [Y, Y^{3/2}].
+\]
+Then for every real $t$,
+\begin{equation}\label{eq:onesided}
+|A_j(\Sig + it)| \;+\; A_j(\Sig)
+\;\le\; \bigl(2C' + C_1\bigr)\,(\Sig-\theta)^{-j-1},
+\qquad C_1 := 105.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+By \eqref{eq:Atau}, for real $t$,
+$|A_j(\Sig+it)| \le \int_0^\infty |g(u)|K_j(u)\,du$ and
+$A_j(\Sig) = \int_0^\infty g(u) K_j(u)\,du$ (both integrands real).
+Using $|g| + g = 2\max(g, 0) = 2g^+$ pointwise,
+\[
+|A_j(\Sig+it)| + A_j(\Sig)
+\;\le\; \int_0^\infty (|g(u)| + g(u))K_j(u)\,du
+\;=\; 2\int_0^\infty g^+(u)K_j(u)\,du.
+\]
+Split the last integral at the window $[U, \tfrac32 U]$. On the window,
+$g^+(u) = \max(G(e^u),0) \le C' e^{\theta u}$ by hypothesis, so
+Lemma~\ref{lem:inside} bounds that part by $C'(\Sig-\theta)^{-j-1}$.
+Off the window, $g^+ \le |g| \le 4e^{2u}$ by
+Lemma~\ref{lem:G-size}(1) (recall $u = \log x$), so
+Lemma~\ref{lem:tail2} bounds that part by
+$52 e^{c}(\Sig-\theta)^{-j-1} \le 52.5\,(\Sig-\theta)^{-j-1}$.
+Total: $|A_j(\Sig+it)| + A_j(\Sig) \le (2C' + 105)(\Sig-\theta)^{-j-1}$.
+\end{proof}
+
+\begin{lemma}[Cauchy at the real point]\label{lem:sigcauchy}
+Let $r' \in (0, \Sig)$ be such that $F$ is holomorphic on an open set
+containing the closed disk $D(\Sig, r') = \{w : |w - \Sig| \le r'\}$. Put
+$M' := \sup_{|w-\Sig| = r'}|F(w)|$. Then for all $j \ge 0$,
+\[
+|A_j(\Sig)| \;\le\; M' \, (r')^{-j}.
+\]
+\end{lemma}
+
+\begin{proof}
+$A_j(\Sig) = (-1)^j [w^j]F(\Sig + w)$ and
+$|[w^j]F(\Sig+w)| \le M' (r')^{-j}$ by Cauchy's coefficient estimate.
+\end{proof}
+
+\begin{corollary}\label{cor:upper}
+Under the hypotheses of Lemma~\ref{lem:onesided}, if moreover $r'$ and
+$M'$ are as in Lemma~\ref{lem:sigcauchy}, then for every real $t$,
+\begin{equation}\label{eq:upper}
+|A_j(\Sig + it)| \;\le\; (2C' + C_1)(\Sig-\theta)^{-j-1} + M'(r')^{-j}.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+$|A_j(\Sig+it)| \le (2C'+C_1)(\Sig-\theta)^{-j-1} - A_j(\Sig) \le
+(2C'+C_1)(\Sig-\theta)^{-j-1} + |A_j(\Sig)|$.
+\end{proof}
+
+\section{The certificate and the pole}\label{sec:certificate}
+
+\subsection{Certificate data and validity conditions}
+
+\begin{definition}[ceiling-refutation certificate]\label{def:cert}
+A \emph{certificate} is a tuple of rational numbers
+\[
+(\theta,\; C,\; \beta_1, \beta_2, \gamma_1, \gamma_2,\; h)
+\]
+with
+\[
+\theta \in [\tfrac12, 1), \qquad C \ge 1, \qquad
+\beta_1 < \beta_2, \qquad \gamma_1 < \gamma_2, \qquad h > 0,
+\]
+subject to the \emph{validity conditions}
+\begin{align}
+\text{(V1)}&\quad \theta < \beta_1 \le \beta_2 < 1, \notag\\[2pt]
+\text{(V2)}&\quad (\Sig - \beta_1)^2 + \frac{\Gamma^2}{4}
+        < (\Sig - \theta)^2,
+        \qquad \Gamma := \gamma_2 - \gamma_1, \notag\\[2pt]
+\text{(V3)}&\quad (\Sig - \beta_1)^2 + \frac{\Gamma^2}{4}
+        < (\Sig - \beta_2)^2 + \gamma_1^2, \notag\\[2pt]
+\text{(V4)}&\quad h \;\ge\; \frac{\Gamma}{2} + 17, \notag\\[2pt]
+\text{(V5)}&\quad \min\bigl(\varepsilon_z,\ \delta',\ W_1,\ W_1'\bigr)
+\;\ge\; 10^{-6},
+\qquad\text{with } \varepsilon_z, \delta', W_1, W_1' \text{ as defined in
+\S\ref{sec:derived}.} \notag
+\end{align}
+together with the \emph{certified statement}, produced upstream (not by
+us) by rigorous computation:
+\begin{equation}\tag{S1}\label{eq:S1}
+\begin{minipage}{0.86\linewidth}
+The open slab
+$\Sigma := \{s \in \C : \re s > \tfrac12,\;
+\gamma_1 - h < \im s < \gamma_2 + h\}$
+contains exactly one zero $\rho$ of $\zeta$, counted with multiplicity;
+that zero is simple and lies in the open rectangle
+$R := [\beta_1, \beta_2] \times [\gamma_1, \gamma_2]$.
+\end{minipage}
+\end{equation}
+\end{definition}
+
+\begin{remark}[what each condition buys]\label{rem:conditions}\
+\begin{itemize}
+\item (V1) says the alleged zero lies strictly to the right of the
+ceiling exponent; it makes the amplification factor
+$\lambda = (\Sig-\theta)/\dbar$ (below) strictly exceed $1$.
+\item (V2) says the rectangle is short enough (or the zero far enough
+right) that the \emph{entire rectangle}, seen from the point
+$z = \Sig + i\,\mathrm{mid}$ (below), is strictly closer to $z$ than the
+critical line is; note (V2) implies
+$\dbar < \Sig - \tfrac12 = 251.5$, since $\theta \ge \tfrac12$.
+\item (V3) is the same comparison against the \emph{nearest point of the
+rectangle to the real point} $\Sig$: it guarantees that the Cauchy
+circle used at $\Sig$ (radius $r'$, below) can be placed strictly between
+$\dbar$ and the distance from $\Sig$ to the certified zero.
+\item (V4) makes the slab tall enough to contain everything the second
+Cauchy circle ``sees'' of the critical strip (reach $\le \sqrt{251.5^2
+- 251^2} < 15.9$ around the height of $z$), with one unit of margin for
+the local zero count.
+\item (S1) is the hypothesis-injected content: it converts the classical
+``choose $t$ so the nearest pole is unique'' into an explicit, checkable
+input. It is exactly the kind of statement that rigorous zero
+computations produce (argument principle plus interval arithmetic).
+\end{itemize}
+Conditions (V2) and (V3) restrict how thick the rectangle may be,
+roughly $\Gamma < 2\sqrt{(\beta_1 - \tfrac12)\cdot 503}$ and
+$\beta_2 - \beta_1 < \gamma_1^2/503$; both are mild for realistic
+isolation rectangles, and both are decidable by trivial rational
+arithmetic.
+\end{remark}
+
+\subsection{Derived quantities}\label{sec:derived}
+
+With the certificate fixed, define the following rational-computable
+quantities (square roots computed to any needed precision by rational
+interval arithmetic; the theorem only ever uses them through explicit
+rational upper/lower bounds, so any certified approximation suffices):
+\begin{align}
+\Gamma &:= \gamma_2 - \gamma_1, &
+\mathrm{mid} &:= \tfrac12(\gamma_1 + \gamma_2), &
+z &:= \Sig + i\,\mathrm{mid}, \notag\\
+\dbar &:= \sqrt{(\Sig - \beta_1)^2 + \tfrac{\Gamma^2}{4}}, &
+M_1 &:= \sqrt{\beta_2^2 + \gamma_2^2}, &
+M_2 &:= \sqrt{(1-\beta_1)^2 + \gamma_2^2}, \notag\\
+D_R &:= \sqrt{(\Sig - \beta_2)^2 + \gamma_1^2}, &
+\gamma_{\mathrm{first}} &:= 14.1347, &
+D_{\mathrm{line}} &:= \sqrt{(\Sig - \tfrac12)^2 +
+\gamma_{\mathrm{first}}^2} > 251.89, \notag\\
+D_{\min} &:= \min(D_{\mathrm{line}},\, D_R), &
+\lambda &:= \frac{\Sig - \theta}{\dbar} > 1, &
+r_z &:= \frac{\dbar + (\Sig - \tfrac12)}{2}, \notag\\
+\varepsilon_z &:= (\Sig - \tfrac12) - r_z = \tfrac12\bigl((\Sig-\tfrac12)
+- \dbar\bigr) > 0, &
+r' &:= \frac{\dbar + D_{\min}}{2}, &
+\delta' &:= D_{\min} - r' = \tfrac12(D_{\min} - \dbar) > 0. \notag
+\end{align}
+Note $\dbar = \max_{w \in R}|z - w|$ (the farthest corner of $R$ from
+$z$ is $(\beta_1, \gamma_1)$ or $(\beta_1, \gamma_2)$, at distance
+$\sqrt{(\Sig-\beta_1)^2 + \Gamma^2/4}$), and $M_1 M_2 \ge
+|\rho(\rho-1)|$ for every $\rho \in R$, so that by
+Proposition~\ref{prop:mellin}(2),
+\begin{equation}\label{eq:residue}
+|c_{\rho}| \;=\; \frac{1}{|\rho(\rho-1)|} \;\ge\; \frac{1}{M_1 M_2},
+\qquad c_\rho := \res_{s=\rho}F,
+\end{equation}
+since $\rho$ is simple. The validity conditions give
+\[
+\text{(V2): } \dbar < \Sig-\tfrac12; \qquad
+\text{(V3) and } \dbar < 251.5 < D_{\mathrm{line}}:\quad
+\dbar < D_{\min}.
+\]
+Hence $r_z < \Sig - \tfrac12 = 251.5$, $\varepsilon_z > 0$, $r' > \dbar$,
+$\delta' > 0$, and $\lambda > 1$. Finally put
+\begin{align*}
+W_0 &:= \tfrac12, &
+W_1 &:= \bigl||z-1| - r_z\bigr|, &
+W_0' &:= 252 - r', &
+W_1' &:= r' - 251, &
+t_{\max} &:= \max(|\gamma_1|, |\gamma_2|) + 252,
+\end{align*}
+so that $r_z < 251.5 < 252$ gives, for every $w$ on the $z$-circle,
+\[
+|\im w| \;\le\; |\mathrm{mid}| + r_z \;<\; \max(|\gamma_1|,|\gamma_2|) + 252
+\;=\; t_{\max},
+\]
+and (V5) asserts $\min(\varepsilon_z, \delta', W_1, W_1') \ge 10^{-6}$.
+
+\subsection{The two Cauchy circles are pole-free}
+
+We record the classical low-zero inputs once.
+
+\begin{input}[low zero data; classical]\label{lem:zlow}\
+\begin{enumerate}
+\item $\zeta(\sigma) < 0$ for $0 < \sigma < 1$; in particular $\zeta$ has
+no real zeros in the critical strip, and every zero is non-real.
+\item $\zeta$ has no zeros with $0 < |\im s| < 14.1347$; the first zero
+lies at $\tfrac12 \pm 14.134725\ldots i$.
+\item Every zero with $0 < |\im s| \le 30$ has $\re s = \tfrac12$.
+\end{enumerate}
+Items (2), (3) are classical rigorous zero computations: Lehman
+\cite{Leh66} located the first zeros on the line; Turing \cite{Tur53}
+and Brent \cite{Bre79} verified the first zeros; Platt--Trudgian
+\cite{PT21} verified the Riemann hypothesis to height $3\cdot 10^{12}$,
+which subsumes (2) and (3) at our scales with enormous margin. Item (1)
+is elementary (alternating series).
+\end{input}
+
+\begin{lemma}[the circles avoid all poles of $F$]\label{lem:circles}\
+\begin{enumerate}
+\item Every zero $\rho'$ of $\zeta$ with $\rho' \ne \rho$ satisfies
+\[
+|z - \rho'| \;\ge\; \Sig - \tfrac12 \;=\; 251.5 \;>\; r_z.
+\]
+Consequently the closed disk $D(z, r_z)$ contains no zero of $\zeta$
+other than $\rho$, and $\rho$ itself satisfies
+$|z - \rho| \le \dbar < r_z$; moreover every point $w$ with
+$|w - z| = r_z$ has $\re w > \Sig - r_z > \tfrac12$ and satisfies
+\[
+|w - \rho'| \;\ge\; \varepsilon_z
+\quad\text{for every zero } \rho' \ne \rho.
+\]
+\item Every zero $\rho'$ of $\zeta$ satisfies
+\[
+|\Sig - \rho'| \;\ge\; D_{\min} \;>\; r',
+\]
+so $F$ is holomorphic on an open set containing the closed disk
+$D(\Sig, r')$; moreover $252 - r' \ge 0.103 > 0$ and every point $w$ with
+$|w - \Sig| = r'$ satisfies
+\[
+|w - \rho'| \;\ge\; \delta'
+\quad\text{for every zero } \rho'.
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) Let $\rho' = \beta' + i\gamma'$, $\rho' \ne \rho$. If
+$\beta' \le \tfrac12$ then $|z - \rho'| \ge \Sig - \beta' \ge
+\Sig - \tfrac12$. If $\beta' > \tfrac12$, then $\rho'$ lies in the slab
+$\Sigma$ or not. If it does, (S1) forces $\rho' = \rho$ (there is only
+one zero with $\re s > 1/2$ in the slab), contradiction. If not, then
+--- since $\beta' > \tfrac12$ and $\rho' \notin \Sigma$, the defining
+inequalities of $\Sigma$ force $\gamma' \le \gamma_1 - h$ or
+$\gamma' \ge \gamma_2 + h$, i.e.\
+$|\gamma' - \mathrm{mid}| \ge h + \Gamma/2 \ge h$ --- and then
+\[
+|z - \rho'|^2 = (\Sig - \beta')^2 + (\mathrm{mid} - \gamma')^2
+\;\ge\; (\Sig - 1)^2 + (h + \Gamma/2)^2
+\;\ge\; 251^2 + 17^2 > 251.5^2,
+\]
+using $\beta' < 1$ and (V4). Since $r_z < 251.5$, the disk claims
+follow; $|z-\rho| \le \dbar < r_z$ is the definition of $\dbar$; and
+$\re w \ge \Sig - r_z > \Sig - 251.5 = \tfrac12$ for $w$ in the
+$z$-circle. The last displayed inequality of (1) then follows for
+$\beta' \le \tfrac12$ from
+$|w - \rho'| \ge \re w - \beta' \ge \Sig - r_z - \tfrac12 =
+\varepsilon_z$, and for $\beta' > \tfrac12$ outside the slab from
+\[
+|w-\rho'| \ge |z - \rho'| - r_z > 251.5 - r_z = \varepsilon_z.
+\]
+
+(2) Let $\rho' = \beta' + i\gamma'$ be any zero. If $\beta' \le
+\tfrac12$, then by Input~\ref{lem:zlow}(1),(2), $|\gamma'| \ge
+14.1347$, so
+\[
+|\Sig - \rho'|^2 = (\Sig - \beta')^2 + \gamma'^2 \ge
+(\Sig - \tfrac12)^2 + 14.1347^2 = D_{\mathrm{line}}^2.
+\]
+If $\beta' > \tfrac12$ and $|\gamma'| \le 30$, then
+Input~\ref{lem:zlow}(3) gives $\beta' = \tfrac12$, impossible; so
+$\beta' > \tfrac12$ forces $|\gamma'| > 30$ unless $\rho' = \rho$.
+For such $\rho'$ (i.e.\ $\beta' > \tfrac12$, $\rho' \neq \rho$, hence
+$|\gamma'| > 30$):
+\[
+|\Sig - \rho'|^2 \ge (\Sig - 1)^2 + 30^2 = 251^2 + 900
+> D_{\mathrm{line}}^2 > D_{\min}^2.
+\]
+Finally if $\rho' = \rho$ then $\rho \in R$ gives
+$|\Sig - \rho| \ge D_R \ge D_{\min}$. Hence every zero is at distance
+$\ge D_{\min}$ from $\Sig$. The remaining poles of $F$ are at $s = 0$
+(distance $252 > D_{\min} > r'$) and at the trivial zeros $-2, -4,
+\ldots$ (distance $\ge 254$), so $F$ is holomorphic on
+$\{|w - \Sig| < D_{\min}\}$, an open set containing the closed disk
+$D(\Sig, r')$. Also $r' < D_{\min} \le D_{\mathrm{line}}$ gives
+$252 - r' > 252 - 251.90 = 0.10$. For $w$ in the $\Sig$-circle and any
+zero $\rho'$: $|w - \rho'| \ge |\Sig - \rho'| - r' \ge D_{\min} - r'
+= \delta'$.
+\end{proof}
+
+\subsection{Explicit bounds on the two circles}
+
+\begin{input}[local zero count; Backlund, conservative]\label{lem:backlund}
+For every real $t$, the number $N_{\mathrm{loc}}(t)$ of zeros
+$\rho = \beta + i\gamma$ of $\zeta$ with $|\gamma - t| \le 1$ satisfies
+\[
+N_{\mathrm{loc}}(t) \;\le\; N_b(t) := 0.6\log(|t| + 2) + 2.
+\]
+For $|t| \le 21.5$ one may take $N_{\mathrm{loc}}(t) \le 3$. (From
+Backlund's explicit estimates for $N(T)$, as sharpened by
+\cite{Tru14, Bac14}; the constants are deliberately generous.)
+\end{input}
+
+\begin{input}[partial-fraction bound for $\zeta'/\zeta$; standard,
+conservative]\label{lem:zeta-prime-prime}
+Let $s \in \C$ with $-1 \le \re s \le 3$, and let $\delta \ge 10^{-6}$
+be such that every zero of $\zeta$ and the point $s=1$ are at distance
+$\ge \delta$ from $s$. Then
+\[
+\Bigl|\frac{\zeta'}{\zeta}(s)\Bigr|
+\;\le\; \frac{N_{\mathrm{loc}}(\im s) + 2}{\delta}
+\;+\; 12\log(|\im s| + 4) + 12,
+\]
+and for $\re s \ge 3$,
+$\bigl|\zeta'/\zeta(s)\bigr| \le
+-\zeta'(3)/\zeta(3) \le 1$.
+\end{input}
+
+\noindent Lemmas~\ref{lem:backlund} and
+\ref{lem:zeta-prime-prime} are quoted with deliberately generous
+constants. The partial-fraction bound is the classical local
+representation
+$\zeta'/\zeta(s) = \sum_{|\gamma - \im s| \le 1}(s-\rho)^{-1} +
+O(\log|\im s|)$ (Hadamard product for $\xi$, tail by partial
+summation, $\Gamma$-factor by elementary digamma bounds; cf.\
+Titchmarsh \cite{Tit51}, \S\S2.12, 3.5, and Montgomery--Vaughan
+\cite{MV07}, \S10); the conservative constants here only ever enter our
+bounds through explicit rational formulas, so any proven explicit
+version is a drop-in replacement. The small-$|\im s|$ range is covered
+by the same formula, since $N_{\mathrm{loc}}(t) = 0$ for $|t| \le 13$
+(Input~\ref{lem:zlow}). A self-contained derivation is deferred to the
+effective-shadow phase.
+
+\begin{definition}[circle sup-bounds]\label{def:Mz}\
+By (V5) all of $\varepsilon_z$, $\delta'$, $W_1$, $W_1'$ are $\ge
+10^{-6}$; also $W_0 > \tfrac12$, $W_0' \ge 0.10$ and $W_1' > 0$ by
+Lemma~\ref{lem:circles}(2) and $\dbar > 251$. Define
+\[
+B_z := \frac{N_b(t_{\max}) + 2}{\min(\varepsilon_z,\, W_1)}
+\;+\; 12\log(t_{\max} + 4) + 12,
+\qquad
+B' := \frac{3 + 2}{\min(\delta',\, W_1')} + 12\log(26) + 12,
+\]
+and
+\[
+M_z := \frac{B_z}{W_0\,W_1} + \frac{1}{W_1^2} + \frac{1.6}{W_1}
+\;+\; \frac{1}{M_1 M_2\, \varepsilon_z},
+\qquad
+M' := \frac{B'}{W_0'\,W_1'} + \frac{1}{(W_1')^2} + \frac{1.6}{W_1'} .
+\]
+\end{definition}
+
+\begin{remark}[$M_z$ bounds $|h|$, not $|F|$]\label{rem:cancellation}\
+\begin{enumerate}
+\item $M_z$ is an explicit upper bound for
+$|h| = |F - c_\rho/(s-\rho)|$ on the $z$-circle
+(Lemma~\ref{lem:Mz-hold}(1)); the term
+$(M_1M_2\varepsilon_z)^{-1}$ absorbs the principal part's boundary
+contribution. $M'$ bounds $|F|$ on the $\Sig$-circle.
+\item $F$ is holomorphic at $s=1$; our term-by-term bound treats the
+pole of $\zeta'/\zeta$ at $1$ via the $W_1$-denominators, wasting the
+cancellation when a circle passes near $s=1$. This only affects the
+size of constants (a larger $M_z$ or $M'$ merely raises the explicit
+thresholds $j_1$ and $J_0$ below), never correctness or computability.
+\item $W_1 = ||z-1|-r_z|$ could in principle vanish for an arithmetic
+accident of the certificate data; (V5) excludes this by a trivial
+rational check (compare rational squares), and the same check
+guarantees $W_1 \ge 10^{-6}$.
+\end{enumerate}
+\end{remark}
+
+\begin{lemma}[sup-bounds hold]\label{lem:Mz-hold}\
+\begin{enumerate}
+\item For every $w$ with $|w - z| = r_z$:
+$|w| \ge W_0 = \tfrac12$, $|w - 1| \ge W_1 \ge 10^{-6}$, and
+\[
+\Bigl|F(w) - \frac{c_\rho}{w-\rho}\Bigr| \;\le\; M_z.
+\]
+\item For every $w$ with $|w - \Sig| = r'$:
+$|w| \ge W_0' \ge 0.10$, $|w-1| \ge W_1' \ge 10^{-6}$, and
+\[
+|F(w)| \;\le\; M'.
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) Since $|z| \ge \Sig = 252$ and $r_z < 251.5$,
+$|w| \ge |z| - r_z \ge 252 - 251.5 = \tfrac12 = W_0$.
+For any fixed point $p$, the nearest point of the circle
+$\{|w-z| = r_z\}$ to $p$ is at distance $\bigl||z-p| - r_z\bigr|$
+(along the segment from $z$ through $p$), so
+$|w-1| \ge \bigl||z-1|-r_z\bigr| = W_1 \ge 10^{-6}$, the last step by
+(V5). By Lemma~\ref{lem:circles}(1), every zero $\rho' \ne \rho$ is at
+distance $\ge \varepsilon_z \ge 10^{-6}$ from $w$, and $\rho$ itself at
+distance $\ge r_z - \dbar = \varepsilon_z$ from $w$. Thus every zero
+and the point $1$ are at distance $\ge \delta := \min(\varepsilon_z,
+W_1) \ge 10^{-6}$ from $w$. If $\re w \le 3$,
+Input~\ref{lem:zeta-prime-prime} gives
+\[
+|\zeta'/\zeta(w)| \;\le\; \frac{N_b(|\im w|)+2}{\delta}
++ 12\log(|\im w|+4) + 12
+\;\le\; \frac{N_b(t_{\max})+2}{\min(\varepsilon_z, W_1)}
++ 12\log(t_{\max}+4) + 12 = B_z,
+\]
+where the second inequality uses $|\im w| \le t_{\max}$
+(\S\ref{sec:derived}) and the monotonicity of $N_b$ and $\log$. If
+$\re w > 3$, then $|\zeta'/\zeta(w)| \le 1 \le B_z$ by
+Input~\ref{lem:zeta-prime-prime} (second clause), since $B_z \ge 12 > 1$.
+From \eqref{eq:Fdef},
+\[
+|F(w)| \le \frac{B_z}{W_0 W_1} + \frac{1}{W_1^2} + \frac{1.6}{W_1},
+\]
+and, since $|w - \rho| \ge \varepsilon_z$ and
+$|c_\rho| \le 1/(M_1M_2)$,
+\[
+\Bigl|F(w) - \frac{c_\rho}{w-\rho}\Bigr|
+\;\le\; |F(w)| + \frac{1}{M_1M_2\,\varepsilon_z} \;\le\; M_z .
+\]
+
+(2) $|w| \ge \Sig - r' = W_0' \ge 0.10$; $|w-1| \ge
+\bigl||\Sig-1|-r'\bigr| = |251 - r'| = r' - 251 = W_1'$ (as $r' > 251$),
+which is $\ge 10^{-6}$ by (V5). Every zero is at distance $\ge \delta' \ge 10^{-6}$ from $w$
+(Lemma~\ref{lem:circles}(2)), and $|\im w| \le \sqrt{(r')^2 - 251^2} <
+\sqrt{251.9^2 - 251^2} < 21.5$, so $N_{\mathrm{loc}}(\im w) \le 3$
+(Input~\ref{lem:backlund}, second clause). If $\re w \le 3$,
+Input~\ref{lem:zeta-prime-prime} with $\delta = \min(\delta', W_1')$
+gives $|\zeta'/\zeta(w)| \le B'$; if $\re w > 3$,
+$|\zeta'/\zeta(w)| \le 1 \le B'$. Hence $|F(w)| \le B'/(W_0'W_1') +
+1/(W_1')^2 + 1.6/W_1' = M'$.
+\end{proof}
+
+\begin{remark}
+The proof of Lemma~\ref{lem:pole-lower} is the effectivized home of
+Rubinstein's existential step (``choose $t$ so that $z$ has a unique
+nearest pole, at distance $d < R$; choose $d < r < R$ so the disk of
+radius $r$ about $z$ contains just that pole''). In our version the
+choice $z = \Sig + i\,\mathrm{mid}$ is explicit, and the role of the
+``unique nearest pole'' is played by the certificate (S1): the disk
+$D(z, r_z)$ contains the certified zero and, by the slab, no other
+zero to the right of the line, while everything on or left of the line
+is geometrically farther than $r_z$. No other zero can interfere with
+the principal part.
+\end{remark}
+
+\subsection{The pole lower bound}
+
+\begin{lemma}[pole lower bound]\label{lem:pole-lower}
+Let the certificate be valid (Definition~\ref{def:cert}) and let (S1)
+hold. Put
+\[
+j_1 := \left\lceil
+\frac{\log\bigl(2 M_1 M_2\, M_z\, \dbar\bigr)}
+{\log(r_z/\dbar)} \right\rceil .
+\]
+Then for every integer $j \ge j_1$,
+\[
+|A_j(z)| \;\ge\; \frac{1}{2 M_1 M_2}\;\dbar^{-j-1}.
+\]
+\end{lemma}
+
+\begin{proof}
+Let $q(s) := F(s) - c_\rho/(s-\rho)$ (we avoid the letter $h$, reserved
+for the slab half-width). By Lemma~\ref{lem:circles}(1), the only zero
+of $\zeta$ in the open disk $\{w : |w - z| < \Sig - \tfrac12\}$ is
+$\rho$; hence $q$ is holomorphic on that disk, which contains the
+closed disk $D(z, r_z)$ because $r_z < \Sig - \tfrac12$.
+
+For $|u| < d := |z - \rho|$ (note $d \le \dbar$), the decomposition
+\eqref{eq:Fdef} minus the principal part gives
+\[
+F(z+u) \;=\; \frac{c_\rho}{z+u-\rho} + q(z+u)
+\;=\; \sum_{k \ge 0} c_\rho (z-\rho)^{-k-1} (-u)^k \;+\; q(z+u),
+\]
+using $\frac{1}{z+u-\rho} = \frac{1}{z-\rho}\cdot
+\frac{1}{1 + u/(z-\rho)}$. Reading off Taylor coefficients at $u = 0$
+and applying the sign $(-1)^j$ in the definition of $A_j$,
+\[
+A_j(z) \;=\; c_\rho (z-\rho)^{-j-1} \;+\; (-1)^j [u^j]\,q(z+u).
+\]
+By Cauchy's coefficient estimate on the circle $|u| = r_z$, where
+$|q| \le M_z$ by Lemma~\ref{lem:Mz-hold}(1),
+$|[u^j]q(z+u)| \le M_z\, r_z^{-j}$. Using
+\eqref{eq:residue} and $d \le \dbar$,
+\[
+|A_j(z)| \;\ge\; \frac{\dbar^{-j-1}}{M_1 M_2} \;-\; M_z\, r_z^{-j}
+\;=\; \dbar^{-j-1}\Bigl(\frac{1}{M_1M_2} \;-\; \dbar\, M_z
+\bigl(\tfrac{\dbar}{r_z}\bigr)^{j}\Bigr),
+\]
+and the parenthesis is $\ge \frac{1}{2M_1M_2}$ once
+$2 M_1 M_2\, \dbar\, M_z \bigl(\frac{\dbar}{r_z}\bigr)^{j} \le 1$,
+i.e.\ once $j \ge j_1$ (note $\log(r_z/\dbar) > 0$ since $r_z > \dbar$).
+\end{proof}
+
+\section{The main theorem}\label{sec:main}
+
+\begin{definition}[thresholds and the margin]\label{def:thresholds}
+Given a valid certificate
+$(\theta, C, \beta_1, \beta_2, \gamma_1, \gamma_2, h)$
+(Definition~\ref{def:cert}), define the following further computable
+quantities:
+\begin{align*}
+\mu &:= \frac{\Sig-\theta}{r'}, \qquad
+j_2 := \max\Bigl(0,\;
+\Bigl\lceil \frac{\log\bigl(8 M_1 M_2\, M'\,(\Sig-\theta)/\lambda\bigr)}
+{\log(r'/\dbar)} \Bigr\rceil\Bigr),\\
+J_0 &:= \left\lceil
+\frac{\log\bigl(\tfrac{16}{3} M_1 M_2\, (C + 54)\bigr)}{\log\lambda}
+\right\rceil,
+\qquad
+J_* := \max(j_1, j_2, J_0),\\
+U_0 &:= \max\Bigl(3,\; \frac{J_* + \tfrac12}{307.5}\Bigr),
+\qquad
+Y_0 := e^{U_0},
+\end{align*}
+and, for integers $j \ge \max(j_1, j_2)$, the \emph{margin function}
+\[
+Q(j) \;:=\; \frac{3\,\lambda^{j+1}}{16\,M_1 M_2} \;-\; 52.5 .
+\]
+\end{definition}
+
+\begin{theorem}[T1: effective windowed Landau certificate theorem]
+\label{thm:main}
+Let
+$(\theta, C, \beta_1, \beta_2, \gamma_1, \gamma_2, h)$
+be a valid certificate, i.e.\ satisfying the validity conditions
+{\rm (V1)--(V5)} of Definition~\ref{def:cert} and the certified
+statement {\rm (S1)}. Let $Y \ge Y_0$ be rational and put
+$U := \log Y$, and let $j$ be the nearest integer to $1.23(\Sig-2)U
+= 307.5\,U$. Then:
+\begin{enumerate}
+\item $j \ge J_*$, and consequently $Q(j) \ge C + 1$; put
+$m := Q(j) - C \ge 1$.
+\item The ceiling \emph{fails} on the window: there exists
+$x \in [Y, Y^{3/2}]$ with
+\[
+G(x) \;\ge\; Q(j)\, x^{\theta} \;\ge\; (C + m)\,x^{\theta}.
+\]
+\item Moreover such an $x$ can be found by a terminating algorithm:
+the grid search of \S\ref{sec:algorithm}
+(Proposition~\ref{prop:search}) outputs a rational
+$x \in [Y, Y^{3/2}]$ with
+\[
+G(x) \;\ge\; \bigl(C + \tfrac{m}{2}\bigr)\,x^{\theta},
+\]
+together with a finite verification of this inequality (a sum over
+the prime powers $\le Y^{3/2}$ evaluated with rigorous rational
+interval arithmetic). The computation terminates in a number of
+steps that is bounded by an explicit polynomial in $Y$ and in the
+bit-lengths of the input data.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) Since $U \ge U_0 \ge 3$, Lemma~\ref{lem:j-range} applies; since
+also $U \ge (J_* + \tfrac12)/307.5$, we get
+$j \ge 1.23 \cdot 250\, U - \tfrac12 \ge J_* \ge \max(j_1, j_2, J_0)$.
+By construction $Q$ is increasing in $j$ (as $\lambda > 1$), and at
+$j = J_0$,
+\[
+\lambda^{J_0} \;\ge\; \tfrac{16}{3} M_1 M_2 (C+54)
+\;\Longrightarrow\;
+Q(J_0) \;\ge\; \tfrac{3}{16M_1M_2}\cdot\tfrac{16}{3}M_1M_2(C+54)
+- 52.5 \;=\; C + 1.5,
+\]
+so $Q(j) \ge Q(J_0) \ge C + 1.5$ and $m = Q(j) - C \ge 1.5$.
+
+(2) Suppose, for contradiction, that $G(x) < Q(j) x^{\theta}$ for all
+$x \in [Y, Y^{3/2}]$. The function $x \mapsto G(x)/x^{\theta}$ is
+continuous on the compact window $[Y, Y^{3/2}]$ (Lemma~\ref{lem:G-size}
+(2); $x^\theta$ is continuous and positive), so it attains its maximum
+$C'$ there, and $C' < Q(j)$. Then
+\[
+G(x) \;\le\; C' x^{\theta} \quad\text{for all } x \in [Y, Y^{3/2}]
+\]
+with $C' \ge 0$. Apply Lemma~\ref{lem:onesided} (with ceiling constant
+$C'$) and Corollary~\ref{cor:upper}: the latter is applicable because
+$F$ is holomorphic on an open set containing the closed disk
+$D(\Sig, r')$ by Lemma~\ref{lem:circles}(2), so
+Lemma~\ref{lem:sigcauchy} gives
+\[
+|A_j(z)| \;\le\; (2C' + 105)(\Sig-\theta)^{-j-1} + M' (r')^{-j}
+\qquad (z = \Sig + i\,\mathrm{mid}).
+\]
+On the other hand, $j \ge j_1$, so Lemma~\ref{lem:pole-lower} gives
+$|A_j(z)| \ge \dbar^{-j-1}/(2M_1M_2)$. Combining and multiplying by
+$(\Sig-\theta)^{j+1}$:
+\[
+\frac{\lambda^{j+1}}{2M_1M_2}
+\;\le\; 2C' + 105 + M'(\Sig-\theta)\,\mu^{j}.
+\]
+Since $j \ge j_2$ and $\lambda/\mu = r'/\dbar$, the last term obeys
+$M'(\Sig-\theta)\mu^j \le \lambda^{j+1}/(8M_1M_2)$ by the definition
+of $j_2$. Hence
+\[
+\frac{3\lambda^{j+1}}{8M_1M_2} \;\le\; 2C' + 105,
+\qquad\text{i.e.}\qquad
+C' \;\ge\; \frac{3\lambda^{j+1}}{16M_1M_2} - 52.5 \;=\; Q(j),
+\]
+contradicting $C' < Q(j)$. So the maximum of $G(x)/x^{\theta}$ over
+the window is $\ge Q(j)$, attained at some $x^* \in [Y, Y^{3/2}]$,
+which proves (2).
+
+(3) is Proposition~\ref{prop:search} below.
+\end{proof}
+
+\begin{corollary}[windowed Landau, certificate form]\label{cor:landau}
+Fix $\theta \in [\tfrac12, 1) \cap \Q$ and $C \ge 1$. If for some
+rational $Y \ge Y_0$ the ceiling
+\[
+G(x) \;\le\; C\,x^{\theta} \qquad\text{for all } x \in [Y, Y^{3/2}]
+\]
+holds (whether or not anyone verifies it), then no valid certificate
+with this $\theta$ exists: there is no rectangle $R$ with
+$\beta_1 > \theta$ and no slab for which the certified statement (S1)
+is true. In particular, under the additional assumption that every
+zero of $\zeta$ with real part $> \theta$ is simple and admits a
+valid certificate (i.e.\ is isolated from all other off-critical-line
+zeros by a slab of half-height $\ge \tfrac{\Gamma}{2} + 17$; see
+\S\ref{sec:limits}), $\zeta$ has no zero with real part $> \theta$.
+\end{corollary}
+
+\begin{proof}
+Immediate from Theorem~\ref{thm:main}(2): a valid certificate would
+force $G(x^*) \ge (C+1)x^{*\theta} > Cx^{*\theta}$ at some
+$x^* \in [Y, Y^{3/2}]$, contradicting the ceiling.
+\end{proof}
+
+\begin{remark}[relation to Lemma~\ref{lem:rubinstein}]
+If the ceiling $G \le x^{\theta}$ (say $C = 1$) holds on windows
+$[Y_k, Y_k^{3/2}]$ with $Y_k \to \infty$, then for every fixed
+certificate the ceiling eventually contradicts it, i.e.\ no valid
+certificate exists, and if off-line zeros are certifiable as above
+this is Rubinstein's windowed Landau lemma. The gap between this
+corollary and the unconditional classical statement is exactly the
+cluster issue discussed in \S\ref{sec:limits}: the present argument
+requires the certified zero to be the unique off-line zero in its
+slab, which is exactly what the classical existential argument does
+\emph{not} require. We insist on the distinction: what is made
+effective here is the certificate-level statement, which is the form
+the ACL2 checker (target T3) consumes; the cluster-free general
+statement is a consequence under the stated (standard, checkable)
+non-clustering hypothesis.
+\end{remark}
+
+\begin{proposition}[the address search]\label{prop:search}
+In the setting of Theorem~\ref{thm:main}, define
+\[
+L_h := L_G(Y^{3/2}) + C + \tfrac{m}{2}
+\qquad\text{(Lipschitz constant for } x \mapsto
+G(x) - \bigl(C + \tfrac{m}{2}\bigr)x^{\theta}\text{ on the window)},
+\]
+\[
+\delta_{\mathrm{grid}} := \frac{m\,Y^{\theta}}{4\,L_h},
+\qquad
+N_{\mathrm{grid}} := \left\lceil
+\frac{Y^{3/2} - Y}{\delta_{\mathrm{grid}}} \right\rceil,
+\qquad
+x_k := \min\bigl(Y + k\,\delta_{\mathrm{grid}},\; Y^{3/2}\bigr),
+\quad k = 0, 1, \ldots, N_{\mathrm{grid}} .
+\]
+Let $x^*$ be as in Theorem~\ref{thm:main}(2). Then some $k \le
+N_{\mathrm{grid}}$ satisfies
+\[
+G(x_k) \;-\; \bigl(C + \tfrac{m}{2}\bigr)\,x_k^{\theta}
+\;\ge\; \frac{m}{4}\,Y^{\theta} \;>\; 0,
+\]
+and for that $k$ (and in fact for every $k$) the left-hand side can be
+rigorously certified, from above and below, by evaluating $G(x_k)$
+as a finite sum over prime powers $n \le x_k$ with each of
+$\log p$ ($p \le x_k$), $\log x_k$, $\Euler$, and $x_k^{\theta}$
+computed by rational interval arithmetic of explicit width
+$w$ given in the proof. Consequently the search over
+$k = 0, \ldots, N_{\mathrm{grid}}$ terminates and outputs an address
+$x_k$ with a certified
+\[
+G(x_k) \;\ge\; \bigl(C + \tfrac{m}{2}\bigr)\,x_k^{\theta}.
+\]
+\end{proposition}
+
+\begin{proof}
+Write $H(x) := G(x) - (C + \tfrac{m}{2})x^{\theta}$. On $[Y, Y^{3/2}]$,
+$G$ is $L_G(Y^{3/2})$-Lipschitz (Lemma~\ref{lem:G-size}(2)) and
+$x \mapsto x^{\theta}$ has $|\theta x^{\theta-1}| \le 1$ for
+$x \ge Y \ge 1$ (as $0 < \theta < 1$), so $H$ is $L_h$-Lipschitz. At
+$x^*$,
+\[
+H(x^*) \;=\; G(x^*) - \bigl(C+\tfrac{m}{2}\bigr) x^{*\theta}
+\;\ge\; (C+m)x^{*\theta} - \bigl(C+\tfrac{m}{2}\bigr)x^{*\theta}
+\;=\; \tfrac{m}{2}\,x^{*\theta} \;\ge\; \tfrac{m}{2}Y^{\theta}.
+\]
+The grid points satisfy $\max_k |x_k - x^*| \le \delta_{\mathrm{grid}}$
+(the grid starts at $Y$, ends at $Y^{3/2}$, with spacing at most
+$\delta_{\mathrm{grid}}$), so for the nearest grid point $x_k$ to
+$x^*$:
+\[
+H(x_k) \;\ge\; H(x^*) - L_h\,\delta_{\mathrm{grid}}
+\;\ge\; \tfrac{m}{2}Y^{\theta} - \tfrac{m}{4}Y^{\theta}
+\;=\; \tfrac{m}{4}Y^{\theta} \;>\; 0.
+\]
+It remains to see that $H(x_k)$ is finitely certifiable. Fix $k$ and
+write the finite sum
+\[
+G(x_k) \;=\; \sum_{\substack{n = p^a \le x_k}} (\log p)
+\Bigl(\frac{x_k}{n} - 1\Bigr) \;-\; x_k \log x_k \;+\; (1+\Euler)\,x_k ,
+\]
+over the finitely many prime powers $n \le x_k$ (enumerated by a
+sieve up to $\lfloor x_k \rfloor$, or up to $\lfloor Y^{3/2}\rfloor$
+once and for all). Suppose each of the quantities
+$\log p$ ($p \le x_k$), $\log x_k$ and $\Euler$ is computed by
+rigorous interval arithmetic to width $w$, and $x_k^{\theta}$ to
+width $2w$ (from $x_k^{\theta} = e^{\theta\log x_k}$). Using
+$S(x_k) = \sum_{n \le x_k}\Lam(n)(x_k/n - 1) \le
+\tfrac12 x_k(\log x_k)^2$
+(Lemma~\ref{lem:G-size}(1) and its proof) and $n \le x_k$
+throughout, the total propagated error in $G(x_k)$ is at most
+\[
+w\Bigl(\tfrac12 x_k(\log x_k)^2 + 2x_k + 1\Bigr) \;\le\;
+w\,E_0, \qquad
+E_0 := Y^{3/2}\bigl(\tfrac{1}{2}\bigl(\tfrac32\log Y\bigr)^2 + 3\bigr),
+\]
+and the error in $(C + \tfrac{m}{2})x_k^{\theta}$ is at most
+$2w(C + \tfrac{m}{2})\,x_k^{\theta} \le 2w(C + \tfrac{m}{2})\,Y^{
+3\theta/2}$. Choose
+\[
+w := \frac{m\,Y^{\theta}}{8\bigl(E_0 + 2(C+\tfrac{m}{2})Y^{3\theta/2}
++ 1\bigr)} \;>\; 0,
+\]
+a rational. Then the certified value of $H(x_k)$ differs from the true
+one by at most $\tfrac{m}{8}Y^{\theta}$, so the good $k$ found above
+certifies $H(x_k) \ge \tfrac{m}{4}Y^{\theta} - \tfrac{m}{8}Y^{\theta}
+= \tfrac{m}{8}Y^{\theta} > 0$. Every quantity involved
+($\log$ of a rational, $e^x$ of a rational, the sieve) is computable
+to width $w$ by terminating rational procedures (e.g.\ alternating
+series with explicit remainder bounds, or interval Newton
+iterations), so each evaluation terminates, and there are
+$N_{\mathrm{grid}} + 1$ of them. Finally,
+\[
+N_{\mathrm{grid}} \;\le\; \frac{4\,Y^{3/2}\,L_h}{m\,Y^{\theta}}
+\;\le\; 4\,Y^{3/2 - \theta}\Bigl(\tfrac{L_G(Y^{3/2}) + C}{m}
++ \tfrac12\Bigr)
+\;\le\; 4\,Y^{3/2-\theta}\bigl(L_G(Y^{3/2}) + C + \tfrac12\bigr),
+\]
+using $m \ge 1$; together with the sieve cost (polynomial in
+$Y^{3/2}$) and the per-point interval arithmetic (polynomial in
+$\log(1/w)$ and $Y^{3/2}$), the total is bounded by an explicit
+polynomial in $Y$ and the input bit-lengths.
+\end{proof}
+
+\begin{remark}[what the verifier actually checks]
+The output of the search is \emph{self-certifying}: the pair
+$(x_k, m/2)$ comes with an interval-arithmetic transcript from which
+the inequality $G(x_k) \ge (C + \tfrac{m}{2})x_k^{\theta}$ follows by
+finitely many rational comparisons. Theorem~\ref{thm:main} guarantees
+that the search never runs to exhaustion on valid input: reaching
+$k = N_{\mathrm{grid}}$ without a certified violation certifies that
+the input was \emph{not} valid --- either some arithmetic check
+failed silently, or (S1) is false, i.e.\ the upstream zero-isolation
+certificate is bogus. This is precisely the shape required by the
+ACL2 checker (target T3): the analytic content is concentrated in the
+hypotheses, and the verification is a finite computation.
+\end{remark}
+
+\section{The certificate algorithm}\label{sec:algorithm}
+
+We specify the algorithm of Proposition~\ref{prop:search} as an
+implementable procedure. A machine-readable specification with exact
+input/output formats is the companion file
+\texttt{classical/certificates.md}; the two are kept in sync.
+
+\begin{quote}
+\textbf{INPUT:} rationals
+$\theta, C, Y, \beta_1, \beta_2, \gamma_1, \gamma_2, h$
+(together with the upstream certification of (S1), which the
+algorithm treats as a hypothesis and never checks).\\[4pt]
+\textbf{OUTPUT:} either \textsc{invalid} (with the first failed
+check named), or a pair $(x, m/2)$ with $x \in \Q \cap [Y, Y^{3/2}]$
+and a verification transcript establishing
+$G(x) \ge (C + \tfrac{m}{2})x^{\theta}$.
+\end{quote}
+
+\begin{enumerate}
+\item \emph{Data ranges.} Check $\theta \in [\tfrac12, 1)$, $C \ge 1$,
+$Y \ge 20$, $\beta_1 < \beta_2$, $\gamma_1 < \gamma_2$, $h > 0$;
+compute $\Gamma$, $\mathrm{mid}$.
+\item \emph{Derived quantities.} Compute certified rational intervals
+for $\dbar, M_1, M_2, D_R, D_{\min}, \lambda, r_z, \varepsilon_z,
+W_1, r', \delta', W_0', W_1', t_{\max}$
+(\S\ref{sec:derived}), each to enough precision that the subsequent
+comparisons are decided.
+\item \emph{Validity.} Check (V1), (V2), (V3), (V4), (V5).
+\item \emph{Circle bounds.} Compute $B_z, B', M_z, M'$
+(Definition~\ref{def:Mz}).
+\item \emph{Thresholds.} Compute $j_1, j_2, J_0, J_*, U_0, Y_0$
+(Definitions~\ref{def:thresholds} and \ref{lem:pole-lower});
+check $Y \ge Y_0$. Compute $U := \log Y$ to within $10^{-3}$ and
+$j :=$ the nearest integer to $307.5\,U$.
+\item \emph{Margin.} Compute a certified lower bound for
+$Q(j)$; check $Q(j) > C + 1$; put $m := Q(j) - C$.
+\item \emph{Grid and precision.} Compute $L_h$,
+$\delta_{\mathrm{grid}}$, $N_{\mathrm{grid}}$, $w$
+(Proposition~\ref{prop:search}).
+\item \emph{Sieve.} Enumerate the prime powers $\le Y^{3/2}$.
+\item \emph{Search.} For $k = 0, \ldots, N_{\mathrm{grid}}$:
+evaluate $G(x_k)$ by interval arithmetic of width $w$; if the
+certified value of $H(x_k)$ is positive, output
+$(x_k,\, m/2)$ and the transcript, and halt.
+\item \emph{Failure.} If the loop completes without success, output
+\textsc{invalid}: by Theorem~\ref{thm:main} some input condition
+failed (most plausibly (S1), i.e.\ the upstream certificate).
+\end{enumerate}
+
+\begin{remark}[complexity]
+The dominant costs are the sieve to $Y^{3/2}$ and the
+$N_{\mathrm{grid}} \le 4\,Y^{3/2-\theta}(L_G(Y^{3/2}) + C +
+\tfrac12)$ interval evaluations, each of polynomial cost; the whole
+procedure is bounded by an explicit polynomial in $Y$ and the input
+bit-lengths (Proposition~\ref{prop:search}). No step involves limits,
+infinite sums, or non-constructive choices: every real quantity is
+handled through rational intervals with explicitly computed widths.
+\end{remark}
+
+\section{Limitations, variants, and notes for the next phases}\label{sec:limits}
+
+\subsection{What the certificate excludes: clusters}\label{sec:clusters}
+
+The certified statement (S1) demands that the slab
+$\Sigma = \{\re s > \tfrac12\} \times (\gamma_1 - h, \gamma_2 + h)$
+--- which by (V4) has half-height at least $\Gamma/2 + 17 \approx 17$
+--- contain \emph{exactly one} zero off the critical line. Two off-line
+zeros whose heights differ by less than about $34$ therefore cannot be
+handled by the present argument, either individually or jointly, and
+the certificate cannot be issued for either. Consequently:
+
+\begin{itemize}
+\item Corollary~\ref{cor:landau}, in its unconditional form, needs the
+hypothesis that every off-line zero is simple and admits a valid
+certificate --- a genuine restriction relative to the classical
+statement (Lemma~\ref{lem:rubinstein}), whose existential choice of the
+evaluation point (``choose $t$ so that $z = \Sig + it$ has a unique
+nearest pole'') absorbs clusters automatically.
+\item The classical trick is however \emph{inherently non-effective}:
+the nearest-pole distances are unknowable a priori, and effectivizing
+them would require explicit zero-separation data that no finite
+computation provides. Our position is that the certificate-level
+statement is the honest effective form: it is exactly what a
+finite checker (T3) can consume, and it converts every
+\emph{isolatable} rogue zero into a named ceiling violation.
+\end{itemize}
+
+Two routes extend the reach, both deferred:
+
+\begin{enumerate}
+\item \emph{Phase-averaging.} With several poles $\rho_1, \ldots,
+\rho_m$ in the disk, subtract all principal parts and note that a
+conjugate pair contributes $2\re\bigl(c_\rho (z-\rho)^{-j-1}\bigr)$,
+whose phase precesses by $2\arg(z-\rho) \ge 2\arctan(|\im\rho|/
+(\Sig-\beta))$ per unit increment of $j$; the available range of $j$
+(the kernel window, length $\approx 9.4\,U$ consecutive integers)
+contains a favorable phase whenever $2\pi/\arg(z-\rho)$ is explicit
+and small relative to it. This works for pairs bounded away from the
+real axis by an explicit margin --- which could be added as a
+certificate condition --- but not uniformly, since a pair can sit at
+the evaluation height.
+\item \emph{Structured isolation certificates.} Let the certificate
+describe the cluster: a rectangle containing $m \ge 1$ simple zeros
+with certified pairwise separations, all other zeros excluded by the
+slab. The lower bound becomes a comparison between an explicit
+$m$-term exponential sum and the ceiling term; with certified
+separations the dominant pole wins at an explicit threshold. This is
+routine but constant-heavy, and is planned as the Phase 1.5 companion.
+\end{enumerate}
+
+A multiple zero at a single point is \emph{not} an obstruction of this
+kind: the pole of $F$ is then still simple, with residue
+$-\nu_\rho/(\rho(\rho-1))$, and $|c_\rho| \ge \nu_\rho/(M_1M_2) \ge
+1/(M_1M_2)$, so the argument goes through verbatim once (S1) is
+phrased with multiplicity (as it is: ``exactly one zero, counted with
+multiplicity'' demands simplicity only when the count is $1$; the
+reader should mentally allow ``exactly one zero of multiplicity
+$\nu$'' with the residue bound scaled by $\nu$).
+
+\subsection{The Dirichlet $L$-function variant}\label{sec:lfunction}
+
+The same argument runs for Dirichlet $L$-functions, which is the form
+the surrounding architecture actually consumes on its automorphic side
+(the archive's \texttt{Gchi}/\texttt{Schi} in \texttt{StatementOC.lean};
+see \texttt{../docs/statement.md} \S4). We record the shape; full
+constant-tracking is planned as a companion note (target T1-L).
+
+For a Dirichlet character $\chi \pmod q$, define the real statistic
+\[
+S_\chi(x) := \sum_{n \le x} \Lam(n)\,\re\chi(n)\Bigl(\frac{x}{n} - 1\Bigr),
+\qquad
+G_\chi(x) := S_\chi(x) + \re\frac{L'}{L}(1, \chi)\cdot x
+\]
+(for $\chi = 1$ this is not needed; the principal character reduces to
+$\zeta$). Its Mellin transform is, for $\re s > 1$,
+\[
+F_\chi(s) = \frac{1}{s(s-1)}\cdot\Bigl(-\frac{L'}{L}(s,\chi)
+- \frac{\bar L'}{\bar L}(s,\bar\chi)\Bigr)\Big/ 2
++ (\text{elementary correction}),
+\]
+a meromorphic function whose poles in the critical strip are exactly
+the zeros of $L(\cdot,\chi)$ and of $L(\cdot,\bar\chi)$ (conjugate
+zeros), with residue $-\nu_\rho/(\rho(\rho-1))$ as before. The proof
+of Theorem~\ref{thm:main} then goes through with:
+\begin{itemize}
+\item the classical inputs (Input~\ref{lem:zlow},
+\ref{lem:backlund}, \ref{lem:zeta-prime-prime}) replaced by their
+per-conductor analogues, supplied as certificates by upstream
+computation (verified GRH-type data for small conductors exists in the
+literature; for arbitrary conductors this is additional upstream work,
+exactly as for $\zeta$);
+\item real zeros (the Siegel-zero scenario) handled \emph{without
+change} by the rectangle geometry --- the certificate places them in
+$R$ with $\beta_1 > \theta$, and nothing in \S\ref{sec:certificate}
+uses non-reality of the certified zero;
+\item the same absolute constants ($\Sig = 252$, $c = 0.008$,
+$\eta_*$, window exponent $3/2$), since none of them touched $\zeta$
+except through the quoted inputs.
+\end{itemize}
+
+\subsection{Notes toward the Lean two-layer and the PA track}\label{sec:pa}
+
+The Lean formalization (target T2) is planned in two layers
+(\texttt{../docs/roadmap.md}, Phase 2): a \emph{soft layer} in
+ordinary mathlib style, and a \emph{choice-free effective shadow}
+interpretable in first-order arithmetic, feeding Phase 3 (reverse-math
+placement) and Phase 4 (an ACL2 certificate checker). The present
+paper was written to make both layers mechanical, and we record the
+map:
+
+\begin{itemize}
+\item \emph{Hypotheses, not theorems.} Every genuinely analytic input
+--- (S1), Input~\ref{lem:zlow} (low zero data),
+Input~\ref{lem:backlund} (local zero count),
+Input~\ref{lem:zeta-prime-prime} (the partial-fraction bound) --- enters
+as a hypothesis of arithmetic form: bounded-quantifier statements about
+values of $\zeta$ (equivalently, about terminating rational interval
+computations with explicit outputs). In the shadow they are never
+proved; they are consumed. This is the hypothesis-injection discipline,
+and it is what keeps the PA-track low: the transcendental content is
+quarantined in the certificate.
+\item \emph{The soft layer} proves: Lemma~\ref{lem:rubinstein} (the
+classical statement, matching \cite{Rub26}), and
+Theorem~\ref{thm:main} over the reals with (S1) and the quoted inputs
+as hypotheses. Ordinary classical analysis is allowed internally; the
+target is correctness of the statement and proof structure.
+\item \emph{The shadow} re-proves Theorem~\ref{thm:main} with: reals
+appearing only through comparisons $x \le q$ with explicit rationals
+$q$ and explicit error bounds; every existential replaced by the
+computed witness (the grid point $x_k$; the thresholds $j_1, j_2,
+J_0$; the precisions); the Mellin integral replaced by finite partial
+sums with explicit remainders (the ``truncated kernel'' variant the
+roadmap anticipated: the tail Lemmas~\ref{lem:tail}, \ref{lem:tail2}
+are precisely the remainders needed); the Cauchy coefficient bounds
+replaced by interval quadrature with explicit subdivisions (standard
+effectivization of Cauchy's estimate for functions given with
+certified boundary sup-bounds). No limit remains in the statement
+path: the ``for all large $j$'' of the classical proof has been
+replaced by the computed integer thresholds.
+\item \emph{Expected strength.} The window conversion itself (kernel
+inequalities, grid search, interval arithmetic) is elementary
+recursive arithmetic; we expect the shadow to land in
+$\mathrm{RCA}_0$-to-$\mathrm{I}\Sigma_1$ territory \emph{given} the
+hypotheses, with the hypotheses themselves carrying whatever strength
+the analytic facts have. Deciding that precisely is Phase 3's
+deliverable; the honest expectation, and its reason, is recorded here
+so that Phase 3 inherits a target, not a hope.
+\item \emph{Statement fingerprint.} The shadow's main statement, in
+arithmetic form, is:
+``for all rational tuples satisfying (V1)--(V5), if (S1) and the
+quoted inputs hold in their arithmetic forms, then the search of
+\S\ref{sec:algorithm} returns $k \le N_{\mathrm{grid}}$ with
+$\mathrm{check}(x_k)$ true'' --- a $\Pi_2$-shaped statement with all
+witnesses computed; the ACL2 checker verifies exactly the
+$\mathrm{check}$ part plus the threshold arithmetic.
+\end{itemize}
+
+\section{The constant registry}\label{sec:registry}
+
+Every constant below is rational (or an explicitly computed rational
+bound for a transcendental quantity, used only through certified
+rational intervals). Irrational constants ($e$, $\log$, $\pi$,
+$\Euler$) appear in the proof only inside such intervals.
+
+\begin{center}
+\small
+\begin{tabular}{@{}lll@{}}
+\hline
+\textbf{Symbol} & \textbf{Value / definition} & \textbf{Role}\\
+\hline
+$\Sig$ & $252$ & abscissa of evaluation; least value with
+$(\Sig-\theta)/(\Sig-2) \le e^{c}$ for all $\theta \in (0,1)$\\
+$c$ & $0.008$ & tail decay; pays for the $(\Sig-2) \to
+(\Sig-\theta)$ scale conversion\\
+$\eta_*$ & $0.983$ & cap on the kernel outside the window
+($2\eta_*/(1+\eta_*) < e^{-c}$)\\
+$[v_-, v_+]$ & $[0.88, 1.12]$ & fixed interval about the kernel peak;
+$b \ge 0.9921$ on it\\
+$b(v) = ve^{1-v}$ & --- & the P\'olya kernel profile\\
+$1.23$, $307.5$ & $1.23(\Sig-2) = 307.5$ & the $j$-choice:
+$j = \lfloor 307.5\,U \rceil$; valid range $[1.2122, 1.25](\Sig-2)U$\\
+$C_0$ & $52 = 4 \times 13$ & tail constant for
+$\int_E 4e^{2u}K_j$, $E$ outside the window\\
+$C_1$ & $105$ & the additive ceiling constant in
+\eqref{eq:onesided}\\
+$4$ & $|G(x)| \le 4x^2$ & crude size of the statistic
+(Lemma~\ref{lem:G-size}(1))\\
+$1.6$ & $1 + \Euler < 1.6$ & Euler constant bound\\
+$\gamma_{\mathrm{first}}$ & $14.1347$ & rational lower bound for the
+first zero height (Input~\ref{lem:zlow}(2))\\
+$D_{\mathrm{line}}$ & $\sqrt{251.5^2 + \gamma_{\mathrm{first}}^2}
+> 251.89$ & distance from $\Sig$ to any zero with $\beta \le 1/2$\\
+$30$ & --- & height below which all zeros are on the line
+(Input~\ref{lem:zlow}(3))\\
+$17$ & (V4): $h \ge \Gamma/2 + 17$ & slab half-height; covers the
+$z$-circle's strip reach $\le 15.9$, plus margin\\
+$10^{-6}$ & (V5) & clearance floor for both Cauchy circles\\
+$N_b(t)$ & $0.6\log(|t|+2)+2$ & local zero count bound
+(Input~\ref{lem:backlund}); $N_{\mathrm{loc}} \le 3$ for
+$|t| \le 21.5$\\
+$12\log(|t|+4)+12$ & Input~\ref{lem:zeta-prime-prime} & the
+non-local part of the $\zeta'/\zeta$ bound\\
+$3/2$ & window exponent & architecture constant;
+see Remark~\ref{rem:exponent} for the symbolic variant\\
+$251.5$ & $\Sig - \tfrac12$ & distance from $z$ to any on-or-left
+of-line zero\\
+$\dbar, M_1, M_2, D_R$ & \S\ref{sec:derived} & certificate geometry\\
+$r_z, \varepsilon_z, W_0, W_1, W_1'$ & \S\ref{sec:derived} & the two
+Cauchy circles and their clearances\\
+$B_z, B', M_z, M'$ & Definition~\ref{def:Mz} & circle sup-bounds\\
+$j_1, j_2, J_0, J_*, U_0, Y_0$ & Definition~\ref{def:thresholds} &
+thresholds; $Q(j) \ge C+1$ for $j \ge J_*$\\
+$Q(j)$ & $3\lambda^{j+1}/(16M_1M_2) - 52.5$ & the margin function;
+$m = Q(j) - C \ge 1$\\
+$52.5$ & $C_1/2$ & additive constant in $Q$\\
+$L_G(x)$ & $\tfrac12(\log x)^2 + 2\log x + 1.6$ & Lipschitz constant
+of $G$ (Lemma~\ref{lem:G-size}(2))\\
+$L_h, \delta_{\mathrm{grid}}, N_{\mathrm{grid}}, w, E_0$ &
+Prop.~\ref{prop:search} & the grid search and its precision\\
+\hline
+\end{tabular}
+\end{center}
+
+\appendix
+
+\section{The displayed arithmetic}\label{sec:app:elementary}
+
+All inequalities below are routine verifications from the exponential
+series $e^x = \sum_{k \ge 0} x^k/k!$ with its alternating remainder
+bound, and from integer arithmetic. They are listed so that a referee
+(or the effective shadow) can check each constant of the paper in one
+place. (A scripted verification is planned for
+\texttt{classical/numerics/}.)
+
+\begin{enumerate}
+\item $e^{0.175} < 1.19125$, so $b(0.825) = 0.825\,e^{0.175} <
+0.98279 < 0.983 = \eta_*$. \quad
+$e^{-0.2} < 0.8188$, so $b(1.2) < 1.2 \cdot 0.8188 = 0.98256 <
+\eta_*$.
+\item $e^{0.12} > 1.1274$ and $e^{-0.12} > 0.8869$, so
+$b(0.88) > 0.88 \cdot 1.1274 = 0.99211 \ge 0.9921$ and
+$b(1.12) > 1.12 \cdot 0.8869 = 0.99333 \ge 0.9921$ on
+$[v_-,v_+]$.
+\item $0.983 \cdot e^{0.008} < 0.9921$, i.e.\
+$\eta_*/0.9921 < e^{-c}$: the outside loses to the inside at net
+exponential rate $> c$ (Lemma~\ref{lem:tail}(3)).
+\item $e^{0.008} > 1.008$, so $250\,e^{0.008} > 252.00 > 252 \ge
+\Sig - \theta$ for all $\theta \in (0,1)$: \eqref{eq:sigma-c}.
+\item $251.5^2 = 63252.25$; $\gamma_{\mathrm{first}}^2 < 200$; so
+$D_{\mathrm{line}}^2 < 63452.25 < 251.90^2$, and
+$D_{\mathrm{line}} > 251.89$.
+\item $251^2 + 17^2 = 63290 > 251.5^2$: off-slab off-line zeros are
+farther from $z$ than the line is
+(Lemma~\ref{lem:circles}(1)).
+\item $251^2 + 30^2 = 63901 > 251.90^2 > D_{\mathrm{line}}^2$:
+off-line zeros above height $30$ are farther from $\Sig$ than
+$D_{\mathrm{line}}$ (Lemma~\ref{lem:circles}(2)).
+\item $\sqrt{251.5^2 - 251^2} = \sqrt{251.25} < 15.9$: the
+$z$-circle's reach into the strip, whence (V4)'s constant $17$.
+\item $\sqrt{251.9^2 - 251^2} < 21.5$: the $\Sig$-circle's reach,
+whence $N_{\mathrm{loc}} \le 3$ there.
+\item $1.23 \cdot 250 = 307.5$; the rounding margins
+$(1.25 - 1.23) \cdot 250\,U \ge 5U - \tfrac12 > 0$ and
+$(1.23 - 1.2122)\cdot 250\,U \ge 4.4U - \tfrac12 > 0$ hold for
+$U \ge 3$ (Lemma~\ref{lem:j-range}).
+\item $52 \cdot e^{0.008} < 52.5$, and $2 \cdot 52.5 + C_1$-bookkeeping
+gives \eqref{eq:onesided} with $C_1 = 105$.
+\item $1 + \Euler < 1.6$; $|G(x)| \le 4x^2$ for $x \ge 1$
+(Lemma~\ref{lem:G-size}(1), three elementary cases).
+\item $4x - 3.1(\log x)^2$ is increasing and positive for
+$x \ge e$, used in Lemma~\ref{lem:G-size}(1).
+\end{enumerate}
+
+\begin{thebibliography}{99}
+
+\bibitem{Alp26} L.~Alp\"oge, \emph{Announcement of a Lean-formalized
+proof of the Riemann hypothesis}, November 20, 2026; remark at
+\texttt{https://alpo.ge/remark.pdf}. Unverified as of November 21,
+2026; the present paper is independent of its fate.
+
+\bibitem{Bre79} R.~P.~Brent, \emph{On the zeros of the Riemann zeta
+function in the critical strip}, Math.\ Comp.\ 33 (1979), 1361--1372.
+
+\bibitem{Edw74} H.~M.~Edwards, \emph{Riemann's Zeta Function},
+Academic Press, 1974 (Backlund's explicit zero-counting estimates,
+\S1.18).
+
+\bibitem{Ing32} A.~E.~Ingham, \emph{The Distribution of Prime
+Numbers}, Cambridge Tracts in Math.\ 30, 1932 (the
+P\'olya--Ingham high-derivative method).
+
+\bibitem{Lan05} E.~Landau, \emph{\"Uber einen Satz von Tschebyschef},
+Math.\ Ann.\ 61 (1905), 527--550 (Mellin transforms of one-signed
+functions; the ``ceiling'' theorem).
+
+\bibitem{Leh66} R.~S.~Lehman, \emph{On the difference $\pi(x) -
+\operatorname{li}(x)$}, Acta Arith.\ 11 (1966), 397--410 (the first
+zeros: $\gamma_1 = 14.134725\ldots$, on the line).
+
+\bibitem{MV07} H.~L.~Montgomery and R.~C.~Vaughan, \emph{
+Multiplicative Number Theory I: Classical Theory}, Cambridge Univ.\
+Press, 2007 (\S15.1: Landau's theorem).
+
+\bibitem{PT21} D.~J.~Platt and T.~S.~Trudgian, \emph{The Riemann
+hypothesis is true up to $3\cdot 10^{12}$}, Bull.\ London Math.\ Soc.\ 53
+(2021), 792--797.
+
+\bibitem{RieVideo} harttraveller, \emph{The Riemann hypothesis,
+explained for laypeople} --- video and guide,
+\texttt{https://github.com/harttraveller/riemann}; the present paper
+formalizes the narration segment ``Step two: the ceiling''.
+
+\bibitem{Rub26} M.~O.~Rubinstein (with AI co-authors), \emph{The
+Alp\"oge--Claude proof of the Riemann hypothesis explained for the
+Riemann zeta function}, working draft, November 21, 2026,
+\texttt{https://www.math.uwaterloo.ca/\textasciitilde
+mrubinst/alpoge\_claude\_grh/zeta-paper.pdf}. The windowed Landau
+lemma (Part~I \S1.1, Part~II \S1) and its one-page proof are due to
+this draft; the present paper effectivizes it.
+
+\bibitem{Tit51} E.~C.~Titchmarsh, \emph{The Theory of the Riemann
+Zeta-Function}, 2nd ed.\ (revised by D.~R.~Heath-Brown), Oxford, 1986
+(\S\S2.4, 2.12: the Hadamard product and partial fractions for
+$\zeta'/\zeta$; \S3.5: the local $\zeta'/\zeta$ representation;
+\S9: zero-counting).
+
+\bibitem{Tru14} T.~S.~Trudgian, \emph{An explicit upper bound for the
+argument of the zeta function on the critical line}, Math.\ Comp.\ 81
+(2012), 1053--1061; and \emph{Updating the zero-counting estimates for
+the Riemann zeta function}, J.\ Number Theory.\ 134 (2014), 363--366
+(explicit $N(T)$).
+
+\bibitem{Tur53} A.~M.~Turing, \emph{Some calculations of the Riemann
+zeta-function}, Proc.\ London Math.\ Soc.\ (3) 3 (1953), 99--117.
+
+\bibitem{Bac14} R.~J.~Backlund, \"Uber die Nullstellen der
+Riemannschen Zetafunktion, Acta Math.\ 41 (1918), 345--375 (explicit
+zero counting).
+
+\end{thebibliography}
+
+\end{document}

@@ -63,9 +63,9 @@ def ZetaLandauEps : Prop :=
 
 This is the *contract* our explicit version must honor: it must accept exactly this kind of input.
 
-## 3. Target T1 (DRAFT): the explicit windowed certificate theorem
+## 3. Target T1: the explicit windowed certificate theorem
 
-This is the theorem this project intends to prove with computable constants. The quantitative details (which quantities the constants depend on, the shapes of the bounds) are Phase 1 work; the *logical shape* is:
+**Status (2026-11-21): proved in explicit form in [`classical/paper.tex`](../classical/paper.tex) (Theorem 6.2 there), with the certificate algorithm specified in [`classical/certificates.md`](../classical/certificates.md).** The draft logical shape below is realized as stated, with these Phase 1 refinements: the certificate is a tuple `(θ, C, β₁, β₂, γ₁, γ₂, h)` — rectangle *plus slab half-width* — with explicit validity conditions (V1)–(V5) and one upstream-certified statement (S1): the slab `{Re s > 1/2, γ₁−h < Im s < γ₂+h}` contains exactly one zero of ζ (counted with multiplicity), lying in `R`; the margin is the explicit function `Q(j) = 3λ^(j+1)/(16·M₁·M₂) − 52.5` with `λ = (252−θ)/d̄`; and the address is found by a terminating grid search that verifies the violation itself. The draft's `Y₀(θ, R)` became `Y₀(θ, R, C, h)`, explicit in the paper's Definition 6.1. The original draft shape, for the record:
 
 > **T1 (draft).** There are explicit constants and explicit computable functions such that the following holds. Let `1/2 ≤ θ < 1`. Suppose:
 >
@@ -86,6 +86,8 @@ Design notes:
 - The constants must be **poly-time computable** from the certificate data, and the search for `x` inside the window must have an explicit stopping rule (Phase 1 must show the classical "a wave must go up somewhere" argument can be made constructive enough to yield a search bound).
 - The isolation rectangle (a) is deliberately an *input*, not something we produce: zero-finding belongs to interval-arithmetic practitioners; we consume their output. This follows the hypothesis-injection discipline that has precedent in recent Lean explicit number theory.
 - The `Y^{3/2}` window length is the architecture's; variants (e.g. `Y^2`, which appears in the L-function side of the archive) should be treated in the same framework, with the dependence on the window exponent tracked explicitly.
+
+Phase 1 notes on the design notes: the poly-time search bound is realized (paper Proposition 6.5: the grid has at most `4·Y^{3/2−θ}·(L_G(Y^{3/2}) + C + 1/2)` points, each evaluation polynomial); the window-exponent dependence is symbolic (paper Remark 3.4); and one honest limitation emerged — the certificate isolates a *single* zero, so two off-line zeros within ≈34 in height cannot be handled per-zero by the present argument, and the unconditional derivation of the windowed Landau lemma from T1 carries a non-clustering hypothesis (paper §8.1).
 
 ## 4. Target T1-L (DRAFT): L-functions / GRH-for-Dirichlet
 

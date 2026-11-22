@@ -8,6 +8,8 @@ Statements drafted (`docs/statement.md`), prior art surveyed (`docs/prior-art.md
 
 ## Phase 1 — The explicit windowed Landau theorem (classical paper)
 
+**Status (2026-11-21): core delivered, phase in progress.** `classical/paper.tex` is drafted in full — the explicit windowed Landau certificate theorem T1 (Theorem 6.2 there) with every constant rational and listed in its Constant Registry — and the certificate algorithm is specified in `classical/certificates.md`. Pending: a LaTeX compile pass (no TeX toolchain on the authoring machine yet), the `numerics/` sanity checks, and (optionally, Phase 1.5) the cluster refinement of paper §8.1.
+
 Deliverable: a paper in `classical/` proving T1 (see `docs/statement.md` §3) with fully computable constants and a certificate algorithm.
 
 Plan of the argument (to be refined):

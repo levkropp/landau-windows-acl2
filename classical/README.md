@@ -1,12 +1,12 @@
 # classical/ — the explicit windowed Landau theorem (Phase 1)
 
-This folder will hold the classical paper: **Landau's ceiling step on windows, with explicit constants**, plus the certificate algorithm.
+This folder holds the classical paper: **Landau's ceiling step on windows, with explicit constants**, plus the certificate algorithm.
 
-Contents (planned):
+Contents:
 
-- `paper.tex` — the paper. Target statements in `docs/statement.md` §3 (T1).
-- `certificates.md` — the certificate algorithm as pseudocode + input/output formats.
-- `numerics/` — sanity-check computations of the constants on synthetic data.
+- `paper.tex` — the paper (drafted 2026-11-21): the effective windowed Landau certificate theorem T1 (Theorem 6.2), matching the target statements in `docs/statement.md` §3. Every constant is rational and listed in the paper's Constant Registry (§9). Not yet compiled: no TeX toolchain was available on the authoring machine; the first compile pass is pending.
+- `certificates.md` — the certificate algorithm: input/output formats, pseudocode, termination and complexity; the transcript format is the interface for the eventual ACL2 checker (T3).
+- `numerics/` — planned: sanity-check computations of the constants on synthetic data (see `certificates.md` §6).
 
 ## Outline of the argument
 
