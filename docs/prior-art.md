@@ -1,6 +1,6 @@
 # Prior art survey
 
-Compiled 2026-11-21, by web search plus direct inspection of the Alpöge Lean archive (17.4M lines, downloaded from alpo.ge) and of the sources below. **Gaps are expected; if you know of something missing, please open an issue.**
+Compiled 2026-11-21, by web search plus direct inspection of the Alpöge Lean archive (17.4M lines, downloaded from alpo.ge) and of the sources below. **Gaps are expected; if you know of something missing, please open an issue.** Updated the same day with the verification events of Nov 21 (§2.5).
 
 The question this survey answers: *has anyone produced the explicit, windowed, formalized (and PA-strength-checkable) version of the Landau ceiling step?* Short answer: **no.** The pieces that exist:
 
@@ -28,7 +28,18 @@ Contains: the one-sided criterion; the windowed lemma with its one-page high-der
 - **teorth/IEANTN** — Tao's "Integrated Explicit Analytic Number Theory Network": a dependency graph of explicit-ANT claims as conditional theorem nodes, with Lean-verified edges and auditable evidence metadata (citations, numerics). Early stage. **No oscillation/Landau content, no PA-track — but the natural future home for our certificate nodes.** https://github.com/teorth/IEANTN
 - **JohnNDvorak/Littlewood_Proof** — Lean 4, ~54.5k lines, Littlewood's oscillation (ψ−x = Ω±(√x·log log log x)); the *converse-flavored* direction (bad zero ⇒ oscillation). One consolidated `sorry` carrying the deep atoms (Hardy's critical-line zeros + Littlewood). AI co-authored. **Nearest content neighbor: opposite direction, no explicit constants, no windows, no PA-track.**
 - **Hubbard, "An explicit prime gap under the Riemann Hypothesis, formalized in Lean" (arXiv:2611.00157)** — Dudek's theorem formalized with a *cited zero-counting bound injected as an explicit hypothesis* (never an axiom) and small-range checks by kernel `decide`. **Methodology precedent** for our certificate/hypothesis-injection discipline.
-- **Alpöge archive (Nov 20, 2026)** — contains the full windowed Landau for ζ and for Dirichlet L-functions, but: embedded in a 17.4M-line tree, not compiled end-to-end in public as of this writing, stated non-explicitly (existential constants), and inseparable from the unverified new mathematics around it. Our project re-proves this step independently, explicitly, and portably.
+- **Alpöge archive (Nov 20, 2026)** — contains the full windowed Landau for ζ and for Dirichlet L-functions, but: embedded in a 17.4M-line tree; stated non-explicitly (existential constants throughout); and, for human-auditing purposes, inseparable from the new mathematics around it. The archive was **machine-verified in full on November 21, 2026** (§2.5 below), which makes the *existence* of the formalized windowed lemma certain while leaving all three deficits in place. Our project re-proves this step independently, explicitly, and portably.
+
+### 2.5 The November 21, 2026 verifications of the Alpöge archive
+
+On the day after the announcement, the archive was independently machine-checked in public, several times over:
+
+- **Rubinstein's verification run** — https://mrubinst.github.io/grh-lean-verification — the five headline theorems displayed and explained; a scan of the sources for anything that could introduce an unproved assumption; then four machine checks: a full compile of all 175,187 modules, an axiom audit (the theorems depend only on Lean's three standard axioms), a replay of every module through Lean's kernel, and a check of all 1,484,729 declarations the theorems depend on by **nanoda**, a second, independently written kernel. Scripts and a dated log (including the problems met along the way) are in the repository, so anyone can repeat it.
+- **Andrew Sutherland (MIT)** — independent verification files; results, logs, and the exported proof on his MIT page.
+- **Elliot Arledge** — an independent rebuild, axiom audit, and nanoda check; receipts on GitHub.
+- **Bartosz Naskręcki** — **riemann-rev**, a status dashboard recording who has checked what, with a guide to the route of the proof; the dashboard also lists **Simon DeDeo's** full kernel replay of all 175,187 modules.
+
+What the verifications settle: the archive compiles, the headline theorems depend only on Lean's standard axioms, and two independent kernels accept every relevant declaration. What they do *not* change for this survey: the development's statements of the Landau step remain non-explicit (existential constants, no computable address, no certificate), the tree remains 17.4M lines and unauditable at human scale, and the new mathematics inside remains to be digested. The niche this repo occupies — explicit constants, an independent readable formalization, and a PA-strength track — is unaffected.
 
 ### Isabelle / AFP
 - Avigad et al. 2006/2007 — first formalized PNT (elementary Selberg proof).
@@ -54,7 +65,7 @@ Contains: the one-sided criterion; the windowed lemma with its one-page high-der
 |---|---|---|---|---|---|
 | Windowed one-sided criterion | ✅ (ζ) | ✅ (ζ + L-fns) | ❌ (mirror direction only, unwindowed) | ❌ | ✅ |
 | Explicit constants / certificate | ❌ | ❌ | mirror direction only | partial (other statements) | ✅ |
-| Formalized in a prover | ❌ (paper) | ⚠️ (in-tree, uncompiled in public, entangled) | ❌ | partial (other statements) | ✅ |
+| Formalized in a prover | ❌ (paper) | ✅ machine-checked (Nov 21, 2026) — but in-tree, non-explicit, entangled, no PA-track | ❌ | partial (other statements) | ✅ |
 | Independent of the Alpöge claim | ✅ | ❌ | ✅ | ✅ | ✅ |
 | PA-strength / ACL2-facing | ❌ | ❌ | ❌ | ❌ | ✅ |
 

@@ -2,13 +2,13 @@
 
 **The "ceiling step" of the Riemann Hypothesis architecture — made explicit, made windowed, made machine-checkable, and (end goal) checkable by the weakest proof systems.**
 
-> **Status (2026-11-21):** this repository was created today. It currently contains the plan, the precise target statements, and a prior-art survey. Nothing has been proved here yet, and nothing here proves, claims to prove, or depends on the truth of the Riemann Hypothesis. See [the honesty box](#honesty-box) before citing it.
+> **Status (2026-11-21):** created today. Phase 1 core is drafted: the explicit windowed Landau certificate theorem — every constant computable, every existence replaced by a terminating search — is proved in [`classical/paper.tex`](classical/paper.tex), with the certificate algorithm specified in [`classical/certificates.md`](classical/certificates.md). Nothing here proves, claims to prove, or depends on the truth of the Riemann Hypothesis. See [the honesty box](#honesty-box) before citing it.
 
 ---
 
 ## Why this exists, in one minute
 
-On November 20, 2026, Levent Alpöge announced a claimed proof of the Riemann Hypothesis, formalized in Lean ([his remark](https://alpo.ge/remark.pdf); a 17.4-million-line Lean archive posted in 14 parts at `alpo.ge/lean.tar.gz.part01` … `.part14`). The claim is unverified, and the deep part of the argument is new mathematics that will take the community a long time to assess.
+On November 20, 2026, Levent Alpöge announced a proof of the Riemann Hypothesis, formalized in Lean ([his remark](https://alpo.ge/remark.pdf); a 17.4-million-line Lean archive posted in 14 parts at `alpo.ge/lean.tar.gz.part01` … `.part14`). **The archive has since been independently machine-verified** (November 21, 2026): [Rubinstein's verification run](https://mrubinst.github.io/grh-lean-verification) compiled all 175,187 modules, audited the five headline theorems down to Lean's three standard axioms, replayed every module through Lean's kernel, and checked all 1,484,729 relevant declarations with a second, independently written kernel (nanoda) — with scripts and a dated log so anyone can repeat it; Andrew Sutherland (MIT), Elliot Arledge, and Simon DeDeo have posted independent confirmations, tracked on Bartosz Naskręcki's riemann-rev dashboard. The machine checks settle that the archive proves what it claims *from Lean's axioms*; the deep part of the argument is new mathematics that the community will be digesting at human scale for a long time.
 
 But the logical skeleton of the proof is three steps, and only one of them is new:
 
@@ -16,15 +16,15 @@ But the logical skeleton of the proof is three steps, and only one of them is ne
 2. **The ceiling** — *Landau's theorem*: a one-sided upper bound on the prime-counting error already excludes zeros to the right. A ceiling alone is enough; no floor is needed.
 3. **Build the ceiling** — where all ~17 million lines go.
 
-Step 2 is the load-bearing classical interface: it is the whole reason a method that can only build *ceilings* (one-sided bounds, from positivity of integers/lattices) can prove something about *zeros*. It is 1930s-era mathematics, fully trusted, and — this is the remarkable part — **it has never been formalized in any proof system, and it has never been written down in the explicit, quantitative form this architecture actually needs.**
+Step 2 is the load-bearing classical interface: it is the whole reason a method that can only build *ceilings* (one-sided bounds, from positivity of integers/lattices) can prove something about *zeros*. It is 1930s-era mathematics, fully trusted, and — this is the remarkable part — **before November 2026 it had never been formalized in any proof system, and even now, with a machine-checked copy sitting inside the 17-million-line Alpöge archive, it has never been written down in the explicit, quantitative form this architecture actually needs, nor in any form that a human can audit in a sitting or a weak system can check.**
 
 This repository takes step 2 and does three things that nobody has done:
 
 1. **Explicit** — state and prove the windowed Landau theorem with fully computable constants (a *certificate*: given an alleged "bad" zero, name an exact place where any claimed ceiling is violated).
-2. **Formalized** — machine-check it in Lean, in a form that is independent of the fate of the Alpöge claim.
+2. **Formalized, independently and readably** — machine-check it in Lean in a small, human-auditable form, independent of the 17-million-line Alpöge development (which now contains a machine-checked but non-explicit, non-portable copy of this step).
 3. **PA-strength** — package the contrapositive as a finite, purely arithmetic certificate that a *weak* proof system (ACL2 / nqthm) can check, with an end goal of an actual ACL2 proof of this step.
 
-The "windowed" part matters: the Alpöge architecture produces ceilings only on *recurring windows* — long stretches of the number line — not everywhere, and the classical Landau theorem does not directly apply to that. As of today, the windowed version exists only as a non-effective lemma inside [Rubinstein's explanatory draft](https://www.math.uwaterloo.ca/~mrubinst/alpoge_claude_grh/zeta-paper.pdf) (dated the same day this repo was created) and inside Alpöge's Lean archive. Neither version has constants; neither can be *run*; neither is checkable by anything weaker than a full-blown proof assistant.
+The "windowed" part matters: the Alpöge architecture produces ceilings only on *recurring windows* — long stretches of the number line — not everywhere, and the classical Landau theorem does not directly apply to that. As of today, the windowed version exists only as a non-effective lemma inside [Rubinstein's explanatory draft](https://www.math.uwaterloo.ca/~mrubinst/alpoge_claude_grh/zeta-paper.pdf) (dated the same day this repo was created) and inside Alpöge's Lean archive (now machine-verified — which makes the existence of the formalized lemma certain, but changes none of the three deficits). Neither version has constants; neither can be *run*; neither is checkable by anything weaker than a full-blown proof assistant.
 
 ---
 
@@ -90,7 +90,7 @@ Plus the L-function (GRH-for-Dirichlet) versions as a stretch goal — the Alpö
 
 ## Why it's worth doing
 
-1. **Nobody has formalized the oscillation bridge in any prover.** Mathlib has ζ, its functional equation, and a statement of RH (Loeffler–Stoll 2025) — but no explicit formula and no Landau-type theorem. Isabelle's AFP has a PNT with an explicit error term (Song–Yao 2024) but no oscillation theorem either. The nearest neighbors (Tao's IEANTN network; a partial, sorry-carrying Lean attempt at *Littlewood's* oscillation) do not cover this; see [`docs/prior-art.md`](docs/prior-art.md).
+1. **No independent, auditable formalization of the oscillation bridge exists.** The only machine-checked copy is embedded in the 17.4M-line Alpöge development — massive, non-explicit (existential constants throughout), and entangled with 17M lines of new mathematics. Outside it: mathlib has ζ, its functional equation, and a statement of RH (Loeffler–Stoll 2025) — but no explicit formula and no Landau-type theorem. Isabelle's AFP has a PNT with an explicit error term (Song–Yao 2024) but no oscillation theorem either. The nearest neighbors (Tao's IEANTN network; a partial, sorry-carrying Lean attempt at *Littlewood's* oscillation) do not cover this; see [`docs/prior-art.md`](docs/prior-art.md).
 2. **The windowed explicit version does not exist even on paper.** The windowed lemma appeared (non-effectively) in a draft dated the same day as this repo. No constants, no certificate, no computable content. Without explicit constants, a "verified ceiling" can never be *combined* with Landau numerically — which is precisely what a certificate-verified future needs.
 3. **It is the linchpin of the architecture.** The entire "one-sided information suffices" magic — the reason a Chebyshev-style positivity method can prove something about zeros — lives in this step. It is the one classical piece that the new proof cannot work without.
 4. **It upgrades a working toolkit.** The mirror-image direction ("zeros verified numerically up to height T ⇒ explicit prime-counting bounds") is the daily bread of computational number theory (Büthe, Platt–Trudgian, Kadiri) and of explicit-verification pipelines — and it, too, has never been formalized. An explicit windowed Landau theorem completes that bridge in the other direction, and slots naturally into claim-network infrastructure like IEANTN.
@@ -130,7 +130,7 @@ The point, in one sentence: **a one-page logical conversion should not need a 17
 | Phase | Deliverable | Home | Status |
 |-------|-------------|------|--------|
 | 0 | Statements, prior-art survey, this README | `docs/` | ✅ done (this commit) |
-| 1 | Classical paper: explicit windowed Landau with computable constants + certificate algorithm | `classical/` | ⬜ |
+| 1 | Classical paper: explicit windowed Landau with computable constants + certificate algorithm | `classical/` | 🟡 core drafted & compiled ([`paper.pdf`](classical/paper.pdf), 27 pp.); numerics pending |
 | 2 | Lean formalization: soft layer + choice-free effective shadow | `lean/` | ⬜ |
 | 3 | Reverse-math placement of the effective shadow (expect something in the RCA₀–PA range; a genuinely new datapoint for analytic number theory) | `docs/` | ⬜ |
 | 4 | ACL2 certificate checker: the finite core, checked | `acl2/` | ⬜ |
@@ -171,15 +171,16 @@ Full, link-annotated version: [`docs/prior-art.md`](docs/prior-art.md). **If any
 
 ## Honesty box
 
-- **The Alpöge claim is unverified.** As of this writing, the 17.4M-line archive has not been compiled end-to-end in public, and no expert has certified the mathematics. This repository does not depend on how that resolves: every target statement here is classical mathematics that was true (or provable) before November 20, 2026, and useful either way.
-- **The windowed lemma is not ours.** The statement (and a one-page non-effective proof, via high-derivative estimates) is due to Rubinstein's explanatory draft of Nov 21, 2026, and appears inside Alpöge's Lean archive. Our contribution is the explicit constants, the certificate form, the formalization, and the PA-track — not the statement.
-- **Our target statements are drafts** until Phase 1 produces proofs; expect the precise quantitative forms in [`docs/statement.md`](docs/statement.md) to be revised.
+- **The Alpöge claim has been independently machine-verified.** On November 21, 2026 — the day after the announcement and the day this repo was created — the 17.4M-line archive was compiled end-to-end in public, its five headline theorems audited down to Lean's three standard axioms, every module replayed through the kernel, and all 1,484,729 relevant declarations checked by a second, independently written kernel (nanoda): first in [Rubinstein's verification run](https://mrubinst.github.io/grh-lean-verification) (with scripts and a dated log for reproduction), then independently by Andrew Sutherland (MIT), Elliot Arledge, and Simon DeDeo, with the checks tracked on Bartosz Naskręcki's riemann-rev dashboard. This settles the *mechanical* correctness of the development from Lean's axioms; the new mathematics inside it remains to be digested by humans, and nothing in this repository ever depended on the outcome — every target statement here is classical mathematics that was true before November 20, 2026, and useful either way.
+- **The windowed lemma is not ours.** The statement (and a one-page non-effective proof, via high-derivative estimates) is due to Rubinstein's explanatory draft of Nov 21, 2026, and appears inside Alpöge's Lean archive. Our contribution is the explicit constants, the certificate form, the *independent and readable* formalization, and the PA-track — not the statement.
+- **T1 is drafted with proofs; T2 and T3 are not.** The classical layer ([`classical/paper.tex`](classical/paper.tex), drafted 2026-11-21) has not yet had its first LaTeX compile pass or its scripted numerics check; the Lean (T2) and ACL2 (T3) layers are untouched. Treat everything accordingly.
 - **No proof of the Riemann Hypothesis is claimed, attempted, or implied here.**
 
 ## Acknowledgments
 
 - Levent Alpöge — the architecture, the remark, and the Lean spec this repo quotes.
-- Michael Rubinstein — the windowed lemma and the one-page proof we will effectivize.
+- Michael Rubinstein — the windowed lemma and the one-page proof we effectivize; and, separately, the grh-lean-verification run that machine-checked the archive on day two.
+- The verification crews — Andrew Sutherland (MIT), Elliot Arledge, Simon DeDeo, and Bartosz Naskręcki's riemann-rev dashboard — for settling the mechanical status of the claim in public, with scripts.
 - The reference video repo, [harttraveller/riemann](https://github.com/harttraveller/riemann) — the explanation this README repeatedly points to.
 - Edmund Landau, G. H. Hardy, J. E. Littlewood, A. E. Ingham, Pólya — the oscillation theory.
 - Montgomery & Vaughan (§15.1), Büthe, Platt–Trudgian, Kadiri — the explicit side.

@@ -4,7 +4,8 @@ This folder holds the classical paper: **Landau's ceiling step on windows, with 
 
 Contents:
 
-- `paper.tex` — the paper (drafted 2026-11-21): the effective windowed Landau certificate theorem T1 (Theorem 6.2), matching the target statements in `docs/statement.md` §3. Every constant is rational and listed in the paper's Constant Registry (§9). Not yet compiled: no TeX toolchain was available on the authoring machine; the first compile pass is pending.
+- `paper.tex` — the paper (drafted 2026-11-21): the effective windowed Landau certificate theorem T1 (Theorem 6.2), matching the target statements in `docs/statement.md` §3. Every constant is rational and listed in the paper's Constant Registry (§9).
+- `paper.pdf` — the compiled paper: 27 pages, built with MiKTeX 25.12 (`winget install MiKTeX.MiKTeX`; `pdflatex` ×3 in this folder). The compile is clean: no errors, no undefined references or citations; a handful of sub-3mm overfull boxes remain (cosmetic, listed in the build log if you rebuild).
 - `certificates.md` — the certificate algorithm: input/output formats, pseudocode, termination and complexity; the transcript format is the interface for the eventual ACL2 checker (T3).
 - `numerics/` — planned: sanity-check computations of the constants on synthetic data (see `certificates.md` §6).
 
@@ -18,4 +19,4 @@ Contents:
 
 ## What this folder is *not*
 
-Not dependent on the fate of the Alpöge claim; the windowed lemma's statement and its one-page non-effective proof exist in the classical literature as of 2026-11-21, and our contribution is explicitness + computability.
+Not dependent on the fate of the Alpöge claim — which was, for the record, independently machine-verified the day after its announcement (see the README honesty box) — since the windowed lemma's statement and its one-page non-effective proof exist in the classical literature as of 2026-11-21, and our contribution is explicitness + computability.
