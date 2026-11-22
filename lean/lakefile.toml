@@ -1,0 +1,23 @@
+name = "landauwindows"
+defaultTargets = ["LandauWindows"]
+
+# Toolchain and mathlib pin are copied from the Alpöge archive so that the
+# lifted files (LandauWindows/Soft/*) compile against exactly the mathlib
+# they were written for.  Lifted files carry per-file provenance headers;
+# do not bump these casually without re-diffing the lifts.
+
+moreLeanArgs = ["--tstack=400000"]
+
+[leanOptions]
+autoImplicit = false
+relaxedAutoImplicit = false
+maxHeartbeats = 4000000
+pp.unicode.fun = true
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "0df444a360eaa60ab8c11dca51a86af692955474"
+
+[[lean_lib]]
+name = "LandauWindows"

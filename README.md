@@ -131,7 +131,7 @@ The point, in one sentence: **a one-page logical conversion should not need a 17
 |-------|-------------|------|--------|
 | 0 | Statements, prior-art survey, this README | `docs/` | ✅ done (this commit) |
 | 1 | Classical paper: explicit windowed Landau with computable constants + certificate algorithm | `classical/` | 🟡 core drafted & compiled ([`paper.pdf`](classical/paper.pdf), 27 pp.); numerics pending |
-| 2 | Lean formalization: soft layer + choice-free effective shadow | `lean/` | ⬜ |
+| 2 | Lean formalization: soft layer + choice-free effective shadow | `lean/` | 🟡 soft layer started: the archive's abstract windowed-Landau cluster lifted wholesale (builds clean against mathlib alone) + `zeta_landau_windowed` **proved** modulo one named hypothesis; axiom audit on every build ([`lean/`](lean/README.md)) |
 | 3 | Reverse-math placement of the effective shadow (expect something in the RCA₀–PA range; a genuinely new datapoint for analytic number theory) | `docs/` | ⬜ |
 | 4 | ACL2 certificate checker: the finite core, checked | `acl2/` | ⬜ |
 

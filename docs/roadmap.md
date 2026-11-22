@@ -28,6 +28,8 @@ Plan of the argument (to be refined):
 
 ## Phase 2 — Lean formalization (two layers)
 
+**Status (2026-11-21): started, core in place and building clean.** The `lean/` lake project is pinned to the archive's toolchain (Lean v4.33.1) and mathlib (rev `0df444a…`) for maximal lift fidelity, and the *entire* abstract windowed-Landau cluster is lifted from the Alpöge archive (14 files, provenance headers, imports rewritten; compiles against vanilla mathlib alone). Our ζ-instantiation `LandauWindows.zeta_landau_windowed` — Rubinstein's windowed lemma for ζ — is **proved** from the lifted core plus two elementary bridges, with the analytic content (Mellin identity, pole structure, growth) packaged as ONE named hypothesis `ZetaPoleData` (hypothesis injection; never an axiom). `lake build` completes with zero errors and zero sorries, and the build-enforced axiom audit (`LandauWindows/Axioms.lean`) shows every theorem depends on exactly the three standard Lean axioms. Pending: discharge of `ZetaPoleData` from mathlib's zeta machinery, the `s₀ = -1` mirror direction, T1's certificate statement, the effective shadow.
+
 Deliverable: a Lean project in `lean/`, building against mathlib, containing:
 
 1. **Soft layer** (correctness first): `ZetaLandau`, the windowed version, and T1 proven in ordinary mathlib style (reals, `Classical.choice` allowed internally).
