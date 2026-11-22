@@ -1,0 +1,24 @@
+# Lean
+.lake/
+build/
+*.olean
+*.ilean
+*.trace
+
+# TeX
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.log
+*.out
+*.synctex.gz
+
+# Python / numerics
+__pycache__/
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
