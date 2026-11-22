@@ -43,25 +43,26 @@ def gz (u : ℝ) : ℝ := Gz (Real.exp u)
 def zetaStripZeros : Set ℂ :=
   {ρ : ℂ | riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1}
 
-/-- The Laplace (Mellin) transform of `gz` — the paper's `F`.  The
-`laplace` field of `PoleData` holds for it definitionally. -/
-def Fz : ℂ → ℂ := fun s => ∫ u in Ioi (0 : ℝ), (gz u : ℂ) * cexp (-s * u)
-
-/-- The analytic content of the ζ-facing Landau step, injected as a
-single named hypothesis (soft layer).  Unfolding, `ZetaPoleData` is
-exactly `PoleData gz Fz zetaStripZeros`; its fields are:
+/-- The analytic content of the ζ-facing Landau step, as a single named
+hypothesis (soft layer): SOME Φ carrying the `PoleData` structure for
+`gz` over `zetaStripZeros`.  Its fields unpack to:
   meas   — measurability of `gz` (elementary; Λ-sums are step functions);
   growth — the crude bound `|Gz x| ≤ K x ^ 2` (paper, Lemma 2.1);
-  laplace — definitional (see `Fz`);
+  laplace — the Mellin identity: `Φ s = ∫ gz e^{-s u}` for `2 < re s`
+            (paper, Proposition 2.2 — the heart);
   pos    — zeros lie in the strip `0 < re < 1` (classical);
-  diff   — `Fz` is holomorphic right of the axis off the zeros
-           (Mellin identity + ζ'/ζ; paper, Proposition 2.2);
+  diff   — `Φ` is holomorphic right of the axis off the zeros
+            (paper, Proposition 2.2);
   iso    — the zero set has no accumulation points;
   pole   — simple poles at the zeros with residues `-ν / (ρ (ρ - 1))`
            (paper, Proposition 2.2 (2)).
-Discharging `ZetaPoleData` from mathlib's zeta machinery is the next
-Phase-2 milestone.  It is a hypothesis, never an axiom. -/
-def ZetaPoleData : Prop := PoleData gz Fz zetaStripZeros
+The existential form is what constructions produce (`PoleData` fixes no
+particular Φ; the dslope-based Φ of the construction agrees with the
+naive integral on `2 < re s` by the `laplace` field).  **DISCHARGED**
+(see `Soft/ZetaPoleData.lean`, ours): the lifted construction
+`Deduction.poleData` at the trivial family provides it
+unconditionally.  It is never an axiom. -/
+def ZetaPoleData : Prop := ∃ Φ : ℂ → ℂ, PoleData gz Φ zetaStripZeros
 
 /-! ### The ceiling-to-window bridge (elementary) -/
 
@@ -126,15 +127,15 @@ theorem windowHypU_of_ceiling {g : ℝ → ℝ} {θ δ C : ℝ}
 direction): if there are arbitrarily large `Y` with `Gz x ≤ C x ^ θ`
 throughout the window `[Y, Y ^ (3/2)]`, then ζ has no zero with real
 part `> θ`.  The analytic content enters only through the named
-hypothesis `ZetaPoleData`; everything else is the lifted abstract
+hypothesis `ZetaPoleData` -- **discharged unconditionally in `Soft/ZetaPoleData.lean` (ours)** -- everything else is the lifted abstract
 `Deduction.landau_window` plus the elementary bridges of this file. -/
 theorem zeta_landau_windowed (hP : ZetaPoleData) {θ : ℝ}
     (hθ : 0 < θ) (hθ1 : θ < 1) {C : ℝ} (hC : 0 < C)
     (hceil : ∀ Y₀ : ℝ, ∃ Y : ℝ, Y₀ ≤ Y ∧ 1 ≤ Y ∧
       ∀ x ∈ Icc Y (Y ^ ((3 : ℝ) / 2)), Gz x ≤ C * x ^ θ) :
     ∀ s : ℂ, θ < s.re → riemannZeta s ≠ 0 := by
-  -- unfold the hypothesis bundle to the underlying `PoleData`
-  have hP' : PoleData gz Fz zetaStripZeros := hP
+  -- unpack the hypothesis bundle to the underlying `PoleData`
+  obtain ⟨Φ, hP'⟩ := hP
   -- the ceiling, in the log variable
   have huCeil : ∀ U₀ : ℝ, ∃ U : ℝ, U₀ ≤ U ∧
       ∀ u ∈ Icc U ((1 + (1 / 2 : ℝ)) * U), gz u ≤ C * Real.exp (θ * u) := by

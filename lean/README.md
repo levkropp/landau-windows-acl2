@@ -94,57 +94,74 @@ line) so that a change of meaning is a one-line diff against the source —
 borrowed from IEANTN's design. Before any statement is frozen, diff it against
 the archive file named in its header.
 
-## Current status (2026-11-21)
+## Current status (2026-11-22)
 
 - Project skeleton, toolchain pinned (Lean v4.33.1 + elan), mathlib pinned to
-  the archive's rev, oleans fetched: `lake build` completes **clean** —
-  zero errors, zero sorries.
+  the archive's rev, oleans fetched: `lake build` completes **clean** -
+  zero errors, zero sorries, every build.
 - The 14-file abstract cluster lifted with provenance headers; it compiles
   against vanilla mathlib with no archive-internal dependencies.
-- `zeta_landau_windowed` **proved** (Rubinstein's windowed Landau lemma for
-  ζ, ceiling direction) from the lifted core plus two elementary bridges,
-  modulo the single named hypothesis `ZetaPoleData`.
+- **The `ZetaPoleData` discharge is DONE** (see the next section): the
+  archive's character-family `PoleData` construction lifted and
+  instantiated at the trivial family. Consequently:
+  - `zeta_landau_windowed_unconditional` - Rubinstein's windowed Landau
+    lemma for zeta, **with no hypotheses at all**;
+  - `LandauWindows.t1Soft : T1Soft` - **T1 proved in the soft layer**
+    (pure logic from the unconditional lemma).
 - **Axiom audit** (`LandauWindows/Axioms.lean`, runs on every build):
-  `Deduction.landau_window`, `LandauWindows.zeta_landau_windowed`, and
-  `LandauWindows.windowHypU_of_ceiling` each depend on exactly
-  `[propext, Classical.choice, Quot.sound]` — no `sorryAx`, no extra axioms.
-- **T1's soft statement landed** (`LandauWindows/T1.lean`): the certificate
-  data (`IsolationRect`), the derived clearance quantities of paper §5.2 as
+  every theorem in the chain - `Deduction.landau_window`,
+  `zeta_landau_windowed`, `windowHypU_of_ceiling`, `zetaPoleData`,
+  `zeta_landau_windowed_unconditional`, `t1Soft` - depends on exactly
+  `[propext, Classical.choice, Quot.sound]` - no `sorryAx`, no extra
+  axioms.
+- **T1's soft statement** (`LandauWindows/T1.lean`): the certificate data
+  (`IsolationRect`), the derived clearance quantities of paper 5.2 as
   explicit definitions (`dbar`, `r_z`, `eps_z`, `D_R`, `D_min`, `r'`,
-  `delta'`, `W1`, `W1'`), the validity conditions (V1)–(V5), the certified
-  statement (S1), and `T1Soft` in the logical shape fixed by
-  `docs/statement.md` §3. Statement only — the target the proof work aims
-  at; the explicit constants (paper Definition 6.1) and the computed
-  address are the effective content for `Shadow/`.
-- **`MellinRamp.lean` lifted** (the ramp-integral Mellin identity) — the
-  first brick of the `ZetaPoleData` discharge.
+  `delta'`, `W1`, `W1'`), the validity conditions (V1)-(V5), the certified
+  statement (S1), `T1Soft` (now proved), and the certificate reading
+  `CeilingRefutesCertificate`.
+## The `ZetaPoleData` discharge - DONE (2026-11-22)
 
-## The `ZetaPoleData` discharge plan (recon done, 2026-11-22)
+The analytic hypothesis bundle is **discharged**, not by re-deriving the
+Mellin identity from scratch, but by lifting the archive's own
+character-family construction (which builds `PoleData` for any admissible
+family, unconditionally, via a dslope-based Mellin transform and mathlib's
+zeta-at-1 residue machinery) and instantiating it at the trivial family:
 
-Mathlib at our pin has the decisive lemma:
-`Mathlib.NumberTheory.LSeries.Dirichlet.LSeries_vonMangoldt_eq_deriv_riemannZeta_div`
-— the identity `LSeries vonMangoldt s = −deriv riemannZeta s / riemannZeta s`
-for `1 < s.re`, plus `LSeriesSummable_vonMangoldt` (summability), and even
-the Dirichlet-character twists (future T1-L). Combined with the lifted
-`mellin_ramp`, the plan per `PoleData` field:
+- **Lifted** (provenance headers): `CharFamily.lean` (the family
+  structure, `ramp`, `Gchi`, `Gm`), the full `PoleData.lean` (the earlier
+  trim restored: `gm`, `zeroSet`, `famD`), and the analytic chain
+  `measurableGchi`, `GchiConj`, `GchiGrowth` (the `|Gchi| <= C y^2`
+  bound), `mertensUpper` (Mertens-type Lambda/n bounds),
+  `mellinGchiOfNeOne` / `mellinGchiModOne` (the Mellin identities),
+  `LogDerivLocal`, `LFunctionConj` (conjugation),
+  `CharFamilyLFunctionNeZeroOfOneLeRe`, and `PoleDataConstruction.lean`
+  (the archive's `poleData.lean`, renamed to avoid a Windows
+  case-insensitive filename collision) - culminating in
+  `Deduction.poleData F : exists Phi, PoleData (gm F) Phi (zeroSet F)`.
+- **Ours** (`Soft/ZetaPoleData.lean`): the trivial family `Ftriv`
+  (conductor-1 character alone, weight 1), the bridges
+  (`ramp (fun _ => 1) y = (Sz y : C)`, trivial-`Gchi` = `(Gz y : C)`,
+  `gm Ftriv = gz`, `zeroSet Ftriv = zetaStripZeros` - using
+  `LFunction (1 mod 1) = riemannZeta`, `LFunction_conj`, and mathlib's
+  nonvanishing at `1 <= Re`), and the discharge:
+  `LandauWindows.zetaPoleData : exists Phi, PoleData gz Phi zetaStripZeros`.
 
-1. `meas`, `growth` — elementary: piecewise measurability of the Λ-sums;
-   `|Gz x| ≤ K x log²x` from `vonMangoldt ≤ log` + harmonic-log sums.
-2. `laplace` — the Mellin identity of paper Prop 2.2 for `2 < Re s`:
-   `mellin_ramp` + the Tonelli interchange (summability from
-   `LSeriesSummable_vonMangoldt`) + the
-   `LSeries_vonMangoldt_eq_deriv_riemannZeta_div` identity + the
-   `u = log x` substitution, plus the elementary transforms of the
-   `x log x` and `(1+γ)x` terms.
-3. `diff`, `pole` — restate `Fz` as the meromorphic expression
-   `−ζ'/ζ(s)/(s(s−1)) − 1/(s−1)² + (1+γ)/(s−1)` (junk outside its
-   convergence set is harmless for `DifferentiableOn`); poles exactly at
-   the zeros with residues `−ν/(ρ(ρ−1))` via mathlib's order-of-zero API.
-   The delicate point: `s = 1`, where ζ's pole must cancel against the
-   correction terms (needs ζ's Laurent data at 1 — to be sourced from
-   mathlib's L-series work or derived).
-4. `iso` — mathlib's isolation/countability of zero sets of analytic
-   functions.
-5. `pos` — definitional for our `zetaStripZeros`.
+Consequences (all soft layer, all depending on exactly the three standard
+Lean axioms, verified on every build):
+
+- `zeta_landau_windowed_unconditional` - **Rubinstein's windowed Landau
+  lemma for zeta, with no hypotheses at all**: ceilings
+  `Gz x <= C x^theta` on arbitrarily large windows `[Y, Y^(3/2)]` exclude
+  zeros with `Re > theta`.
+- `LandauWindows.t1Soft : T1Soft` - **T1 proved in the soft layer**, by
+  pure logic from the unconditional lemma: a valid certificate + (S1)
+  give a zero with `Re > theta`, so ceilings must fail somewhere in
+  every window beyond some threshold.
 
 ## Not yet done
+
+- The `s0 = -1` mirror direction of `ZetaLandau` (needs the functional
+  equation reflection); T1's effective content (explicit constants from
+  the paper's Definition 6.1, computed address - the shadow, `Shadow/`);
+  the `Y0` in `t1Soft` made explicit.

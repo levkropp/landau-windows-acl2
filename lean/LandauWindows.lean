@@ -19,5 +19,6 @@ in `LandauWindows/Shadow/` as Phase 2 proceeds; see ../docs/roadmap.md.
 import LandauWindows.Statement
 import LandauWindows.Soft.ZetaWindowed
 import LandauWindows.Soft.MellinRamp
+import LandauWindows.Soft.ZetaPoleData
 import LandauWindows.T1
 import LandauWindows.Axioms

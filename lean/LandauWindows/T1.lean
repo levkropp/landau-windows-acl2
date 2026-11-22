@@ -32,6 +32,7 @@ wired up, to match the paper verbatim.
 -/
 import Mathlib
 import LandauWindows.Statement
+import LandauWindows.Soft.ZetaPoleData
 
 open Complex MeasureTheory Set Filter Topology Formalism
 
@@ -172,6 +173,31 @@ def CeilingRefutesCertificate : Prop :=
     T1Soft →
     (∀ x : ℝ, x ∈ Set.Icc Y (Y ^ ((3 : ℝ) / 2)) → Gz x ≤ C * x ^ θ) →
     ∃ Y₀ : ℝ, Y < Y₀
+
+/-- **T1Soft, proved (soft layer).** Purely logical derivation from the
+unconditional windowed Landau lemma: the certified zero has real part
+`> θ` (validity (V1) plus the rectangle in (S1)), so if the ceiling
+`Gz x ≤ C x ^ θ` held on arbitrarily large windows, the unconditional
+lemma would contradict its being a zero.  Hence beyond some threshold
+every window contains a violation — the soft form of the paper's
+Theorem 6.2 (the explicit constants, margin and computed address are
+the effective content for `Shadow/`). -/
+theorem t1Soft : T1Soft := by
+  intro θ C R h hval Ziso
+  obtain ⟨hθhalf, hθ1, hC1, -, -, hpos, hθβ, -⟩ := hval
+  have hθpos : 0 < θ := lt_of_lt_of_le (by norm_num) hθhalf
+  have hC : 0 < C := lt_of_lt_of_le (by norm_num) hC1
+  obtain ⟨ρ, hρζ, -, -, -, hρβ, -, -, -, -⟩ := Ziso
+  have hθρ : θ < ρ.re := lt_of_lt_of_le hθβ hρβ
+  by_contra hT1
+  push_neg at hT1
+  have hceil : ∀ Y₀ : ℝ, ∃ Y : ℝ, Y₀ ≤ Y ∧ 1 ≤ Y ∧
+      ∀ x ∈ Set.Icc Y (Y ^ ((3 : ℝ) / 2)), Gz x ≤ C * x ^ θ := by
+    intro U₀
+    obtain ⟨Y, hY, hYx⟩ := hT1 (max U₀ 1)
+    exact ⟨Y, le_trans (le_max_left U₀ 1) hY,
+      le_trans (le_max_right U₀ 1) hY, hYx⟩
+  exact absurd hρζ (zeta_landau_windowed_unconditional hθpos hθ1 hC hceil ρ hθρ)
 
 end LandauWindows
 
