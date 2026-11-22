@@ -108,7 +108,43 @@ the archive file named in its header.
   `Deduction.landau_window`, `LandauWindows.zeta_landau_windowed`, and
   `LandauWindows.windowHypU_of_ceiling` each depend on exactly
   `[propext, Classical.choice, Quot.sound]` — no `sorryAx`, no extra axioms.
-- Not yet done: discharge of `ZetaPoleData` from mathlib's zeta machinery
-  (the Mellin identity + pole structure; the next milestone), the
-  `s₀ = -1` mirror direction, T1's certificate statement in the soft layer,
-  the effective shadow (`Shadow/`).
+- **T1's soft statement landed** (`LandauWindows/T1.lean`): the certificate
+  data (`IsolationRect`), the derived clearance quantities of paper §5.2 as
+  explicit definitions (`dbar`, `r_z`, `eps_z`, `D_R`, `D_min`, `r'`,
+  `delta'`, `W1`, `W1'`), the validity conditions (V1)–(V5), the certified
+  statement (S1), and `T1Soft` in the logical shape fixed by
+  `docs/statement.md` §3. Statement only — the target the proof work aims
+  at; the explicit constants (paper Definition 6.1) and the computed
+  address are the effective content for `Shadow/`.
+- **`MellinRamp.lean` lifted** (the ramp-integral Mellin identity) — the
+  first brick of the `ZetaPoleData` discharge.
+
+## The `ZetaPoleData` discharge plan (recon done, 2026-11-22)
+
+Mathlib at our pin has the decisive lemma:
+`Mathlib.NumberTheory.LSeries.Dirichlet.LSeries_vonMangoldt_eq_deriv_riemannZeta_div`
+— the identity `LSeries vonMangoldt s = −deriv riemannZeta s / riemannZeta s`
+for `1 < s.re`, plus `LSeriesSummable_vonMangoldt` (summability), and even
+the Dirichlet-character twists (future T1-L). Combined with the lifted
+`mellin_ramp`, the plan per `PoleData` field:
+
+1. `meas`, `growth` — elementary: piecewise measurability of the Λ-sums;
+   `|Gz x| ≤ K x log²x` from `vonMangoldt ≤ log` + harmonic-log sums.
+2. `laplace` — the Mellin identity of paper Prop 2.2 for `2 < Re s`:
+   `mellin_ramp` + the Tonelli interchange (summability from
+   `LSeriesSummable_vonMangoldt`) + the
+   `LSeries_vonMangoldt_eq_deriv_riemannZeta_div` identity + the
+   `u = log x` substitution, plus the elementary transforms of the
+   `x log x` and `(1+γ)x` terms.
+3. `diff`, `pole` — restate `Fz` as the meromorphic expression
+   `−ζ'/ζ(s)/(s(s−1)) − 1/(s−1)² + (1+γ)/(s−1)` (junk outside its
+   convergence set is harmless for `DifferentiableOn`); poles exactly at
+   the zeros with residues `−ν/(ρ(ρ−1))` via mathlib's order-of-zero API.
+   The delicate point: `s = 1`, where ζ's pole must cancel against the
+   correction terms (needs ζ's Laurent data at 1 — to be sourced from
+   mathlib's L-series work or derived).
+4. `iso` — mathlib's isolation/countability of zero sets of analytic
+   functions.
+5. `pos` — definitional for our `zetaStripZeros`.
+
+## Not yet done
