@@ -121,6 +121,8 @@ All objects in the final box are finite: Λ-sums over primes up to a bound, rati
 
 The point, in one sentence: **a one-page logical conversion should not need a 17-million-line cathedral to be trusted — we prove it at the strength of arithmetic itself.**
 
+*Why the repo is named `landau-windows-acl2`:* Lean's mathematical foundation is of roughly the strength of ZFC plus a hierarchy of inaccessible cardinals — enormous overkill for the Riemann Hypothesis, a Π⁰₁ statement about a computable function that, by the Friedman-school expectation, should need none of it. The name states the end goal plainly: the Landau ceiling step on windows, ultimately checked by a system (ACL2, ≈PA) at the strength of arithmetic itself. Lean appears here only as a way-station — an auditable middle layer between the classical paper and the ACL2 checker.
+
 *(To be clear: this is not a scheme to prove RH in ACL2. RH will never be proved in ACL2 by porting any known architecture. This is a scheme to make one load-bearing classical step independently bulletproof, in the only form weak systems can digest.)*
 
 ---
