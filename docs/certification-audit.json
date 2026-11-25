@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-11-25T02:45:50.451295+00:00",
+  "checked_utc": "2026-11-25T12:06:31.225663+00:00",
   "main_theorem": "lw-euler-window-encoded-zero-reduction",
   "default_books": 647,
   "exported_theorems": 3649,
@@ -658,8 +658,12 @@
     "acl2/euler-window-circle-pair.lisp": "a724e31da1e3f468043671294df1be416d99084ddf47a8b104af21f37a68f55a",
     "acl2/euler-window-ceiling-reduction.lisp": "c5c575b84d910bff2d1dab0011c2ae13410fb90be236dcfd32dcbb1800d47326",
     "acl2/euler-window-encoded-zero.lisp": "0c2a355d4f631e98c842c1b564158724004959fed2b295429d03d35ffff28113",
-    "docs/acl2-interpretation.md": "a0bbf6c08dc10a87a12644462c42c2755918a1ebeff2ffc375261319d9301937",
-    "docs/foundations.md": "91eb55977ab34ee1c9347b1210715260c190e6f465c7848ed18f171e983dd3f4"
+    "docs/acl2-interpretation.md": "b4c195598b223830f0d2635a3a2511d860780c40a1d88e61c19bdc486eca97ad",
+    "docs/foundations.md": "91eb55977ab34ee1c9347b1210715260c190e6f465c7848ed18f171e983dd3f4",
+    "classical/pa-paper.tex": "9b26d19d8d5db386bd877fa345f28927ee44c59f367fefc8fbb9047d0b5836b6",
+    "classical/pa-paper.pdf": "91c30f1afd4deb8c71bc007fd21672ea18a2df1952bae680c5c3cb4e2b40ca04"
   },
-  "interpretation": "Machine-checked in ACL2. The Peano Arithmetic reading and classical comparison are the mathematical interpretation in docs/acl2-interpretation.md, not a second PA proof-checker run."
+  "pa_proof": "classical/pa-paper.tex, Theorem 15.2: a direct mathematical proof in first-order Peano Arithmetic of the encoded windowed ceiling reduction.",
+  "classical_comparison": "Supplied in the manuscript's final comparison section and docs/acl2-interpretation.md.",
+  "machine_certificate": "Vanilla ACL2 certification; the direct Peano Arithmetic proof is the manuscript, rather than a second machine-checker replay."
 }

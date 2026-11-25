@@ -1,0 +1,42 @@
+
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ + ACL2 Version 8.5                                                     +
+ +   built November 22, 2026  09:05:58.                                 +
+ + Copyright (C) 2022, Regents of the University of Texas.              +
+ + ACL2 comes with ABSOLUTELY NO WARRANTY.  This is free software and   +
+ + you are welcome to redistribute it under certain conditions.  For    +
+ + details, see the LICENSE file distributed with ACL2.                 +
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+System books directory 
+"/mnt/c/Users/Med/landau-windows/acl2/.tools/runtime/books/".
+Type :help for help.
+Type (quit) to quit completely out of ACL2.
+
+ACL2 !> "/mnt/c/Users/Med/landau-windows/acl2/"
+ACL2 !>
+Summary
+Form:  ( INCLUDE-BOOK "euler-window-encoded-zero" ...)
+Rules: NIL
+Time:  3.47 seconds (prove: 0.00, print: 0.01, other: 3.46)
+ "/mnt/c/Users/Med/landau-windows/acl2/euler-window-encoded-zero.lisp"
+ACL2 !>ACL2 p!>
+Summary
+Form:  ( DEFUN LW-AUDIT-NATURAL-TERM-P ...)
+Rules: NIL
+Time:  0.00 seconds (prove: 0.00, print: 0.00, other: 0.00)
+ LW-AUDIT-NATURAL-TERM-P
+ACL2 p!>
+Summary
+Form:  ( DEFUN LW-AUDIT-DEFINITIONS ...)
+Rules: NIL
+Time:  0.00 seconds (prove: 0.00, print: 0.00, other: 0.00)
+ LW-AUDIT-DEFINITIONS
+ACL2 p!>
+Summary
+Form:  ( MAKE-EVENT (VALUE ...))
+Rules: NIL
+Time:  0.00 seconds (prove: 0.00, print: 0.00, other: 0.00)
+ (:CHECKED :RECURSIVE 347
+           :EXCEPTIONS NIL)
+ACL2 p!>

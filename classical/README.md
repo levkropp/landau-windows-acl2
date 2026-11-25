@@ -1,29 +1,55 @@
-# classical/ — the explicit windowed Landau theorem (Phase 1)
+# Windowed Landau manuscripts
 
-This folder holds the classical paper: **Landau's ceiling step on windows, with explicit constants**, plus the certificate algorithm.
+## Peano arithmetic manuscript
 
-Contents:
+[LaTeX source](pa-paper.tex) · [Compiled manuscript](pa-paper.pdf)
 
-- `paper.tex` — the paper (drafted 2026-11-21): the effective windowed Landau certificate theorem T1 (Theorem 6.2), matching the target statements in `docs/statement.md` §3. The absolute constants are listed in the Constant Registry (§9); derived quantities involve computable real expressions that still need certified rational enclosures in the implementation.
-- `paper.pdf` — the compiled paper: 28 pages, built with MiKTeX 25.12 (`pdflatex` in this folder). The cluster discussion now distinguishes the draft's fixed-slab restriction from the remaining effective zero-cover obligations.
-- `certificates.md` — the certificate algorithm: input/output formats, pseudocode, termination and complexity; the transcript format is the interface for the eventual ACL2 checker (T3).
-- `numerics/` — planned: sanity-check computations of the constants on synthetic data (see `certificates.md` §6).
+The manuscript proves the encoded windowed Landau ceiling reduction in
+first-order Peano arithmetic. It derives the computed threshold and rational
+window witness using finite arithmetic, rational bounds and induction.
+Section 14 proves the Mellin quadrature estimates. Theorem 15.2 assembles
+the arithmetic proof. The last section gives the classical zeta interpretation.
 
-The paper records the original single-zero construction. The certified
-ACL2 theorem uses arbitrary-precision probes in a compact disk and
-constructs the compatible contours for the returned-address certificate.
-Its rational mesh, signal enclosures and window thresholds are recorded
-with the classical comparison.
-[ACL2 interpretation](../docs/acl2-interpretation.md)
+Run this command twice from this directory to resolve references.
 
-## Outline of the argument
+~~~sh
+pdflatex -interaction=nonstopmode -halt-on-error pa-paper.tex
+~~~
 
-1. **Setup.** θ ∈ [1/2, 1); isolation rectangle R (rational vertices) for the alleged zero ρ with Re ρ = β > θ; ceiling constants (C, Y); window [Y, Y^{3/2}].
-2. **The kernel identity.** High derivatives of the Mellin transform of the ceiling-violating signal, evaluated along a real vertical slice — the Pólya/Ingham method (cf. Rubinstein, Part II §1, "an estimate of high derivatives of F, which see only one interval at a time").
-3. **Effectivization.** Replace every implicit constant in the one-page proof with a computable numeral; replace every existence with a bounded search. The technical risk is the k-th-derivative bound: k must be explicit in (θ, R, C, Y) for the search to terminate.
-4. **The certificate.** Inputs → (address x ∈ [Y, Y^{3/2}], margin). Verification at x: Λ-sum to an explicit bound vs. rational interval comparisons. Finite arithmetic, no analysis.
-5. **L-function variant** (stretch): same for Dirichlet L-functions, matching the archive's `Gchi`-based statements (`docs/statement.md` §4).
+Independent builds with the same pdfLaTeX and fonts produce identical PDFs.
 
-## What this folder is *not*
+### Reproduce the ACL2Lean trace pilot
 
-Not dependent on the fate of the Alpöge claim — which was, for the record, independently machine-verified the day after its announcement (see the README honesty box) — since the windowed lemma's statement and its one-page non-effective proof exist in the classical literature as of 2026-11-21, and our contribution is explicitness + computability.
+ACL2Lean captured all eleven interval-search theorems. The seven selected
+induction schemes all measured `acl2-count` of the sample list. The trace also
+contains arithmetic solver verdicts without their internal derivations. The
+manuscript justifies the interval-search statements directly in PA.
+The instrumented prover also certified the final theorem's 558-book closure
+and exported its trace. ACL2Lean reconstructed the eleven interval-search
+proof trees and stopped on a branch marker inside a literal in the final
+book's trace.
+[ACL2Lean technical overview](https://github.com/OathTech/ACL2Lean/blob/77455781bfbf1950da1db53b7fde91656c15027d/docs/OVERVIEW.md)
+
+Run from the repository root in Linux or WSL with Git, Make and SBCL.
+
+~~~sh
+landau_root="$PWD"
+pilot="$(mktemp -d)"
+git clone https://github.com/OathTech/ACL2Lean.git "$pilot/ACL2Lean"
+cd "$pilot/ACL2Lean"
+git checkout 77455781bfbf1950da1db53b7fde91656c15027d
+git submodule update --init acl2
+make -C acl2 LISP="sbcl --no-sysinit"
+OUTDIR="$landau_root/acl2/.tools/pa-acl2lean-traces" \
+  bash scripts/capture-proof-log.sh "$landau_root/acl2/interval-search.lisp"
+~~~
+
+## Original single-zero manuscript
+
+[LaTeX source](paper.tex) · [Compiled paper](paper.pdf) · [Certificate algorithm](certificates.md)
+
+Theorem 6.2 gives the effective ceiling certificate for an isolated zero.
+Section 9 lists the constants and identifies the derived quantities that
+require rational enclosures. The certified ACL2 theorem starts with arbitrarily
+fine probes in a compact disk and constructs the required contours.
+[Arithmetic and classical interpretation](../docs/acl2-interpretation.md)

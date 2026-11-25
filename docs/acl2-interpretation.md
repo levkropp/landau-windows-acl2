@@ -168,7 +168,8 @@ of the tree's result. An ACL2 induction on a natural-valued measure
 has the corresponding PA strong-induction instance obtained by
 quantifying over coded inputs of that size. This is the arithmetic
 reading behind “roughly PA-strength”. The machine-checked certificate
-is in ACL2. The PA reading is a mathematical interpretation of the
-fragment, with the classical real and complex comparison given above.
+is in ACL2. The PA manuscript gives the direct arithmetic derivation
+through the computed threshold and rational window witness.
+[PA manuscript](../classical/README.md#peano-arithmetic-manuscript) ·
 [ACL2 logic](https://www.cs.utexas.edu/~moore/publications/km97a.pdf) ·
 [ACL2 induction](https://www.cs.utexas.edu/~moore/publications/acl2-induction-heuristics.pdf)
