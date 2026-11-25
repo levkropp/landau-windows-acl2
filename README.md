@@ -66,7 +66,8 @@ enough.”**
 The [completed overview](https://github.com/levkropp/landau-windows-acl2/releases/download/v1.0.0/landau-windows-acl2-overview-05.mp4)
 and [Parts Zero–Nine](https://levkropp.github.io/landau-windows-acl2/)
 have matching captions, follow-along articles and interactive arithmetic
-examples. [Release media](https://github.com/levkropp/landau-windows-acl2/releases/tag/v1.0.0)
+examples. [Lesson MP4s in the repository](video/published/README.md) ·
+[Final overview release](https://github.com/levkropp/landau-windows-acl2/releases/tag/v1.0.0)
 
 ## Build
 

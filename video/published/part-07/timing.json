@@ -1,0 +1,2698 @@
+[
+  {
+    "id": "opening",
+    "chapter": "Complete the oscillating reading",
+    "start": 0.0,
+    "audio_start": 0.2,
+    "duration": 48.737708,
+    "sentences": [
+      {
+        "text": "Part Six built scalar kernel weights and their rational error bounds.",
+        "start": 0,
+        "end": 4.012121212121213,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.012121212121213
+          }
+        ]
+      },
+      {
+        "text": "A Mellin reading also has an oscillating complex phase.",
+        "start": 4.534848484848485,
+        "end": 8.171212121212122,
+        "phrases": [
+          {
+            "start": 4.534848484848485,
+            "end": 8.171212121212122
+          }
+        ]
+      },
+      {
+        "text": "This episode adds that missing factor, then combines the signal, weight, and phase into an actual sample constructor.",
+        "start": 8.693939393939393,
+        "end": 15.857575757575757,
+        "phrases": [
+          {
+            "start": 8.693939393939393,
+            "end": 15.857575757575757
+          }
+        ]
+      },
+      {
+        "text": "We will begin with pairs of rational coordinates, so the complex arithmetic has an explicit representation.",
+        "start": 16.38030303030303,
+        "end": 22.840909090909093,
+        "phrases": [
+          {
+            "start": 16.38030303030303,
+            "end": 22.840909090909093
+          }
+        ]
+      },
+      {
+        "text": "Then we will build a rational rotation and refine it toward the desired phase.",
+        "start": 23.363636363636363,
+        "end": 27.993939393939396,
+        "phrases": [
+          {
+            "start": 23.363636363636363,
+            "end": 27.993939393939396
+          }
+        ]
+      },
+      {
+        "text": "Finally, we will budget the errors of the product and the finite sum.",
+        "start": 28.516666666666666,
+        "end": 32.553030303030305,
+        "phrases": [
+          {
+            "start": 28.516666666666666,
+            "end": 32.553030303030305
+          }
+        ]
+      },
+      {
+        "text": "The small numerical examples are checked arithmetic examples; the real interpretation stays attached through the project's proved bridge theorems.",
+        "start": 33.07575757575757,
+        "end": 41.57272727272728,
+        "phrases": [
+          {
+            "start": 33.07575757575757,
+            "end": 41.57272727272728
+          }
+        ]
+      },
+      {
+        "text": "This is Part Seven of Landau Windows ACL Two: complex phases and oscillating samples.",
+        "start": 42.095454545454544,
+        "end": 48.24090909090909,
+        "phrases": [
+          {
+            "start": 42.095454545454544,
+            "end": 48.24090909090909
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pairs",
+    "chapter": "A rational complex point is a pair",
+    "start": 50.36666666666662,
+    "audio_start": 50.56666666666662,
+    "duration": 45.55225,
+    "sentences": [
+      {
+        "text": "In Part Five, a complex number was a point with a horizontal real coordinate and a vertical imaginary coordinate.",
+        "start": 0,
+        "end": 6.812121212121212,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 6.812121212121212
+          }
+        ]
+      },
+      {
+        "text": "A rational complex point stores those two coordinates as a pair.",
+        "start": 7.334848484848484,
+        "end": 11.383333333333333,
+        "phrases": [
+          {
+            "start": 7.334848484848484,
+            "end": 11.383333333333333
+          }
+        ]
+      },
+      {
+        "text": "For example, three fifths plus four fifths times i is represented by the pair three fifths, four fifths.",
+        "start": 11.906060606060606,
+        "end": 18.16060606060606,
+        "phrases": [
+          {
+            "start": 11.906060606060606,
+            "end": 18.16060606060606
+          }
+        ]
+      },
+      {
+        "text": "The ACL2 representation uses a dotted pair.",
+        "start": 18.683333333333334,
+        "end": 22.077272727272728,
+        "phrases": [
+          {
+            "start": 18.683333333333334,
+            "end": 22.077272727272728
+          }
+        ]
+      },
+      {
+        "text": "The first entry is the real coordinate, and the second is the imaginary coordinate.",
+        "start": 22.6,
+        "end": 27.64242424242424,
+        "phrases": [
+          {
+            "start": 22.6,
+            "end": 27.64242424242424
+          }
+        ]
+      },
+      {
+        "text": "The complex-point predicate checks that both entries are rational.",
+        "start": 28.165151515151514,
+        "end": 31.959090909090907,
+        "phrases": [
+          {
+            "start": 28.165151515151514,
+            "end": 31.959090909090907
+          }
+        ]
+      },
+      {
+        "text": "A pair of numbers is a representation, not a declaration of its meaning.",
+        "start": 32.481818181818184,
+        "end": 37.20909090909091,
+        "phrases": [
+          {
+            "start": 32.481818181818184,
+            "end": 37.20909090909091
+          }
+        ]
+      },
+      {
+        "text": "In Part Two a pair represented interval endpoints; here it represents coordinates.",
+        "start": 37.731818181818184,
+        "end": 42.519696969696966,
+        "phrases": [
+          {
+            "start": 37.731818181818184,
+            "end": 42.519696969696966
+          }
+        ]
+      },
+      {
+        "text": "We keep those two uses distinct.",
+        "start": 43.04242424242424,
+        "end": 45.054545454545455,
+        "phrases": [
+          {
+            "start": 43.04242424242424,
+            "end": 45.054545454545455
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "linear",
+    "chapter": "Add and scale the two coordinates",
+    "start": 97.56666666666614,
+    "audio_start": 97.76666666666614,
+    "duration": 41.22325,
+    "sentences": [
+      {
+        "text": "Complex addition adds corresponding coordinates.",
+        "start": 0,
+        "end": 2.981818181818182,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.981818181818182
+          }
+        ]
+      },
+      {
+        "text": "Scaling by a real rational number multiplies both coordinates by that number.",
+        "start": 3.5045454545454544,
+        "end": 8.328787878787878,
+        "phrases": [
+          {
+            "start": 3.5045454545454544,
+            "end": 8.328787878787878
+          }
+        ]
+      },
+      {
+        "text": "Subtraction subtracts corresponding coordinates and will let us describe the difference between two computed points.",
+        "start": 8.851515151515152,
+        "end": 15.384848484848485,
+        "phrases": [
+          {
+            "start": 8.851515151515152,
+            "end": 15.384848484848485
+          }
+        ]
+      },
+      {
+        "text": "These three definitions are short enough to see together.",
+        "start": 15.907575757575758,
+        "end": 19.168181818181818,
+        "phrases": [
+          {
+            "start": 15.907575757575758,
+            "end": 19.168181818181818
+          }
+        ]
+      },
+      {
+        "text": "The arithmetic stays rational at every step.",
+        "start": 19.69090909090909,
+        "end": 22.55151515151515,
+        "phrases": [
+          {
+            "start": 19.69090909090909,
+            "end": 22.55151515151515
+          }
+        ]
+      },
+      {
+        "text": "Geometrically, adding a point means adding its displacement vector.",
+        "start": 23.074242424242424,
+        "end": 26.989393939393942,
+        "phrases": [
+          {
+            "start": 23.074242424242424,
+            "end": 26.989393939393942
+          }
+        ]
+      },
+      {
+        "text": "Scaling by a positive number changes the length, and scaling by a negative number also reverses the direction.",
+        "start": 27.512121212121215,
+        "end": 33.9,
+        "phrases": [
+          {
+            "start": 27.512121212121215,
+            "end": 33.9
+          }
+        ]
+      },
+      {
+        "text": "These are the operations that will add samples and multiply a phase by a real signal times a real weight.",
+        "start": 34.42272727272727,
+        "end": 40.72575757575758,
+        "phrases": [
+          {
+            "start": 34.42272727272727,
+            "end": 40.72575757575758
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "multiplication",
+    "chapter": "Multiplication can rotate a point",
+    "start": 140.43333333333229,
+    "audio_start": 140.63333333333227,
+    "duration": 45.637167,
+    "sentences": [
+      {
+        "text": "Complex multiplication uses the rule that i squared is minus one.",
+        "start": 0,
+        "end": 4.290909090909091,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.290909090909091
+          }
+        ]
+      },
+      {
+        "text": "The real coordinate of the product is the product of the real coordinates minus the product of the imaginary coordinates.",
+        "start": 4.8136363636363635,
+        "end": 11.346969696969698,
+        "phrases": [
+          {
+            "start": 4.8136363636363635,
+            "end": 11.346969696969698
+          }
+        ]
+      },
+      {
+        "text": "The imaginary coordinate contains the two cross products, added together.",
+        "start": 11.869696969696971,
+        "end": 16.257575757575758,
+        "phrases": [
+          {
+            "start": 11.869696969696971,
+            "end": 16.257575757575758
+          }
+        ]
+      },
+      {
+        "text": "The source definition implements exactly that rule.",
+        "start": 16.78030303030303,
+        "end": 19.90757575757576,
+        "phrases": [
+          {
+            "start": 16.78030303030303,
+            "end": 19.90757575757576
+          }
+        ]
+      },
+      {
+        "text": "Multiply three fifths plus four fifths times i by i itself.",
+        "start": 20.43030303030303,
+        "end": 24.454545454545453,
+        "phrases": [
+          {
+            "start": 20.43030303030303,
+            "end": 24.454545454545453
+          }
+        ]
+      },
+      {
+        "text": "The result is minus four fifths plus three fifths times i.",
+        "start": 24.977272727272727,
+        "end": 28.71060606060606,
+        "phrases": [
+          {
+            "start": 24.977272727272727,
+            "end": 28.71060606060606
+          }
+        ]
+      },
+      {
+        "text": "The vector has turned through a quarter of a circle.",
+        "start": 29.23333333333333,
+        "end": 32.02121212121212,
+        "phrases": [
+          {
+            "start": 29.23333333333333,
+            "end": 32.02121212121212
+          }
+        ]
+      },
+      {
+        "text": "Starting from one, four multiplications by i return to one.",
+        "start": 32.54393939393939,
+        "end": 36.337878787878786,
+        "phrases": [
+          {
+            "start": 32.54393939393939,
+            "end": 36.337878787878786
+          }
+        ]
+      },
+      {
+        "text": "Our general power function repeats complex multiplication a finite number of times, with one plus zero times i as its base case.",
+        "start": 36.86060606060606,
+        "end": 45.13939393939394,
+        "phrases": [
+          {
+            "start": 36.86060606060606,
+            "end": 45.13939393939394
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "disks",
+    "chapter": "A disk bound needs no square-root operation",
+    "start": 187.69999999999817,
+    "audio_start": 187.89999999999816,
+    "duration": 46.410667,
+    "sentences": [
+      {
+        "text": "To bound a complex point's distance from zero, use the sum of the squares of its coordinates.",
+        "start": 0,
+        "end": 5.236363636363636,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.236363636363636
+          }
+        ]
+      },
+      {
+        "text": "A point is inside the disk of nonnegative radius r exactly when that sum is at most r squared.",
+        "start": 5.759090909090909,
+        "end": 11.65,
+        "phrases": [
+          {
+            "start": 5.759090909090909,
+            "end": 11.65
+          }
+        ]
+      },
+      {
+        "text": "The ACL2 predicates use this squared comparison, without evaluating a square root.",
+        "start": 12.172727272727272,
+        "end": 17.51818181818182,
+        "phrases": [
+          {
+            "start": 12.172727272727272,
+            "end": 17.51818181818182
+          }
+        ]
+      },
+      {
+        "text": "Three fifths, four fifths lies on the unit circle, because nine twenty-fifths plus sixteen twenty-fifths is one.",
+        "start": 18.04090909090909,
+        "end": 24.453030303030303,
+        "phrases": [
+          {
+            "start": 18.04090909090909,
+            "end": 24.453030303030303
+          }
+        ]
+      },
+      {
+        "text": "The point one, one is outside the unit disk, even though each coordinate separately is at most one.",
+        "start": 24.975757575757573,
+        "end": 30.76969696969697,
+        "phrases": [
+          {
+            "start": 24.975757575757573,
+            "end": 30.76969696969697
+          }
+        ]
+      },
+      {
+        "text": "Separate coordinate bounds and a disk bound are different guarantees.",
+        "start": 31.292424242424243,
+        "end": 35.159090909090914,
+        "phrases": [
+          {
+            "start": 31.292424242424243,
+            "end": 35.159090909090914
+          }
+        ]
+      },
+      {
+        "text": "For an error disk around another point, apply the disk test to their difference.",
+        "start": 35.68181818181818,
+        "end": 40.336363636363636,
+        "phrases": [
+          {
+            "start": 35.68181818181818,
+            "end": 40.336363636363636
+          }
+        ]
+      },
+      {
+        "text": "This gives us an exact rational way to compare rational complex approximations.",
+        "start": 40.85909090909091,
+        "end": 45.913636363636364,
+        "phrases": [
+          {
+            "start": 40.85909090909091,
+            "end": 45.913636363636364
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "phase",
+    "chapter": "A phase specifies a direction",
+    "start": 235.73333333333107,
+    "audio_start": 235.93333333333106,
+    "duration": 44.773542,
+    "sentences": [
+      {
+        "text": "The desired phase is a point on the unit circle.",
+        "start": 0,
+        "end": 2.9454545454545453,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.9454545454545453
+          }
+        ]
+      },
+      {
+        "text": "For an angle t, it is the complex exponential of i times t, whose coordinates are cosine t and sine t.",
+        "start": 3.4681818181818183,
+        "end": 10.559090909090909,
+        "phrases": [
+          {
+            "start": 3.4681818181818183,
+            "end": 10.559090909090909
+          }
+        ]
+      },
+      {
+        "text": "Measure the angle in radians: on the unit circle, the angle is the signed length of the arc from one.",
+        "start": 11.081818181818182,
+        "end": 17.021212121212123,
+        "phrases": [
+          {
+            "start": 11.081818181818182,
+            "end": 17.021212121212123
+          }
+        ]
+      },
+      {
+        "text": "Positive angles move counterclockwise, and negative angles move clockwise.",
+        "start": 17.543939393939393,
+        "end": 22.27121212121212,
+        "phrases": [
+          {
+            "start": 17.543939393939393,
+            "end": 22.27121212121212
+          }
+        ]
+      },
+      {
+        "text": "Every phase has length one.",
+        "start": 22.793939393939393,
+        "end": 24.53939393939394,
+        "phrases": [
+          {
+            "start": 22.793939393939393,
+            "end": 24.53939393939394
+          }
+        ]
+      },
+      {
+        "text": "The target coordinates need not be rational, so we will approximate the direction using rational coordinates.",
+        "start": 25.062121212121212,
+        "end": 31.41363636363636,
+        "phrases": [
+          {
+            "start": 25.062121212121212,
+            "end": 31.41363636363636
+          }
+        ]
+      },
+      {
+        "text": "Our construction will preserve the unit-circle property exactly while controlling the angular approximation through a distance estimate.",
+        "start": 31.936363636363634,
+        "end": 39.56060606060606,
+        "phrases": [
+          {
+            "start": 31.936363636363634,
+            "end": 39.56060606060606
+          }
+        ]
+      },
+      {
+        "text": "Preserving length alone is not enough to identify the desired phase.",
+        "start": 40.083333333333336,
+        "end": 44.277272727272724,
+        "phrases": [
+          {
+            "start": 40.083333333333336,
+            "end": 44.277272727272724
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rotation",
+    "chapter": "An exact rational rotation with an approximate angle",
+    "start": 282.13333333333236,
+    "audio_start": 282.33333333333235,
+    "duration": 58.404042,
+    "sentences": [
+      {
+        "text": "Start with a rational parameter t.",
+        "start": 0,
+        "end": 2.3757575757575755,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.3757575757575755
+          }
+        ]
+      },
+      {
+        "text": "The rotation's coordinates have a common denominator, four plus t squared.",
+        "start": 2.898484848484849,
+        "end": 7.553030303030303,
+        "phrases": [
+          {
+            "start": 2.898484848484849,
+            "end": 7.553030303030303
+          }
+        ]
+      },
+      {
+        "text": "The real numerator is four minus t squared, and the imaginary numerator is four times t.",
+        "start": 8.075757575757576,
+        "end": 14.124242424242425,
+        "phrases": [
+          {
+            "start": 8.075757575757576,
+            "end": 14.124242424242425
+          }
+        ]
+      },
+      {
+        "text": "The denominator is always positive, so there is no zero-division case for a rational input.",
+        "start": 14.646969696969697,
+        "end": 20.48939393939394,
+        "phrases": [
+          {
+            "start": 14.646969696969697,
+            "end": 20.48939393939394
+          }
+        ]
+      },
+      {
+        "text": "Squaring the two numerators and adding gives the square of the denominator.",
+        "start": 21.01212121212121,
+        "end": 25.23030303030303,
+        "phrases": [
+          {
+            "start": 21.01212121212121,
+            "end": 25.23030303030303
+          }
+        ]
+      },
+      {
+        "text": "Therefore this rational point lies exactly on the unit circle.",
+        "start": 25.753030303030304,
+        "end": 29.57121212121212,
+        "phrases": [
+          {
+            "start": 25.753030303030304,
+            "end": 29.57121212121212
+          }
+        ]
+      },
+      {
+        "text": "At parameter one, the point is three fifths, four fifths.",
+        "start": 30.093939393939394,
+        "end": 33.875757575757575,
+        "phrases": [
+          {
+            "start": 30.093939393939394,
+            "end": 33.875757575757575
+          }
+        ]
+      },
+      {
+        "text": "That is not exactly the phase for an angle of one radian.",
+        "start": 34.39848484848485,
+        "end": 37.95,
+        "phrases": [
+          {
+            "start": 34.39848484848485,
+            "end": 37.95
+          }
+        ]
+      },
+      {
+        "text": "The rational parameter gives a convenient nearby rotation; refinement will correct the angle.",
+        "start": 38.472727272727276,
+        "end": 44.07272727272727,
+        "phrases": [
+          {
+            "start": 38.472727272727276,
+            "end": 44.07272727272727
+          }
+        ]
+      },
+      {
+        "text": "The two full source definitions are shown here.",
+        "start": 44.595454545454544,
+        "end": 47.41969696969697,
+        "phrases": [
+          {
+            "start": 44.595454545454544,
+            "end": 47.41969696969697
+          }
+        ]
+      },
+      {
+        "text": "The denominator helper returns the common positive divisor.",
+        "start": 47.94242424242424,
+        "end": 51.74848484848484,
+        "phrases": [
+          {
+            "start": 47.94242424242424,
+            "end": 51.74848484848484
+          }
+        ]
+      },
+      {
+        "text": "The rotation function builds the numerator pair, then scales both entries by its reciprocal.",
+        "start": 52.271212121212116,
+        "end": 57.907575757575756,
+        "phrases": [
+          {
+            "start": 52.271212121212116,
+            "end": 57.907575757575756
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "powers",
+    "chapter": "Keep each small step on the circle",
+    "start": 342.1666666666714,
+    "audio_start": 342.3666666666714,
+    "duration": 45.537708,
+    "sentences": [
+      {
+        "text": "To approximate the phase for a larger angle, split the angle into N equal pieces.",
+        "start": 0,
+        "end": 5.03030303030303,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.03030303030303
+          }
+        ]
+      },
+      {
+        "text": "Use the rational rotation at parameter t divided by N, and multiply that rotation by itself N times.",
+        "start": 5.553030303030303,
+        "end": 12.595454545454546,
+        "phrases": [
+          {
+            "start": 5.553030303030303,
+            "end": 12.595454545454546
+          }
+        ]
+      },
+      {
+        "text": "Each multiplication stays on the unit circle.",
+        "start": 13.118181818181819,
+        "end": 15.978787878787879,
+        "phrases": [
+          {
+            "start": 13.118181818181819,
+            "end": 15.978787878787879
+          }
+        ]
+      },
+      {
+        "text": "The power evaluator is the finite loop we have already introduced.",
+        "start": 16.50151515151515,
+        "end": 20.416666666666664,
+        "phrases": [
+          {
+            "start": 16.50151515151515,
+            "end": 20.416666666666664
+          }
+        ]
+      },
+      {
+        "text": "At angle one with two steps, the small-step rotation is fifteen seventeenths, eight seventeenths.",
+        "start": 20.939393939393938,
+        "end": 27.29090909090909,
+        "phrases": [
+          {
+            "start": 20.939393939393938,
+            "end": 27.29090909090909
+          }
+        ]
+      },
+      {
+        "text": "Squaring it gives the rational point one hundred sixty-one over two hundred eighty-nine, two hundred forty over two hundred eighty-nine.",
+        "start": 27.813636363636363,
+        "end": 35.025757575757574,
+        "phrases": [
+          {
+            "start": 27.813636363636363,
+            "end": 35.025757575757574
+          }
+        ]
+      },
+      {
+        "text": "This is an exact computed point, not a rounded sine or cosine call.",
+        "start": 35.54848484848485,
+        "end": 40.239393939393935,
+        "phrases": [
+          {
+            "start": 35.54848484848485,
+            "end": 40.239393939393935
+          }
+        ]
+      },
+      {
+        "text": "The remaining question is how close its direction is to the target phase.",
+        "start": 40.76212121212121,
+        "end": 45.040909090909096,
+        "phrases": [
+          {
+            "start": 40.76212121212121,
+            "end": 45.040909090909096
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "grid",
+    "chapter": "Refinement approaches the required direction",
+    "start": 389.33333333334275,
+    "audio_start": 389.53333333334274,
+    "duration": 48.293958,
+    "sentences": [
+      {
+        "text": "The phase-grid function packages this repeated small rotation.",
+        "start": 0,
+        "end": 3.7818181818181817,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.7818181818181817
+          }
+        ]
+      },
+      {
+        "text": "Its inputs are a rational angle and a positive natural number of steps.",
+        "start": 4.304545454545455,
+        "end": 8.68030303030303,
+        "phrases": [
+          {
+            "start": 4.304545454545455,
+            "end": 8.68030303030303
+          }
+        ]
+      },
+      {
+        "text": "In the picture, the target is the gold point for one radian.",
+        "start": 9.203030303030303,
+        "end": 13.154545454545454,
+        "phrases": [
+          {
+            "start": 9.203030303030303,
+            "end": 13.154545454545454
+          }
+        ]
+      },
+      {
+        "text": "One step gives the coarser rational direction.",
+        "start": 13.677272727272726,
+        "end": 16.55,
+        "phrases": [
+          {
+            "start": 13.677272727272726,
+            "end": 16.55
+          }
+        ]
+      },
+      {
+        "text": "Two steps move closer\u2026 and further refinement brings the direction closer still.",
+        "start": 17.07272727272727,
+        "end": 22.979545454545455,
+        "phrases": [
+          {
+            "start": 17.07272727272727,
+            "end": 18.806060606060605
+          },
+          {
+            "start": 19.65833333333333,
+            "end": 22.979545454545455
+          }
+        ]
+      },
+      {
+        "text": "The plotted positions are illustrations; the proof uses a distance bound.",
+        "start": 23.502272727272725,
+        "end": 28.278030303030306,
+        "phrases": [
+          {
+            "start": 23.502272727272725,
+            "end": 28.278030303030306
+          }
+        ]
+      },
+      {
+        "text": "Provided the step count is at least the absolute angle, the real interpretation bounds the distance by twice the angle squared divided by the number of steps.",
+        "start": 28.800757575757572,
+        "end": 38.109848484848484,
+        "phrases": [
+          {
+            "start": 28.800757575757572,
+            "end": 38.109848484848484
+          }
+        ]
+      },
+      {
+        "text": "This is a conservative estimate, not the observed distance in the plot.",
+        "start": 38.63257575757576,
+        "end": 42.862878787878785,
+        "phrases": [
+          {
+            "start": 38.63257575757576,
+            "end": 42.862878787878785
+          }
+        ]
+      },
+      {
+        "text": "The exact unit length and the approximation error are two separate facts.",
+        "start": 43.38560606060606,
+        "end": 47.79772727272727,
+        "phrases": [
+          {
+            "start": 43.38560606060606,
+            "end": 47.79772727272727
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "phase_precision",
+    "chapter": "Choose the step count from the error request",
+    "start": 439.2666666666838,
+    "audio_start": 439.4666666666838,
+    "duration": 44.0465,
+    "sentences": [
+      {
+        "text": "We can choose enough steps from the requested positive rational error.",
+        "start": 0,
+        "end": 4.084848484848485,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.084848484848485
+          }
+        ]
+      },
+      {
+        "text": "The construction needs the step count to be positive, to cover the absolute angle, and to make twice the angle squared divided by the step count no larger than the request.",
+        "start": 4.607575757575757,
+        "end": 13.904545454545456,
+        "phrases": [
+          {
+            "start": 4.607575757575757,
+            "end": 13.904545454545456
+          }
+        ]
+      },
+      {
+        "text": "The definition uses the precision fuel introduced earlier, takes the larger requirement, and adds one.",
+        "start": 14.427272727272728,
+        "end": 20.66969696969697,
+        "phrases": [
+          {
+            "start": 14.427272727272728,
+            "end": 20.66969696969697
+          }
+        ]
+      },
+      {
+        "text": "The phase-value wrapper evaluates the phase grid at that computed count.",
+        "start": 21.192424242424245,
+        "end": 25.30151515151515,
+        "phrases": [
+          {
+            "start": 21.192424242424245,
+            "end": 25.30151515151515
+          }
+        ]
+      },
+      {
+        "text": "For angle one and requested distance error one quarter, the step count is nine.",
+        "start": 25.82424242424242,
+        "end": 30.6,
+        "phrases": [
+          {
+            "start": 25.82424242424242,
+            "end": 30.6
+          }
+        ]
+      },
+      {
+        "text": "The conservative bound is then two ninths, which is less than one quarter.",
+        "start": 31.122727272727275,
+        "end": 35.25606060606061,
+        "phrases": [
+          {
+            "start": 31.122727272727275,
+            "end": 35.25606060606061
+          }
+        ]
+      },
+      {
+        "text": "A smaller error request asks for more steps.",
+        "start": 35.77878787878788,
+        "end": 38.85757575757576,
+        "phrases": [
+          {
+            "start": 35.77878787878788,
+            "end": 38.85757575757576
+          }
+        ]
+      },
+      {
+        "text": "No inverse trigonometric operation is needed by this algorithm.",
+        "start": 39.380303030303025,
+        "end": 43.55,
+        "phrases": [
+          {
+            "start": 39.380303030303025,
+            "end": 43.55
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "phase_meaning",
+    "chapter": "Arithmetic consistency and the actual phase",
+    "start": 484.93333333335556,
+    "audio_start": 485.13333333335555,
+    "duration": 49.711458,
+    "sentences": [
+      {
+        "text": "The arithmetic theory proves that the computed phase is a rational point in the unit disk.",
+        "start": 0,
+        "end": 5.163636363636363,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.163636363636363
+          }
+        ]
+      },
+      {
+        "text": "It also controls how two requested precisions compare.",
+        "start": 5.686363636363636,
+        "end": 9.274242424242424,
+        "phrases": [
+          {
+            "start": 5.686363636363636,
+            "end": 9.274242424242424
+          }
+        ]
+      },
+      {
+        "text": "The real interpretation identifies the computed point with an approximation to the actual complex exponential.",
+        "start": 9.796969696969699,
+        "end": 16.548484848484847,
+        "phrases": [
+          {
+            "start": 9.796969696969699,
+            "end": 16.548484848484847
+          }
+        ]
+      },
+      {
+        "text": "Its distance error is at most the positive tolerance supplied to the constructor.",
+        "start": 17.07121212121212,
+        "end": 21.543939393939393,
+        "phrases": [
+          {
+            "start": 17.07121212121212,
+            "end": 21.543939393939393
+          }
+        ]
+      },
+      {
+        "text": "In fact, the rational rotations have exact unit length, and so do their finite powers.",
+        "start": 22.066666666666666,
+        "end": 27.703030303030303,
+        "phrases": [
+          {
+            "start": 22.066666666666666,
+            "end": 27.703030303030303
+          }
+        ]
+      },
+      {
+        "text": "The interpretation proves that length statement too.",
+        "start": 28.225757575757573,
+        "end": 31.328787878787878,
+        "phrases": [
+          {
+            "start": 28.225757575757573,
+            "end": 31.328787878787878
+          }
+        ]
+      },
+      {
+        "text": "These facts serve different purposes.",
+        "start": 31.85151515151515,
+        "end": 34.2030303030303,
+        "phrases": [
+          {
+            "start": 31.85151515151515,
+            "end": 34.2030303030303
+          }
+        ]
+      },
+      {
+        "text": "The unit bound keeps later multiplications from enlarging errors unnecessarily.",
+        "start": 34.72575757575758,
+        "end": 39.550000000000004,
+        "phrases": [
+          {
+            "start": 34.72575757575758,
+            "end": 39.550000000000004
+          }
+        ]
+      },
+      {
+        "text": "The distance estimate says that the direction is the right one.",
+        "start": 40.07272727272728,
+        "end": 43.47878787878788,
+        "phrases": [
+          {
+            "start": 40.07272727272728,
+            "end": 43.47878787878788
+          }
+        ]
+      },
+      {
+        "text": "The complex target is connected by a theorem, rather than being assumed from the picture.",
+        "start": 44.00151515151515,
+        "end": 49.21363636363636,
+        "phrases": [
+          {
+            "start": 44.00151515151515,
+            "end": 49.21363636363636
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "height",
+    "chapter": "The Mellin phase uses the negative angle",
+    "start": 536.2666666666887,
+    "audio_start": 536.4666666666888,
+    "duration": 45.0535,
+    "sentences": [
+      {
+        "text": "In a Mellin reading, the phase depends on the sample address as well as the transform's height.",
+        "start": 0,
+        "end": 5.551515151515152,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.551515151515152
+          }
+        ]
+      },
+      {
+        "text": "Call that height H.",
+        "start": 6.074242424242424,
+        "end": 7.528787878787879,
+        "phrases": [
+          {
+            "start": 6.074242424242424,
+            "end": 7.528787878787879
+          }
+        ]
+      },
+      {
+        "text": "At logarithmic address u, the required angle is minus H times u.",
+        "start": 8.051515151515153,
+        "end": 12.960606060606061,
+        "phrases": [
+          {
+            "start": 8.051515151515153,
+            "end": 12.960606060606061
+          }
+        ]
+      },
+      {
+        "text": "For positive H, increasing u therefore moves the phase clockwise.",
+        "start": 13.483333333333334,
+        "end": 17.62878787878788,
+        "phrases": [
+          {
+            "start": 13.483333333333334,
+            "end": 17.62878787878788
+          }
+        ]
+      },
+      {
+        "text": "This is the factor that distinguishes an oscillating reading from the plain real reading.",
+        "start": 18.151515151515152,
+        "end": 22.975757575757576,
+        "phrases": [
+          {
+            "start": 18.151515151515152,
+            "end": 22.975757575757576
+          }
+        ]
+      },
+      {
+        "text": "If the height is zero, the phase is one at every address.",
+        "start": 23.49848484848485,
+        "end": 26.89242424242424,
+        "phrases": [
+          {
+            "start": 23.49848484848485,
+            "end": 26.89242424242424
+          }
+        ]
+      },
+      {
+        "text": "The scalar kernel still supplies the exponential damping and the factorial-normalized weight.",
+        "start": 27.415151515151514,
+        "end": 32.906060606060606,
+        "phrases": [
+          {
+            "start": 27.415151515151514,
+            "end": 32.906060606060606
+          }
+        ]
+      },
+      {
+        "text": "The phase changes the direction of each contribution, while the real signal and weight determine its signed scale.",
+        "start": 33.42878787878788,
+        "end": 40.02272727272727,
+        "phrases": [
+          {
+            "start": 33.42878787878788,
+            "end": 40.02272727272727
+          }
+        ]
+      },
+      {
+        "text": "Keeping the minus sign correct matters when we later interpret the sum.",
+        "start": 40.54545454545455,
+        "end": 44.55757575757576,
+        "phrases": [
+          {
+            "start": 40.54545454545455,
+            "end": 44.55757575757576
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "signal",
+    "chapter": "Enclose the signal at its exponential address",
+    "start": 582.9666666666822,
+    "audio_start": 583.1666666666822,
+    "duration": 58.36425,
+    "sentences": [
+      {
+        "text": "The signal in this coordinate system is G_z evaluated at the exponential of u.",
+        "start": 0,
+        "end": 5.248484848484849,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.248484848484849
+          }
+        ]
+      },
+      {
+        "text": "Usually that address is not a rational number.",
+        "start": 5.7712121212121215,
+        "end": 8.656060606060606,
+        "phrases": [
+          {
+            "start": 5.7712121212121215,
+            "end": 8.656060606060606
+          }
+        ]
+      },
+      {
+        "text": "We therefore cannot simply insert a rounded address into the signal evaluator and reuse the same tolerance.",
+        "start": 9.17878787878788,
+        "end": 15.42121212121212,
+        "phrases": [
+          {
+            "start": 9.17878787878788,
+            "end": 15.42121212121212
+          }
+        ]
+      },
+      {
+        "text": "The project computes a rational address close to the exponential address, and pays for transport with a variation bound.",
+        "start": 15.943939393939393,
+        "end": 23.046969696969697,
+        "phrases": [
+          {
+            "start": 15.943939393939393,
+            "end": 23.046969696969697
+          }
+        ]
+      },
+      {
+        "text": "The first source card chooses a coarse address cap, a transport factor, and a small address allowance.",
+        "start": 23.56969696969697,
+        "end": 30.272727272727273,
+        "phrases": [
+          {
+            "start": 23.56969696969697,
+            "end": 30.272727272727273
+          }
+        ]
+      },
+      {
+        "text": "The next card constructs the rational point near the exponential address.",
+        "start": 30.795454545454547,
+        "end": 35.00151515151515,
+        "phrases": [
+          {
+            "start": 30.795454545454547,
+            "end": 35.00151515151515
+          }
+        ]
+      },
+      {
+        "text": "The final card evaluates the signal there and widens its interval by the transport margin.",
+        "start": 35.52424242424242,
+        "end": 40.942424242424245,
+        "phrases": [
+          {
+            "start": 35.52424242424242,
+            "end": 40.942424242424245
+          }
+        ]
+      },
+      {
+        "text": "The zero ceiling coefficient selects G_z itself.",
+        "start": 41.46515151515152,
+        "end": 45.15,
+        "phrases": [
+          {
+            "start": 41.46515151515152,
+            "end": 45.15
+          }
+        ]
+      },
+      {
+        "text": "This is a composition of earlier ingredients, with the address error included.",
+        "start": 45.67272727272727,
+        "end": 50.18181818181818,
+        "phrases": [
+          {
+            "start": 45.67272727272727,
+            "end": 50.18181818181818
+          }
+        ]
+      },
+      {
+        "text": "The existing real interpretation proves that the resulting interval contains the signal at the intended exponential address.",
+        "start": 50.70454545454545,
+        "end": 57.86818181818182,
+        "phrases": [
+          {
+            "start": 50.70454545454545,
+            "end": 57.86818181818182
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "caps",
+    "chapter": "Choose coarse caps before the final precision",
+    "start": 642.966666666675,
+    "audio_start": 643.166666666675,
+    "duration": 47.284958,
+    "sentences": [
+      {
+        "text": "The sample is a product of three approximations.",
+        "start": 0,
+        "end": 3.0909090909090913,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.0909090909090913
+          }
+        ]
+      },
+      {
+        "text": "Before choosing their fine precisions, we need magnitude caps that control how multiplication can enlarge an error.",
+        "start": 3.6136363636363638,
+        "end": 10.401515151515152,
+        "phrases": [
+          {
+            "start": 3.6136363636363638,
+            "end": 10.401515151515152
+          }
+        ]
+      },
+      {
+        "text": "Call the signal cap M and the weight cap K.",
+        "start": 10.924242424242424,
+        "end": 13.615151515151515,
+        "phrases": [
+          {
+            "start": 10.924242424242424,
+            "end": 13.615151515151515
+          }
+        ]
+      },
+      {
+        "text": "The code calls the kernel order index; this cap K is a different quantity.",
+        "start": 14.137878787878787,
+        "end": 18.853030303030305,
+        "phrases": [
+          {
+            "start": 14.137878787878787,
+            "end": 18.853030303030305
+          }
+        ]
+      },
+      {
+        "text": "The signal cap comes from a coarse signal interval with tolerance one, using the endpoint magnitudes and some slack.",
+        "start": 19.37575757575758,
+        "end": 26.2,
+        "phrases": [
+          {
+            "start": 19.37575757575758,
+            "end": 26.2
+          }
+        ]
+      },
+      {
+        "text": "The weight cap comes from a coarse kernel upper endpoint with additional slack.",
+        "start": 26.72272727272727,
+        "end": 30.98939393939394,
+        "phrases": [
+          {
+            "start": 26.72272727272727,
+            "end": 30.98939393939394
+          }
+        ]
+      },
+      {
+        "text": "Both are computed before the final precision request is used.",
+        "start": 31.51212121212121,
+        "end": 35.196969696969695,
+        "phrases": [
+          {
+            "start": 31.51212121212121,
+            "end": 35.196969696969695
+          }
+        ]
+      },
+      {
+        "text": "That order prevents a circular definition where the precision depends on a cap that itself depends on the same precision.",
+        "start": 35.71969696969697,
+        "end": 42.36212121212121,
+        "phrases": [
+          {
+            "start": 35.71969696969697,
+            "end": 42.36212121212121
+          }
+        ]
+      },
+      {
+        "text": "These are conservative caps; they do not need to be close estimates.",
+        "start": 42.88484848484848,
+        "end": 46.78787878787879,
+        "phrases": [
+          {
+            "start": 42.88484848484848,
+            "end": 46.78787878787879
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "product",
+    "chapter": "Separate the three product errors",
+    "start": 691.9000000000017,
+    "audio_start": 692.1000000000017,
+    "duration": 45.359917,
+    "sentences": [
+      {
+        "text": "Now compare an intended sample with its computed approximation.",
+        "start": 0,
+        "end": 4.048484848484849,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.048484848484849
+          }
+        ]
+      },
+      {
+        "text": "One difference comes from the signal, one from the weight, and one from the phase.",
+        "start": 4.571212121212121,
+        "end": 9.116666666666665,
+        "phrases": [
+          {
+            "start": 4.571212121212121,
+            "end": 9.116666666666665
+          }
+        ]
+      },
+      {
+        "text": "Add and subtract intermediate products so that only one factor changes at each step.",
+        "start": 9.639393939393939,
+        "end": 14.73030303030303,
+        "phrases": [
+          {
+            "start": 9.639393939393939,
+            "end": 14.73030303030303
+          }
+        ]
+      },
+      {
+        "text": "The triangle inequality bounds the whole difference by the sum of these three contributions.",
+        "start": 15.253030303030302,
+        "end": 20.38030303030303,
+        "phrases": [
+          {
+            "start": 15.253030303030302,
+            "end": 20.38030303030303
+          }
+        ]
+      },
+      {
+        "text": "A signal error is amplified by the weight cap.",
+        "start": 20.903030303030302,
+        "end": 23.727272727272727,
+        "phrases": [
+          {
+            "start": 20.903030303030302,
+            "end": 23.727272727272727
+          }
+        ]
+      },
+      {
+        "text": "A weight error is amplified by the signal cap.",
+        "start": 24.25,
+        "end": 27.195454545454545,
+        "phrases": [
+          {
+            "start": 24.25,
+            "end": 27.195454545454545
+          }
+        ]
+      },
+      {
+        "text": "A phase error is amplified by the product of both caps.",
+        "start": 27.71818181818182,
+        "end": 31.415151515151514,
+        "phrases": [
+          {
+            "start": 27.71818181818182,
+            "end": 31.415151515151514
+          }
+        ]
+      },
+      {
+        "text": "The phase's unit bound keeps it from adding another magnitude factor.",
+        "start": 31.937878787878788,
+        "end": 36.01060606060606,
+        "phrases": [
+          {
+            "start": 31.937878787878788,
+            "end": 36.01060606060606
+          }
+        ]
+      },
+      {
+        "text": "This explains the budget formula on screen.",
+        "start": 36.53333333333333,
+        "end": 39.2969696969697,
+        "phrases": [
+          {
+            "start": 36.53333333333333,
+            "end": 39.2969696969697
+          }
+        ]
+      },
+      {
+        "text": "The three primitive errors cannot simply be added without their amplification factors.",
+        "start": 39.81969696969697,
+        "end": 44.86212121212122,
+        "phrases": [
+          {
+            "start": 39.81969696969697,
+            "end": 44.86212121212122
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "budget",
+    "chapter": "Allocate enough precision to each factor",
+    "start": 738.8999999999932,
+    "audio_start": 739.0999999999932,
+    "duration": 60.885,
+    "sentences": [
+      {
+        "text": "The project uses the same pattern for each contribution: divide the sample error request by three times one plus the relevant amplification factor.",
+        "start": 0,
+        "end": 9.054545454545455,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 9.054545454545455
+          }
+        ]
+      },
+      {
+        "text": "Multiplying back by that factor consumes at most one third of the sample budget.",
+        "start": 9.577272727272728,
+        "end": 14.401515151515152,
+        "phrases": [
+          {
+            "start": 9.577272727272728,
+            "end": 14.401515151515152
+          }
+        ]
+      },
+      {
+        "text": "The signal tolerance uses the weight cap\u2026 the weight tolerance uses the signal cap\u2026 and the phase tolerance uses their product.",
+        "start": 14.924242424242424,
+        "end": 24.18030303030303,
+        "phrases": [
+          {
+            "start": 14.924242424242424,
+            "end": 17.421212121212122
+          },
+          {
+            "start": 18.27348484848485,
+            "end": 20.78257575757576
+          },
+          {
+            "start": 21.634848484848487,
+            "end": 24.18030303030303
+          }
+        ]
+      },
+      {
+        "text": "The signal tolerance is also capped at one to keep its coarse-cap argument applicable.",
+        "start": 24.703030303030303,
+        "end": 29.721212121212123,
+        "phrases": [
+          {
+            "start": 24.703030303030303,
+            "end": 29.721212121212123
+          }
+        ]
+      },
+      {
+        "text": "For an illustrative signal cap of two, weight cap of three, and sample budget of one tenth, the tolerances are one one-hundred-twentieth\u2026 one ninetieth\u2026 and one two-hundred-tenth.",
+        "start": 30.243939393939396,
+        "end": 42.978787878787884,
+        "phrases": [
+          {
+            "start": 30.243939393939396,
+            "end": 38.48636363636364
+          },
+          {
+            "start": 39.33863636363637,
+            "end": 40.45378787878788
+          },
+          {
+            "start": 41.306060606060605,
+            "end": 42.978787878787884
+          }
+        ]
+      },
+      {
+        "text": "The amplified contributions add up to less than a tenth.",
+        "start": 43.50151515151516,
+        "end": 46.93181818181818,
+        "phrases": [
+          {
+            "start": 43.50151515151516,
+            "end": 46.93181818181818
+          }
+        ]
+      },
+      {
+        "text": "These example caps are illustrative values, not a claim about a particular address.",
+        "start": 47.45454545454545,
+        "end": 52.81212121212121,
+        "phrases": [
+          {
+            "start": 47.45454545454545,
+            "end": 52.81212121212121
+          }
+        ]
+      },
+      {
+        "text": "The general arithmetic theorem proves the budget allocation for all nonnegative rational caps and positive requests.",
+        "start": 53.334848484848486,
+        "end": 60.38939393939393,
+        "phrases": [
+          {
+            "start": 53.334848484848486,
+            "end": 60.38939393939393
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "components",
+    "chapter": "Construct the three computed components",
+    "start": 801.4333333333177,
+    "audio_start": 801.6333333333178,
+    "duration": 43.149667,
+    "sentences": [
+      {
+        "text": "With the tolerances chosen, the source builds each component.",
+        "start": 0,
+        "end": 3.6848484848484846,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.6848484848484846
+          }
+        ]
+      },
+      {
+        "text": "The signal is the lower endpoint of its fine signal interval.",
+        "start": 4.207575757575757,
+        "end": 7.71060606060606,
+        "phrases": [
+          {
+            "start": 4.207575757575757,
+            "end": 7.71060606060606
+          }
+        ]
+      },
+      {
+        "text": "Its distance from the represented real value is bounded by the full interval width.",
+        "start": 8.233333333333333,
+        "end": 13.057575757575757,
+        "phrases": [
+          {
+            "start": 8.233333333333333,
+            "end": 13.057575757575757
+          }
+        ]
+      },
+      {
+        "text": "The weight is likewise the lower endpoint of its fine nonnegative kernel interval.",
+        "start": 13.58030303030303,
+        "end": 17.907575757575756,
+        "phrases": [
+          {
+            "start": 13.58030303030303,
+            "end": 17.907575757575756
+          }
+        ]
+      },
+      {
+        "text": "The phase is the rational phase constructor at angle minus the height times the address, using its own tolerance.",
+        "start": 18.43030303030303,
+        "end": 25.157575757575756,
+        "phrases": [
+          {
+            "start": 18.43030303030303,
+            "end": 25.157575757575756
+          }
+        ]
+      },
+      {
+        "text": "Lower endpoints are specific choices of rational approximations; we are not replacing full width by half-width.",
+        "start": 25.68030303030303,
+        "end": 32.662121212121214,
+        "phrases": [
+          {
+            "start": 25.68030303030303,
+            "end": 32.662121212121214
+          }
+        ]
+      },
+      {
+        "text": "The source definitions make those choices explicit.",
+        "start": 33.18484848484848,
+        "end": 36.34848484848485,
+        "phrases": [
+          {
+            "start": 33.18484848484848,
+            "end": 36.34848484848485
+          }
+        ]
+      },
+      {
+        "text": "The fine values stay within the coarse caps, by the proved interval compatibility and width bounds.",
+        "start": 36.87121212121212,
+        "end": 42.653030303030306,
+        "phrases": [
+          {
+            "start": 36.87121212121212,
+            "end": 42.653030303030306
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sample",
+    "chapter": "The actual sample constructor",
+    "start": 846.1999999999791,
+    "audio_start": 846.3999999999792,
+    "duration": 48.252167,
+    "sentences": [
+      {
+        "text": "Here is the actual sample definition.",
+        "start": 0,
+        "end": 2.5090909090909093,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.5090909090909093
+          }
+        ]
+      },
+      {
+        "text": "Multiply the computed real signal by the computed real weight, then scale the computed complex phase by that rational product.",
+        "start": 3.031818181818182,
+        "end": 10.825757575757576,
+        "phrases": [
+          {
+            "start": 3.031818181818182,
+            "end": 10.825757575757576
+          }
+        ]
+      },
+      {
+        "text": "The result is one rational complex point.",
+        "start": 11.348484848484848,
+        "end": 14.112121212121211,
+        "phrases": [
+          {
+            "start": 11.348484848484848,
+            "end": 14.112121212121211
+          }
+        ]
+      },
+      {
+        "text": "To see the sign clearly, use illustrative component values: signal minus two, weight one half, and phase three fifths, minus four fifths.",
+        "start": 14.634848484848483,
+        "end": 23.325757575757578,
+        "phrases": [
+          {
+            "start": 14.634848484848483,
+            "end": 23.325757575757578
+          }
+        ]
+      },
+      {
+        "text": "The real multiplier is minus one, so the resulting point is minus three fifths, four fifths.",
+        "start": 23.84848484848485,
+        "end": 29.78787878787879,
+        "phrases": [
+          {
+            "start": 23.84848484848485,
+            "end": 29.78787878787879
+          }
+        ]
+      },
+      {
+        "text": "These numbers illustrate the product; they are not being asserted as the signal at a chosen address.",
+        "start": 30.31060606060606,
+        "end": 36.056060606060605,
+        "phrases": [
+          {
+            "start": 30.31060606060606,
+            "end": 36.056060606060605
+          }
+        ]
+      },
+      {
+        "text": "The actual constructor computes its own components at the allocated precisions.",
+        "start": 36.57878787878788,
+        "end": 41.06363636363637,
+        "phrases": [
+          {
+            "start": 36.57878787878788,
+            "end": 41.06363636363637
+          }
+        ]
+      },
+      {
+        "text": "A negative signal reverses the phase direction, while a nonnegative weight only changes the size.",
+        "start": 41.58636363636363,
+        "end": 47.75606060606061,
+        "phrases": [
+          {
+            "start": 41.58636363636363,
+            "end": 47.75606060606061
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "checks",
+    "chapter": "What the sample checker actually checks",
+    "start": 896.0999999999734,
+    "audio_start": 896.2999999999735,
+    "duration": 55.816958,
+    "sentences": [
+      {
+        "text": "The sample checker records exact rational comparisons needed by the soundness proof.",
+        "start": 0,
+        "end": 5.090909090909092,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.090909090909092
+          }
+        ]
+      },
+      {
+        "text": "The first part checks the magnitude caps and positivity of the three tolerances.",
+        "start": 5.613636363636364,
+        "end": 10.498484848484848,
+        "phrases": [
+          {
+            "start": 5.613636363636364,
+            "end": 10.498484848484848
+          }
+        ]
+      },
+      {
+        "text": "The next part checks interval widths and the bounds on the chosen component values.",
+        "start": 11.02121212121212,
+        "end": 15.736363636363636,
+        "phrases": [
+          {
+            "start": 11.02121212121212,
+            "end": 15.736363636363636
+          }
+        ]
+      },
+      {
+        "text": "The final comparison adds the amplified error allowances and compares them with the requested sample error.",
+        "start": 16.259090909090908,
+        "end": 22.574242424242424,
+        "phrases": [
+          {
+            "start": 16.259090909090908,
+            "end": 22.574242424242424
+          }
+        ]
+      },
+      {
+        "text": "The generic phase theorem already handles every rational phase argument; this checker is not comparing a rational point with a trigonometric oracle.",
+        "start": 23.096969696969698,
+        "end": 31.94545454545454,
+        "phrases": [
+          {
+            "start": 23.096969696969698,
+            "end": 31.94545454545454
+          }
+        ]
+      },
+      {
+        "text": "The project proves that its constructor satisfies these checks whenever the address, damping rate, and cell weight are nonnegative rationals, the height is rational, the order is natural, and the requested error is a positive rational.",
+        "start": 32.46818181818182,
+        "end": 46.10454545454546,
+        "phrases": [
+          {
+            "start": 32.46818181818182,
+            "end": 46.10454545454546
+          }
+        ]
+      },
+      {
+        "text": "The real bridge then turns them into the intended sample's distance bound.",
+        "start": 46.627272727272725,
+        "end": 50.97878787878788,
+        "phrases": [
+          {
+            "start": 46.627272727272725,
+            "end": 50.97878787878788
+          }
+        ]
+      },
+      {
+        "text": "A checker result and its meaning theorem do their jobs together.",
+        "start": 51.50151515151515,
+        "end": 55.31969696969697,
+        "phrases": [
+          {
+            "start": 51.50151515151515,
+            "end": 55.31969696969697
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cells",
+    "chapter": "A finite grid is explicit data",
+    "start": 953.5666666666341,
+    "audio_start": 953.7666666666341,
+    "duration": 43.112542,
+    "sentences": [
+      {
+        "text": "A finite reading needs a list of sample cells.",
+        "start": 0,
+        "end": 2.9939393939393937,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.9939393939393937
+          }
+        ]
+      },
+      {
+        "text": "Each cell stores a nonnegative rational logarithmic address and a nonnegative rational cell weight.",
+        "start": 3.5166666666666666,
+        "end": 9.41969696969697,
+        "phrases": [
+          {
+            "start": 3.5166666666666666,
+            "end": 9.41969696969697
+          }
+        ]
+      },
+      {
+        "text": "The outer object is a finite list, and each cell is a dotted pair inside that list.",
+        "start": 9.942424242424241,
+        "end": 15.154545454545454,
+        "phrases": [
+          {
+            "start": 9.942424242424241,
+            "end": 15.154545454545454
+          }
+        ]
+      },
+      {
+        "text": "The cell predicate checks this representation and domain.",
+        "start": 15.677272727272726,
+        "end": 18.99848484848485,
+        "phrases": [
+          {
+            "start": 15.677272727272726,
+            "end": 18.99848484848485
+          }
+        ]
+      },
+      {
+        "text": "For illustration, take two cells at addresses zero and one half, each with weight one half.",
+        "start": 19.521212121212123,
+        "end": 25.12121212121212,
+        "phrases": [
+          {
+            "start": 19.521212121212123,
+            "end": 25.12121212121212
+          }
+        ]
+      },
+      {
+        "text": "Those are addresses and weights, not the two coordinates of a complex point.",
+        "start": 25.643939393939394,
+        "end": 30.104545454545455,
+        "phrases": [
+          {
+            "start": 25.643939393939394,
+            "end": 30.104545454545455
+          }
+        ]
+      },
+      {
+        "text": "The sample constructor uses the weight of its own cell, so its error allowance already refers to the weighted contribution.",
+        "start": 30.62727272727273,
+        "end": 37.31818181818182,
+        "phrases": [
+          {
+            "start": 30.62727272727273,
+            "end": 37.31818181818182
+          }
+        ]
+      },
+      {
+        "text": "This explicit data structure is what the finite summation function will traverse.",
+        "start": 37.840909090909086,
+        "end": 42.61666666666667,
+        "phrases": [
+          {
+            "start": 37.840909090909086,
+            "end": 42.61666666666667
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "finite_sum",
+    "chapter": "Add the computed complex samples",
+    "start": 998.2999999999607,
+    "audio_start": 998.4999999999608,
+    "duration": 45.017583,
+    "sentences": [
+      {
+        "text": "The raw sum function computes one sample from the first cell, adds it to the sum of the remaining cells, and ends at the zero complex pair.",
+        "start": 0,
+        "end": 7.987878787878788,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 7.987878787878788
+          }
+        ]
+      },
+      {
+        "text": "It is a finite recursion through the supplied list.",
+        "start": 8.510606060606062,
+        "end": 11.274242424242424,
+        "phrases": [
+          {
+            "start": 8.510606060606062,
+            "end": 11.274242424242424
+          }
+        ]
+      },
+      {
+        "text": "Complex addition adds real coordinates and imaginary coordinates separately.",
+        "start": 11.796969696969697,
+        "end": 16.536363636363635,
+        "phrases": [
+          {
+            "start": 11.796969696969697,
+            "end": 16.536363636363635
+          }
+        ]
+      },
+      {
+        "text": "For a small vector illustration, add minus three fifths, four fifths to one fifth, minus one fifth.",
+        "start": 17.05909090909091,
+        "end": 23.143939393939394,
+        "phrases": [
+          {
+            "start": 17.05909090909091,
+            "end": 23.143939393939394
+          }
+        ]
+      },
+      {
+        "text": "The sum is minus two fifths, three fifths.",
+        "start": 23.666666666666668,
+        "end": 26.612121212121213,
+        "phrases": [
+          {
+            "start": 23.666666666666668,
+            "end": 26.612121212121213
+          }
+        ]
+      },
+      {
+        "text": "Those are illustrative contributions, not computed values of the two sample cells shown earlier.",
+        "start": 27.134848484848487,
+        "end": 33.231818181818184,
+        "phrases": [
+          {
+            "start": 27.134848484848487,
+            "end": 33.231818181818184
+          }
+        ]
+      },
+      {
+        "text": "In the real sampler, each contribution is obtained from its address, weight, and the common transform parameters.",
+        "start": 33.75454545454546,
+        "end": 40.38484848484848,
+        "phrases": [
+          {
+            "start": 33.75454545454546,
+            "end": 40.38484848484848
+          }
+        ]
+      },
+      {
+        "text": "The definition shows that actual computation explicitly.",
+        "start": 40.907575757575756,
+        "end": 44.519696969696966,
+        "phrases": [
+          {
+            "start": 40.907575757575756,
+            "end": 44.519696969696966
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sum_budget",
+    "chapter": "Budget the finite sum's evaluation error",
+    "start": 1044.9666666666212,
+    "audio_start": 1045.1666666666213,
+    "duration": 45.722083,
+    "sentences": [
+      {
+        "text": "The sum still needs a total evaluation budget.",
+        "start": 0,
+        "end": 3.151515151515152,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.151515151515152
+          }
+        ]
+      },
+      {
+        "text": "With N cells, the project gives each weighted sample a point-error allowance equal to the sum budget divided by N plus one.",
+        "start": 3.6742424242424243,
+        "end": 11.007575757575758,
+        "phrases": [
+          {
+            "start": 3.6742424242424243,
+            "end": 11.007575757575758
+          }
+        ]
+      },
+      {
+        "text": "The wrapper calls the raw sum with that computed allowance.",
+        "start": 11.53030303030303,
+        "end": 14.827272727272728,
+        "phrases": [
+          {
+            "start": 11.53030303030303,
+            "end": 14.827272727272728
+          }
+        ]
+      },
+      {
+        "text": "For two cells and a sum budget of one tenth, each sample gets one thirtieth.",
+        "start": 15.35,
+        "end": 19.82272727272727,
+        "phrases": [
+          {
+            "start": 15.35,
+            "end": 19.82272727272727
+          }
+        ]
+      },
+      {
+        "text": "Two such distance allowances add up to one fifteenth, which is below one tenth.",
+        "start": 20.345454545454544,
+        "end": 24.963636363636365,
+        "phrases": [
+          {
+            "start": 20.345454545454544,
+            "end": 24.963636363636365
+          }
+        ]
+      },
+      {
+        "text": "This uses the complex triangle inequality.",
+        "start": 25.486363636363638,
+        "end": 28.44393939393939,
+        "phrases": [
+          {
+            "start": 25.486363636363638,
+            "end": 28.44393939393939
+          }
+        ]
+      },
+      {
+        "text": "Cancellation between vectors can make the actual error smaller, but the guarantee does not rely on cancellation.",
+        "start": 28.966666666666665,
+        "end": 35.54848484848485,
+        "phrases": [
+          {
+            "start": 28.966666666666665,
+            "end": 35.54848484848485
+          }
+        ]
+      },
+      {
+        "text": "This budget pays for evaluating the chosen finite grid.",
+        "start": 36.07121212121212,
+        "end": 39.61060606060607,
+        "phrases": [
+          {
+            "start": 36.07121212121212,
+            "end": 39.61060606060607
+          }
+        ]
+      },
+      {
+        "text": "Mesh error and the discarded infinite tail remain separate, just as in Part Six.",
+        "start": 40.13333333333333,
+        "end": 45.224242424242426,
+        "phrases": [
+          {
+            "start": 40.13333333333333,
+            "end": 45.224242424242426
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "one_sided",
+    "chapter": "Return to the one-sided estimate",
+    "start": 1092.3333333332814,
+    "audio_start": 1092.5333333332815,
+    "duration": 40.831958,
+    "sentences": [
+      {
+        "text": "The construction also preserves the ingredients of the one-sided estimate from Part Five.",
+        "start": 0,
+        "end": 5.224242424242425,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.224242424242425
+          }
+        ]
+      },
+      {
+        "text": "The weights are nonnegative, the signal may have either sign, and the phases stay in the unit disk.",
+        "start": 5.746969696969697,
+        "end": 11.165151515151514,
+        "phrases": [
+          {
+            "start": 5.746969696969697,
+            "end": 11.165151515151514
+          }
+        ]
+      },
+      {
+        "text": "The magnitude of the oscillating sum plus the plain real reading can therefore be controlled by positive signal contributions.",
+        "start": 11.68787878787879,
+        "end": 18.912121212121214,
+        "phrases": [
+          {
+            "start": 11.68787878787879,
+            "end": 18.912121212121214
+          }
+        ]
+      },
+      {
+        "text": "The project proves this finite complex inequality using rational disk arithmetic.",
+        "start": 19.434848484848487,
+        "end": 24.55,
+        "phrases": [
+          {
+            "start": 19.434848484848487,
+            "end": 24.55
+          }
+        ]
+      },
+      {
+        "text": "The extra real reading is still there.",
+        "start": 25.072727272727274,
+        "end": 27.484848484848484,
+        "phrases": [
+          {
+            "start": 25.072727272727274,
+            "end": 27.484848484848484
+          }
+        ]
+      },
+      {
+        "text": "We cannot drop it and claim a magnitude bound without another justified estimate.",
+        "start": 28.007575757575758,
+        "end": 32.734848484848484,
+        "phrases": [
+          {
+            "start": 28.007575757575758,
+            "end": 32.734848484848484
+          }
+        ]
+      },
+      {
+        "text": "Building the samples has made the finite quantities concrete; it has not changed the logical form of the one-sided argument.",
+        "start": 33.25757575757576,
+        "end": 40.336363636363636,
+        "phrases": [
+          {
+            "start": 33.25757575757576,
+            "end": 40.336363636363636
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "interpretation",
+    "chapter": "Attach the sum to the intended mathematics",
+    "start": 1134.7999999999433,
+    "audio_start": 1134.9999999999434,
+    "duration": 45.428917,
+    "sentences": [
+      {
+        "text": "The sample interpretation identifies each computed point with the intended weighted complex integrand, up to its requested distance allowance.",
+        "start": 0,
+        "end": 8.50909090909091,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 8.50909090909091
+          }
+        ]
+      },
+      {
+        "text": "The finite-sum interpretation adds those allowances over the supplied cells.",
+        "start": 9.031818181818183,
+        "end": 13.674242424242424,
+        "phrases": [
+          {
+            "start": 9.031818181818183,
+            "end": 13.674242424242424
+          }
+        ]
+      },
+      {
+        "text": "These bridges are proved in the repository's Lean interpretation layer.",
+        "start": 14.196969696969697,
+        "end": 18.487878787878785,
+        "phrases": [
+          {
+            "start": 14.196969696969697,
+            "end": 18.487878787878785
+          }
+        ]
+      },
+      {
+        "text": "The ACL2 development separately proves the rational computations, checks, compatibility, and budget bounds.",
+        "start": 19.01060606060606,
+        "end": 25.85909090909091,
+        "phrases": [
+          {
+            "start": 19.01060606060606,
+            "end": 25.85909090909091
+          }
+        ]
+      },
+      {
+        "text": "This still describes an evaluated finite sum.",
+        "start": 26.381818181818183,
+        "end": 29.472727272727273,
+        "phrases": [
+          {
+            "start": 26.381818181818183,
+            "end": 29.472727272727273
+          }
+        ]
+      },
+      {
+        "text": "Connecting it to an improper moment also needs the mesh and tail arguments.",
+        "start": 29.995454545454546,
+        "end": 34.334848484848486,
+        "phrases": [
+          {
+            "start": 29.995454545454546,
+            "end": 34.334848484848486
+          }
+        ]
+      },
+      {
+        "text": "Connecting that moment to a pole argument needs the analytic identification and the correct geometric data.",
+        "start": 34.85757575757576,
+        "end": 40.99090909090909,
+        "phrases": [
+          {
+            "start": 34.85757575757576,
+            "end": 40.99090909090909
+          }
+        ]
+      },
+      {
+        "text": "Each bridge must stay attached to the quantity it interprets.",
+        "start": 41.51363636363636,
+        "end": 44.93181818181818,
+        "phrases": [
+          {
+            "start": 41.51363636363636,
+            "end": 44.93181818181818
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scope",
+    "chapter": "What this episode has completed",
+    "start": 1181.8666666666038,
+    "audio_start": 1182.0666666666039,
+    "duration": 49.416958,
+    "sentences": [
+      {
+        "text": "We now have an explicit rational phase constructor, an explicit oscillating sample, and an explicit finite sum.",
+        "start": 0,
+        "end": 7.248484848484848,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 7.248484848484848
+          }
+        ]
+      },
+      {
+        "text": "Their precisions are selected by formulas, and their error budgets are theorems.",
+        "start": 7.7712121212121215,
+        "end": 12.365151515151515,
+        "phrases": [
+          {
+            "start": 7.7712121212121215,
+            "end": 12.365151515151515
+          }
+        ]
+      },
+      {
+        "text": "The unit-circle picture is supported by rational arithmetic rather than a built-in trigonometric call.",
+        "start": 12.887878787878787,
+        "end": 18.887878787878787,
+        "phrases": [
+          {
+            "start": 12.887878787878787,
+            "end": 18.887878787878787
+          }
+        ]
+      },
+      {
+        "text": "The real meaning comes from proved interpretation results.",
+        "start": 19.41060606060606,
+        "end": 22.913636363636364,
+        "phrases": [
+          {
+            "start": 19.41060606060606,
+            "end": 22.913636363636364
+          }
+        ]
+      },
+      {
+        "text": "This is another set of concrete components on the route toward Peano Arithmetic.",
+        "start": 23.436363636363634,
+        "end": 27.957575757575757,
+        "phrases": [
+          {
+            "start": 23.436363636363634,
+            "end": 27.957575757575757
+          }
+        ]
+      },
+      {
+        "text": "The full Landau reduction, its general-zero applicability, and the final arithmetic interpretation still have their own composition obligations.",
+        "start": 28.480303030303027,
+        "end": 37.28030303030303,
+        "phrases": [
+          {
+            "start": 28.480303030303027,
+            "end": 37.28030303030303
+          }
+        ]
+      },
+      {
+        "text": "An evaluated sum is not automatically the final coefficient contradiction.",
+        "start": 37.803030303030305,
+        "end": 42.45757575757576,
+        "phrases": [
+          {
+            "start": 37.803030303030305,
+            "end": 42.45757575757576
+          }
+        ]
+      },
+      {
+        "text": "The point of exposing these components is that their contributions and assumptions can be inspected separately.",
+        "start": 42.980303030303034,
+        "end": 48.91969696969697,
+        "phrases": [
+          {
+            "start": 42.980303030303034,
+            "end": 48.91969696969697
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "next",
+    "chapter": "Next: poles, covers and competing coefficients",
+    "start": 1232.9333333332656,
+    "audio_start": 1233.1333333332657,
+    "duration": 40.566583,
+    "sentences": [
+      {
+        "text": "The chain from signal to finite complex reading is now visible.",
+        "start": 0,
+        "end": 3.745454545454545,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.745454545454545
+          }
+        ]
+      },
+      {
+        "text": "The signal interval, the kernel weight, and the phase each bring an explicit error allowance.",
+        "start": 4.268181818181818,
+        "end": 9.734848484848484,
+        "phrases": [
+          {
+            "start": 4.268181818181818,
+            "end": 9.734848484848484
+          }
+        ]
+      },
+      {
+        "text": "Magnitude caps control the product, and a separate allocation controls the sum.",
+        "start": 10.257575757575758,
+        "end": 15.3,
+        "phrases": [
+          {
+            "start": 10.257575757575758,
+            "end": 15.3
+          }
+        ]
+      },
+      {
+        "text": "The remaining analytic and geometric steps have to produce a compatible competing estimate.",
+        "start": 15.822727272727272,
+        "end": 20.937878787878788,
+        "phrases": [
+          {
+            "start": 15.822727272727272,
+            "end": 20.937878787878788
+          }
+        ]
+      },
+      {
+        "text": "Next we will turn to poles, zero covers, and the coefficient comparison.",
+        "start": 21.460606060606057,
+        "end": 25.836363636363636,
+        "phrases": [
+          {
+            "start": 21.460606060606057,
+            "end": 25.836363636363636
+          }
+        ]
+      },
+      {
+        "text": "We will keep the distinction between illustrative geometry, checked finite certificates, and claims about actual zeros.",
+        "start": 26.35909090909091,
+        "end": 33.45,
+        "phrases": [
+          {
+            "start": 26.35909090909091,
+            "end": 33.45
+          }
+        ]
+      },
+      {
+        "text": "That is how the final contradiction can eventually become a concrete arithmetic result with its intended meaning.",
+        "start": 33.972727272727276,
+        "end": 40.06969696969697,
+        "phrases": [
+          {
+            "start": 33.972727272727276,
+            "end": 40.06969696969697
+          }
+        ]
+      }
+    ]
+  }
+]

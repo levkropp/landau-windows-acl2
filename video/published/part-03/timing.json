@@ -1,0 +1,2436 @@
+[
+  {
+    "id": "opening",
+    "chapter": "A finite search, with a reason to succeed",
+    "start": 0.0,
+    "audio_start": 0.2,
+    "duration": 64.964542,
+    "sentences": [
+      {
+        "text": "Part Two ended with a certificate: a justified interval whose lower endpoint is above zero.",
+        "start": 0,
+        "end": 5.551515151515152,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.551515151515152
+          }
+        ]
+      },
+      {
+        "text": "Now we want a program to find such a certificate and tell us where it found it.",
+        "start": 6.074242424242424,
+        "end": 10.559090909090909,
+        "phrases": [
+          {
+            "start": 6.074242424242424,
+            "end": 10.559090909090909
+          }
+        ]
+      },
+      {
+        "text": "That sounds like a loop over some sample points.",
+        "start": 11.081818181818182,
+        "end": 13.881818181818181,
+        "phrases": [
+          {
+            "start": 11.081818181818182,
+            "end": 13.881818181818181
+          }
+        ]
+      },
+      {
+        "text": "But a loop can finish without finding anything.",
+        "start": 14.404545454545454,
+        "end": 17.046969696969697,
+        "phrases": [
+          {
+            "start": 14.404545454545454,
+            "end": 17.046969696969697
+          }
+        ]
+      },
+      {
+        "text": "Our task has three separate parts: construct a finite list of addresses\u2026 inspect their interval bounds\u2026 and prove that an address must be found when the hypotheses hold.",
+        "start": 17.56969696969697,
+        "end": 29.706060606060603,
+        "phrases": [
+          {
+            "start": 17.56969696969697,
+            "end": 22.32121212121212
+          },
+          {
+            "start": 23.116666666666667,
+            "end": 25.056060606060605
+          },
+          {
+            "start": 25.85151515151515,
+            "end": 29.706060606060603
+          }
+        ]
+      },
+      {
+        "text": "We will follow one example all the way through.",
+        "start": 30.228787878787877,
+        "end": 33.07727272727273,
+        "phrases": [
+          {
+            "start": 30.228787878787877,
+            "end": 33.07727272727273
+          }
+        ]
+      },
+      {
+        "text": "A peak sits between grid points, and the program sees only the rational intervals supplied at the grid addresses.",
+        "start": 33.6,
+        "end": 40.42424242424242,
+        "phrases": [
+          {
+            "start": 33.6,
+            "end": 40.42424242424242
+          }
+        ]
+      },
+      {
+        "text": "It will not know the location of the peak by magic.",
+        "start": 40.946969696969695,
+        "end": 43.81969696969696,
+        "phrases": [
+          {
+            "start": 40.946969696969695,
+            "end": 43.81969696969696
+          }
+        ]
+      },
+      {
+        "text": "Instead, a bound on how much the values can fall, together with enough numerical precision, will force at least one interval to pass the test.",
+        "start": 44.34242424242424,
+        "end": 52.57272727272728,
+        "phrases": [
+          {
+            "start": 44.34242424242424,
+            "end": 52.57272727272728
+          }
+        ]
+      },
+      {
+        "text": "This is Part Three of Landau Windows ACL Two: a finite search that must succeed.",
+        "start": 53.095454545454544,
+        "end": 58.47727272727273,
+        "phrases": [
+          {
+            "start": 53.095454545454544,
+            "end": 58.47727272727273
+          }
+        ]
+      },
+      {
+        "text": "As before, the computed objects and the mathematical guarantees will both appear on screen.",
+        "start": 59,
+        "end": 64.46666666666667,
+        "phrases": [
+          {
+            "start": 59,
+            "end": 64.46666666666667
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scan",
+    "chapter": "Inspect the lower endpoints in order",
+    "start": 66.59999999999998,
+    "audio_start": 66.79999999999998,
+    "duration": 60.30925,
+    "sentences": [
+      {
+        "text": "Begin with four sample intervals, in a fixed order.",
+        "start": 0,
+        "end": 3.187878787878788,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.187878787878788
+          }
+        ]
+      },
+      {
+        "text": "The threshold is zero, and the test asks whether a lower endpoint is strictly greater than that threshold.",
+        "start": 3.710606060606061,
+        "end": 9.868181818181817,
+        "phrases": [
+          {
+            "start": 3.710606060606061,
+            "end": 9.868181818181817
+          }
+        ]
+      },
+      {
+        "text": "The first interval runs from minus seven eighths to minus five eighths.",
+        "start": 10.39090909090909,
+        "end": 14.584848484848486,
+        "phrases": [
+          {
+            "start": 10.39090909090909,
+            "end": 14.584848484848486
+          }
+        ]
+      },
+      {
+        "text": "Its lower endpoint fails the test\u2026 so move to the next interval.",
+        "start": 15.107575757575757,
+        "end": 20,
+        "phrases": [
+          {
+            "start": 15.107575757575757,
+            "end": 17.28939393939394
+          },
+          {
+            "start": 18.084848484848486,
+            "end": 20
+          }
+        ]
+      },
+      {
+        "text": "The second lower endpoint, minus three eighths, fails too.",
+        "start": 20.52272727272727,
+        "end": 24.328787878787878,
+        "phrases": [
+          {
+            "start": 20.52272727272727,
+            "end": 24.328787878787878
+          }
+        ]
+      },
+      {
+        "text": "The third interval runs from one eighth to three eighths.",
+        "start": 24.85151515151515,
+        "end": 28.05151515151515,
+        "phrases": [
+          {
+            "start": 24.85151515151515,
+            "end": 28.05151515151515
+          }
+        ]
+      },
+      {
+        "text": "Its lower endpoint is positive\u2026 so this is our first qualifying sample.",
+        "start": 28.574242424242424,
+        "end": 33.93939393939394,
+        "phrases": [
+          {
+            "start": 28.574242424242424,
+            "end": 30.53787878787879
+          },
+          {
+            "start": 31.333333333333336,
+            "end": 33.93939393939394
+          }
+        ]
+      },
+      {
+        "text": "The fourth interval also has a positive lower endpoint, but this scan stops at the first success.",
+        "start": 34.46212121212121,
+        "end": 40.231818181818184,
+        "phrases": [
+          {
+            "start": 34.46212121212121,
+            "end": 40.231818181818184
+          }
+        ]
+      },
+      {
+        "text": "We number the positions from zero.",
+        "start": 40.75454545454545,
+        "end": 42.86363636363636,
+        "phrases": [
+          {
+            "start": 40.75454545454545,
+            "end": 42.86363636363636
+          }
+        ]
+      },
+      {
+        "text": "So the qualifying interval is at index two, even though it is the third interval we inspected.",
+        "start": 43.38636363636363,
+        "end": 49.11969696969697,
+        "phrases": [
+          {
+            "start": 43.38636363636363,
+            "end": 49.11969696969697
+          }
+        ]
+      },
+      {
+        "text": "An index is a position in a list; we will distinguish it from the numerical grid address.",
+        "start": 49.64242424242424,
+        "end": 54.915151515151514,
+        "phrases": [
+          {
+            "start": 49.64242424242424,
+            "end": 54.915151515151514
+          }
+        ]
+      },
+      {
+        "text": "Every comparison in this example is an exact rational comparison.",
+        "start": 55.43787878787879,
+        "end": 59.81363636363637,
+        "phrases": [
+          {
+            "start": 55.43787878787879,
+            "end": 59.81363636363637
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "search_code",
+    "chapter": "Read the actual search definition",
+    "start": 128.5333333333328,
+    "audio_start": 128.73333333333278,
+    "duration": 75.74,
+    "sentences": [
+      {
+        "text": "Here is the actual definition of lw-first-above, from the repository.",
+        "start": 0,
+        "end": 4.824242424242424,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.824242424242424
+          }
+        ]
+      },
+      {
+        "text": "We will read it in two cards, so the complete code stays legible.",
+        "start": 5.346969696969697,
+        "end": 9.31060606060606,
+        "phrases": [
+          {
+            "start": 5.346969696969697,
+            "end": 9.31060606060606
+          }
+        ]
+      },
+      {
+        "text": "The inputs are a threshold and a list of sample intervals.",
+        "start": 9.833333333333334,
+        "end": 13.287878787878787,
+        "phrases": [
+          {
+            "start": 9.833333333333334,
+            "end": 13.287878787878787
+          }
+        ]
+      },
+      {
+        "text": "We are working with proper finite lists, ending in nil.",
+        "start": 13.810606060606062,
+        "end": 17.204545454545457,
+        "phrases": [
+          {
+            "start": 13.810606060606062,
+            "end": 17.204545454545457
+          }
+        ]
+      },
+      {
+        "text": "On these lists, endp detects that there are no samples left; the function then returns nil.",
+        "start": 17.727272727272727,
+        "end": 23.55757575757576,
+        "phrases": [
+          {
+            "start": 17.727272727272727,
+            "end": 23.55757575757576
+          }
+        ]
+      },
+      {
+        "text": "Nil will be our signal that the scan found no qualifying interval.",
+        "start": 24.08030303030303,
+        "end": 28.116666666666667,
+        "phrases": [
+          {
+            "start": 24.08030303030303,
+            "end": 28.116666666666667
+          }
+        ]
+      },
+      {
+        "text": "Otherwise, the composed accessor caar takes the first interval\u2026 and then its lower endpoint.",
+        "start": 28.639393939393937,
+        "end": 35.42272727272727,
+        "phrases": [
+          {
+            "start": 28.639393939393937,
+            "end": 32.85757575757576
+          },
+          {
+            "start": 33.653030303030306,
+            "end": 35.42272727272727
+          }
+        ]
+      },
+      {
+        "text": "The next if compares that endpoint with the threshold.",
+        "start": 35.945454545454545,
+        "end": 38.93939393939394,
+        "phrases": [
+          {
+            "start": 35.945454545454545,
+            "end": 38.93939393939394
+          }
+        ]
+      },
+      {
+        "text": "If it passes, cons returns index zero paired with that first interval.",
+        "start": 39.46212121212121,
+        "end": 43.910606060606064,
+        "phrases": [
+          {
+            "start": 39.46212121212121,
+            "end": 43.910606060606064
+          }
+        ]
+      },
+      {
+        "text": "Now continue the same definition on the second card.",
+        "start": 44.43333333333334,
+        "end": 47.62121212121212,
+        "phrases": [
+          {
+            "start": 44.43333333333334,
+            "end": 47.62121212121212
+          }
+        ]
+      },
+      {
+        "text": "The recursive call scans the remaining list, obtained with cdr.",
+        "start": 48.14393939393939,
+        "end": 51.95,
+        "phrases": [
+          {
+            "start": 48.14393939393939,
+            "end": 51.95
+          }
+        ]
+      },
+      {
+        "text": "Let gives that returned result the temporary name found.",
+        "start": 52.472727272727276,
+        "end": 55.6969696969697,
+        "phrases": [
+          {
+            "start": 52.472727272727276,
+            "end": 55.6969696969697
+          }
+        ]
+      },
+      {
+        "text": "If the recursive call failed, return nil again.",
+        "start": 56.219696969696976,
+        "end": 59.17727272727273,
+        "phrases": [
+          {
+            "start": 56.219696969696976,
+            "end": 59.17727272727273
+          }
+        ]
+      },
+      {
+        "text": "If it succeeded, add one to its index and keep its interval.",
+        "start": 59.7,
+        "end": 63.336363636363636,
+        "phrases": [
+          {
+            "start": 59.7,
+            "end": 63.336363636363636
+          }
+        ]
+      },
+      {
+        "text": "That addition translates an index in the shorter tail back into an index in the original list.",
+        "start": 63.85909090909091,
+        "end": 69.36212121212121,
+        "phrases": [
+          {
+            "start": 63.85909090909091,
+            "end": 69.36212121212121
+          }
+        ]
+      },
+      {
+        "text": "When we fold the cards into the function name, all of that behavior is what the name abbreviates.",
+        "start": 69.88484848484848,
+        "end": 75.24242424242425,
+        "phrases": [
+          {
+            "start": 69.88484848484848,
+            "end": 75.24242424242425
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "result",
+    "chapter": "An index is not a grid address",
+    "start": 205.89999999999893,
+    "audio_start": 206.09999999999891,
+    "duration": 66.60175,
+    "sentences": [
+      {
+        "text": "Unwind the successful call in our example.",
+        "start": 0,
+        "end": 2.7636363636363637,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.7636363636363637
+          }
+        ]
+      },
+      {
+        "text": "In the tail that starts at the qualifying interval, the answer has index zero.",
+        "start": 3.286363636363636,
+        "end": 8.134848484848485,
+        "phrases": [
+          {
+            "start": 3.286363636363636,
+            "end": 8.134848484848485
+          }
+        ]
+      },
+      {
+        "text": "Returning through one earlier interval changes that index to one\u2026 and returning through the next changes it to two.",
+        "start": 8.657575757575758,
+        "end": 15.986363636363636,
+        "phrases": [
+          {
+            "start": 8.657575757575758,
+            "end": 12.415151515151514
+          },
+          {
+            "start": 13.210606060606061,
+            "end": 15.986363636363636
+          }
+        ]
+      },
+      {
+        "text": "The interval itself stays the interval from one eighth to three eighths.",
+        "start": 16.509090909090908,
+        "end": 20.521212121212123,
+        "phrases": [
+          {
+            "start": 16.509090909090908,
+            "end": 20.521212121212123
+          }
+        ]
+      },
+      {
+        "text": "The printed result is a pair: index two, followed by that interval.",
+        "start": 21.043939393939397,
+        "end": 25.419696969696968,
+        "phrases": [
+          {
+            "start": 21.043939393939397,
+            "end": 25.419696969696968
+          }
+        ]
+      },
+      {
+        "text": "Car retrieves the index\u2026 and cdr retrieves the interval.",
+        "start": 25.942424242424245,
+        "end": 30.495454545454542,
+        "phrases": [
+          {
+            "start": 25.942424242424245,
+            "end": 27.74848484848485
+          },
+          {
+            "start": 28.543939393939393,
+            "end": 30.495454545454542
+          }
+        ]
+      },
+      {
+        "text": "Nil means failure, but the number zero does not mean failure in ACL2.",
+        "start": 31.018181818181816,
+        "end": 35.72121212121212,
+        "phrases": [
+          {
+            "start": 31.018181818181816,
+            "end": 35.72121212121212
+          }
+        ]
+      },
+      {
+        "text": "In particular, a result beginning with index zero is still a successful pair.",
+        "start": 36.24393939393939,
+        "end": 41.65,
+        "phrases": [
+          {
+            "start": 36.24393939393939,
+            "end": 41.65
+          }
+        ]
+      },
+      {
+        "text": "Now put the grid addresses beside the samples.",
+        "start": 42.17272727272727,
+        "end": 45.093939393939394,
+        "phrases": [
+          {
+            "start": 42.17272727272727,
+            "end": 45.093939393939394
+          }
+        ]
+      },
+      {
+        "text": "The first three addresses are zero, one eighth, and one quarter.",
+        "start": 45.61666666666666,
+        "end": 49.24090909090909,
+        "phrases": [
+          {
+            "start": 45.61666666666666,
+            "end": 49.24090909090909
+          }
+        ]
+      },
+      {
+        "text": "The ACL2 operation nth uses a zero-based index to select an item.",
+        "start": 49.763636363636365,
+        "end": 54.733333333333334,
+        "phrases": [
+          {
+            "start": 49.763636363636365,
+            "end": 54.733333333333334
+          }
+        ]
+      },
+      {
+        "text": "So index two selects the address one quarter.",
+        "start": 55.2560606060606,
+        "end": 58.153030303030306,
+        "phrases": [
+          {
+            "start": 55.2560606060606,
+            "end": 58.153030303030306
+          }
+        ]
+      },
+      {
+        "text": "The returned index and the address have different jobs: one identifies a position, and the other identifies where we sampled.",
+        "start": 58.67575757575758,
+        "end": 66.10606060606061,
+        "phrases": [
+          {
+            "start": 58.67575757575758,
+            "end": 66.10606060606061
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "soundness",
+    "chapter": "Why a returned certificate is sound",
+    "start": 274.13333333333395,
+    "audio_start": 274.33333333333394,
+    "duration": 74.778125,
+    "sentences": [
+      {
+        "text": "Finding an index is useful only if we can justify what it identifies.",
+        "start": 0,
+        "end": 4.46060606060606,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.46060606060606
+          }
+        ]
+      },
+      {
+        "text": "The repository proves that a successful result has a natural-number index within the sample list.",
+        "start": 4.983333333333333,
+        "end": 10.886363636363637,
+        "phrases": [
+          {
+            "start": 4.983333333333333,
+            "end": 10.886363636363637
+          }
+        ]
+      },
+      {
+        "text": "It also proves that the returned interval is the interval at that index.",
+        "start": 11.409090909090908,
+        "end": 15.603030303030302,
+        "phrases": [
+          {
+            "start": 11.409090909090908,
+            "end": 15.603030303030302
+          }
+        ]
+      },
+      {
+        "text": "Those are statements about the search's bookkeeping.",
+        "start": 16.125757575757575,
+        "end": 18.828787878787878,
+        "phrases": [
+          {
+            "start": 16.125757575757575,
+            "end": 18.828787878787878
+          }
+        ]
+      },
+      {
+        "text": "To relate the interval to a value, we need one more input guarantee.",
+        "start": 19.35151515151515,
+        "end": 23.509090909090908,
+        "phrases": [
+          {
+            "start": 19.35151515151515,
+            "end": 23.509090909090908
+          }
+        ]
+      },
+      {
+        "text": "The function lw-encloses-values pairs each sample interval with its corresponding rational value.",
+        "start": 24.03181818181818,
+        "end": 30.395454545454548,
+        "phrases": [
+          {
+            "start": 24.03181818181818,
+            "end": 30.395454545454548
+          }
+        ]
+      },
+      {
+        "text": "At each position, lw-contains checks the enclosure we defined in Part Two, and the function recurses on the two tails.",
+        "start": 30.918181818181818,
+        "end": 38.32424242424242,
+        "phrases": [
+          {
+            "start": 30.918181818181818,
+            "end": 38.32424242424242
+          }
+        ]
+      },
+      {
+        "text": "When the lists end, their lengths must agree in the sense expressed by the base case.",
+        "start": 38.846969696969694,
+        "end": 43.61060606060606,
+        "phrases": [
+          {
+            "start": 38.846969696969694,
+            "end": 43.61060606060606
+          }
+        ]
+      },
+      {
+        "text": "This guarantee is not supplied by the search itself.",
+        "start": 44.13333333333333,
+        "end": 47.21212121212121,
+        "phrases": [
+          {
+            "start": 44.13333333333333,
+            "end": 47.21212121212121
+          }
+        ]
+      },
+      {
+        "text": "Given those enclosures, a returned lower endpoint above the threshold forces the corresponding value above the threshold.",
+        "start": 47.734848484848484,
+        "end": 54.63181818181818,
+        "phrases": [
+          {
+            "start": 47.734848484848484,
+            "end": 54.63181818181818
+          }
+        ]
+      },
+      {
+        "text": "The theorem lw-first-above-value-gt expresses that implication using nth at the returned index.",
+        "start": 55.154545454545456,
+        "end": 61.77272727272727,
+        "phrases": [
+          {
+            "start": 55.154545454545456,
+            "end": 61.77272727272727
+          }
+        ]
+      },
+      {
+        "text": "A successful computation therefore gives a checkable certificate\u2026 provided the input intervals really enclose the values.",
+        "start": 62.29545454545455,
+        "end": 70.47272727272727,
+        "phrases": [
+          {
+            "start": 62.29545454545455,
+            "end": 66.25909090909092
+          },
+          {
+            "start": 67.05454545454546,
+            "end": 70.47272727272727
+          }
+        ]
+      },
+      {
+        "text": "The eventual application must establish that premise.",
+        "start": 70.99545454545455,
+        "end": 74.28030303030302,
+        "phrases": [
+          {
+            "start": 70.99545454545455,
+            "end": 74.28030303030302
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "termination",
+    "chapter": "Finishing is different from finding",
+    "start": 350.53333333334086,
+    "audio_start": 350.73333333334085,
+    "duration": 61.865458,
+    "sentences": [
+      {
+        "text": "Why does this scan terminate?",
+        "start": 0,
+        "end": 1.7696969696969695,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 1.7696969696969695
+          }
+        ]
+      },
+      {
+        "text": "Every recursive call discards one interval, so the remaining list is shorter.",
+        "start": 2.2924242424242425,
+        "end": 6.959090909090909,
+        "phrases": [
+          {
+            "start": 2.2924242424242425,
+            "end": 6.959090909090909
+          }
+        ]
+      },
+      {
+        "text": "That is a natural-number measure that cannot decrease forever.",
+        "start": 7.4818181818181815,
+        "end": 11.045454545454547,
+        "phrases": [
+          {
+            "start": 7.4818181818181815,
+            "end": 11.045454545454547
+          }
+        ]
+      },
+      {
+        "text": "It is the same finite-descent idea behind the recursive proofs in Part Zero.",
+        "start": 11.568181818181818,
+        "end": 16.174242424242422,
+        "phrases": [
+          {
+            "start": 11.568181818181818,
+            "end": 16.174242424242422
+          }
+        ]
+      },
+      {
+        "text": "But termination alone does not promise a successful result.",
+        "start": 16.696969696969695,
+        "end": 20.28484848484848,
+        "phrases": [
+          {
+            "start": 16.696969696969695,
+            "end": 20.28484848484848
+          }
+        ]
+      },
+      {
+        "text": "Consider a grid containing only the two endpoints of the unit interval.",
+        "start": 20.80757575757576,
+        "end": 24.96515151515152,
+        "phrases": [
+          {
+            "start": 20.80757575757576,
+            "end": 24.96515151515152
+          }
+        ]
+      },
+      {
+        "text": "The function in our illustration has a positive peak between those addresses, while both endpoint values are negative.",
+        "start": 25.48787878787879,
+        "end": 32.36060606060606,
+        "phrases": [
+          {
+            "start": 25.48787878787879,
+            "end": 32.36060606060606
+          }
+        ]
+      },
+      {
+        "text": "Even perfectly justified, narrow intervals at those two endpoints can fail the positivity test.",
+        "start": 32.88333333333333,
+        "end": 39.04090909090909,
+        "phrases": [
+          {
+            "start": 32.88333333333333,
+            "end": 39.04090909090909
+          }
+        ]
+      },
+      {
+        "text": "The scan finishes and returns nil.",
+        "start": 39.56363636363637,
+        "end": 41.92727272727273,
+        "phrases": [
+          {
+            "start": 39.56363636363637,
+            "end": 41.92727272727273
+          }
+        ]
+      },
+      {
+        "text": "This does not contradict the existence of the peak.",
+        "start": 42.45,
+        "end": 45.3590909090909,
+        "phrases": [
+          {
+            "start": 42.45,
+            "end": 45.3590909090909
+          }
+        ]
+      },
+      {
+        "text": "It shows why a complete argument needs control of the gaps between samples\u2026 and control of how far the value can fall across a gap.",
+        "start": 45.881818181818176,
+        "end": 54.71363636363637,
+        "phrases": [
+          {
+            "start": 45.881818181818176,
+            "end": 50.415151515151514
+          },
+          {
+            "start": 51.21060606060606,
+            "end": 54.71363636363637
+          }
+        ]
+      },
+      {
+        "text": "The triangular curve here is our explicit teaching example, not a computed plot of the Landau statistic.",
+        "start": 55.236363636363635,
+        "end": 61.36969696969697,
+        "phrases": [
+          {
+            "start": 55.236363636363635,
+            "end": 61.36969696969697
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "grid_code",
+    "chapter": "Construct a finite rational grid",
+    "start": 414.0333333333486,
+    "audio_start": 414.2333333333486,
+    "duration": 65.92375,
+    "sentences": [
+      {
+        "text": "Let us build the addresses instead of leaving them implicit.",
+        "start": 0,
+        "end": 3.4545454545454546,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.4545454545454546
+          }
+        ]
+      },
+      {
+        "text": "Our teaching constructor takes a count, a starting address, and a step.",
+        "start": 3.977272727272727,
+        "end": 8.086363636363636,
+        "phrases": [
+          {
+            "start": 3.977272727272727,
+            "end": 8.086363636363636
+          }
+        ]
+      },
+      {
+        "text": "If the count is zero, it returns the empty list.",
+        "start": 8.60909090909091,
+        "end": 11.639393939393939,
+        "phrases": [
+          {
+            "start": 8.60909090909091,
+            "end": 11.639393939393939
+          }
+        ]
+      },
+      {
+        "text": "Otherwise it stores the starting address and continues with one fewer point, starting one step farther along.",
+        "start": 12.162121212121212,
+        "end": 18.71969696969697,
+        "phrases": [
+          {
+            "start": 12.162121212121212,
+            "end": 18.71969696969697
+          }
+        ]
+      },
+      {
+        "text": "Here is the complete definition of video-uniform-grid.",
+        "start": 19.242424242424242,
+        "end": 22.66060606060606,
+        "phrases": [
+          {
+            "start": 19.242424242424242,
+            "end": 22.66060606060606
+          }
+        ]
+      },
+      {
+        "text": "For natural counts, this recursion produces exactly that many addresses.",
+        "start": 23.183333333333334,
+        "end": 27.862121212121213,
+        "phrases": [
+          {
+            "start": 23.183333333333334,
+            "end": 27.862121212121213
+          }
+        ]
+      },
+      {
+        "text": "With nine points, starting at zero and using a step of one eighth, the final address is one.",
+        "start": 28.384848484848483,
+        "end": 34.300000000000004,
+        "phrases": [
+          {
+            "start": 28.384848484848483,
+            "end": 34.300000000000004
+          }
+        ]
+      },
+      {
+        "text": "Notice the counting: nine points leave eight gaps.",
+        "start": 34.82272727272727,
+        "end": 37.74393939393939,
+        "phrases": [
+          {
+            "start": 34.82272727272727,
+            "end": 37.74393939393939
+          }
+        ]
+      },
+      {
+        "text": "Each address is rational when the start and step are rational.",
+        "start": 38.266666666666666,
+        "end": 41.95151515151515,
+        "phrases": [
+          {
+            "start": 38.266666666666666,
+            "end": 41.95151515151515
+          }
+        ]
+      },
+      {
+        "text": "We can refine this picture by changing a step of one half\u2026 to one quarter\u2026 and then one eighth, increasing the point count accordingly.",
+        "start": 42.474242424242426,
+        "end": 51.67727272727273,
+        "phrases": [
+          {
+            "start": 42.474242424242426,
+            "end": 45.8560606060606
+          },
+          {
+            "start": 46.651515151515156,
+            "end": 47.66969696969697
+          },
+          {
+            "start": 48.46515151515151,
+            "end": 51.67727272727273
+          }
+        ]
+      },
+      {
+        "text": "This constructor is for the lesson; the project's later window construction has additional endpoint and rounding obligations.",
+        "start": 52.2,
+        "end": 59.54545454545455,
+        "phrases": [
+          {
+            "start": 52.2,
+            "end": 59.54545454545455
+          }
+        ]
+      },
+      {
+        "text": "Nothing about writing a finite loop by itself proves that the resulting grid is fine enough.",
+        "start": 60.06818181818182,
+        "end": 65.42575757575757,
+        "phrases": [
+          {
+            "start": 60.06818181818182,
+            "end": 65.42575757575757
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mesh",
+    "chapter": "State what the grid must guarantee",
+    "start": 481.6000000000239,
+    "audio_start": 481.8000000000239,
+    "duration": 61.288333,
+    "sentences": [
+      {
+        "text": "We need an exact condition on the list of addresses.",
+        "start": 0,
+        "end": 3.1999999999999997,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.1999999999999997
+          }
+        ]
+      },
+      {
+        "text": "The repository calls it lw-meshp.",
+        "start": 3.7227272727272727,
+        "end": 6.753030303030303,
+        "phrases": [
+          {
+            "start": 3.7227272727272727,
+            "end": 6.753030303030303
+          }
+        ]
+      },
+      {
+        "text": "It requires a nonempty list of rational addresses, written in increasing order with equality allowed.",
+        "start": 7.275757575757575,
+        "end": 13.396969696969697,
+        "phrases": [
+          {
+            "start": 7.275757575757575,
+            "end": 13.396969696969697
+          }
+        ]
+      },
+      {
+        "text": "Each consecutive gap must be at most the supplied mesh bound.",
+        "start": 13.919696969696968,
+        "end": 17.677272727272726,
+        "phrases": [
+          {
+            "start": 13.919696969696968,
+            "end": 17.677272727272726
+          }
+        ]
+      },
+      {
+        "text": "The next recursive call checks the same requirements along the rest of the list.",
+        "start": 18.2,
+        "end": 22.636363636363637,
+        "phrases": [
+          {
+            "start": 18.2,
+            "end": 22.636363636363637
+          }
+        ]
+      },
+      {
+        "text": "The final branch checks that the list ends properly.",
+        "start": 23.159090909090907,
+        "end": 26.298484848484847,
+        "phrases": [
+          {
+            "start": 23.159090909090907,
+            "end": 26.298484848484847
+          }
+        ]
+      },
+      {
+        "text": "The complete definition is shown in two cards.",
+        "start": 26.821212121212124,
+        "end": 29.681818181818183,
+        "phrases": [
+          {
+            "start": 26.821212121212124,
+            "end": 29.681818181818183
+          }
+        ]
+      },
+      {
+        "text": "We also need to name the last address, so here is the short definition of lw-last-address.",
+        "start": 30.204545454545453,
+        "end": 36.53181818181819,
+        "phrases": [
+          {
+            "start": 30.204545454545453,
+            "end": 36.53181818181819
+          }
+        ]
+      },
+      {
+        "text": "That function follows the tail until only the final address remains.",
+        "start": 37.05454545454545,
+        "end": 41.28484848484848,
+        "phrases": [
+          {
+            "start": 37.05454545454545,
+            "end": 41.28484848484848
+          }
+        ]
+      },
+      {
+        "text": "The teaching book proves that our uniform constructor satisfies the mesh condition when the count is positive, the start and step are rational, and the step is nonnegative.",
+        "start": 41.807575757575755,
+        "end": 51.63787878787879,
+        "phrases": [
+          {
+            "start": 41.807575757575755,
+            "end": 51.63787878787879
+          }
+        ]
+      },
+      {
+        "text": "This is a general constructor guarantee, not just a check of the nine displayed points.",
+        "start": 52.160606060606064,
+        "end": 57.06969696969697,
+        "phrases": [
+          {
+            "start": 52.160606060606064,
+            "end": 57.06969696969697
+          }
+        ]
+      },
+      {
+        "text": "For the worked example, the mesh bound is one eighth.",
+        "start": 57.592424242424244,
+        "end": 60.79242424242424,
+        "phrases": [
+          {
+            "start": 57.592424242424244,
+            "end": 60.79242424242424
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coverage",
+    "chapter": "A point inside the span has a nearby sample",
+    "start": 544.5333333333565,
+    "audio_start": 544.7333333333565,
+    "duration": 67.823583,
+    "sentences": [
+      {
+        "text": "What does the mesh condition buy us?",
+        "start": 0,
+        "end": 2.278787878787879,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.278787878787879
+          }
+        ]
+      },
+      {
+        "text": "Take any rational point between the first and last addresses.",
+        "start": 2.8015151515151513,
+        "end": 6.534848484848485,
+        "phrases": [
+          {
+            "start": 2.8015151515151513,
+            "end": 6.534848484848485
+          }
+        ]
+      },
+      {
+        "text": "If it is itself a grid address, the distance to a sample can be zero.",
+        "start": 7.057575757575758,
+        "end": 11.833333333333334,
+        "phrases": [
+          {
+            "start": 7.057575757575758,
+            "end": 11.833333333333334
+          }
+        ]
+      },
+      {
+        "text": "If it lies inside a gap, that gap is at most the mesh bound.",
+        "start": 12.356060606060606,
+        "end": 16.44090909090909,
+        "phrases": [
+          {
+            "start": 12.356060606060606,
+            "end": 16.44090909090909
+          }
+        ]
+      },
+      {
+        "text": "So at least one of its bordering addresses is within that bound.",
+        "start": 16.963636363636365,
+        "end": 20.672727272727272,
+        "phrases": [
+          {
+            "start": 16.963636363636365,
+            "end": 20.672727272727272
+          }
+        ]
+      },
+      {
+        "text": "We only need this conservative distance bound; we are not claiming the smallest possible distance.",
+        "start": 21.195454545454545,
+        "end": 27.256060606060604,
+        "phrases": [
+          {
+            "start": 21.195454545454545,
+            "end": 27.256060606060604
+          }
+        ]
+      },
+      {
+        "text": "The predicate lw-some-nearby records that at least one listed address has distance at most the mesh bound from the point.",
+        "start": 27.77878787878788,
+        "end": 34.845454545454544,
+        "phrases": [
+          {
+            "start": 27.77878787878788,
+            "end": 34.845454545454544
+          }
+        ]
+      },
+      {
+        "text": "Abs means absolute value, the distance from zero, so absolute address minus point measures their separation.",
+        "start": 35.36818181818182,
+        "end": 42.82272727272727,
+        "phrases": [
+          {
+            "start": 35.36818181818182,
+            "end": 42.82272727272727
+          }
+        ]
+      },
+      {
+        "text": "The theorem lw-mesh-covers-point combines the sorted-gap condition with the requirement that the point lies inside the grid's span.",
+        "start": 43.345454545454544,
+        "end": 50.98181818181818,
+        "phrases": [
+          {
+            "start": 43.345454545454544,
+            "end": 50.98181818181818
+          }
+        ]
+      },
+      {
+        "text": "In our example, the peak is at seven sixteenths, between three eighths and one half.",
+        "start": 51.50454545454545,
+        "end": 56.74090909090909,
+        "phrases": [
+          {
+            "start": 51.50454545454545,
+            "end": 56.74090909090909
+          }
+        ]
+      },
+      {
+        "text": "Either of those neighboring addresses is close enough.",
+        "start": 57.263636363636365,
+        "end": 60.2939393939394,
+        "phrases": [
+          {
+            "start": 57.263636363636365,
+            "end": 60.2939393939394
+          }
+        ]
+      },
+      {
+        "text": "This geometric guarantee still says nothing about the sampled values until we add a bound on their possible drop.",
+        "start": 60.81666666666667,
+        "end": 67.32575757575758,
+        "phrases": [
+          {
+            "start": 60.81666666666667,
+            "end": 67.32575757575758
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "drop_bound",
+    "chapter": "How much can a nearby value fall?",
+    "start": 614.0000000000124,
+    "audio_start": 614.2000000000124,
+    "duration": 74.189125,
+    "sentences": [
+      {
+        "text": "Now supply that bound.",
+        "start": 0,
+        "end": 1.6606060606060606,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 1.6606060606060606
+          }
+        ]
+      },
+      {
+        "text": "Suppose the peak value is one, and the value can fall by at most four times the distance moved away from the peak.",
+        "start": 2.183333333333333,
+        "end": 8.704545454545455,
+        "phrases": [
+          {
+            "start": 2.183333333333333,
+            "end": 8.704545454545455
+          }
+        ]
+      },
+      {
+        "text": "Four is the rate bound in our example.",
+        "start": 9.227272727272727,
+        "end": 11.675757575757576,
+        "phrases": [
+          {
+            "start": 9.227272727272727,
+            "end": 11.675757575757576
+          }
+        ]
+      },
+      {
+        "text": "A move of one eighth can therefore lose at most one half.",
+        "start": 12.19848484848485,
+        "end": 15.568181818181817,
+        "phrases": [
+          {
+            "start": 12.19848484848485,
+            "end": 15.568181818181817
+          }
+        ]
+      },
+      {
+        "text": "This is the useful part of a Lipschitz bound: distance controls possible change in value.",
+        "start": 16.09090909090909,
+        "end": 21.836363636363636,
+        "phrases": [
+          {
+            "start": 16.09090909090909,
+            "end": 21.836363636363636
+          }
+        ]
+      },
+      {
+        "text": "We only need a lower bound on the sampled values, not equality with the sides of the drawn triangle.",
+        "start": 22.359090909090906,
+        "end": 28.52878787878788,
+        "phrases": [
+          {
+            "start": 22.359090909090906,
+            "end": 28.52878787878788
+          }
+        ]
+      },
+      {
+        "text": "The arithmetic condition is: sample value is at least peak minus rate times distance from the peak's point.",
+        "start": 29.051515151515154,
+        "end": 35.46363636363636,
+        "phrases": [
+          {
+            "start": 29.051515151515154,
+            "end": 35.46363636363636
+          }
+        ]
+      },
+      {
+        "text": "The function lw-lower-lipschitz checks that condition at every listed address and its corresponding rational value.",
+        "start": 35.986363636363635,
+        "end": 42.943939393939395,
+        "phrases": [
+          {
+            "start": 35.986363636363635,
+            "end": 42.943939393939395
+          }
+        ]
+      },
+      {
+        "text": "Here is its complete definition, continued onto a second card.",
+        "start": 43.46666666666667,
+        "end": 47.35757575757576,
+        "phrases": [
+          {
+            "start": 43.46666666666667,
+            "end": 47.35757575757576
+          }
+        ]
+      },
+      {
+        "text": "The first checks keep the address and value lists aligned, and require rational entries.",
+        "start": 47.88030303030303,
+        "end": 53.153030303030306,
+        "phrases": [
+          {
+            "start": 47.88030303030303,
+            "end": 53.153030303030306
+          }
+        ]
+      },
+      {
+        "text": "The inequality on the second card is the lower bound we just drew.",
+        "start": 53.67575757575758,
+        "end": 57.67575757575757,
+        "phrases": [
+          {
+            "start": 53.67575757575758,
+            "end": 57.67575757575757
+          }
+        ]
+      },
+      {
+        "text": "The recursive call repeats it for the remaining entries.",
+        "start": 58.198484848484846,
+        "end": 61.38636363636364,
+        "phrases": [
+          {
+            "start": 58.198484848484846,
+            "end": 61.38636363636364
+          }
+        ]
+      },
+      {
+        "text": "A theorem about search can use this as a hypothesis; the search cannot manufacture such a bound by looking at finitely many intervals.",
+        "start": 61.90909090909091,
+        "end": 70.12727272727273,
+        "phrases": [
+          {
+            "start": 61.90909090909091,
+            "end": 70.12727272727273
+          }
+        ]
+      },
+      {
+        "text": "The larger mathematical application must prove it.",
+        "start": 70.64999999999999,
+        "end": 73.69242424242424,
+        "phrases": [
+          {
+            "start": 70.64999999999999,
+            "end": 73.69242424242424
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "precision",
+    "chapter": "Budget both spatial loss and interval width",
+    "start": 689.8333333333358,
+    "audio_start": 690.0333333333358,
+    "duration": 58.282042,
+    "sentences": [
+      {
+        "text": "A nearby value can remain positive while a loose interval still crosses zero.",
+        "start": 0,
+        "end": 4.96969696969697,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.96969696969697
+          }
+        ]
+      },
+      {
+        "text": "So there are two losses to budget.",
+        "start": 5.492424242424242,
+        "end": 7.637878787878788,
+        "phrases": [
+          {
+            "start": 5.492424242424242,
+            "end": 7.637878787878788
+          }
+        ]
+      },
+      {
+        "text": "The first is spatial: rate times the mesh bound.",
+        "start": 8.16060606060606,
+        "end": 11.445454545454545,
+        "phrases": [
+          {
+            "start": 8.16060606060606,
+            "end": 11.445454545454545
+          }
+        ]
+      },
+      {
+        "text": "The second is numerical: the full width allowed for each enclosure.",
+        "start": 11.968181818181819,
+        "end": 16.016666666666666,
+        "phrases": [
+          {
+            "start": 11.968181818181819,
+            "end": 16.016666666666666
+          }
+        ]
+      },
+      {
+        "text": "The function lw-widths-at-most checks that width requirement over the sample list.",
+        "start": 16.53939393939394,
+        "end": 21.424242424242422,
+        "phrases": [
+          {
+            "start": 16.53939393939394,
+            "end": 21.424242424242422
+          }
+        ]
+      },
+      {
+        "text": "Its composed accessor takes the upper endpoint of the first interval, and subtracts the lower endpoint.",
+        "start": 21.946969696969695,
+        "end": 27.753030303030304,
+        "phrases": [
+          {
+            "start": 21.946969696969695,
+            "end": 27.753030303030304
+          }
+        ]
+      },
+      {
+        "text": "Then it continues through the remaining intervals.",
+        "start": 28.275757575757574,
+        "end": 30.88181818181818,
+        "phrases": [
+          {
+            "start": 28.275757575757574,
+            "end": 30.88181818181818
+          }
+        ]
+      },
+      {
+        "text": "This budget is a full width, not the midpoint error radius we distinguished in Part Two.",
+        "start": 31.404545454545453,
+        "end": 36.82272727272728,
+        "phrases": [
+          {
+            "start": 31.404545454545453,
+            "end": 36.82272727272728
+          }
+        ]
+      },
+      {
+        "text": "For our example, the width budget is one quarter.",
+        "start": 37.345454545454544,
+        "end": 40.509090909090915,
+        "phrases": [
+          {
+            "start": 37.345454545454544,
+            "end": 40.509090909090915
+          }
+        ]
+      },
+      {
+        "text": "Each displayed enclosure is centered on its exact teaching value with a radius of one eighth, so its full width is one quarter.",
+        "start": 41.03181818181818,
+        "end": 48.00151515151515,
+        "phrases": [
+          {
+            "start": 41.03181818181818,
+            "end": 48.00151515151515
+          }
+        ]
+      },
+      {
+        "text": "The two quantities are consistent, but they are not interchangeable.",
+        "start": 48.52424242424242,
+        "end": 52.027272727272724,
+        "phrases": [
+          {
+            "start": 48.52424242424242,
+            "end": 52.027272727272724
+          }
+        ]
+      },
+      {
+        "text": "We also keep the enclosure premise: a narrow interval around the wrong value would not help.",
+        "start": 52.55,
+        "end": 57.78636363636363,
+        "phrases": [
+          {
+            "start": 52.55,
+            "end": 57.78636363636363
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "margin",
+    "chapter": "Why the margin forces a qualifying interval",
+    "start": 749.7333333333265,
+    "audio_start": 749.9333333333266,
+    "duration": 78.011375,
+    "sentences": [
+      {
+        "text": "Here is the central inequality.",
+        "start": 0,
+        "end": 2.2545454545454544,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.2545454545454544
+          }
+        ]
+      },
+      {
+        "text": "The peak must be strictly above the threshold, plus the spatial-loss budget, plus the interval-width budget.",
+        "start": 2.7772727272727273,
+        "end": 9.08030303030303,
+        "phrases": [
+          {
+            "start": 2.7772727272727273,
+            "end": 9.08030303030303
+          }
+        ]
+      },
+      {
+        "text": "In our example the threshold is zero\u2026 the rate is four\u2026 the mesh is one eighth\u2026 and the width budget is one quarter.",
+        "start": 9.603030303030303,
+        "end": 18.995454545454546,
+        "phrases": [
+          {
+            "start": 9.603030303030303,
+            "end": 12.027272727272727
+          },
+          {
+            "start": 12.822727272727274,
+            "end": 14.034848484848485
+          },
+          {
+            "start": 14.83030303030303,
+            "end": 16.13939393939394
+          },
+          {
+            "start": 16.934848484848484,
+            "end": 18.995454545454546
+          }
+        ]
+      },
+      {
+        "text": "The total budget is three quarters, which is strictly below the peak value one.",
+        "start": 19.518181818181816,
+        "end": 24.003030303030304,
+        "phrases": [
+          {
+            "start": 19.518181818181816,
+            "end": 24.003030303030304
+          }
+        ]
+      },
+      {
+        "text": "Coverage supplies a nearby address.",
+        "start": 24.525757575757577,
+        "end": 26.90151515151515,
+        "phrases": [
+          {
+            "start": 24.525757575757577,
+            "end": 26.90151515151515
+          }
+        ]
+      },
+      {
+        "text": "The rate bound then places its value above the threshold plus the width budget.",
+        "start": 27.424242424242422,
+        "end": 31.909090909090907,
+        "phrases": [
+          {
+            "start": 27.424242424242422,
+            "end": 31.909090909090907
+          }
+        ]
+      },
+      {
+        "text": "The predicate lw-some-value-above expresses that at least one listed rational value exceeds a supplied level.",
+        "start": 32.43181818181818,
+        "end": 39.28030303030303,
+        "phrases": [
+          {
+            "start": 32.43181818181818,
+            "end": 39.28030303030303
+          }
+        ]
+      },
+      {
+        "text": "Now use Part Two's margin lemma: a containing interval this narrow must have its lower endpoint above the threshold.",
+        "start": 39.8030303030303,
+        "end": 46.4939393939394,
+        "phrases": [
+          {
+            "start": 39.8030303030303,
+            "end": 46.4939393939394
+          }
+        ]
+      },
+      {
+        "text": "So there is at least one interval that passes the scan's test.",
+        "start": 47.01666666666667,
+        "end": 50.72575757575758,
+        "phrases": [
+          {
+            "start": 47.01666666666667,
+            "end": 50.72575757575758
+          }
+        ]
+      },
+      {
+        "text": "The function lw-some-lower-above expresses that last existence claim directly in terms of lower endpoints.",
+        "start": 51.24848484848485,
+        "end": 58.04848484848485,
+        "phrases": [
+          {
+            "start": 51.24848484848485,
+            "end": 58.04848484848485
+          }
+        ]
+      },
+      {
+        "text": "Its definition follows the same list structure as the search.",
+        "start": 58.57121212121212,
+        "end": 62.25606060606061,
+        "phrases": [
+          {
+            "start": 58.57121212121212,
+            "end": 62.25606060606061
+          }
+        ]
+      },
+      {
+        "text": "The search's completeness theorem says that the scan returns a non-nil result exactly when such a lower endpoint exists.",
+        "start": 62.77878787878788,
+        "end": 69.89393939393939,
+        "phrases": [
+          {
+            "start": 62.77878787878788,
+            "end": 69.89393939393939
+          }
+        ]
+      },
+      {
+        "text": "That is the difference between hoping to find a sample\u2026 and proving that the finite scan cannot miss all of them.",
+        "start": 70.41666666666667,
+        "end": 77.51515151515152,
+        "phrases": [
+          {
+            "start": 70.41666666666667,
+            "end": 73.47121212121212
+          },
+          {
+            "start": 74.26666666666665,
+            "end": 77.51515151515152
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "complete",
+    "chapter": "Read the hypotheses of the full guarantee",
+    "start": 829.3666666666496,
+    "audio_start": 829.5666666666497,
+    "duration": 86.215625,
+    "sentences": [
+      {
+        "text": "The repository combines those steps in lw-grid-search-complete.",
+        "start": 0,
+        "end": 4.339393939393939,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.339393939393939
+          }
+        ]
+      },
+      {
+        "text": "We will read its complete source across four cards.",
+        "start": 4.862121212121212,
+        "end": 7.928787878787879,
+        "phrases": [
+          {
+            "start": 4.862121212121212,
+            "end": 7.928787878787879
+          }
+        ]
+      },
+      {
+        "text": "The opening hypotheses state the rational domains, including the point, peak, rate, mesh, threshold, and error budget.",
+        "start": 8.451515151515151,
+        "end": 16.08787878787879,
+        "phrases": [
+          {
+            "start": 8.451515151515151,
+            "end": 16.08787878787879
+          }
+        ]
+      },
+      {
+        "text": "Next come nonnegativity of the rate and mesh, and the actual mesh condition on the addresses.",
+        "start": 16.61060606060606,
+        "end": 22.0530303030303,
+        "phrases": [
+          {
+            "start": 16.61060606060606,
+            "end": 22.0530303030303
+          }
+        ]
+      },
+      {
+        "text": "The point must lie between the first and last addresses.",
+        "start": 22.575757575757578,
+        "end": 26.15151515151515,
+        "phrases": [
+          {
+            "start": 22.575757575757578,
+            "end": 26.15151515151515
+          }
+        ]
+      },
+      {
+        "text": "The strict margin pays for both the rate-times-mesh loss and the full enclosure width.",
+        "start": 26.674242424242422,
+        "end": 31.57121212121212,
+        "phrases": [
+          {
+            "start": 26.674242424242422,
+            "end": 31.57121212121212
+          }
+        ]
+      },
+      {
+        "text": "The sampled values must satisfy the lower transport bound.",
+        "start": 32.093939393939394,
+        "end": 35.875757575757575,
+        "phrases": [
+          {
+            "start": 32.093939393939394,
+            "end": 35.875757575757575
+          }
+        ]
+      },
+      {
+        "text": "The intervals must enclose those values, and all their widths must meet the budget.",
+        "start": 36.39848484848485,
+        "end": 41.162121212121214,
+        "phrases": [
+          {
+            "start": 36.39848484848485,
+            "end": 41.162121212121214
+          }
+        ]
+      },
+      {
+        "text": "Under those hypotheses, the conclusion is that lw-first-above returns a successful result.",
+        "start": 41.68484848484849,
+        "end": 47.64848484848485,
+        "phrases": [
+          {
+            "start": 41.68484848484849,
+            "end": 47.64848484848485
+          }
+        ]
+      },
+      {
+        "text": "The lines marked hints tell ACL2 which already proved lemmas to use; they are instructions to the prover, not extra mathematical hypotheses.",
+        "start": 48.17121212121212,
+        "end": 57.08030303030303,
+        "phrases": [
+          {
+            "start": 48.17121212121212,
+            "end": 57.08030303030303
+          }
+        ]
+      },
+      {
+        "text": "The final card completes those proof instructions.",
+        "start": 57.6030303030303,
+        "end": 60.71818181818182,
+        "phrases": [
+          {
+            "start": 57.6030303030303,
+            "end": 60.71818181818182
+          }
+        ]
+      },
+      {
+        "text": "This is a conditional success theorem.",
+        "start": 61.24090909090909,
+        "end": 63.628787878787875,
+        "phrases": [
+          {
+            "start": 61.24090909090909,
+            "end": 63.628787878787875
+          }
+        ]
+      },
+      {
+        "text": "It does not assert that every grid finds every peak, or that every numerical estimate is already justified.",
+        "start": 64.15151515151516,
+        "end": 70.7090909090909,
+        "phrases": [
+          {
+            "start": 64.15151515151516,
+            "end": 70.7090909090909
+          }
+        ]
+      },
+      {
+        "text": "It states exactly which supplied guarantees make this finite search succeed.",
+        "start": 71.23181818181818,
+        "end": 75.76515151515152,
+        "phrases": [
+          {
+            "start": 71.23181818181818,
+            "end": 75.76515151515152
+          }
+        ]
+      },
+      {
+        "text": "All values in this checked statement are rational; connecting the construction to the intended analytic objects remains an explicit interpretation obligation.",
+        "start": 76.2878787878788,
+        "end": 85.71818181818182,
+        "phrases": [
+          {
+            "start": 76.2878787878788,
+            "end": 85.71818181818182
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "worked",
+    "chapter": "The complete numerical example",
+    "start": 917.1999999999725,
+    "audio_start": 917.3999999999726,
+    "duration": 73.149,
+    "sentences": [
+      {
+        "text": "Let us check the whole chain in the example we have been building.",
+        "start": 0,
+        "end": 3.381818181818182,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.381818181818182
+          }
+        ]
+      },
+      {
+        "text": "The point is seven sixteenths, the peak is one, and the rate bound is four.",
+        "start": 3.9045454545454543,
+        "end": 8.292424242424243,
+        "phrases": [
+          {
+            "start": 3.9045454545454543,
+            "end": 8.292424242424243
+          }
+        ]
+      },
+      {
+        "text": "The grid runs from zero to one in steps of one eighth.",
+        "start": 8.815151515151515,
+        "end": 11.93030303030303,
+        "phrases": [
+          {
+            "start": 8.815151515151515,
+            "end": 11.93030303030303
+          }
+        ]
+      },
+      {
+        "text": "The values shown are exactly one minus four times the absolute distance from seven sixteenths.",
+        "start": 12.453030303030301,
+        "end": 18.25909090909091,
+        "phrases": [
+          {
+            "start": 12.453030303030301,
+            "end": 18.25909090909091
+          }
+        ]
+      },
+      {
+        "text": "Each interval contains its displayed value and has full width one quarter.",
+        "start": 18.78181818181818,
+        "end": 23.07272727272727,
+        "phrases": [
+          {
+            "start": 18.78181818181818,
+            "end": 23.07272727272727
+          }
+        ]
+      },
+      {
+        "text": "The mesh condition, the span condition, and the strict margin all hold.",
+        "start": 23.595454545454544,
+        "end": 28.104545454545455,
+        "phrases": [
+          {
+            "start": 23.595454545454544,
+            "end": 28.104545454545455
+          }
+        ]
+      },
+      {
+        "text": "The peak's neighboring samples are at three eighths and one half.",
+        "start": 28.62727272727273,
+        "end": 32.19090909090909,
+        "phrases": [
+          {
+            "start": 28.62727272727273,
+            "end": 32.19090909090909
+          }
+        ]
+      },
+      {
+        "text": "But the scan does not have to return the closest address to the peak.",
+        "start": 32.71363636363636,
+        "end": 36.58030303030303,
+        "phrases": [
+          {
+            "start": 32.71363636363636,
+            "end": 36.58030303030303
+          }
+        ]
+      },
+      {
+        "text": "It examines the list from the beginning\u2026 skips the two negative lower endpoints\u2026 and accepts the next interval.",
+        "start": 37.1030303030303,
+        "end": 45.275757575757574,
+        "phrases": [
+          {
+            "start": 37.1030303030303,
+            "end": 39.2969696969697
+          },
+          {
+            "start": 40.092424242424244,
+            "end": 42.61363636363637
+          },
+          {
+            "start": 43.409090909090914,
+            "end": 45.275757575757574
+          }
+        ]
+      },
+      {
+        "text": "The returned index is two, and selecting that position in the address list gives one quarter.",
+        "start": 45.79848484848485,
+        "end": 51.1439393939394,
+        "phrases": [
+          {
+            "start": 45.79848484848485,
+            "end": 51.1439393939394
+          }
+        ]
+      },
+      {
+        "text": "The certified interval there is from one eighth to three eighths, containing the value one quarter.",
+        "start": 51.66666666666667,
+        "end": 56.915151515151514,
+        "phrases": [
+          {
+            "start": 51.66666666666667,
+            "end": 56.915151515151514
+          }
+        ]
+      },
+      {
+        "text": "That lower endpoint proves the value is positive.",
+        "start": 57.43787878787879,
+        "end": 60.56515151515151,
+        "phrases": [
+          {
+            "start": 57.43787878787879,
+            "end": 60.56515151515151
+          }
+        ]
+      },
+      {
+        "text": "The teaching book checks the numerical premises and this exact returned result.",
+        "start": 61.08787878787879,
+        "end": 65.65757575757576,
+        "phrases": [
+          {
+            "start": 61.08787878787879,
+            "end": 65.65757575757576
+          }
+        ]
+      },
+      {
+        "text": "The general theorem explains why some success was forced, independently of watching this particular animation.",
+        "start": 66.18030303030304,
+        "end": 72.6530303030303,
+        "phrases": [
+          {
+            "start": 66.18030303030304,
+            "end": 72.6530303030303
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "failure",
+    "chapter": "What a failed scan does and does not say",
+    "start": 991.9666666666272,
+    "audio_start": 992.1666666666273,
+    "duration": 63.311542,
+    "sentences": [
+      {
+        "text": "One last distinction matters for the later Landau argument.",
+        "start": 0,
+        "end": 3.5757575757575757,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.5757575757575757
+          }
+        ]
+      },
+      {
+        "text": "A result of nil means that none of the supplied lower endpoints passed the test.",
+        "start": 4.098484848484849,
+        "end": 8.656060606060606,
+        "phrases": [
+          {
+            "start": 4.098484848484849,
+            "end": 8.656060606060606
+          }
+        ]
+      },
+      {
+        "text": "It does not, by itself, mean that every underlying value is below the threshold.",
+        "start": 9.17878787878788,
+        "end": 14.584848484848486,
+        "phrases": [
+          {
+            "start": 9.17878787878788,
+            "end": 14.584848484848486
+          }
+        ]
+      },
+      {
+        "text": "A positive value of one eighth can sit inside an interval from minus one eighth to three eighths.",
+        "start": 15.107575757575757,
+        "end": 20.816666666666666,
+        "phrases": [
+          {
+            "start": 15.107575757575757,
+            "end": 20.816666666666666
+          }
+        ]
+      },
+      {
+        "text": "That interval contains the value, but its lower endpoint fails the test.",
+        "start": 21.33939393939394,
+        "end": 25.63030303030303,
+        "phrases": [
+          {
+            "start": 21.33939393939394,
+            "end": 25.63030303030303
+          }
+        ]
+      },
+      {
+        "text": "Here the width is one half, so a margin greater than that width is unavailable.",
+        "start": 26.153030303030302,
+        "end": 30.86818181818182,
+        "phrases": [
+          {
+            "start": 26.153030303030302,
+            "end": 30.86818181818182
+          }
+        ]
+      },
+      {
+        "text": "The completeness theorem prevents this failure only when all its hypotheses hold.",
+        "start": 31.39090909090909,
+        "end": 35.984848484848484,
+        "phrases": [
+          {
+            "start": 31.39090909090909,
+            "end": 35.984848484848484
+          }
+        ]
+      },
+      {
+        "text": "Conversely, if a computation fails, we cannot keep all those hypotheses and still claim the required strict peak margin.",
+        "start": 36.50757575757576,
+        "end": 43.88939393939394,
+        "phrases": [
+          {
+            "start": 36.50757575757576,
+            "end": 43.88939393939394
+          }
+        ]
+      },
+      {
+        "text": "The larger proof must specify which hypotheses have already been established before using such reasoning.",
+        "start": 44.412121212121214,
+        "end": 50.64242424242424,
+        "phrases": [
+          {
+            "start": 44.412121212121214,
+            "end": 50.64242424242424
+          }
+        ]
+      },
+      {
+        "text": "We have separated the scan, the accuracy of its inputs, and the mathematical reason that a sample must qualify.",
+        "start": 51.16515151515152,
+        "end": 57.977272727272734,
+        "phrases": [
+          {
+            "start": 51.16515151515152,
+            "end": 57.977272727272734
+          }
+        ]
+      },
+      {
+        "text": "Those are different obligations, and each now has a place in the argument.",
+        "start": 58.49999999999999,
+        "end": 62.81515151515151,
+        "phrases": [
+          {
+            "start": 58.49999999999999,
+            "end": 62.81515151515151
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "next",
+    "chapter": "The search is ready for a real signal",
+    "start": 1056.8999999999542,
+    "audio_start": 1057.0999999999542,
+    "duration": 60.946042,
+    "sentences": [
+      {
+        "text": "We can now construct a finite grid and inspect exact rational intervals.",
+        "start": 0,
+        "end": 4.412121212121212,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.412121212121212
+          }
+        ]
+      },
+      {
+        "text": "A successful result identifies a genuine interval in the list and a position we can translate into a grid address.",
+        "start": 4.934848484848485,
+        "end": 11.795454545454547,
+        "phrases": [
+          {
+            "start": 4.934848484848485,
+            "end": 11.795454545454547
+          }
+        ]
+      },
+      {
+        "text": "The mesh condition supplies coverage, the rate bound controls spatial loss, and the width budget controls numerical uncertainty.",
+        "start": 12.318181818181818,
+        "end": 20.233333333333334,
+        "phrases": [
+          {
+            "start": 12.318181818181818,
+            "end": 20.233333333333334
+          }
+        ]
+      },
+      {
+        "text": "A strict margin connects those guarantees to a search that must succeed.",
+        "start": 20.756060606060608,
+        "end": 25.01060606060606,
+        "phrases": [
+          {
+            "start": 20.756060606060608,
+            "end": 25.01060606060606
+          }
+        ]
+      },
+      {
+        "text": "These are reusable arithmetic statements, expressed in ACL2 and connected to the Peano Arithmetic goal through explicit finite representations.",
+        "start": 25.533333333333335,
+        "end": 34.11515151515152,
+        "phrases": [
+          {
+            "start": 25.533333333333335,
+            "end": 34.11515151515152
+          }
+        ]
+      },
+      {
+        "text": "We have not yet explained how the prime-counting signal supplies all those inputs.",
+        "start": 34.63787878787878,
+        "end": 39.07424242424243,
+        "phrases": [
+          {
+            "start": 34.63787878787878,
+            "end": 39.07424242424243
+          }
+        ]
+      },
+      {
+        "text": "That is the next step.",
+        "start": 39.5969696969697,
+        "end": 41.087878787878786,
+        "phrases": [
+          {
+            "start": 39.5969696969697,
+            "end": 41.087878787878786
+          }
+        ]
+      },
+      {
+        "text": "In Part Four, we start with prime powers and build the smoothed signal whose intervals the later search will inspect.",
+        "start": 41.61060606060606,
+        "end": 47.974242424242426,
+        "phrases": [
+          {
+            "start": 41.61060606060606,
+            "end": 47.974242424242426
+          }
+        ]
+      },
+      {
+        "text": "The machinery from this episode tells us what that evaluator must deliver.",
+        "start": 48.49696969696969,
+        "end": 52.775757575757574,
+        "phrases": [
+          {
+            "start": 48.49696969696969,
+            "end": 52.775757575757574
+          }
+        ]
+      },
+      {
+        "text": "The eventual Landau theorem still requires the mathematical hypotheses and the interpretation of the complete construction.",
+        "start": 53.29848484848485,
+        "end": 60.449999999999996,
+        "phrases": [
+          {
+            "start": 53.29848484848485,
+            "end": 60.449999999999996
+          }
+        ]
+      }
+    ]
+  }
+]

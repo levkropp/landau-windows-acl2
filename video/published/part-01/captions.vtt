@@ -1,0 +1,583 @@
+WEBVTT
+
+00:00:00.200 --> 00:00:03.732
+In Part Zero, we proved that zero plus n equals n.
+
+00:00:04.176 --> 00:00:09.581
+We wrote the same claim in ACL2, with a hypothesis saying that n is
+a natural number.
+
+00:00:10.025 --> 00:00:17.987
+Today, keep that one small example in view: the written claim, its
+proof, and what it means.
+
+00:00:18.431 --> 00:00:23.361
+Those are three different things, and separating them explains the
+purpose of this project.
+
+00:00:23.806 --> 00:00:29.530
+A proof can be checked by a computer, while questions remain about
+the rules that computer is checking.
+
+00:00:29.975 --> 00:00:36.161
+We will build from our arithmetic example to models, consistency,
+and Gödel's second incompleteness theorem.
+
+00:00:36.606 --> 00:00:41.560
+Then we can say precisely what is gained by moving an argument to a
+weaker foundation.
+
+00:00:42.004 --> 00:00:47.670
+This is Part One of Landau Windows ACL Two: proofs, models, and
+stronger foundations.
+
+00:00:49.733 --> 00:00:53.810
+A formal proof is a finite sequence or tree of justified steps.
+
+00:00:54.255 --> 00:00:59.837
+Some steps are starting axioms; others follow from earlier steps by
+a stated inference rule.
+
+00:01:00.281 --> 00:01:07.828
+Here is one familiar rule: p holds, and p implies q, so q holds.
+
+00:01:08.273 --> 00:01:13.001
+The letters here name claims with truth values, rather than natural-
+number inputs.
+
+00:01:13.446 --> 00:01:16.847
+We can inspect the four possible pairs of truth values.
+
+00:01:17.292 --> 00:01:24.071
+When p is true and q is false, the implication is false, so the two
+premises cannot both hold.
+
+00:01:24.516 --> 00:01:28.356
+The only row in which both premises hold has q true as well.
+
+00:01:28.800 --> 00:01:31.313
+That is why this inference preserves truth.
+
+00:01:31.757 --> 00:01:36.996
+The ACL2 statement underneath expresses the same rule, and our
+teaching book checks it.
+
+00:01:37.440 --> 00:01:42.809
+A larger proof links many such justified steps; its final line is
+the conclusion.
+
+00:01:43.253 --> 00:01:47.153
+Checking one supplied proof asks whether its steps obey the rules.
+
+00:01:49.200 --> 00:01:52.061
+Now give the written symbols an interpretation.
+
+00:01:52.515 --> 00:01:59.461
+For ordinary arithmetic, zero names zero, successor adds one, and
+the variables range over natural numbers.
+
+00:01:59.915 --> 00:02:04.679
+An interpretation that makes every axiom true is called a model of
+the theory.
+
+00:02:05.133 --> 00:02:10.733
+To see why every axiom matters, try a different interpretation: a
+clock with three positions.
+
+00:02:11.188 --> 00:02:18.685
+Its successor operation moves from zero to one, from one to two, and
+from two back to zero.
+
+00:02:19.139 --> 00:02:24.339
+Before we call that clock operation by name, here is its full ACL2
+definition.
+
+00:02:24.794 --> 00:02:29.064
+Defun introduces video-clock-next, with the input n.
+
+00:02:29.518 --> 00:02:35.727
+Nfix keeps n unchanged when it is natural, and returns zero for
+other objects.
+
+00:02:36.182 --> 00:02:41.203
+We add one, then mod takes the remainder after division by three.
+
+00:02:41.658 --> 00:02:48.064
+For input two, the intermediate total is three, and the remainder is
+zero.
+
+00:02:48.518 --> 00:02:53.561
+Now fold the definition into its name, while keeping the inputs and
+outputs visible.
+
+00:02:54.015 --> 00:02:58.112
+This call is video-clock-next at two, and its value is zero.
+
+00:02:58.567 --> 00:03:02.821
+But PA requires that a successor never equals zero.
+
+00:03:03.276 --> 00:03:07.082
+The ordinary natural-number successor satisfies that rule.
+
+00:03:07.536 --> 00:03:10.833
+The clock fails it: the successor of two is zero.
+
+00:03:11.288 --> 00:03:17.203
+This proposed clock interpretation already fails one of the PA
+successor axioms.
+
+00:03:17.658 --> 00:03:22.894
+A few familiar equations can survive an interpretation while another
+axiom fails.
+
+00:03:23.348 --> 00:03:29.373
+To claim that we have a model, we must justify all the axioms,
+including every instance of induction.
+
+00:03:31.433 --> 00:03:35.700
+Consistency concerns the entire collection of possible formal
+proofs.
+
+00:03:36.144 --> 00:03:42.722
+For PA, we can express it by saying that no valid PA proof ends with
+zero equals one.
+
+00:03:43.167 --> 00:03:47.137
+A system that derives a claim and its negation is inconsistent.
+
+00:03:47.581 --> 00:03:55.238
+In classical logic, contradictory premises allow any conclusion; the
+ACL2 formula illustrates that principle.
+
+00:03:55.682 --> 00:04:00.020
+This is why consistency is a basic requirement for a useful
+foundation.
+
+00:04:00.464 --> 00:04:05.051
+Checking this one arithmetic proof does not examine all other
+possible proofs.
+
+00:04:05.496 --> 00:04:10.888
+Nor does checking a billion proof files establish that no longer
+contradiction proof exists.
+
+00:04:11.333 --> 00:04:15.813
+We need a general argument about every permitted proof, however long
+it is.
+
+00:04:16.257 --> 00:04:18.781
+One route to that argument uses a model.
+
+00:04:20.833 --> 00:04:24.424
+ZFC is a theory whose variables range over sets.
+
+00:04:24.869 --> 00:04:29.645
+Its name abbreviates the Zermelo Fraenkel axioms together with the
+axiom of choice.
+
+00:04:30.090 --> 00:04:33.776
+We will use one construction rather than list all of its axioms.
+
+00:04:34.220 --> 00:04:38.893
+Start with the empty set and call it zero; it has no elements.
+
+00:04:39.337 --> 00:04:46.584
+To build the next number, collect the elements already present and
+add the previous number itself.
+
+00:04:47.029 --> 00:04:51.687
+One is the set containing zero; two is the set containing zero and
+one.
+
+00:04:52.131 --> 00:04:56.528
+Continuing gives a set representation of every ordinary natural
+number.
+
+00:04:56.973 --> 00:05:02.709
+ZFC can also form the infinite collection of these natural numbers,
+usually called omega.
+
+00:05:03.153 --> 00:05:07.301
+Within set theory, that whole collection is an object we can study.
+
+00:05:07.746 --> 00:05:12.119
+Addition and multiplication can be defined on it by their recursive
+rules.
+
+00:05:12.564 --> 00:05:18.288
+Two other set operations will be useful: a union collects the
+elements of a family of sets.
+
+00:05:18.733 --> 00:05:24.599
+A power set is the collection of all subsets of a given set; a two-
+element set has four subsets.
+
+00:05:25.044 --> 00:05:32.451
+These are set-theoretic constructions; our ACL2 arithmetic examples
+retain their explicit natural-number domains.
+
+00:05:34.500 --> 00:05:40.959
+Inside ZFC, construct the natural numbers and prove that they
+satisfy the axioms of PA.
+
+00:05:41.404 --> 00:05:48.207
+This includes a uniform justification of the induction scheme,
+rather than checking a finite sample of instances.
+
+00:05:48.651 --> 00:05:53.439
+Now take any alleged PA proof and follow its steps in that model.
+
+00:05:53.884 --> 00:05:57.901
+The axioms are true there, and the inference rules preserve truth.
+
+00:05:58.346 --> 00:06:03.027
+Induction on the finite proof therefore shows that its conclusion is
+true in the model.
+
+00:06:03.472 --> 00:06:07.359
+This connection between derivations and truth is called soundness.
+
+00:06:07.804 --> 00:06:15.365
+Zero and one are distinct in the constructed number system, so a
+valid PA proof cannot conclude that they are equal.
+
+00:06:15.810 --> 00:06:19.875
+That yields a ZFC proof of the consistency of PA.
+
+00:06:21.933 --> 00:06:26.639
+There is another useful viewpoint: a proof file is a finite string
+of symbols.
+
+00:06:27.083 --> 00:06:32.464
+Assign numeric codes to symbols and encode finite lists of those
+codes as natural numbers.
+
+00:06:32.908 --> 00:06:38.028
+Here is a tiny example using decimal digits, just to make the
+mechanism visible.
+
+00:06:38.473 --> 00:06:45.439
+Start with a leading one, then append the digits two, zero, and
+three.
+
+00:06:45.883 --> 00:06:52.656
+The successive codes are twelve, one hundred twenty, and one
+thousand two hundred three.
+
+00:06:53.101 --> 00:06:58.055
+Each append operation multiplies the previous code by ten and adds
+the new digit.
+
+00:06:58.499 --> 00:07:02.636
+The leading marker keeps a zero in the data from being lost at the
+beginning.
+
+00:07:03.080 --> 00:07:07.824
+Now let us define that encoder before using its function name.
+
+00:07:09.867 --> 00:07:15.515
+The encoder processes a list of digits; let us first name the basic
+list operations.
+
+00:07:15.970 --> 00:07:21.003
+Car selects the first item; cdr selects the remaining list.
+
+00:07:21.458 --> 00:07:25.252
+Consp asks whether there is a list cell still to process.
+
+00:07:25.706 --> 00:07:29.112
+Here is the complete definition of the digit-list predicate.
+
+00:07:29.567 --> 00:07:38.130
+For a nonempty list, the first item must be natural and below ten,
+and the remaining list must pass the same test.
+
+00:07:38.585 --> 00:07:46.276
+At the end of a proper list, the tail is nil, the empty list; other
+atomic tails are rejected.
+
+00:07:46.730 --> 00:07:50.779
+We can now fold this definition into the name video-digit-listp.
+
+00:07:51.233 --> 00:07:54.082
+Next, here is the actual recursive encoder.
+
+00:07:54.536 --> 00:08:00.445
+It has two inputs: the remaining digits and the accumulated code.
+
+00:08:00.900 --> 00:08:09.948
+If a digit remains, append the first item by multiplying the code by
+ten and adding that digit, then recurse on the rest.
+
+00:08:10.403 --> 00:08:13.967
+When no list cell remains, return the accumulated code.
+
+00:08:14.421 --> 00:08:19.185
+The complete definition can now fold into the compact name video-
+encode-digits.
+
+00:08:19.639 --> 00:08:24.115
+The quote marks this list as data; the starting code is one.
+
+00:08:24.570 --> 00:08:30.291
+Calling the defined function on two, zero, and three returns one
+thousand two hundred three.
+
+00:08:30.745 --> 00:08:37.255
+For a digit list and a natural starting code, our checked ACL2
+theorem proves that the output is natural.
+
+00:08:37.709 --> 00:08:43.370
+A real encoding of formulas and proofs also needs a specified
+grammar and proof rules.
+
+00:08:43.824 --> 00:08:51.170
+The definitions we have shown implement the toy encoder; a complete
+PA proof checker is a separate construction.
+
+00:08:51.624 --> 00:08:57.915
+With a full encoding and checker in place, questions about proofs
+can be expressed as questions about numbers.
+
+00:08:59.967 --> 00:09:04.850
+We can now unpack the phrase PA is consistent in arithmetic
+language.
+
+00:09:05.294 --> 00:09:12.370
+Let a proof predicate test whether a natural-number code describes a
+valid PA proof of the chosen conclusion.
+
+00:09:12.814 --> 00:09:17.365
+For consistency, the chosen conclusion is the contradiction zero
+equals one.
+
+00:09:17.810 --> 00:09:26.361
+The claim is: for every natural-number code p, that code does not
+describe a PA contradiction proof.
+
+00:09:26.805 --> 00:09:32.530
+The notation Con of PA is a short name for this standard formal
+consistency statement.
+
+00:09:32.974 --> 00:09:39.934
+To turn this into a concrete ACL2 statement, we would first need a
+full PA proof checker.
+
+00:09:40.379 --> 00:09:47.149
+That full checker is not implemented in the teaching book; this is a
+specification of what it would have to decide.
+
+00:09:47.593 --> 00:09:52.903
+We are displaying a specification, not a consistency theorem
+admitted in our teaching book.
+
+00:09:53.347 --> 00:10:01.253
+Notice the jump in scope: the digit example computed one code, while
+consistency rules out every contradiction-proof code.
+
+00:10:01.697 --> 00:10:04.838
+That universal claim is where Gödel's theorem enters.
+
+00:10:06.900 --> 00:10:13.727
+Gödel's second incompleteness theorem applies to theories with
+enough arithmetic and an effective description of their axioms.
+
+00:10:14.171 --> 00:10:17.217
+PA is one of the standard examples.
+
+00:10:17.661 --> 00:10:23.564
+Effective means that the rules can be specified by algorithms, as
+they are for the theories discussed here.
+
+00:10:24.008 --> 00:10:29.318
+Use the usual arithmetic encoding of formal proofs and the resulting
+consistency statement.
+
+00:10:29.762 --> 00:10:35.976
+If such a theory is consistent, it cannot prove that standard
+statement of its own consistency.
+
+00:10:36.420 --> 00:10:41.753
+We are stating the theorem here; its proof requires the formal
+machinery behind provability.
+
+00:10:42.198 --> 00:10:48.918
+For PA, the forbidden self-proof would be a PA derivation of Con of
+PA.
+
+00:10:49.362 --> 00:10:55.454
+For ZFC, the analogous limitation concerns a ZFC derivation of Con
+of ZFC.
+
+00:10:55.899 --> 00:11:02.607
+This is a precise result with hypotheses, rather than a blanket
+slogan about every conceivable formal system.
+
+00:11:03.051 --> 00:11:07.259
+It leaves room for a stronger theory to prove the consistency of a
+weaker one.
+
+00:11:07.703 --> 00:11:13.724
+The ZFC argument about the natural-number model of PA is exactly
+that kind of result.
+
+00:11:15.767 --> 00:11:23.814
+Compare the two statements on screen: ZFC proves Con of PA, and ZFC
+proves Con of ZFC.
+
+00:11:24.259 --> 00:11:27.127
+The model construction supplies the first statement.
+
+00:11:27.571 --> 00:11:34.528
+If ZFC is consistent, Gödel's second theorem rules out the second
+statement, with its standard proof encoding.
+
+00:11:34.973 --> 00:11:39.619
+A consistency argument must therefore say which background supplies
+its reasoning.
+
+00:11:40.063 --> 00:11:45.290
+Likewise, a proof of an ordinary arithmetic claim comes with some
+set of dependencies.
+
+00:11:45.734 --> 00:11:51.743
+The claim zero plus n equals n can be established without building
+the whole set-theoretic model first.
+
+00:11:52.187 --> 00:11:58.125
+A successful reduction replaces a use of stronger resources with a
+derivation using weaker ones.
+
+00:11:58.570 --> 00:12:04.140
+The mathematical conclusion stays the same, while the assumptions we
+rely on become smaller.
+
+00:12:04.584 --> 00:12:09.716
+This is the sense in which a proof with fewer foundational
+assumptions is a stronger assurance.
+
+00:12:10.161 --> 00:12:16.525
+Finding such a reduction is mathematical work; writing the statement
+in arithmetic is only the starting point.
+
+00:12:18.567 --> 00:12:24.161
+The model idea also explains why inaccessible cardinals enter
+discussions of foundations.
+
+00:12:24.605 --> 00:12:30.353
+A cardinal measures the size of a set: equal sizes mean that the
+elements can be paired one for one.
+
+00:12:30.798 --> 00:12:33.524
+Infinite sets also have cardinal sizes.
+
+00:12:33.968 --> 00:12:40.368
+A strongly inaccessible cardinal, called kappa, is an uncountable
+size with two closure properties.
+
+00:12:40.813 --> 00:12:45.636
+First, the power set of any set smaller than kappa is still smaller
+than kappa.
+
+00:12:46.081 --> 00:12:51.888
+Second, a union of fewer than kappa sets, each smaller than kappa,
+is still smaller than kappa.
+
+00:12:52.333 --> 00:12:56.682
+These conditions let us build a particularly well-behaved universe
+of sets.
+
+00:12:57.127 --> 00:13:03.550
+Build sets in stages, taking power sets at successor stages and
+collecting earlier stages at limit stages.
+
+00:13:03.995 --> 00:13:08.190
+The sets appearing before stage kappa form the collection written V
+kappa.
+
+00:13:08.635 --> 00:13:13.186
+If kappa is strongly inaccessible, V kappa is a model of ZFC.
+
+00:13:13.630 --> 00:13:19.663
+Consequently, ZFC with that extra existence assumption proves the
+consistency of ZFC.
+
+00:13:20.107 --> 00:13:26.164
+If ZFC is consistent, it therefore cannot prove that such an
+inaccessible cardinal exists.
+
+00:13:26.608 --> 00:13:33.435
+A standard set-theoretic treatment of Lean's universe hierarchy uses
+a sequence of suitable inaccessible sizes.
+
+00:13:33.879 --> 00:13:40.955
+That describes a way to model the foundation; the dependencies of a
+particular theorem still need their own examination.
+
+00:13:43.000 --> 00:13:47.729
+Return to our actual goal: an arithmetic account of the windowed
+Landau argument.
+
+00:13:48.173 --> 00:13:54.087
+We want the same intended conclusion, reached through explicit
+functions and checked theorems about their behavior.
+
+00:13:54.532 --> 00:14:00.801
+For each component, we need a statement, a proof, and an
+interpretation connecting it to the mathematics.
+
+00:14:01.246 --> 00:14:05.596
+An ACL2 theorem is a concrete artifact in ACL2's logic.
+
+00:14:06.040 --> 00:14:13.127
+A claim about PA strength additionally needs the arithmetic
+interpretation of the fragment and principles used.
+
+00:14:13.572 --> 00:14:17.862
+The programming language alone does not settle that foundational
+comparison.
+
+00:14:18.307 --> 00:14:24.007
+Nor does the existence of one verified numerical example establish a
+general success theorem.
+
+00:14:24.452 --> 00:14:30.733
+The later parts will keep the mathematical statement beside its ACL2
+counterpart and state the input domains.
+
+00:14:31.178 --> 00:14:37.163
+They will also distinguish a proved component from an outstanding
+interpretation or composition obligation.
+
+00:14:37.607 --> 00:14:41.791
+That is how reducing assumptions becomes a precise, reviewable
+result.
+
+00:14:43.833 --> 00:14:50.980
+We now have three separate questions: what follows from the rules,
+what the symbols mean, and what justifies the rules.
+
+00:14:51.424 --> 00:14:57.848
+A model connects the first two, and a consistency proof names the
+background in which that connection is justified.
+
+00:14:58.293 --> 00:15:01.362
+Gödel's theorem explains why the background matters.
+
+00:15:01.807 --> 00:15:05.599
+The next part returns to calculations we can inspect directly.
+
+00:15:06.044 --> 00:15:12.681
+We will represent fractions and intervals exactly, then prove that
+their bounds survive arithmetic operations.
+
+00:15:13.125 --> 00:15:20.947
+For example, two thirds lies between one half and three quarters;
+ACL2 can express that comparison with exact rationals.
+
+00:15:21.392 --> 00:15:26.808
+Those small guarantees will become the error budgets behind the
+later search and Landau arguments.
+
+00:15:27.253 --> 00:15:30.927
+Same mathematical target, with the dependencies made explicit.

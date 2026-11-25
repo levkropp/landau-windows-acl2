@@ -1,0 +1,833 @@
+[
+  {
+    "id": "news",
+    "chapter": "A proof checked in Lean",
+    "start": 0.0,
+    "audio_start": 0.2,
+    "duration": 27.517208,
+    "sentences": [
+      {
+        "text": "A proof of the Riemann hypothesis has recently been checked in Lean.",
+        "start": 0,
+        "end": 3.791304347826087
+      },
+      {
+        "text": "Independent programs have accepted the formal proof.",
+        "start": 4.052173913043478,
+        "end": 7.182608695652173
+      },
+      {
+        "text": "It concerns one of the most famous questions about the pattern of prime numbers.",
+        "start": 7.443478260869565,
+        "end": 11.68695652173913
+      },
+      {
+        "text": "That is a remarkable development.",
+        "start": 11.947826086956523,
+        "end": 13.965217391304348
+      },
+      {
+        "text": "But it leaves another question.",
+        "start": 14.226086956521737,
+        "end": 15.953623188405796
+      },
+      {
+        "text": "How much mathematical machinery does this particular argument really need?",
+        "start": 16.214492753623187,
+        "end": 20.434782608695652
+      },
+      {
+        "text": "To explain what Landau Windows A C L two is trying to do, we need to look at the foundations underneath a proof.",
+        "start": 20.695652173913043,
+        "end": 27.281159420289853
+      }
+    ]
+  },
+  {
+    "id": "pa",
+    "chapter": "Peano arithmetic: rules about whole numbers",
+    "start": 29.166666666666693,
+    "audio_start": 29.366666666666692,
+    "duration": 41.758958,
+    "sentences": [
+      {
+        "text": "Start with the whole numbers.",
+        "start": 0,
+        "end": 1.6829629629629628
+      },
+      {
+        "text": "Zero, one, two, three, and so on.",
+        "start": 1.9496296296296296,
+        "end": 4.663703703703703
+      },
+      {
+        "text": "Peano arithmetic is a precise system of rules about those numbers.",
+        "start": 4.93037037037037,
+        "end": 8.995555555555555
+      },
+      {
+        "text": "It tells us how the next number works, and how addition and multiplication behave.",
+        "start": 9.262222222222222,
+        "end": 13.979259259259258
+      },
+      {
+        "text": "It also gives us induction.",
+        "start": 14.245925925925926,
+        "end": 16.07111111111111
+      },
+      {
+        "text": "Imagine a row of dominoes.",
+        "start": 16.337777777777777,
+        "end": 18.317037037037036
+      },
+      {
+        "text": "Establish the first case, then show that whenever one case holds, the next one holds too.",
+        "start": 18.5837037037037,
+        "end": 24.379259259259257
+      },
+      {
+        "text": "Together, those two steps prove the property for every whole number.",
+        "start": 24.645925925925926,
+        "end": 28.675555555555555
+      },
+      {
+        "text": "We never have to check the numbers one at a time.",
+        "start": 28.94222222222222,
+        "end": 31.632592592592594
+      },
+      {
+        "text": "Arithmetic can also encode finite lists, fractions, and the steps of a calculation.",
+        "start": 31.89925925925926,
+        "end": 36.900740740740744
+      },
+      {
+        "text": "So this small starting point can express a surprising amount of mathematics.",
+        "start": 37.1674074074074,
+        "end": 41.517037037037035
+      }
+    ]
+  },
+  {
+    "id": "zfc",
+    "chapter": "ZFC: a larger mathematical framework",
+    "start": 72.56666666666638,
+    "audio_start": 72.76666666666638,
+    "duration": 39.365333,
+    "sentences": [
+      {
+        "text": "Now give ourselves a larger framework.",
+        "start": 0,
+        "end": 2.3822222222222225
+      },
+      {
+        "text": "Z F C is a standard collection of rules for set theory.",
+        "start": 2.6488888888888886,
+        "end": 6.358518518518519
+      },
+      {
+        "text": "A set is a collection of mathematical objects.",
+        "start": 6.625185185185185,
+        "end": 9.552592592592593
+      },
+      {
+        "text": "The rules let us build new sets, work with infinite sets, and develop a great deal of ordinary mathematics.",
+        "start": 9.81925925925926,
+        "end": 16.385185185185183
+      },
+      {
+        "text": "Even the whole numbers can be built out of sets.",
+        "start": 16.651851851851852,
+        "end": 19.294814814814814
+      },
+      {
+        "text": "We can start with the empty set, then build a sequence representing zero, one, two, and so on.",
+        "start": 19.561481481481483,
+        "end": 25.416296296296295
+      },
+      {
+        "text": "Inside this framework we can also construct functions, real numbers, and spaces.",
+        "start": 25.682962962962964,
+        "end": 30.589629629629627
+      },
+      {
+        "text": "That is one reason Z F C is stronger than Peano arithmetic.",
+        "start": 30.856296296296296,
+        "end": 34.7437037037037
+      },
+      {
+        "text": "It can describe and justify much more than the arithmetic rules alone.",
+        "start": 35.01037037037037,
+        "end": 39.122962962962966
+      }
+    ]
+  },
+  {
+    "id": "godel",
+    "chapter": "Godel's second incompleteness theorem",
+    "start": 113.56666666666607,
+    "audio_start": 113.76666666666607,
+    "duration": 53.971208,
+    "sentences": [
+      {
+        "text": "Why does the strength of the rules matter?",
+        "start": 0,
+        "end": 2.216296296296296
+      },
+      {
+        "text": "First, we need a word: consistency.",
+        "start": 2.482962962962963,
+        "end": 5.173333333333333
+      },
+      {
+        "text": "A consistent system never proves a contradiction, such as zero equals one.",
+        "start": 5.4399999999999995,
+        "end": 10.157037037037037
+      },
+      {
+        "text": "Checking a particular proof is a finite task.",
+        "start": 10.423703703703705,
+        "end": 13.268148148148146
+      },
+      {
+        "text": "But saying that no proof of a contradiction exists is a statement about every possible proof.",
+        "start": 13.534814814814814,
+        "end": 18.76148148148148
+      },
+      {
+        "text": "There is a remarkable connection here.",
+        "start": 19.028148148148148,
+        "end": 21.232592592592592
+      },
+      {
+        "text": "A finite proof can itself be encoded as a whole number.",
+        "start": 21.499259259259258,
+        "end": 24.888888888888886
+      },
+      {
+        "text": "That lets arithmetic make statements about proofs.",
+        "start": 25.155555555555555,
+        "end": 28.035555555555554
+      },
+      {
+        "text": "In nineteen thirty one, Godel established his second incompleteness theorem.",
+        "start": 28.302222222222223,
+        "end": 32.995555555555555
+      },
+      {
+        "text": "Under its usual conditions, a consistent system with mechanically specified rules and enough arithmetic cannot prove its own formal consistency.",
+        "start": 33.26222222222222,
+        "end": 41.67703703703703
+      },
+      {
+        "text": "This applies to Peano arithmetic, and to Z F C.",
+        "start": 41.943703703703704,
+        "end": 45.23851851851852
+      },
+      {
+        "text": "So a system can check individual arguments without being able to establish, from its own rules, that those rules will never produce a contradiction.",
+        "start": 45.505185185185184,
+        "end": 53.73037037037037
+      }
+    ]
+  },
+  {
+    "id": "model_pa",
+    "chapter": "How ZFC proves PA consistent",
+    "start": 169.16666666666558,
+    "audio_start": 169.36666666666557,
+    "duration": 41.901875,
+    "sentences": [
+      {
+        "text": "A stronger system can sometimes provide that justification for a weaker one.",
+        "start": 0,
+        "end": 4.361481481481481
+      },
+      {
+        "text": "Here is how Z F C does it for Peano arithmetic.",
+        "start": 4.628148148148148,
+        "end": 7.7807407407407405
+      },
+      {
+        "text": "It constructs the whole numbers, together with addition and multiplication, and checks that they satisfy the arithmetic axioms.",
+        "start": 8.047407407407407,
+        "end": 15.016296296296296
+      },
+      {
+        "text": "This is called building a model: a mathematical world where the rules hold.",
+        "start": 15.282962962962962,
+        "end": 19.98814814814815
+      },
+      {
+        "text": "Valid proof steps preserve truth in that world.",
+        "start": 20.254814814814814,
+        "end": 23.265185185185185
+      },
+      {
+        "text": "So an arithmetic proof cannot lead from those rules to a contradiction.",
+        "start": 23.531851851851854,
+        "end": 27.644444444444442
+      },
+      {
+        "text": "That gives a proof of the consistency of Peano arithmetic, carried out inside Z F C.",
+        "start": 27.91111111111111,
+        "end": 33.22074074074074
+      },
+      {
+        "text": "The justification depends on the stronger framework.",
+        "start": 33.4874074074074,
+        "end": 36.438518518518514
+      },
+      {
+        "text": "When Z F C asks about its own consistency, Godel's limit still applies.",
+        "start": 36.70518518518519,
+        "end": 41.65925925925926
+      }
+    ]
+  },
+  {
+    "id": "inaccessible",
+    "chapter": "An assumption beyond ZFC",
+    "start": 212.69999999999862,
+    "audio_start": 212.8999999999986,
+    "duration": 55.594667,
+    "sentences": [
+      {
+        "text": "Now repeat that idea one level higher.",
+        "start": 0,
+        "end": 2.6192592592592594
+      },
+      {
+        "text": "Not all infinities have the same size.",
+        "start": 2.885925925925926,
+        "end": 5.457777777777777
+      },
+      {
+        "text": "An inaccessible cardinal is a special size of infinity with a useful feature for our story.",
+        "start": 5.724444444444445,
+        "end": 11.176296296296297
+      },
+      {
+        "text": "If one exists, the sets below it form a mathematical world satisfying Z F C.",
+        "start": 11.442962962962964,
+        "end": 16.977777777777778
+      },
+      {
+        "text": "So assuming such a cardinal exists gives us a way to prove that Z F C is consistent.",
+        "start": 17.244444444444444,
+        "end": 22.54222222222222
+      },
+      {
+        "text": "But we just met the obstacle.",
+        "start": 22.808888888888887,
+        "end": 24.574814814814815
+      },
+      {
+        "text": "If Z F C is consistent, it cannot prove its own consistency.",
+        "start": 24.84148148148148,
+        "end": 29.119999999999997
+      },
+      {
+        "text": "Therefore it cannot prove that an inaccessible cardinal exists, either.",
+        "start": 29.386666666666667,
+        "end": 33.70074074074074
+      },
+      {
+        "text": "If it could, the model we just described would supply the forbidden consistency proof.",
+        "start": 33.96740740740741,
+        "end": 39.07555555555555
+      },
+      {
+        "text": "Accepting an inaccessible cardinal is therefore an additional assumption beyond Z F C.",
+        "start": 39.342222222222226,
+        "end": 44.675555555555555
+      },
+      {
+        "text": "This is why reducing the assumptions behind a theorem is a meaningful mathematical goal.",
+        "start": 44.94222222222222,
+        "end": 49.90814814814814
+      },
+      {
+        "text": "We want to understand exactly how much of this larger framework the argument actually needs.",
+        "start": 50.174814814814816,
+        "end": 55.35407407407407
+      }
+    ]
+  },
+  {
+    "id": "lean_rh",
+    "chapter": "What does this proof actually need?",
+    "start": 269.9333333333319,
+    "audio_start": 270.1333333333319,
+    "duration": 43.837875,
+    "sentences": [
+      {
+        "text": "A proof of the Riemann hypothesis has now been checked in Lean.",
+        "start": 0,
+        "end": 3.591111111111111,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.591111111111111
+          }
+        ]
+      },
+      {
+        "text": "The usual set theoretic models of Lean's universe hierarchy use Z F C together with inaccessible cardinals.",
+        "start": 3.8577777777777778,
+        "end": 10.625185185185185,
+        "phrases": [
+          {
+            "start": 3.8577777777777778,
+            "end": 10.625185185185185
+          }
+        ]
+      },
+      {
+        "text": "Yet the Riemann hypothesis itself can be stated entirely in terms of whole numbers.",
+        "start": 10.891851851851852,
+        "end": 15.857777777777777,
+        "phrases": [
+          {
+            "start": 10.891851851851852,
+            "end": 15.857777777777777
+          }
+        ]
+      },
+      {
+        "text": "The larger proof draws on substantial mathematics developed in that stronger setting.",
+        "start": 16.124444444444446,
+        "end": 20.971851851851852,
+        "phrases": [
+          {
+            "start": 16.124444444444446,
+            "end": 20.971851851851852
+          }
+        ]
+      },
+      {
+        "text": "We have focused on one essential part: the classical Landau bridge.",
+        "start": 21.23851851851852,
+        "end": 25.493333333333332,
+        "phrases": [
+          {
+            "start": 21.23851851851852,
+            "end": 25.493333333333332
+          }
+        ]
+      },
+      {
+        "text": "This encoded windowed ceiling reduction has now been proved in Peano Arithmetic and certified in vanilla A C L two.",
+        "start": 25.76,
+        "end": 32.788148148148146,
+        "phrases": [
+          {
+            "start": 25.76,
+            "end": 32.788148148148146
+          }
+        ]
+      },
+      {
+        "text": "The direct arithmetic proof establishes this Landau conversion with fewer foundational assumptions than Lean's ambient framework.",
+        "start": 33.05481481481481,
+        "end": 40.165925925925926,
+        "phrases": [
+          {
+            "start": 33.05481481481481,
+            "end": 40.165925925925926
+          }
+        ]
+      },
+      {
+        "text": "This is the result of Landau Windows A C L two.",
+        "start": 40.43259259259259,
+        "end": 43.59703703703703,
+        "phrases": [
+          {
+            "start": 40.43259259259259,
+            "end": 43.59703703703703
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s3_a",
+    "chapter": "The three-step picture",
+    "start": 315.40000000000356,
+    "audio_start": 315.60000000000355,
+    "duration": 19.538125,
+    "sentences": [
+      {
+        "text": "To see which piece we are studying, return to the picture from the original video.",
+        "start": 0,
+        "end": 4.8248062015503885
+      },
+      {
+        "text": "The dots are zeros of the zeta function, and the Riemann hypothesis puts them on the central line.",
+        "start": 5.103875968992248,
+        "end": 10.945736434108529
+      },
+      {
+        "text": "There is a mirror symmetry.",
+        "start": 11.224806201550388,
+        "end": 12.96124031007752
+      },
+      {
+        "text": "An off-centre dot on the left would have a partner on the right.",
+        "start": 13.24031007751938,
+        "end": 16.44031007751938
+      },
+      {
+        "text": "So ruling out dots on the right is enough.",
+        "start": 16.71937984496124,
+        "end": 19.286821705426355
+      }
+    ]
+  },
+  {
+    "id": "s3_b",
+    "chapter": "The Landau bridge",
+    "start": 336.5666666666766,
+    "audio_start": 336.7666666666766,
+    "duration": 41.184,
+    "sentences": [
+      {
+        "text": "Now watch the gap: the difference between a weighted prime count and its prediction.",
+        "start": 0,
+        "end": 4.5748148148148156
+      },
+      {
+        "text": "If a zero sits too far to the right, it contributes an oscillation that grows too quickly.",
+        "start": 4.841481481481481,
+        "end": 10.293333333333333
+      },
+      {
+        "text": "That extra wave rises and falls.",
+        "start": 10.559999999999999,
+        "end": 12.906666666666666
+      },
+      {
+        "text": "Eventually it would drive the gap above the allowed level.",
+        "start": 13.173333333333332,
+        "end": 16.302222222222223
+      },
+      {
+        "text": "Now suppose we could prove an upper bound that the gap never crosses.",
+        "start": 16.56888888888889,
+        "end": 20.52740740740741
+      },
+      {
+        "text": "Then that troublesome zero could not be there.",
+        "start": 20.79407407407407,
+        "end": 23.460740740740743
+      },
+      {
+        "text": "We only used a ceiling; a matching lower bound was unnecessary.",
+        "start": 23.72740740740741,
+        "end": 27.982222222222223
+      },
+      {
+        "text": "Landau's theorem makes that reasoning rigorous.",
+        "start": 28.24888888888889,
+        "end": 31.06962962962963
+      },
+      {
+        "text": "In the larger proof, another argument supplies the ceiling.",
+        "start": 31.336296296296293,
+        "end": 34.986666666666665
+      },
+      {
+        "text": "This connection between a one sided bound and a zero free region is the bridge we want to extract.",
+        "start": 35.25333333333334,
+        "end": 40.94222222222222
+      }
+    ]
+  },
+  {
+    "id": "focus",
+    "chapter": "The part we are extracting",
+    "start": 379.40000000002254,
+    "audio_start": 379.60000000002253,
+    "duration": 25.732875,
+    "sentences": [
+      {
+        "text": "Here is the piece we have extracted.",
+        "start": 0,
+        "end": 2.1681159420289853,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.1681159420289853
+          }
+        ]
+      },
+      {
+        "text": "Landau takes a bound on the prime counting error and converts it into a statement about zeros.",
+        "start": 2.4289855072463764,
+        "end": 7.6579710144927535,
+        "phrases": [
+          {
+            "start": 2.4289855072463764,
+            "end": 7.6579710144927535
+          }
+        ]
+      },
+      {
+        "text": "We have proved the encoded ceiling conversion in Peano Arithmetic and certified the corresponding development in A C L two.",
+        "start": 7.918840579710144,
+        "end": 14.852173913043478,
+        "phrases": [
+          {
+            "start": 7.918840579710144,
+            "end": 14.852173913043478
+          }
+        ]
+      },
+      {
+        "text": "The input ceiling still has to be established separately.",
+        "start": 15.113043478260868,
+        "end": 18.32463768115942,
+        "phrases": [
+          {
+            "start": 15.113043478260868,
+            "end": 18.32463768115942
+          }
+        ]
+      },
+      {
+        "text": "The theorem computes a window threshold and returns a certified rational violation under its stated zero hypotheses.",
+        "start": 18.58550724637681,
+        "end": 25.49565217391304,
+        "phrases": [
+          {
+            "start": 18.58550724637681,
+            "end": 25.49565217391304
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windowed",
+    "chapter": "A finite witness inside a window",
+    "start": 406.76666666669206,
+    "audio_start": 406.96666666669205,
+    "duration": 23.761083,
+    "sentences": [
+      {
+        "text": "Our version only gets the ceiling on recurring stretches of the number line, called windows.",
+        "start": 0,
+        "end": 5.131851851851852
+      },
+      {
+        "text": "A zero in the forbidden region must eventually force a violation in sufficiently large windows.",
+        "start": 5.398518518518518,
+        "end": 11.051851851851852
+      },
+      {
+        "text": "The effective theorem should compute where that violation happens, and certify it with exact bounds.",
+        "start": 11.31851851851852,
+        "end": 16.959999999999997
+      },
+      {
+        "text": "So the goal includes both finding a witness and proving that the search succeeds under the intended hypotheses.",
+        "start": 17.226666666666667,
+        "end": 23.52
+      }
+    ]
+  },
+  {
+    "id": "acl2",
+    "chapter": "ACL2: computation and induction",
+    "start": 432.16666666669516,
+    "audio_start": 432.36666666669515,
+    "duration": 38.811083,
+    "sentences": [
+      {
+        "text": "We used A C L two, a proof system based on a computational logic for applicative Common Lisp.",
+        "start": 0,
+        "end": 5.901449275362318,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.901449275362318
+          }
+        ]
+      },
+      {
+        "text": "Common Lisp is its programming language.",
+        "start": 6.16231884057971,
+        "end": 8.56231884057971,
+        "phrases": [
+          {
+            "start": 6.16231884057971,
+            "end": 8.56231884057971
+          }
+        ]
+      },
+      {
+        "text": "The foundational issue is the logical rules used by this proof.",
+        "start": 8.8231884057971,
+        "end": 12.533333333333333,
+        "phrases": [
+          {
+            "start": 8.8231884057971,
+            "end": 12.533333333333333
+          }
+        ]
+      },
+      {
+        "text": "Our calculations use finite lists, exact fractions, and recursive functions whose properties are proved by induction.",
+        "start": 12.794202898550724,
+        "end": 19.576811594202898,
+        "phrases": [
+          {
+            "start": 12.794202898550724,
+            "end": 19.576811594202898
+          }
+        ]
+      },
+      {
+        "text": "The corresponding development is certified in vanilla A C L two.",
+        "start": 19.83768115942029,
+        "end": 23.80289855072464,
+        "phrases": [
+          {
+            "start": 19.83768115942029,
+            "end": 23.80289855072464
+          }
+        ]
+      },
+      {
+        "text": "A direct manuscript proof derives the encoded theorem in first-order Peano Arithmetic, including its threshold and rational witness.",
+        "start": 24.063768115942025,
+        "end": 31.576811594202898,
+        "phrases": [
+          {
+            "start": 24.063768115942025,
+            "end": 31.576811594202898
+          }
+        ]
+      },
+      {
+        "text": "The manuscript supplies the mathematical proof, while the A C L two certificates record the machine-checked development.",
+        "start": 31.83768115942029,
+        "end": 38.57391304347826,
+        "phrases": [
+          {
+            "start": 31.83768115942029,
+            "end": 38.57391304347826
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "goal",
+    "chapter": "landau-windows-acl2",
+    "start": 472.60000000003197,
+    "audio_start": 472.80000000003196,
+    "duration": 42.764125,
+    "sentences": [
+      {
+        "text": "That is what Landau Windows A C L two has accomplished.",
+        "start": 0,
+        "end": 3.246376811594203,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.246376811594203
+          }
+        ]
+      },
+      {
+        "text": "The encoded ceiling reduction now has a direct Peano Arithmetic proof, a computed threshold, a certified rational witness, and its connection to the original Landau theorem.",
+        "start": 3.507246376811594,
+        "end": 13.640579710144927,
+        "phrases": [
+          {
+            "start": 3.507246376811594,
+            "end": 13.640579710144927
+          }
+        ]
+      },
+      {
+        "text": "This encoded windowed Landau ceiling reduction is proved in Peano Arithmetic.",
+        "start": 13.90144927536232,
+        "end": 18.3768115942029,
+        "phrases": [
+          {
+            "start": 13.90144927536232,
+            "end": 18.3768115942029
+          }
+        ]
+      },
+      {
+        "text": "Landau was our starting point.",
+        "start": 18.63768115942029,
+        "end": 20.3768115942029,
+        "phrases": [
+          {
+            "start": 18.63768115942029,
+            "end": 20.3768115942029
+          }
+        ]
+      },
+      {
+        "text": "Other parts of the larger argument may also be reducible to Peano arithmetic.",
+        "start": 20.63768115942029,
+        "end": 25.205797101449274,
+        "phrases": [
+          {
+            "start": 20.63768115942029,
+            "end": 25.205797101449274
+          }
+        ]
+      },
+      {
+        "text": "Whether a full arithmetic proof of the Riemann hypothesis can be found remains a separate question.",
+        "start": 25.466666666666665,
+        "end": 30.788405797101447,
+        "phrases": [
+          {
+            "start": 25.466666666666665,
+            "end": 30.788405797101447
+          }
+        ]
+      },
+      {
+        "text": "This project does not settle those wider questions.",
+        "start": 31.04927536231884,
+        "end": 34.028985507246375,
+        "phrases": [
+          {
+            "start": 31.04927536231884,
+            "end": 34.028985507246375
+          }
+        ]
+      },
+      {
+        "text": "Here we have completed one essential conversion, with its hypotheses and interpretation written down.",
+        "start": 34.289855072463766,
+        "end": 39.84347826086956,
+        "phrases": [
+          {
+            "start": 34.289855072463766,
+            "end": 39.84347826086956
+          }
+        ]
+      },
+      {
+        "text": "The same result, with fewer assumptions.",
+        "start": 40.10434782608696,
+        "end": 42.52753623188405,
+        "phrases": [
+          {
+            "start": 40.10434782608696,
+            "end": 42.52753623188405
+          }
+        ]
+      }
+    ]
+  }
+]

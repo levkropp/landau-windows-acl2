@@ -1,0 +1,1037 @@
+1
+00:00:00,200 --> 00:00:08,188
+The encoded windowed Landau ceiling reduction is now proved in
+first-order Peano Arithmetic and certified in vanilla ACL2.
+
+2
+00:00:08,711 --> 00:00:16,771
+It computes a threshold, proves that the bounded search succeeds,
+and returns a rational address with a strictly positive lower signal
+bound.
+
+3
+00:00:17,294 --> 00:00:21,888
+This is the completed arithmetic theorem that the earlier lessons
+were building toward.
+
+4
+00:00:22,411 --> 00:00:27,926
+Part Eight stopped at a conditional chain whose model and geometry
+data still had to be supplied.
+
+5
+00:00:28,448 --> 00:00:34,061
+The new construction supplies those data from the encoded zero
+region and its small-value probe.
+
+6
+00:00:34,583 --> 00:00:41,492
+We will follow what changed, read the final theorem, and explain the
+direct Peano Arithmetic proof given in the manuscript.
+
+7
+00:00:42,015 --> 00:00:51,009
+The manuscript derives the arithmetic theorem by ordinary induction
+on coded finite computations and supplies its connection to the
+classical zeta statement.
+
+8
+00:00:51,532 --> 00:00:56,283
+This is Part Nine of Landau Windows ACL Two: the completed
+reduction.
+
+9
+00:00:58,400 --> 00:01:05,455
+The theorem begins with a proposed ceiling: a nonnegative rational
+constant times x to a rational exponent.
+
+10
+00:01:05,977 --> 00:01:12,147
+The exponent is a fraction between zero and one, with one excluded
+for the nonempty region we use.
+
+11
+00:01:12,670 --> 00:01:21,155
+It also takes a rational region describing where a forbidden zero
+would be, and a sufficiently accurate rational small-value probe in
+that region.
+
+12
+00:01:21,677 --> 00:01:25,980
+From the region and ceiling data it computes a threshold for the
+window start.
+
+13
+00:01:26,503 --> 00:01:32,261
+Every rational start above that threshold leads to a successful
+search and a returned violation.
+
+14
+00:01:32,783 --> 00:01:39,244
+The theorem does not assume that the desired ceiling has already
+been disproved by an externally supplied witness.
+
+15
+00:01:39,767 --> 00:01:42,979
+It proves that its own finite search finds the address.
+
+16
+00:01:43,502 --> 00:01:49,417
+And it does not prove the separate ceiling hypothesis used by an
+entire Riemann Hypothesis argument.
+
+17
+00:01:51,533 --> 00:01:57,570
+The construction places the disk center at real coordinate two
+hundred fifty-two and a rational seed height.
+
+18
+00:01:58,092 --> 00:02:04,941
+A rational outer cap lies strictly between two hundred fifty-one and
+two hundred fifty-two minus the ceiling exponent.
+
+19
+00:02:05,464 --> 00:02:11,039
+Reserve a positive rational slack and use the smaller radius: cap
+minus slack.
+
+20
+00:02:11,562 --> 00:02:17,102
+These are conservative constants in a quantitative construction, not
+new kinds of infinity.
+
+21
+00:02:17,624 --> 00:02:23,673
+The smaller disk stays strictly in the positive half-plane, where
+the native Euler evaluator is defined.
+
+22
+00:02:24,195 --> 00:02:33,286
+For a hypothetical zero whose real part exceeds the exponent, an
+appropriate cap and a small slack place that zero inside a suitable
+region.
+
+23
+00:02:33,809 --> 00:02:38,682
+The center height can be chosen rationally, with the margin
+absorbing its approximation.
+
+24
+00:02:39,205 --> 00:02:43,035
+The actual theorem keeps these parameter restrictions explicit.
+
+25
+00:02:45,167 --> 00:02:48,827
+An actual complex zero need not have rational coordinates.
+
+26
+00:02:49,350 --> 00:02:56,356
+The arithmetic statement therefore uses rational probes with
+arbitrarily small residuals in one fixed compact disk.
+
+27
+00:02:56,879 --> 00:03:06,959
+For every positive rational error request… there is a rational
+offset… whose native Euler sample has magnitude at most that
+request.
+
+28
+00:03:07,482 --> 00:03:10,282
+The offset may change when the request changes.
+
+29
+00:03:10,805 --> 00:03:18,502
+This is an arithmetic statement about codes and finite computations;
+it does not require storing an irrational point exactly.
+
+30
+00:03:19,024 --> 00:03:23,533
+The displayed predicate checks membership in the disk and the small
+native value.
+
+31
+00:03:24,056 --> 00:03:30,189
+A single accidental small sample at a coarse request is not the
+entire encoded-zero condition.
+
+32
+00:03:30,712 --> 00:03:35,876
+The full condition gives probes at whatever finer request the
+construction eventually needs.
+
+33
+00:03:38,000 --> 00:03:42,412
+Quantifier order is one of the important changes since the
+conditional version.
+
+34
+00:03:42,935 --> 00:03:45,808
+First fix the region and ceiling parameters.
+
+35
+00:03:46,330 --> 00:03:53,106
+The construction chooses its geometry, a positive sample request,
+and a window threshold from those data.
+
+36
+00:03:53,629 --> 00:03:59,302
+Only then do we use the encoded-zero hypothesis to obtain a probe at
+the required accuracy.
+
+37
+00:03:59,824 --> 00:04:03,655
+The threshold does not depend on that probe's rational coordinates.
+
+38
+00:04:04,177 --> 00:04:09,292
+This prevents the selection from chasing a moving target as the
+probe becomes more accurate.
+
+39
+00:04:09,815 --> 00:04:15,803
+The final theorem only needs one probe at an error no larger than
+one quarter of the computed request.
+
+40
+00:04:16,326 --> 00:04:21,150
+The universal encoded-zero condition supplies that particular finite
+witness.
+
+41
+00:04:23,267 --> 00:04:30,091
+The native continuation evaluator is built from rational finite sums
+with computed cutoffs and internal precisions.
+
+42
+00:04:30,614 --> 00:04:36,989
+Its intended complex value is Z of s, equal to s minus one times
+zeta of s away from one.
+
+43
+00:04:37,512 --> 00:04:39,512
+At one, Z has value one.
+
+44
+00:04:40,035 --> 00:04:44,677
+That normalization removes the zeta pole at one and gives an entire
+function.
+
+45
+00:04:45,200 --> 00:04:52,509
+So zeros of Z in our region are zeros of zeta; the normalization
+point does not introduce a spurious zero.
+
+46
+00:04:53,032 --> 00:04:59,747
+The actual wrapper chooses the cutoff and primitive error, then
+evaluates a finite dyadic Euler prefix.
+
+47
+00:05:00,270 --> 00:05:04,015
+The arithmetic bounds compare its values at different requests.
+
+48
+00:05:04,538 --> 00:05:08,792
+The classical interpretation identifies the value it approximates.
+
+49
+00:05:10,933 --> 00:05:15,212
+The interpretation does not begin by declaring the evaluator to be
+zeta.
+
+50
+00:05:15,735 --> 00:05:22,159
+Fix a finite cutoff and compare the native computation with a finite
+Dirichlet sum plus an Euler correction.
+
+51
+00:05:22,682 --> 00:05:25,858
+The correction compensates for the omitted leading tail.
+
+52
+00:05:26,380 --> 00:05:35,229
+The certified fixed-truncation estimate separates the native
+request, a cutoff term that decreases with the dyadic level, and
+primitive rounding error.
+
+53
+00:05:35,752 --> 00:05:39,533
+First let the primitive error shrink while the cutoff stays fixed.
+
+54
+00:05:40,056 --> 00:05:46,844
+A fractional-part identity then identifies the limit of those finite
+corrected sums as the normalized zeta value.
+
+55
+00:05:47,367 --> 00:05:49,609
+Finally let the cutoff increase.
+
+56
+00:05:50,132 --> 00:05:53,865
+The result is an error bound of one quarter of the native request.
+
+57
+00:05:54,388 --> 00:06:00,958
+The manuscript proves the finite arithmetic bounds and establishes
+this zeta comparison in its final section.
+
+58
+00:06:03,100 --> 00:06:08,409
+The contour construction needs regions where the native Euler value
+stays away from zero.
+
+59
+00:06:08,932 --> 00:06:17,041
+On the real axis, the proof pairs alternating Dirichlet terms,
+controls the Euler correction, and obtains a positive lower bound.
+
+60
+00:06:17,564 --> 00:06:21,927
+A quantitative neighborhood argument extends that clearance to a
+narrow strip.
+
+61
+00:06:22,450 --> 00:06:28,911
+Strictly to the right of one, finite Mobius weights produce an
+approximate inverse with a positive lower bound.
+
+62
+00:06:29,433 --> 00:06:34,064
+These are arithmetic constructions with finite truncation and
+rounding budgets.
+
+63
+00:06:34,586 --> 00:06:39,702
+They replace the earlier need to supply those clearances as separate
+geometric promises.
+
+64
+00:06:40,224 --> 00:06:45,170
+The size of every safe region and the precision needed there are
+part of the computed data.
+
+65
+00:06:45,692 --> 00:06:50,226
+None of this says that a picture of a zero-free region is itself a
+certificate.
+
+66
+00:06:52,367 --> 00:06:59,433
+The proof constructs finite polynomial approximations and rational
+contour charts with explicit lower value bounds.
+
+67
+00:06:59,956 --> 00:07:05,132
+A chart is a collection of local checks whose quantitative radii
+cover the required contour.
+
+68
+00:07:05,655 --> 00:07:11,509
+The lower bounds must remain compatible when factorization and
+approximation precision are refined.
+
+69
+00:07:12,032 --> 00:07:16,262
+The new construction derives a uniform floor from its fixed coarse
+data.
+
+70
+00:07:16,785 --> 00:07:22,955
+That avoids choosing an index from a cap that secretly depends on
+the index's later precision request.
+
+71
+00:07:23,477 --> 00:07:29,211
+The circles carry finite integer counts, rather than a demand to
+name an exact analytic zero.
+
+72
+00:07:29,733 --> 00:07:35,236
+Accepted charts and count comparisons can therefore be manipulated
+by rational arithmetic.
+
+73
+00:07:35,759 --> 00:07:41,505
+The pictures here illustrate the interfaces; the computed objects in
+the proof are much larger.
+
+74
+00:07:43,633 --> 00:07:47,488
+Begin with a certified empty circle centered on the real axis.
+
+75
+00:07:48,011 --> 00:07:52,592
+Scan a finite sequence of real-centered circles toward the desired
+outer cap.
+
+76
+00:07:53,115 --> 00:07:54,606
+There are two outcomes.
+
+77
+00:07:55,129 --> 00:08:01,759
+If the scan reaches an outer empty circle, the original small probe
+supplies the positive modulated count.
+
+78
+00:08:02,282 --> 00:08:07,955
+If it encounters a positive count, use the first positive successor
+of the preceding empty circle.
+
+79
+00:08:08,477 --> 00:08:13,265
+A computed interior probe from that positive circle supplies the
+modulation height.
+
+80
+00:08:13,788 --> 00:08:19,497
+The real-axis and right-half-plane clearances leave enough radial
+room for the required nesting.
+
+81
+00:08:20,020 --> 00:08:27,911
+Both cases produce the same checked pair interface: an empty real
+circle and a compatible modulated circle with positive count.
+
+82
+00:08:30,033 --> 00:08:33,791
+The earlier isolated-pole picture made one point look special.
+
+83
+00:08:34,314 --> 00:08:40,726
+The completed reduction does not assume that every hypothetical zero
+is simple or separated from its neighbors.
+
+84
+00:08:41,248 --> 00:08:44,061
+It uses small values and finite counts.
+
+85
+00:08:44,583 --> 00:08:51,698
+Positive count gives a sufficiently accurate interior probe; a small
+enough probe prevents the relevant count from being zero.
+
+86
+00:08:52,221 --> 00:08:58,318
+Several zeros at one location or several nearby distinct locations
+enter through that same interface.
+
+87
+00:08:58,841 --> 00:09:02,938
+The construction still proves its own clearances and contour
+validity.
+
+88
+00:09:03,461 --> 00:09:08,588
+What disappears is the requirement to provide an exact isolated zero
+in advance.
+
+89
+00:09:09,111 --> 00:09:16,092
+This is why the cluster work was a mathematical part of the
+reduction, rather than a cosmetic addition to the diagram.
+
+90
+00:09:18,233 --> 00:09:22,197
+The source card shows the constructor that packages the circle data.
+
+91
+00:09:22,720 --> 00:09:25,629
+It first obtains the real-circle scan result.
+
+92
+00:09:26,152 --> 00:09:32,891
+If a positive successor was found, it computes a modulation height
+from that result; otherwise it keeps the seed height.
+
+93
+00:09:33,414 --> 00:09:38,977
+It builds the modulated cover and selects the positive sample
+request appropriate to the case.
+
+94
+00:09:39,500 --> 00:09:45,694
+The returned list records the chosen height, both covers, an
+interior real radius, and the request.
+
+95
+00:09:46,217 --> 00:09:49,829
+The short request wrapper extracts the last of those fields.
+
+96
+00:09:50,352 --> 00:09:56,533
+This is the data previously supplied to the conditional theorem, now
+generated by the arithmetic construction.
+
+97
+00:09:57,056 --> 00:10:02,244
+Its validity theorems connect the returned fields to the checks
+needed by the coefficient argument.
+
+98
+00:10:04,367 --> 00:10:08,597
+Part Seven computed oscillating Mellin samples and their finite
+sums.
+
+99
+00:10:09,120 --> 00:10:17,702
+The completed proof connects the actual improper evaluator to the
+native Euler coefficient family, rather than accepting an unrelated
+analytic model.
+
+100
+00:10:18,224 --> 00:10:22,139
+The coefficients are taken in the shifted variable s minus z.
+
+101
+00:10:22,662 --> 00:10:27,777
+That orientation accounts for the reciprocal-pole coefficient
+convention used in Part Eight.
+
+102
+00:10:28,300 --> 00:10:35,694
+The comparison keeps independent precision requests on both
+computations and proves an explicit disk allowance for their
+difference.
+
+103
+00:10:36,217 --> 00:10:40,520
+A common refinement lets the proof make that allowance as small as
+needed.
+
+104
+00:10:41,042 --> 00:10:47,891
+The zero data, contour data, and coefficients now refer to
+compatible constructions in the same arithmetic chain.
+
+105
+00:10:48,414 --> 00:10:54,353
+This is the connection needed before a coefficient contradiction can
+say anything about the real window search.
+
+106
+00:10:56,500 --> 00:11:01,967
+The completed proof also retains the plain height-zero reading from
+the one-sided inequality.
+
+107
+00:11:02,489 --> 00:11:08,550
+Failure of the window search bounds the magnitude of an oscillating
+coefficient plus that real coefficient.
+
+108
+00:11:09,073 --> 00:11:13,897
+The coefficient at height zero can be negative, so dropping it would
+change the statement.
+
+109
+00:11:14,420 --> 00:11:19,026
+The empty real-circle construction supplies the separate control
+needed for it.
+
+110
+00:11:19,548 --> 00:11:26,009
+The selected-height and real-height models are generated together so
+their normalizations and radii are compatible.
+
+111
+00:11:26,532 --> 00:11:31,114
+After adding the anchor allowance, search failure gives the required
+upper cap.
+
+112
+00:11:31,636 --> 00:11:36,194
+The large-index coefficient argument supplies the conflicting lower
+information.
+
+113
+00:11:36,717 --> 00:11:42,438
+The conclusion depends on that combined estimate, just as the small
+three-value example did.
+
+114
+00:11:44,567 --> 00:11:53,100
+There are several error channels: finite evaluation, contour
+approximation, coefficient comparison, and geometric remainder
+terms.
+
+115
+00:11:53,623 --> 00:11:57,902
+The proof assigns explicit rational portions of the final budget to
+them.
+
+116
+00:11:58,424 --> 00:12:07,370
+More accurate factor data can change the lists and their degree, so
+a cap chosen from an arbitrary later approximation would risk a
+circular dependency.
+
+117
+00:12:07,892 --> 00:12:14,050
+The completed construction instead derives the needed uniform caps
+and clearances from fixed coarse data.
+
+118
+00:12:14,573 --> 00:12:20,536
+Then it chooses an index large enough for the geometric terms and
+requests the required finer precision.
+
+119
+00:12:21,059 --> 00:12:24,962
+This order lets the same proof work at every subsequent refinement.
+
+120
+00:12:25,485 --> 00:12:32,648
+The theorem is about the whole prescribed parameter range, not a
+successful numerical experiment at one convenient input.
+
+121
+00:12:33,171 --> 00:12:39,777
+The thresholds are conservative; the result promises a certified
+witness, not a practical running time.
+
+122
+00:12:41,900 --> 00:12:45,500
+The threshold wrapper first calls the paired-circle constructor.
+
+123
+00:12:46,023 --> 00:12:53,211
+It reads the chosen height, the modulated cover, the empty cover,
+and the reserved real radius from the returned data.
+
+124
+00:12:53,733 --> 00:12:58,970
+It then calls the proved pair-threshold routine with those fields
+and the ceiling parameters.
+
+125
+00:12:59,492 --> 00:13:04,777
+The small-value request and the window threshold use the same
+prepared region data.
+
+126
+00:13:05,300 --> 00:13:11,700
+The source makes their independence from the later offset visible:
+the offset is not an input to either wrapper.
+
+127
+00:13:12,223 --> 00:13:17,750
+The validity theorems prove that the request is positive and the
+threshold is a positive integer.
+
+128
+00:13:18,273 --> 00:13:24,418
+At this point the infinite-looking Landau argument has supplied the
+finite bounds needed to run the window search.
+
+129
+00:13:24,941 --> 00:13:28,820
+We can now read the final theorem as an input-and-output contract.
+
+130
+00:13:30,933 --> 00:13:37,467
+The first source page lists the rational region, slack, ceiling,
+exponent, and window-start hypotheses.
+
+131
+00:13:37,989 --> 00:13:44,547
+It also requires a passing approximate-zero predicate at a request
+at most one quarter of the prepared request.
+
+132
+00:13:45,070 --> 00:13:49,555
+The conclusion runs the actual bounded window search and computes
+its address.
+
+133
+00:13:50,077 --> 00:13:57,459
+It says the search result exists, the address is rational, and the
+address satisfies the two window inequalities.
+
+134
+00:13:57,982 --> 00:14:06,200
+It also says that the returned lower signal endpoint is strictly
+positive and that the interval is exactly the one produced by the
+signal evaluator.
+
+135
+00:14:06,723 --> 00:14:12,202
+The final page contains the proof's use of the preceding reduction
+and probe-admission theorems.
+
+136
+00:14:12,724 --> 00:14:19,839
+These proof hints direct ACL2 toward already checked results; they
+are not extra assumptions added to the theorem.
+
+137
+00:14:20,362 --> 00:14:23,744
+The complete source form is shown across the numbered cards.
+
+138
+00:14:24,267 --> 00:14:27,527
+The name of this result is the encoded-zero reduction.
+
+139
+00:14:29,667 --> 00:14:33,679
+The theorem uses the same finite search built earlier in the series.
+
+140
+00:14:34,202 --> 00:14:40,347
+The search wrapper chooses the constructed grid and evaluates the
+centered signal minus the proposed ceiling.
+
+141
+00:14:40,870 --> 00:14:46,021
+The address wrapper converts a returned sample index into a rational
+point on that grid.
+
+142
+00:14:46,544 --> 00:14:53,974
+For a window beginning at Y, the conclusion gives Y less than or
+equal to x and x squared less than or equal to Y cubed.
+
+143
+00:14:54,497 --> 00:15:00,667
+Because the quantities are nonnegative, this places x in the window
+from Y to Y to the power three halves.
+
+144
+00:15:01,189 --> 00:15:07,032
+The squared comparison is an exact rational test; no rounded square
+root defines the endpoint.
+
+145
+00:15:07,555 --> 00:15:13,761
+For illustration, a window beginning at four ends at eight, and the
+rational address six lies inside it.
+
+146
+00:15:14,283 --> 00:15:20,889
+Those small numbers illustrate the conclusion's geometry, not an
+execution of the enormous final threshold.
+
+147
+00:15:23,033 --> 00:15:29,482
+The returned interval encloses Gz of x minus the ceiling constant
+times x to the chosen exponent.
+
+148
+00:15:30,005 --> 00:15:37,811
+The prime-power classifier, logarithm bands, Euler-constant bands,
+and rational-power bands provide the components of that enclosure.
+
+149
+00:15:38,333 --> 00:15:43,982
+The interval operations preserve their real meanings through finite
+addition, scaling and subtraction.
+
+150
+00:15:44,505 --> 00:15:50,092
+So a strictly positive lower endpoint proves a strict ceiling
+violation at the returned address.
+
+151
+00:15:50,615 --> 00:15:55,088
+It is stronger than a positive floating-point estimate with no error
+allowance.
+
+152
+00:15:55,611 --> 00:16:01,817
+If the lower endpoint were one eighth in an illustrative enclosure,
+the true difference would be at least one eighth.
+
+153
+00:16:02,339 --> 00:16:08,073
+The theorem computes the actual endpoint; the film is not
+substituting that illustrative value.
+
+154
+00:16:08,595 --> 00:16:14,777
+The interpretation document spells out the original smoothed prime
+statistic that the evaluator encloses.
+
+155
+00:16:16,900 --> 00:16:24,197
+Return to the encoded-zero condition: every positive rational
+request has a suitable rational probe in the fixed region.
+
+156
+00:16:24,720 --> 00:16:29,702
+The arithmetic construction proves that one particular positive
+request is sufficient.
+
+157
+00:16:30,224 --> 00:16:34,588
+Instantiate the encoded-zero condition at one quarter of that
+request.
+
+158
+00:16:35,111 --> 00:16:40,395
+The final theorem now applies to every rational window start above
+its computed threshold.
+
+159
+00:16:40,918 --> 00:16:47,767
+There is no need to choose a new analytic zero, guess a contour, or
+supply a separate peak selector for each window.
+
+160
+00:16:48,289 --> 00:16:50,883
+The search returns the violation directly.
+
+161
+00:16:51,406 --> 00:17:00,836
+In contrapositive form, a failed search above the threshold excludes
+every probe at that required accuracy, and therefore excludes the
+encoded-zero condition.
+
+162
+00:17:01,359 --> 00:17:05,080
+That is the effective arithmetic ceiling-to-zero-free conversion.
+
+163
+00:17:07,200 --> 00:17:13,661
+The Peano Arithmetic proof represents fractions, lists, and complex
+pairs by natural-number codes.
+
+164
+00:17:14,183 --> 00:17:17,371
+Represent an integer by a sign and a magnitude.
+
+165
+00:17:17,894 --> 00:17:24,173
+Represent a rational by a numerator and a nonzero denominator, with
+the chosen normalization convention.
+
+166
+00:17:24,695 --> 00:17:29,471
+Finite pairs and lists can themselves be represented by natural-
+number codes.
+
+167
+00:17:29,994 --> 00:17:37,982
+A rational complex value is then a code for two rational
+coordinates, and a polynomial is a code for a finite coefficient
+list.
+
+168
+00:17:38,505 --> 00:17:43,232
+The graphs of the recursive functions become arithmetic relations on
+those codes.
+
+169
+00:17:43,755 --> 00:17:50,906
+This is how the theorem can be stated using whole-number variables
+even though its convenient working notation uses richer data.
+
+170
+00:17:51,429 --> 00:17:59,647
+The encoding must preserve the operations and hypotheses used by the
+proof; merely renaming a fraction as an integer would not suffice.
+
+171
+00:18:01,767 --> 00:18:09,136
+We now have a direct mathematical proof in first-order Peano
+Arithmetic, as well as the machine-checked ACL2 development.
+
+172
+00:18:09,659 --> 00:18:17,053
+The manuscript proves the encoded windowed ceiling theorem by
+deriving its finite computations and inequalities in arithmetic.
+
+173
+00:18:17,576 --> 00:18:24,630
+Natural-number codes represent integers, rationals, finite lists,
+polynomials, and computation graphs.
+
+174
+00:18:25,153 --> 00:18:31,080
+Termination and induction are justified using natural-valued
+measures and ordinary strong induction.
+
+175
+00:18:31,603 --> 00:18:38,391
+Section fourteen supplies the finite Mellin quadrature estimates
+rather than importing an unproved analytic estimate.
+
+176
+00:18:38,914 --> 00:18:45,956
+Theorem fifteen point two assembles the contour construction,
+coefficient bounds, threshold, and returned rational witness.
+
+177
+00:18:46,479 --> 00:18:51,606
+The manuscript also proves the correspondence with the classical
+zeta-function statement.
+
+178
+00:18:52,129 --> 00:19:01,268
+The result is proved in Peano Arithmetic; the manuscript and ACL2
+certificates provide the direct arithmetic proof and the machine-
+checked development.
+
+179
+00:19:03,400 --> 00:19:11,485
+The release checkpoint contains six hundred forty-seven certified
+ACL2 books and three thousand six hundred forty-nine exported
+theorems.
+
+180
+00:19:12,008 --> 00:19:15,874
+The certificate files are present and newer than their source files.
+
+181
+00:19:16,397 --> 00:19:21,961
+Loading the final book successfully imports its five hundred fifty-
+eight-book dependency closure.
+
+182
+00:19:22,483 --> 00:19:30,011
+The source audit found no skipped-proof, custom-axiom, trust-tag, or
+function-attachment events in the recorded books.
+
+183
+00:19:30,533 --> 00:19:34,473
+The source hashes identify the exact checkpoint behind this film.
+
+184
+00:19:34,995 --> 00:19:42,050
+These checks support reproducibility and reveal the proof path; they
+do not replace understanding the theorem statement.
+
+185
+00:19:42,573 --> 00:19:50,124
+The direct Peano Arithmetic manuscript and its classical comparison
+are recorded alongside the ACL2 certificate audit.
+
+186
+00:19:50,647 --> 00:19:55,423
+The proof source is available for independent checking with vanilla
+ACL2.
+
+187
+00:19:57,567 --> 00:20:05,445
+The classical comparison proves that the native Euler value differs
+from the normalized zeta value by at most one quarter of its
+request.
+
+188
+00:20:05,968 --> 00:20:13,762
+Continuity and rational density turn an actual zero in the interior
+of a suitable disk into arbitrarily fine rational probes.
+
+189
+00:20:14,285 --> 00:20:21,970
+Conversely, probes in one compact disk with errors tending to zero
+have a limit point where the normalized zeta value vanishes.
+
+190
+00:20:22,492 --> 00:20:28,153
+The value at one is one, so that limit does not manufacture a zero
+at the normalization point.
+
+191
+00:20:28,676 --> 00:20:34,858
+The signal enclosure turns the returned positive endpoint into a
+genuine violation of the classical ceiling.
+
+192
+00:20:35,380 --> 00:20:42,350
+Rational approximation of exponents, heights, constants, and window
+starts then gives the recurring-window formulation.
+
+193
+00:20:42,873 --> 00:20:47,685
+The manuscript proves this comparison after completing the
+arithmetic derivation.
+
+194
+00:20:48,208 --> 00:20:56,486
+Both are supplied: the Peano Arithmetic proof of the encoded
+reduction, and its mathematical identification with the original
+Landau statement.
+
+195
+00:20:58,633 --> 00:21:07,227
+The encoded windowed Landau ceiling reduction is proved in Peano
+Arithmetic, with the corresponding development certified in vanilla
+ACL2.
+
+196
+00:21:07,750 --> 00:21:15,956
+It supplies a computed threshold, a proof of search success, and a
+certified rational witness under the encoded zero hypotheses.
+
+197
+00:21:16,479 --> 00:21:25,848
+The contour and budget constructors discharge the applicability
+inputs left open in Part Eight, and the manuscript derives their
+arithmetic guarantees directly.
+
+198
+00:21:26,371 --> 00:21:31,765
+The result handles multiple and clustered zeros through the small-
+value and count interface.
+
+199
+00:21:32,288 --> 00:21:37,258
+This is one essential conversion in a larger Riemann Hypothesis
+proof architecture.
+
+200
+00:21:37,780 --> 00:21:48,302
+It does not establish the separate ceiling hypothesis, prove every
+component of that architecture in Peano Arithmetic, or claim a full
+arithmetic proof of the Riemann Hypothesis.
+
+201
+00:21:48,824 --> 00:21:51,855
+Those are different questions about further reductions.
+
+202
+00:21:52,377 --> 00:21:59,783
+The value of this result is that this particular bridge now has a
+concrete arithmetic proof path with its interpretation exposed.
+
+203
+00:22:01,900 --> 00:22:11,124
+The repository now connects the Peano Arithmetic manuscript, the
+final ACL2 theorem, the certificate inventory, and the proof source
+hashes.
+
+204
+00:22:11,647 --> 00:22:17,671
+The companion lesson book puts the videos beside worked articles and
+interactive arithmetic examples.
+
+205
+00:22:18,194 --> 00:22:24,036
+Those demos help explain the constructions; they are not substitutes
+for the ACL2 checker.
+
+206
+00:22:24,559 --> 00:22:31,262
+To reproduce the machine-checked development, use the pinned local
+toolchain instructions and the certification command.
+
+207
+00:22:31,785 --> 00:22:39,397
+To read the Peano Arithmetic proof, begin with Theorem fifteen point
+two and its preceding finite derivations in the manuscript.
+
+208
+00:22:39,920 --> 00:22:44,392
+We started with successor, induction, and a finite sum of odd
+numbers.
+
+209
+00:22:44,915 --> 00:22:49,885
+We finish with a finite proof that a prescribed search must return a
+window violation.
+
+210
+00:22:50,408 --> 00:22:56,408
+Landau Windows ACL Two: the same Landau conversion, with fewer
+foundational assumptions.

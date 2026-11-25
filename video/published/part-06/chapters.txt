@@ -1,0 +1,23 @@
+00:00:00  From a weighted reading to rational computations
+00:00:53  Unpack the factorial
+00:01:41  Build one exponential term at a time
+00:02:25  The actual term function
+00:03:12  A partial sum has an explicit stopping index
+00:03:58  Pay for every omitted term
+00:04:53  Turn the tail bound into an interval
+00:05:36  Choose a safe starting index
+00:06:26  Turn a width target into extra work
+00:07:19  Assemble the requested exponential enclosure
+00:08:08  Finite arithmetic and the real exponential
+00:08:57  Reverse endpoints for exponential decay
+00:09:47  Restore the kernel's actual scale
+00:10:35  Separate the exact factor from the uncertain factor
+00:11:21  Budget the scaled exponential error
+00:12:09  One fully computed kernel weight
+00:13:03  A weighted sum is not yet an integral
+00:13:50  Check the finite rectangle calculation
+00:14:42  Bound the variation between sample points
+00:15:38  Allocate error to cell contributions
+00:16:33  An infinite tail needs a bound
+00:17:29  Keep the three error channels separate
+00:18:25  From scalar weights to complex readings

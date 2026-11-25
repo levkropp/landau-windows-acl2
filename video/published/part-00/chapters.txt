@@ -1,0 +1,17 @@
+00:00:00  A finite proof about infinitely many numbers
+00:00:36  The symbols, one at a time
+00:02:22  Terms turn inputs into a number
+00:03:20  Formulas and their truth values
+00:04:31  Less than or equal to
+00:05:42  Building addition one step at a time
+00:06:45  Building multiplication: one to five groups
+00:08:02  Induction: a start and a repeatable step
+00:08:55  A complete small proof
+00:09:48  Build O(n) and its recurrence, one term at a time
+00:11:45  Connect the recurrence to the square picture
+00:13:35  Define video-odd-sum before using its compact name
+00:14:52  From the PA claim to a checked ACL2 theorem
+00:17:06  PA and ACL2 notation, side by side
+00:18:41  More than a calculator
+00:19:33  A statement is not yet a proof
+00:20:13  The road to the Landau reduction

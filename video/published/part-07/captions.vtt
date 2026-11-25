@@ -1,0 +1,830 @@
+WEBVTT
+
+00:00:00.200 --> 00:00:04.212
+Part Six built scalar kernel weights and their rational error
+bounds.
+
+00:00:04.735 --> 00:00:08.371
+A Mellin reading also has an oscillating complex phase.
+
+00:00:08.894 --> 00:00:16.058
+This episode adds that missing factor, then combines the signal,
+weight, and phase into an actual sample constructor.
+
+00:00:16.580 --> 00:00:23.041
+We will begin with pairs of rational coordinates, so the complex
+arithmetic has an explicit representation.
+
+00:00:23.564 --> 00:00:28.194
+Then we will build a rational rotation and refine it toward the
+desired phase.
+
+00:00:28.717 --> 00:00:32.753
+Finally, we will budget the errors of the product and the finite
+sum.
+
+00:00:33.276 --> 00:00:41.773
+The small numerical examples are checked arithmetic examples; the
+real interpretation stays attached through the project's proved
+bridge theorems.
+
+00:00:42.295 --> 00:00:48.441
+This is Part Seven of Landau Windows ACL Two: complex phases and
+oscillating samples.
+
+00:00:50.567 --> 00:00:57.379
+In Part Five, a complex number was a point with a horizontal real
+coordinate and a vertical imaginary coordinate.
+
+00:00:57.902 --> 00:01:01.950
+A rational complex point stores those two coordinates as a pair.
+
+00:01:02.473 --> 00:01:08.727
+For example, three fifths plus four fifths times i is represented by
+the pair three fifths, four fifths.
+
+00:01:09.250 --> 00:01:12.644
+The ACL2 representation uses a dotted pair.
+
+00:01:13.167 --> 00:01:18.209
+The first entry is the real coordinate, and the second is the
+imaginary coordinate.
+
+00:01:18.732 --> 00:01:22.526
+The complex-point predicate checks that both entries are rational.
+
+00:01:23.048 --> 00:01:27.776
+A pair of numbers is a representation, not a declaration of its
+meaning.
+
+00:01:28.298 --> 00:01:33.086
+In Part Two a pair represented interval endpoints; here it
+represents coordinates.
+
+00:01:33.609 --> 00:01:35.621
+We keep those two uses distinct.
+
+00:01:37.767 --> 00:01:40.748
+Complex addition adds corresponding coordinates.
+
+00:01:41.271 --> 00:01:46.095
+Scaling by a real rational number multiplies both coordinates by
+that number.
+
+00:01:46.618 --> 00:01:53.152
+Subtraction subtracts corresponding coordinates and will let us
+describe the difference between two computed points.
+
+00:01:53.674 --> 00:01:56.935
+These three definitions are short enough to see together.
+
+00:01:57.458 --> 00:02:00.318
+The arithmetic stays rational at every step.
+
+00:02:00.841 --> 00:02:04.756
+Geometrically, adding a point means adding its displacement vector.
+
+00:02:05.279 --> 00:02:11.667
+Scaling by a positive number changes the length, and scaling by a
+negative number also reverses the direction.
+
+00:02:12.189 --> 00:02:18.492
+These are the operations that will add samples and multiply a phase
+by a real signal times a real weight.
+
+00:02:20.633 --> 00:02:24.924
+Complex multiplication uses the rule that i squared is minus one.
+
+00:02:25.447 --> 00:02:31.980
+The real coordinate of the product is the product of the real
+coordinates minus the product of the imaginary coordinates.
+
+00:02:32.503 --> 00:02:36.891
+The imaginary coordinate contains the two cross products, added
+together.
+
+00:02:37.414 --> 00:02:40.541
+The source definition implements exactly that rule.
+
+00:02:41.064 --> 00:02:45.088
+Multiply three fifths plus four fifths times i by i itself.
+
+00:02:45.611 --> 00:02:49.344
+The result is minus four fifths plus three fifths times i.
+
+00:02:49.867 --> 00:02:52.655
+The vector has turned through a quarter of a circle.
+
+00:02:53.177 --> 00:02:56.971
+Starting from one, four multiplications by i return to one.
+
+00:02:57.494 --> 00:03:05.773
+Our general power function repeats complex multiplication a finite
+number of times, with one plus zero times i as its base case.
+
+00:03:07.900 --> 00:03:13.136
+To bound a complex point's distance from zero, use the sum of the
+squares of its coordinates.
+
+00:03:13.659 --> 00:03:19.550
+A point is inside the disk of nonnegative radius r exactly when that
+sum is at most r squared.
+
+00:03:20.073 --> 00:03:25.418
+The ACL2 predicates use this squared comparison, without evaluating
+a square root.
+
+00:03:25.941 --> 00:03:32.353
+Three fifths, four fifths lies on the unit circle, because nine
+twenty-fifths plus sixteen twenty-fifths is one.
+
+00:03:32.876 --> 00:03:38.670
+The point one, one is outside the unit disk, even though each
+coordinate separately is at most one.
+
+00:03:39.192 --> 00:03:43.059
+Separate coordinate bounds and a disk bound are different
+guarantees.
+
+00:03:43.582 --> 00:03:48.236
+For an error disk around another point, apply the disk test to their
+difference.
+
+00:03:48.759 --> 00:03:53.814
+This gives us an exact rational way to compare rational complex
+approximations.
+
+00:03:55.933 --> 00:03:58.879
+The desired phase is a point on the unit circle.
+
+00:03:59.402 --> 00:04:06.492
+For an angle t, it is the complex exponential of i times t, whose
+coordinates are cosine t and sine t.
+
+00:04:07.015 --> 00:04:12.955
+Measure the angle in radians: on the unit circle, the angle is the
+signed length of the arc from one.
+
+00:04:13.477 --> 00:04:18.205
+Positive angles move counterclockwise, and negative angles move
+clockwise.
+
+00:04:18.727 --> 00:04:20.473
+Every phase has length one.
+
+00:04:20.995 --> 00:04:27.347
+The target coordinates need not be rational, so we will approximate
+the direction using rational coordinates.
+
+00:04:27.870 --> 00:04:35.494
+Our construction will preserve the unit-circle property exactly
+while controlling the angular approximation through a distance
+estimate.
+
+00:04:36.017 --> 00:04:40.211
+Preserving length alone is not enough to identify the desired phase.
+
+00:04:42.333 --> 00:04:44.709
+Start with a rational parameter t.
+
+00:04:45.232 --> 00:04:49.886
+The rotation's coordinates have a common denominator, four plus t
+squared.
+
+00:04:50.409 --> 00:04:56.458
+The real numerator is four minus t squared, and the imaginary
+numerator is four times t.
+
+00:04:56.980 --> 00:05:02.823
+The denominator is always positive, so there is no zero-division
+case for a rational input.
+
+00:05:03.345 --> 00:05:07.564
+Squaring the two numerators and adding gives the square of the
+denominator.
+
+00:05:08.086 --> 00:05:11.905
+Therefore this rational point lies exactly on the unit circle.
+
+00:05:12.427 --> 00:05:16.209
+At parameter one, the point is three fifths, four fifths.
+
+00:05:16.732 --> 00:05:20.283
+That is not exactly the phase for an angle of one radian.
+
+00:05:20.806 --> 00:05:26.406
+The rational parameter gives a convenient nearby rotation;
+refinement will correct the angle.
+
+00:05:26.929 --> 00:05:29.753
+The two full source definitions are shown here.
+
+00:05:30.276 --> 00:05:34.082
+The denominator helper returns the common positive divisor.
+
+00:05:34.605 --> 00:05:40.241
+The rotation function builds the numerator pair, then scales both
+entries by its reciprocal.
+
+00:05:42.367 --> 00:05:47.397
+To approximate the phase for a larger angle, split the angle into N
+equal pieces.
+
+00:05:47.920 --> 00:05:54.962
+Use the rational rotation at parameter t divided by N, and multiply
+that rotation by itself N times.
+
+00:05:55.485 --> 00:05:58.345
+Each multiplication stays on the unit circle.
+
+00:05:58.868 --> 00:06:02.783
+The power evaluator is the finite loop we have already introduced.
+
+00:06:03.306 --> 00:06:09.658
+At angle one with two steps, the small-step rotation is fifteen
+seventeenths, eight seventeenths.
+
+00:06:10.180 --> 00:06:17.392
+Squaring it gives the rational point one hundred sixty-one over two
+hundred eighty-nine, two hundred forty over two hundred eighty-nine.
+
+00:06:17.915 --> 00:06:22.606
+This is an exact computed point, not a rounded sine or cosine call.
+
+00:06:23.129 --> 00:06:27.408
+The remaining question is how close its direction is to the target
+phase.
+
+00:06:29.533 --> 00:06:33.315
+The phase-grid function packages this repeated small rotation.
+
+00:06:33.838 --> 00:06:38.214
+Its inputs are a rational angle and a positive natural number of
+steps.
+
+00:06:38.736 --> 00:06:42.688
+In the picture, the target is the gold point for one radian.
+
+00:06:43.211 --> 00:06:46.083
+One step gives the coarser rational direction.
+
+00:06:46.606 --> 00:06:52.513
+Two steps move closer… and further refinement brings the direction
+closer still.
+
+00:06:53.036 --> 00:06:57.811
+The plotted positions are illustrations; the proof uses a distance
+bound.
+
+00:06:58.334 --> 00:07:07.643
+Provided the step count is at least the absolute angle, the real
+interpretation bounds the distance by twice the angle squared
+divided by the number of steps.
+
+00:07:08.166 --> 00:07:12.396
+This is a conservative estimate, not the observed distance in the
+plot.
+
+00:07:12.919 --> 00:07:17.331
+The exact unit length and the approximation error are two separate
+facts.
+
+00:07:19.467 --> 00:07:23.552
+We can choose enough steps from the requested positive rational
+error.
+
+00:07:24.074 --> 00:07:33.371
+The construction needs the step count to be positive, to cover the
+absolute angle, and to make twice the angle squared divided by the
+step count no larger than the request.
+
+00:07:33.894 --> 00:07:40.136
+The definition uses the precision fuel introduced earlier, takes the
+larger requirement, and adds one.
+
+00:07:40.659 --> 00:07:44.768
+The phase-value wrapper evaluates the phase grid at that computed
+count.
+
+00:07:45.291 --> 00:07:50.067
+For angle one and requested distance error one quarter, the step
+count is nine.
+
+00:07:50.589 --> 00:07:54.723
+The conservative bound is then two ninths, which is less than one
+quarter.
+
+00:07:55.245 --> 00:07:58.324
+A smaller error request asks for more steps.
+
+00:07:58.847 --> 00:08:03.017
+No inverse trigonometric operation is needed by this algorithm.
+
+00:08:05.133 --> 00:08:10.297
+The arithmetic theory proves that the computed phase is a rational
+point in the unit disk.
+
+00:08:10.820 --> 00:08:14.408
+It also controls how two requested precisions compare.
+
+00:08:14.930 --> 00:08:21.682
+The real interpretation identifies the computed point with an
+approximation to the actual complex exponential.
+
+00:08:22.205 --> 00:08:26.677
+Its distance error is at most the positive tolerance supplied to the
+constructor.
+
+00:08:27.200 --> 00:08:32.836
+In fact, the rational rotations have exact unit length, and so do
+their finite powers.
+
+00:08:33.359 --> 00:08:36.462
+The interpretation proves that length statement too.
+
+00:08:36.985 --> 00:08:39.336
+These facts serve different purposes.
+
+00:08:39.859 --> 00:08:44.683
+The unit bound keeps later multiplications from enlarging errors
+unnecessarily.
+
+00:08:45.206 --> 00:08:48.612
+The distance estimate says that the direction is the right one.
+
+00:08:49.135 --> 00:08:54.347
+The complex target is connected by a theorem, rather than being
+assumed from the picture.
+
+00:08:56.467 --> 00:09:02.018
+In a Mellin reading, the phase depends on the sample address as well
+as the transform's height.
+
+00:09:02.541 --> 00:09:03.995
+Call that height H.
+
+00:09:04.518 --> 00:09:09.427
+At logarithmic address u, the required angle is minus H times u.
+
+00:09:09.950 --> 00:09:14.095
+For positive H, increasing u therefore moves the phase clockwise.
+
+00:09:14.618 --> 00:09:19.442
+This is the factor that distinguishes an oscillating reading from
+the plain real reading.
+
+00:09:19.965 --> 00:09:23.359
+If the height is zero, the phase is one at every address.
+
+00:09:23.882 --> 00:09:29.373
+The scalar kernel still supplies the exponential damping and the
+factorial-normalized weight.
+
+00:09:29.895 --> 00:09:36.489
+The phase changes the direction of each contribution, while the real
+signal and weight determine its signed scale.
+
+00:09:37.012 --> 00:09:41.024
+Keeping the minus sign correct matters when we later interpret the
+sum.
+
+00:09:43.167 --> 00:09:48.415
+The signal in this coordinate system is G_z evaluated at the
+exponential of u.
+
+00:09:48.938 --> 00:09:51.823
+Usually that address is not a rational number.
+
+00:09:52.345 --> 00:09:58.588
+We therefore cannot simply insert a rounded address into the signal
+evaluator and reuse the same tolerance.
+
+00:09:59.111 --> 00:10:06.214
+The project computes a rational address close to the exponential
+address, and pays for transport with a variation bound.
+
+00:10:06.736 --> 00:10:13.439
+The first source card chooses a coarse address cap, a transport
+factor, and a small address allowance.
+
+00:10:13.962 --> 00:10:18.168
+The next card constructs the rational point near the exponential
+address.
+
+00:10:18.691 --> 00:10:24.109
+The final card evaluates the signal there and widens its interval by
+the transport margin.
+
+00:10:24.632 --> 00:10:28.317
+The zero ceiling coefficient selects G_z itself.
+
+00:10:28.839 --> 00:10:33.348
+This is a composition of earlier ingredients, with the address error
+included.
+
+00:10:33.871 --> 00:10:41.035
+The existing real interpretation proves that the resulting interval
+contains the signal at the intended exponential address.
+
+00:10:43.167 --> 00:10:46.258
+The sample is a product of three approximations.
+
+00:10:46.780 --> 00:10:53.568
+Before choosing their fine precisions, we need magnitude caps that
+control how multiplication can enlarge an error.
+
+00:10:54.091 --> 00:10:56.782
+Call the signal cap M and the weight cap K.
+
+00:10:57.305 --> 00:11:02.020
+The code calls the kernel order index; this cap K is a different
+quantity.
+
+00:11:02.542 --> 00:11:09.367
+The signal cap comes from a coarse signal interval with tolerance
+one, using the endpoint magnitudes and some slack.
+
+00:11:09.889 --> 00:11:14.156
+The weight cap comes from a coarse kernel upper endpoint with
+additional slack.
+
+00:11:14.679 --> 00:11:18.364
+Both are computed before the final precision request is used.
+
+00:11:18.886 --> 00:11:25.529
+That order prevents a circular definition where the precision
+depends on a cap that itself depends on the same precision.
+
+00:11:26.052 --> 00:11:29.955
+These are conservative caps; they do not need to be close estimates.
+
+00:11:32.100 --> 00:11:36.148
+Now compare an intended sample with its computed approximation.
+
+00:11:36.671 --> 00:11:41.217
+One difference comes from the signal, one from the weight, and one
+from the phase.
+
+00:11:41.739 --> 00:11:46.830
+Add and subtract intermediate products so that only one factor
+changes at each step.
+
+00:11:47.353 --> 00:11:52.480
+The triangle inequality bounds the whole difference by the sum of
+these three contributions.
+
+00:11:53.003 --> 00:11:55.827
+A signal error is amplified by the weight cap.
+
+00:11:56.350 --> 00:11:59.295
+A weight error is amplified by the signal cap.
+
+00:11:59.818 --> 00:12:03.515
+A phase error is amplified by the product of both caps.
+
+00:12:04.038 --> 00:12:08.111
+The phase's unit bound keeps it from adding another magnitude
+factor.
+
+00:12:08.633 --> 00:12:11.397
+This explains the budget formula on screen.
+
+00:12:11.920 --> 00:12:16.962
+The three primitive errors cannot simply be added without their
+amplification factors.
+
+00:12:19.100 --> 00:12:28.155
+The project uses the same pattern for each contribution: divide the
+sample error request by three times one plus the relevant
+amplification factor.
+
+00:12:28.677 --> 00:12:33.502
+Multiplying back by that factor consumes at most one third of the
+sample budget.
+
+00:12:34.024 --> 00:12:43.280
+The signal tolerance uses the weight cap… the weight tolerance uses
+the signal cap… and the phase tolerance uses their product.
+
+00:12:43.803 --> 00:12:48.821
+The signal tolerance is also capped at one to keep its coarse-cap
+argument applicable.
+
+00:12:49.344 --> 00:13:02.079
+For an illustrative signal cap of two, weight cap of three, and
+sample budget of one tenth, the tolerances are one one-hundred-
+twentieth… one ninetieth… and one two-hundred-tenth.
+
+00:13:02.602 --> 00:13:06.032
+The amplified contributions add up to less than a tenth.
+
+00:13:06.555 --> 00:13:11.912
+These example caps are illustrative values, not a claim about a
+particular address.
+
+00:13:12.435 --> 00:13:19.489
+The general arithmetic theorem proves the budget allocation for all
+nonnegative rational caps and positive requests.
+
+00:13:21.633 --> 00:13:25.318
+With the tolerances chosen, the source builds each component.
+
+00:13:25.841 --> 00:13:29.344
+The signal is the lower endpoint of its fine signal interval.
+
+00:13:29.867 --> 00:13:34.691
+Its distance from the represented real value is bounded by the full
+interval width.
+
+00:13:35.214 --> 00:13:39.541
+The weight is likewise the lower endpoint of its fine nonnegative
+kernel interval.
+
+00:13:40.064 --> 00:13:46.791
+The phase is the rational phase constructor at angle minus the
+height times the address, using its own tolerance.
+
+00:13:47.314 --> 00:13:54.295
+Lower endpoints are specific choices of rational approximations; we
+are not replacing full width by half-width.
+
+00:13:54.818 --> 00:13:57.982
+The source definitions make those choices explicit.
+
+00:13:58.505 --> 00:14:04.286
+The fine values stay within the coarse caps, by the proved interval
+compatibility and width bounds.
+
+00:14:06.400 --> 00:14:08.909
+Here is the actual sample definition.
+
+00:14:09.432 --> 00:14:17.226
+Multiply the computed real signal by the computed real weight, then
+scale the computed complex phase by that rational product.
+
+00:14:17.748 --> 00:14:20.512
+The result is one rational complex point.
+
+00:14:21.035 --> 00:14:29.726
+To see the sign clearly, use illustrative component values: signal
+minus two, weight one half, and phase three fifths, minus four
+fifths.
+
+00:14:30.248 --> 00:14:36.188
+The real multiplier is minus one, so the resulting point is minus
+three fifths, four fifths.
+
+00:14:36.711 --> 00:14:42.456
+These numbers illustrate the product; they are not being asserted as
+the signal at a chosen address.
+
+00:14:42.979 --> 00:14:47.464
+The actual constructor computes its own components at the allocated
+precisions.
+
+00:14:47.986 --> 00:14:54.156
+A negative signal reverses the phase direction, while a nonnegative
+weight only changes the size.
+
+00:14:56.300 --> 00:15:01.391
+The sample checker records exact rational comparisons needed by the
+soundness proof.
+
+00:15:01.914 --> 00:15:06.798
+The first part checks the magnitude caps and positivity of the three
+tolerances.
+
+00:15:07.321 --> 00:15:12.036
+The next part checks interval widths and the bounds on the chosen
+component values.
+
+00:15:12.559 --> 00:15:18.874
+The final comparison adds the amplified error allowances and
+compares them with the requested sample error.
+
+00:15:19.397 --> 00:15:28.245
+The generic phase theorem already handles every rational phase
+argument; this checker is not comparing a rational point with a
+trigonometric oracle.
+
+00:15:28.768 --> 00:15:42.405
+The project proves that its constructor satisfies these checks
+whenever the address, damping rate, and cell weight are nonnegative
+rationals, the height is rational, the order is natural, and the
+requested error is a positive rational.
+
+00:15:42.927 --> 00:15:47.279
+The real bridge then turns them into the intended sample's distance
+bound.
+
+00:15:47.802 --> 00:15:51.620
+A checker result and its meaning theorem do their jobs together.
+
+00:15:53.767 --> 00:15:56.761
+A finite reading needs a list of sample cells.
+
+00:15:57.283 --> 00:16:03.186
+Each cell stores a nonnegative rational logarithmic address and a
+nonnegative rational cell weight.
+
+00:16:03.709 --> 00:16:08.921
+The outer object is a finite list, and each cell is a dotted pair
+inside that list.
+
+00:16:09.444 --> 00:16:12.765
+The cell predicate checks this representation and domain.
+
+00:16:13.288 --> 00:16:18.888
+For illustration, take two cells at addresses zero and one half,
+each with weight one half.
+
+00:16:19.411 --> 00:16:23.871
+Those are addresses and weights, not the two coordinates of a
+complex point.
+
+00:16:24.394 --> 00:16:31.085
+The sample constructor uses the weight of its own cell, so its error
+allowance already refers to the weighted contribution.
+
+00:16:31.608 --> 00:16:36.383
+This explicit data structure is what the finite summation function
+will traverse.
+
+00:16:38.500 --> 00:16:46.488
+The raw sum function computes one sample from the first cell, adds
+it to the sum of the remaining cells, and ends at the zero complex
+pair.
+
+00:16:47.011 --> 00:16:49.774
+It is a finite recursion through the supplied list.
+
+00:16:50.297 --> 00:16:55.036
+Complex addition adds real coordinates and imaginary coordinates
+separately.
+
+00:16:55.559 --> 00:17:01.644
+For a small vector illustration, add minus three fifths, four fifths
+to one fifth, minus one fifth.
+
+00:17:02.167 --> 00:17:05.112
+The sum is minus two fifths, three fifths.
+
+00:17:05.635 --> 00:17:11.732
+Those are illustrative contributions, not computed values of the two
+sample cells shown earlier.
+
+00:17:12.255 --> 00:17:18.885
+In the real sampler, each contribution is obtained from its address,
+weight, and the common transform parameters.
+
+00:17:19.408 --> 00:17:23.020
+The definition shows that actual computation explicitly.
+
+00:17:25.167 --> 00:17:28.318
+The sum still needs a total evaluation budget.
+
+00:17:28.841 --> 00:17:36.174
+With N cells, the project gives each weighted sample a point-error
+allowance equal to the sum budget divided by N plus one.
+
+00:17:36.697 --> 00:17:39.994
+The wrapper calls the raw sum with that computed allowance.
+
+00:17:40.517 --> 00:17:44.989
+For two cells and a sum budget of one tenth, each sample gets one
+thirtieth.
+
+00:17:45.512 --> 00:17:50.130
+Two such distance allowances add up to one fifteenth, which is below
+one tenth.
+
+00:17:50.653 --> 00:17:53.611
+This uses the complex triangle inequality.
+
+00:17:54.133 --> 00:18:00.715
+Cancellation between vectors can make the actual error smaller, but
+the guarantee does not rely on cancellation.
+
+00:18:01.238 --> 00:18:04.777
+This budget pays for evaluating the chosen finite grid.
+
+00:18:05.300 --> 00:18:10.391
+Mesh error and the discarded infinite tail remain separate, just as
+in Part Six.
+
+00:18:12.533 --> 00:18:17.758
+The construction also preserves the ingredients of the one-sided
+estimate from Part Five.
+
+00:18:18.280 --> 00:18:23.698
+The weights are nonnegative, the signal may have either sign, and
+the phases stay in the unit disk.
+
+00:18:24.221 --> 00:18:31.445
+The magnitude of the oscillating sum plus the plain real reading can
+therefore be controlled by positive signal contributions.
+
+00:18:31.968 --> 00:18:37.083
+The project proves this finite complex inequality using rational
+disk arithmetic.
+
+00:18:37.606 --> 00:18:40.018
+The extra real reading is still there.
+
+00:18:40.541 --> 00:18:45.268
+We cannot drop it and claim a magnitude bound without another
+justified estimate.
+
+00:18:45.791 --> 00:18:52.870
+Building the samples has made the finite quantities concrete; it has
+not changed the logical form of the one-sided argument.
+
+00:18:55.000 --> 00:19:03.509
+The sample interpretation identifies each computed point with the
+intended weighted complex integrand, up to its requested distance
+allowance.
+
+00:19:04.032 --> 00:19:08.674
+The finite-sum interpretation adds those allowances over the
+supplied cells.
+
+00:19:09.197 --> 00:19:13.488
+These bridges are proved in the repository's Lean interpretation
+layer.
+
+00:19:14.011 --> 00:19:20.859
+The ACL2 development separately proves the rational computations,
+checks, compatibility, and budget bounds.
+
+00:19:21.382 --> 00:19:24.473
+This still describes an evaluated finite sum.
+
+00:19:24.995 --> 00:19:29.335
+Connecting it to an improper moment also needs the mesh and tail
+arguments.
+
+00:19:29.858 --> 00:19:35.991
+Connecting that moment to a pole argument needs the analytic
+identification and the correct geometric data.
+
+00:19:36.514 --> 00:19:39.932
+Each bridge must stay attached to the quantity it interprets.
+
+00:19:42.067 --> 00:19:49.315
+We now have an explicit rational phase constructor, an explicit
+oscillating sample, and an explicit finite sum.
+
+00:19:49.838 --> 00:19:54.432
+Their precisions are selected by formulas, and their error budgets
+are theorems.
+
+00:19:54.955 --> 00:20:00.955
+The unit-circle picture is supported by rational arithmetic rather
+than a built-in trigonometric call.
+
+00:20:01.477 --> 00:20:04.980
+The real meaning comes from proved interpretation results.
+
+00:20:05.503 --> 00:20:10.024
+This is another set of concrete components on the route toward Peano
+Arithmetic.
+
+00:20:10.547 --> 00:20:19.347
+The full Landau reduction, its general-zero applicability, and the
+final arithmetic interpretation still have their own composition
+obligations.
+
+00:20:19.870 --> 00:20:24.524
+An evaluated sum is not automatically the final coefficient
+contradiction.
+
+00:20:25.047 --> 00:20:30.986
+The point of exposing these components is that their contributions
+and assumptions can be inspected separately.
+
+00:20:33.133 --> 00:20:36.879
+The chain from signal to finite complex reading is now visible.
+
+00:20:37.402 --> 00:20:42.868
+The signal interval, the kernel weight, and the phase each bring an
+explicit error allowance.
+
+00:20:43.391 --> 00:20:48.433
+Magnitude caps control the product, and a separate allocation
+controls the sum.
+
+00:20:48.956 --> 00:20:54.071
+The remaining analytic and geometric steps have to produce a
+compatible competing estimate.
+
+00:20:54.594 --> 00:20:58.970
+Next we will turn to poles, zero covers, and the coefficient
+comparison.
+
+00:20:59.492 --> 00:21:06.583
+We will keep the distinction between illustrative geometry, checked
+finite certificates, and claims about actual zeros.
+
+00:21:07.106 --> 00:21:13.203
+That is how the final contradiction can eventually become a concrete
+arithmetic result with its intended meaning.

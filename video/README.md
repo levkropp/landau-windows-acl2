@@ -57,6 +57,9 @@ shown on screen; they import the final certificate closure without claiming
 a fresh full recertification during rendering. Earlier preparation scripts
 keep their independent teaching certificates separate from project counts.
 
-Rendered films are GitHub release assets, not Git blobs. The release asset
-manifest records sizes and SHA-256 hashes. See [the release record](RELEASE.md),
+The ten lesson MP4s are ordinary Git files under [published/](published/README.md),
+with direct raw URLs. Captions, posters, transcripts and timings live beside
+each lesson. The final overview MP4 is the only attached GitHub release asset.
+The [media manifest](release-assets.json) records repository and release
+file sizes and SHA-256 hashes. See [the release record](RELEASE.md),
 [series teaching rules](SERIES.md), and [site build instructions](../site/README.md).

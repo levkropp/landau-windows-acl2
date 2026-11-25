@@ -1,5 +1,6 @@
-"""Static-site checks that require neither video binaries nor network access."""
+"""Static-site checks that require no network access or media renderer."""
 import importlib.util,json,re,tempfile,unittest
+from unittest.mock import patch
 from pathlib import Path
 from html.parser import HTMLParser
 
@@ -52,6 +53,20 @@ class SiteTests(unittest.TestCase):
         invalid={**self.release,'proofCommit':'short'}
         with self.assertRaises(ValueError):builder.validate_release(invalid)
         builder.validate_release(self.release)
+    def test_published_lessons_use_raw_git_movies_and_local_companions(self):
+        with tempfile.TemporaryDirectory() as directory,patch.object(builder,'DIST',Path(directory)):
+            films=builder.collect_films(self.episodes,self.release,True)
+            self.assertEqual(len(films),11)
+            for film in films:
+                if film['id']=='overview':
+                    self.assertEqual(film['src'],self.release['publicMediaBase']+'/'+self.release['finalOverviewAsset'])
+                else:
+                    self.assertEqual(film['src'],self.release['repositoryMediaBase']+'/part-'+film['id']+'/film.mp4')
+                    movie=SITE.parent/'video/published'/('part-'+film['id'])/'film.mp4'
+                    with movie.open('rb') as stream:self.assertIn(b'ftyp',stream.read(32))
+                self.assertTrue((Path(directory)/film['poster']).is_file())
+                self.assertTrue((Path(directory)/film['captions']).read_bytes().startswith(b'WEBVTT'))
+                self.assertGreater(film['duration'],0)
     def test_lisp_extraction_ignores_comments_and_quoted_parentheses(self):
         with tempfile.TemporaryDirectory() as directory:
             path=Path(directory)/'book.lisp';path.write_text('(defun demo (x)\n ; ) comment\n (list "(" x))\n(defun other () 0)',encoding='utf8')

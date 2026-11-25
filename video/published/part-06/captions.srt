@@ -1,0 +1,971 @@
+1
+00:00:00,200 --> 00:00:05,582
+Part Five explained why the Landau argument takes concentrated
+weighted readings of the signal.
+
+2
+00:00:06,105 --> 00:00:10,080
+The weights contain powers, factorials, and exponential damping.
+
+3
+00:00:10,603 --> 00:00:16,324
+Those expressions look continuous, but we need finite computations
+with justified error bounds.
+
+4
+00:00:16,847 --> 00:00:21,489
+This episode builds the scalar kernel weights from exact rational
+arithmetic.
+
+5
+00:00:22,012 --> 00:00:30,073
+We will first enclose an exponential, then reverse that enclosure to
+obtain a decaying exponential, and finally assemble a kernel weight.
+
+6
+00:00:30,595 --> 00:00:35,832
+After that, we will distinguish evaluating a finite sum from
+approximating an integral.
+
+7
+00:00:36,355 --> 00:00:39,482
+The error from each job has to be counted separately.
+
+8
+00:00:40,005 --> 00:00:45,714
+The complex phases will get their own next episode, so we can build
+these ingredients without rushing.
+
+9
+00:00:46,236 --> 00:00:51,630
+This is Part Six of Landau Windows ACL Two: explicit kernels and
+error budgets.
+
+10
+00:00:53,767 --> 00:00:57,064
+The factorial in the kernel is a whole-number construction.
+
+11
+00:00:57,586 --> 00:01:02,495
+For a positive integer, multiply all the positive integers up to
+that number.
+
+12
+00:01:03,018 --> 00:01:13,369
+One factorial is one… two factorial is two… three factorial is six…
+and four factorial is twenty-four.
+
+13
+00:01:13,892 --> 00:01:16,534
+Zero factorial is defined to be one.
+
+14
+00:01:17,057 --> 00:01:21,457
+That convention makes the zeroth term of the exponential series
+equal to one.
+
+15
+00:01:21,980 --> 00:01:26,731
+Factorials grow quickly because each new step multiplies by the next
+integer.
+
+16
+00:01:27,254 --> 00:01:34,102
+Dividing by them will eventually make successive terms smaller, even
+when the numerator contains repeated multiplication.
+
+17
+00:01:34,625 --> 00:01:39,898
+We do not need a machine's floating-point exponential operation to
+begin this construction.
+
+18
+00:01:42,033 --> 00:01:45,452
+The exponential of x has a power-series description.
+
+19
+00:01:45,974 --> 00:01:51,089
+Its term at natural index k is x to the power k divided by k
+factorial.
+
+20
+00:01:51,612 --> 00:01:54,121
+We will use nonnegative rational x.
+
+21
+00:01:54,644 --> 00:01:56,789
+The term at index zero is one.
+
+22
+00:01:57,312 --> 00:02:02,609
+To get the next term, multiply the current term by x, and divide by
+the new index.
+
+23
+00:02:03,132 --> 00:02:13,559
+At x equal to one, the terms begin one… one… one half… one sixth…
+and one twenty-fourth.
+
+24
+00:02:14,082 --> 00:02:17,039
+Every one of these is an exact rational number.
+
+25
+00:02:17,562 --> 00:02:20,592
+The individual terms are not yet the exponential.
+
+26
+00:02:21,115 --> 00:02:24,048
+We will add them, and then bound everything left out.
+
+27
+00:02:26,167 --> 00:02:29,148
+Here is the project's ACL2 term function.
+
+28
+00:02:29,671 --> 00:02:33,077
+Its inputs are the rational argument and the natural index.
+
+29
+00:02:33,600 --> 00:02:36,485
+At index zero, the function returns one.
+
+30
+00:02:37,008 --> 00:02:43,153
+Otherwise it asks for the preceding term, multiplies by the
+argument, and divides by the current index.
+
+31
+00:02:43,676 --> 00:02:47,748
+The recursive index decreases, so this is a finite computation.
+
+32
+00:02:48,271 --> 00:02:56,235
+This recurrence produces the same quotient as the power divided by
+the factorial, without computing those two large expressions
+separately.
+
+33
+00:02:56,758 --> 00:03:00,345
+For argument one and index three, it returns one sixth.
+
+34
+00:03:00,868 --> 00:03:03,111
+That value has no rounding error.
+
+35
+00:03:03,633 --> 00:03:10,712
+The proof task is to control omitted terms, not to guess how many
+decimal places this rational number contains.
+
+36
+00:03:12,833 --> 00:03:14,373
+Now add the terms.
+
+37
+00:03:14,895 --> 00:03:23,877
+At argument one, the successive partial sums are one… two… five
+halves… and eight thirds.
+
+38
+00:03:24,399 --> 00:03:29,381
+The sum through index three contains four terms, because we started
+at index zero.
+
+39
+00:03:29,904 --> 00:03:36,789
+The ACL2 sum function returns one in the base case, and otherwise
+adds the current term to the preceding sum.
+
+40
+00:03:37,311 --> 00:03:40,439
+The stopping index is an ordinary natural number.
+
+41
+00:03:40,961 --> 00:03:44,877
+Asking for a larger index gives a different finite computation.
+
+42
+00:03:45,399 --> 00:03:48,527
+These partial sums approach the exponential of one.
+
+43
+00:03:49,049 --> 00:03:53,037
+A finite partial sum by itself is not the final real value.
+
+44
+00:03:53,560 --> 00:03:56,505
+We need an upper bound as well as this lower sum.
+
+45
+00:03:58,633 --> 00:04:01,094
+Take the partial sum through index three.
+
+46
+00:04:01,617 --> 00:04:05,192
+The first omitted term at argument one is one twenty-fourth.
+
+47
+00:04:05,715 --> 00:04:09,412
+From there, every next term is at most half its predecessor.
+
+48
+00:04:09,935 --> 00:04:16,577
+The actual ratios in this example are smaller; using one half gives
+a convenient conservative bound.
+
+49
+00:04:17,100 --> 00:04:23,912
+The omitted tail is therefore at most one twenty-fourth, plus one
+forty-eighth, plus one ninety-sixth, and so on.
+
+50
+00:04:24,435 --> 00:04:28,108
+A halving geometric series adds up to twice its first term.
+
+51
+00:04:28,630 --> 00:04:31,370
+The whole omitted tail is at most one twelfth.
+
+52
+00:04:31,892 --> 00:04:42,208
+For a general nonnegative argument x and stopping index n, the
+condition twice x is less than or equal to n plus two ensures these
+later ratios are at most one half.
+
+53
+00:04:42,730 --> 00:04:45,518
+The ratio condition is part of the guarantee.
+
+54
+00:04:46,041 --> 00:04:51,144
+We cannot take an arbitrary early stopping point and assume its tail
+already halves.
+
+55
+00:04:53,267 --> 00:04:56,697
+The project's band function packages those two bounds.
+
+56
+00:04:57,220 --> 00:05:00,008
+Its lower endpoint is the finite partial sum.
+
+57
+00:05:00,530 --> 00:05:03,791
+Its upper endpoint adds twice the first omitted term.
+
+58
+00:05:04,314 --> 00:05:08,483
+For argument one and index three, the lower endpoint is eight
+thirds.
+
+59
+00:05:09,006 --> 00:05:13,842
+Add the tail allowance of one twelfth, and the upper endpoint is
+eleven quarters.
+
+60
+00:05:14,365 --> 00:05:16,729
+The full interval width is one twelfth.
+
+61
+00:05:17,252 --> 00:05:24,294
+The ACL2 theorem controls every later finite partial sum, not just a
+few sums that happened to be tested.
+
+62
+00:05:24,817 --> 00:05:30,429
+This is how one finite band can make a statement about arbitrarily
+long finite computations.
+
+63
+00:05:30,952 --> 00:05:34,794
+The real exponential interpretation will use that same band.
+
+64
+00:05:36,933 --> 00:05:40,448
+We also need a way to select a safe index from the input.
+
+65
+00:05:40,971 --> 00:05:43,844
+The construction starts beyond twice the argument.
+
+66
+00:05:44,367 --> 00:05:50,985
+It uses a rational rounding-up operation, returning the least whole
+number at least the given nonnegative rational.
+
+67
+00:05:51,508 --> 00:05:56,502
+Here ceiling means rounding upward, rather than the upper curve from
+the Landau theorem.
+
+68
+00:05:57,024 --> 00:06:02,006
+The bounded loop subtracts one at each step and counts how many
+subtractions are needed.
+
+69
+00:06:02,529 --> 00:06:07,741
+A computed fuel supply keeps the loop finite and is proved large
+enough for its input.
+
+70
+00:06:08,264 --> 00:06:16,122
+The wrapper supplies that fuel… and the exponential's starting index
+adds one more to the rounded value of twice x.
+
+71
+00:06:16,645 --> 00:06:19,723
+For argument one, the starting index is three.
+
+72
+00:06:20,246 --> 00:06:24,186
+This is safely inside the region where the tail argument applies.
+
+73
+00:06:26,300 --> 00:06:29,427
+Suppose we want a full width of at most one hundredth.
+
+74
+00:06:29,950 --> 00:06:33,695
+At argument one, the initial width allowance is one twelfth.
+
+75
+00:06:34,218 --> 00:06:44,436
+Halve that allowance repeatedly: one twenty-fourth… one forty-
+eighth… one ninety-sixth… and one one-hundred-ninety-second.
+
+76
+00:06:44,958 --> 00:06:48,086
+The fourth halving is enough to fall below one hundredth.
+
+77
+00:06:48,608 --> 00:06:54,184
+The implementation shown here keeps the width fixed and doubles the
+target in its recursive calls.
+
+78
+00:06:54,707 --> 00:06:58,695
+That comparison is equivalent to halving the width against a fixed
+target.
+
+79
+00:06:59,217 --> 00:07:03,023
+A computed fuel supply bounds the number of recursive calls.
+
+80
+00:07:03,546 --> 00:07:13,065
+The initial-width function supplies the starting tail allowance… and
+the depth function requests enough halvings for the chosen positive
+rational tolerance.
+
+81
+00:07:13,588 --> 00:07:17,358
+We have turned an accuracy request into a finite amount of work.
+
+82
+00:07:19,500 --> 00:07:24,300
+The final exponential index is the safe starting index plus the
+extra depth.
+
+83
+00:07:24,823 --> 00:07:28,120
+The bounds function evaluates the band at that index.
+
+84
+00:07:28,642 --> 00:07:34,279
+For argument one and a requested width of one tenth, the initial
+band already suffices.
+
+85
+00:07:34,802 --> 00:07:39,189
+Request one hundredth instead, and the construction chooses index
+seven.
+
+86
+00:07:39,712 --> 00:07:42,561
+That means it includes terms zero through seven.
+
+87
+00:07:43,083 --> 00:07:46,962
+The exact rational endpoints shown here give a narrower interval.
+
+88
+00:07:47,485 --> 00:07:53,994
+The actual width can be much smaller than the requested width,
+because the proof used a conservative halving estimate.
+
+89
+00:07:54,517 --> 00:08:01,983
+The general theorem guarantees the requested width for every
+nonnegative rational argument and every positive rational tolerance.
+
+90
+00:08:02,506 --> 00:08:06,555
+It does not depend on comparing the answer with a decimal
+calculator.
+
+91
+00:08:08,700 --> 00:08:11,512
+There are two related statements to keep track of.
+
+92
+00:08:12,035 --> 00:08:17,211
+The arithmetic statement bounds all later partial sums by exact
+rational endpoints.
+
+93
+00:08:17,733 --> 00:08:22,255
+The real statement says that those endpoints contain the exponential
+of the input.
+
+94
+00:08:22,777 --> 00:08:27,832
+The power series identifies the real exponential with the limit of
+its partial sums.
+
+95
+00:08:28,355 --> 00:08:33,348
+Passing a closed inequality to that limit keeps the real value in
+the same interval.
+
+96
+00:08:33,871 --> 00:08:38,986
+The repository's Lean interpretation proves this connection for the
+constructed bounds.
+
+97
+00:08:39,509 --> 00:08:46,224
+Tightening the tolerance does not choose a different exponential;
+the bands remain compatible with the same value.
+
+98
+00:08:46,747 --> 00:08:50,686
+Our pictures may use ordinary numerical curves for illustration.
+
+99
+00:08:51,209 --> 00:08:55,076
+The certificates use rational endpoints and proved inequalities.
+
+100
+00:08:57,200 --> 00:08:59,491
+The kernel needs exponential decay.
+
+101
+00:09:00,014 --> 00:09:05,880
+For nonnegative x, the exponential of minus x is the reciprocal of
+the exponential of x.
+
+102
+00:09:06,403 --> 00:09:11,942
+Suppose the positive exponential lies between L and R, with one less
+than or equal to L.
+
+103
+00:09:12,465 --> 00:09:14,526
+Reciprocals reverse the order.
+
+104
+00:09:15,048 --> 00:09:20,552
+The decaying exponential therefore lies between one divided by R and
+one divided by L.
+
+105
+00:09:21,074 --> 00:09:27,074
+For the band from eight thirds to eleven quarters, the reversed band
+is from four elevenths to three eighths.
+
+106
+00:09:27,597 --> 00:09:31,536
+The ACL2 function performs exactly that endpoint reversal.
+
+107
+00:09:32,059 --> 00:09:34,617
+Its endpoints are positive and at most one.
+
+108
+00:09:35,139 --> 00:09:41,794
+With these lower bounds on the original endpoints, taking
+reciprocals also does not increase the full interval width.
+
+109
+00:09:42,317 --> 00:09:46,050
+The same positive tolerance can control the decaying enclosure.
+
+110
+00:09:48,167 --> 00:09:50,979
+We can now return to the kernel from Part Five.
+
+111
+00:09:51,502 --> 00:10:00,205
+At a nonnegative address u, the scalar kernel is u to the power k,
+times the exponential of minus sigma u, divided by k factorial.
+
+112
+00:10:00,727 --> 00:10:04,170
+We use a natural k and nonnegative rational sigma.
+
+113
+00:10:04,692 --> 00:10:09,698
+The power divided by the factorial is exactly the term function we
+already built.
+
+114
+00:10:10,221 --> 00:10:13,082
+The remaining factor is our decaying exponential.
+
+115
+00:10:13,605 --> 00:10:20,053
+Unlike the normalized pictures in Part Five, this formula retains
+the actual factorial normalization.
+
+116
+00:10:20,576 --> 00:10:26,721
+To use a kernel value in a rectangle sum, we also multiply by the
+nonnegative cell width h.
+
+117
+00:10:27,244 --> 00:10:29,353
+The resulting weight is nonnegative.
+
+118
+00:10:29,876 --> 00:10:33,112
+The signal it will multiply can still have either sign.
+
+119
+00:10:35,233 --> 00:10:37,621
+The weight has a useful decomposition.
+
+120
+00:10:38,144 --> 00:10:43,683
+Its exact rational scale is the cell width times the exponential
+term at u and index k.
+
+121
+00:10:44,206 --> 00:10:48,121
+The only remaining factor is the exponential of minus sigma u.
+
+122
+00:10:48,644 --> 00:10:51,795
+The scale function computes the exact factor first.
+
+123
+00:10:52,318 --> 00:10:58,827
+For a concrete example, set u to one third, sigma to three, k to
+two, and the cell width to one half.
+
+124
+00:10:59,350 --> 00:11:04,768
+The term is one eighteenth, and multiplying by the cell width gives
+a scale of one thirty-sixth.
+
+125
+00:11:05,291 --> 00:11:07,630
+The damping argument sigma u is one.
+
+126
+00:11:08,153 --> 00:11:12,856
+So this entire weight is one thirty-sixth times the exponential of
+minus one.
+
+127
+00:11:13,379 --> 00:11:19,148
+This example also keeps sigma greater than two, as the signal
+transform will require later.
+
+128
+00:11:21,267 --> 00:11:26,915
+Multiplying an interval by a nonnegative exact scale multiplies its
+full width by that scale.
+
+129
+00:11:27,438 --> 00:11:31,620
+We therefore choose the exponential tolerance after computing the
+scale.
+
+130
+00:11:32,142 --> 00:11:37,306
+The project's precision is the requested final error divided by one
+plus the scale.
+
+131
+00:11:37,829 --> 00:11:41,114
+It is positive whenever the requested error is positive.
+
+132
+00:11:41,636 --> 00:11:49,285
+After scaling, the allowed width is at most the final request, since
+the scale divided by one plus the scale is less than one.
+
+133
+00:11:49,808 --> 00:11:56,329
+The bounds function then obtains a decaying-exponential band and
+multiplies both endpoints by the exact scale.
+
+134
+00:11:56,852 --> 00:11:59,894
+All three source definitions have now been shown.
+
+135
+00:12:00,417 --> 00:12:07,617
+The general width theorem accounts for the scaling; it does not
+assume that a primitive tolerance survives multiplication unchanged.
+
+136
+00:12:09,733 --> 00:12:14,461
+Use the same address and parameters, and ask for a full width at
+most one tenth.
+
+137
+00:12:14,983 --> 00:12:18,959
+The computed weight interval is from one ninety-ninth to one ninety-
+sixth.
+
+138
+00:12:19,482 --> 00:12:24,039
+These endpoints enclose one thirty-sixth times the exponential of
+minus one.
+
+139
+00:12:24,562 --> 00:12:31,629
+Subtracting the endpoints gives one divided by three thousand one
+hundred sixty-eight, much smaller than the permitted tenth.
+
+140
+00:12:32,152 --> 00:12:38,091
+Ask for a hundredth instead, and the construction returns the
+tighter rational interval displayed below.
+
+141
+00:12:38,614 --> 00:12:44,129
+The endpoints are exact fractions, even when their numerators and
+denominators become larger.
+
+142
+00:12:44,652 --> 00:12:52,142
+A separate real-interpretation theorem identifies this rational
+enclosure with the intended factorial-normalized kernel weight.
+
+143
+00:12:52,665 --> 00:12:55,586
+Computing a scalar weight is now a checked task.
+
+144
+00:12:56,109 --> 00:13:01,442
+We still have to account for what happens when many weights are used
+in an integral approximation.
+
+145
+00:13:03,567 --> 00:13:07,712
+Quadrature means approximating an integral by a finite weighted sum.
+
+146
+00:13:08,235 --> 00:13:13,592
+Start with a simple example: the line f of u equals u on the
+interval from zero to one.
+
+147
+00:13:14,115 --> 00:13:16,661
+The area under that line is one half.
+
+148
+00:13:17,183 --> 00:13:23,911
+Split the interval into four equal cells, and use the function's
+value at each left endpoint as the rectangle height.
+
+149
+00:13:24,433 --> 00:13:26,748
+The first rectangle has height zero.
+
+150
+00:13:27,271 --> 00:13:31,186
+The other three heights are one quarter, one half, and three
+quarters.
+
+151
+00:13:31,709 --> 00:13:35,721
+Multiplying each height by the cell width and adding gives three
+eighths.
+
+152
+00:13:36,244 --> 00:13:40,135
+That sum is exact, but it differs from the area by one eighth.
+
+153
+00:13:40,658 --> 00:13:43,676
+Exact arithmetic removes rounding from the sum.
+
+154
+00:13:44,198 --> 00:13:48,659
+It does not remove the error from replacing a varying curve by
+rectangles.
+
+155
+00:13:50,800 --> 00:13:54,558
+Here is the ACL2 teaching function for that line example.
+
+156
+00:13:55,080 --> 00:14:00,305
+It takes a starting address, a nonnegative cell width, and a natural
+cell count.
+
+157
+00:14:00,827 --> 00:14:07,324
+Each step adds the current address times the cell width, advances
+the address, and decreases the remaining count.
+
+158
+00:14:07,847 --> 00:14:11,556
+With four cells of width one quarter, it returns three eighths.
+
+159
+00:14:12,079 --> 00:14:16,394
+Refine to eight cells of width one eighth, and it returns seven
+sixteenths.
+
+160
+00:14:16,917 --> 00:14:21,111
+The deficits from one half are one eighth and one sixteenth
+respectively.
+
+161
+00:14:21,633 --> 00:14:29,027
+The teaching book also proves a closed formula for this finite sum
+at arbitrary rational starts and steps and natural counts.
+
+162
+00:14:29,550 --> 00:14:36,447
+The integral identification belongs to the real picture; these code
+results are exact rational equalities.
+
+163
+00:14:36,970 --> 00:14:40,400
+The example shows why a grid error needs its own estimate.
+
+164
+00:14:42,533 --> 00:14:46,994
+A general integrand need not be a straight line or a monotone
+function.
+
+165
+00:14:47,517 --> 00:14:50,777
+We can instead use a bound on how quickly it changes.
+
+166
+00:14:51,300 --> 00:15:00,827
+If moving a distance d changes the value by at most L times d, then
+within one cell of width h, the value differs from its sample by at
+most L h.
+
+167
+00:15:01,350 --> 00:15:08,029
+Multiplying that variation allowance by the cell width gives an area
+error of at most L h squared for that cell.
+
+168
+00:15:08,552 --> 00:15:15,194
+On a uniform grid across a fixed finite interval, the total bound is
+L times the interval length times h.
+
+169
+00:15:15,717 --> 00:15:18,468
+Refining the grid makes this allowance smaller.
+
+170
+00:15:18,991 --> 00:15:21,027
+In the line example L is one.
+
+171
+00:15:21,550 --> 00:15:26,859
+Four cells give a conservative bound of one quarter; the actual
+deficit was one eighth.
+
+172
+00:15:27,382 --> 00:15:31,964
+A valid general bound can be larger than the error observed in an
+example.
+
+173
+00:15:32,486 --> 00:15:36,668
+The full weighted integrand needs its own justified variation bound.
+
+174
+00:15:38,800 --> 00:15:41,564
+Finite evaluation also has a budget.
+
+175
+00:15:42,086 --> 00:15:47,468
+Suppose there are N cells, and each computed cell contribution has
+error at most delta.
+
+176
+00:15:47,991 --> 00:15:51,858
+The total evaluation error is then at most N times delta.
+
+177
+00:15:52,380 --> 00:16:00,198
+This is an error bound for a cell's contribution, after accounting
+for its weight, rather than an unscaled error on a sampled value.
+
+178
+00:16:00,721 --> 00:16:05,121
+A convenient allocation divides the requested budget by N plus one.
+
+179
+00:16:05,644 --> 00:16:11,402
+With four cells and a total evaluation budget of one hundredth, each
+cell gets one five-hundredth.
+
+180
+00:16:11,924 --> 00:16:16,227
+Four such allowances add up to four five-hundredths, leaving some
+slack.
+
+181
+00:16:16,750 --> 00:16:21,150
+The teaching function and its general arithmetic theorem check this
+allocation.
+
+182
+00:16:21,673 --> 00:16:25,673
+The project's finite Mellin sum uses the same allocation pattern.
+
+183
+00:16:26,195 --> 00:16:31,238
+None of this has yet paid for variation between the cells or for an
+omitted infinite tail.
+
+184
+00:16:33,367 --> 00:16:36,906
+The integral in the Landau argument continues indefinitely.
+
+185
+00:16:37,429 --> 00:16:42,798
+A computer must stop at a finite cutoff, and the discarded part
+needs an explicit bound.
+
+186
+00:16:43,321 --> 00:16:49,030
+For a simple model, integrate the decaying exponential of minus u
+from a cutoff T to infinity.
+
+187
+00:16:49,553 --> 00:16:52,874
+That tail area is the exponential of minus T.
+
+188
+00:16:53,397 --> 00:16:58,076
+Our decaying-exponential enclosure therefore bounds it using
+rational endpoints.
+
+189
+00:16:58,598 --> 00:17:04,223
+At cutoff eight, the computed upper endpoint with the displayed
+tolerance is at most one thousandth.
+
+190
+00:17:04,745 --> 00:17:13,473
+The ACL2 theorem checks that numerical inequality, while the real
+exponential interpretation supplies its meaning as this model's tail
+area.
+
+191
+00:17:13,995 --> 00:17:16,917
+The full signal integrand is more complicated.
+
+192
+00:17:17,439 --> 00:17:23,003
+Its tail estimates must include the signal's growth, the kernel
+power, and the damping rate.
+
+193
+00:17:23,526 --> 00:17:27,744
+A tiny-looking patch in a plot is not a substitute for those bounds.
+
+194
+00:17:29,867 --> 00:17:36,133
+The final ledger has at least three entries: finite evaluation
+error, mesh error, and tail error.
+
+195
+00:17:36,656 --> 00:17:39,723
+More Taylor terms tighten the primitive enclosures.
+
+196
+00:17:40,245 --> 00:17:45,639
+Smaller cells reduce the variation allowance, when its hypotheses
+are satisfied.
+
+197
+00:17:46,162 --> 00:17:49,532
+A farther cutoff reduces a suitably bounded tail.
+
+198
+00:17:50,055 --> 00:17:52,879
+These are different controls for different jobs.
+
+199
+00:17:53,402 --> 00:18:01,620
+If three signed error contributions each have absolute value at most
+one thousandth, their sum has absolute value at most three
+thousandths.
+
+200
+00:18:02,142 --> 00:18:04,991
+That is less than a final target of one hundredth.
+
+201
+00:18:05,514 --> 00:18:12,895
+This arithmetic implication is checked in ACL2, and it remains
+conditional on having established the three input bounds.
+
+202
+00:18:13,418 --> 00:18:18,485
+We have not obtained an integral certificate merely by adding
+numbers to a budget table.
+
+203
+00:18:19,008 --> 00:18:23,480
+Each entry has to be proved for the actual function and parameters
+being used.
+
+204
+00:18:25,600 --> 00:18:32,085
+We have replaced the scalar kernel's exponential with finite
+rational enclosures and a computed precision choice.
+
+205
+00:18:32,608 --> 00:18:37,965
+We have also separated exact finite summation from the errors of
+sampling and truncation.
+
+206
+00:18:38,488 --> 00:18:45,009
+The repository contains both arithmetic results and real-
+interpretation theorems for these kernel ingredients.
+
+207
+00:18:45,532 --> 00:18:54,453
+Connecting all components of the Landau argument, including their
+intended Peano Arithmetic interpretation, still requires the
+remaining composition work.
+
+208
+00:18:54,976 --> 00:19:01,242
+Next we will add complex phases, build the oscillating sample, and
+track the product and sum errors.
+
+209
+00:19:01,765 --> 00:19:07,729
+This is why the next episode gets its own time: a complex reading
+has more structure than a scalar weight.
+
+210
+00:19:08,252 --> 00:19:10,906
+The aim stays the same throughout the series.
+
+211
+00:19:11,429 --> 00:19:16,956
+Every numerical-looking box should become an explicit construction
+with a justified error budget.

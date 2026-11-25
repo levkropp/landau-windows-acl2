@@ -21,15 +21,18 @@ Release procedure:
 
 1. Render both final films and validate complete decoding, captions and
    audio bounds; inspect the actual rendered frames and ending.
-2. Package the ten current lessons and overview with captions, posters,
-   transcripts, chapter metadata, portable verification records and the
-   PA manuscript PDF and TeX source. Record
-   sizes and SHA-256 hashes in release-assets.json.
-3. Commit the source, lesson book, README and release configuration after
-   the separate proof checkpoint, then push both commits.
-4. Upload all media to a draft GitHub release at that source commit, verify
-   its asset inventory and sizes, then publish the release.
-5. Build the public lesson book from the published media, deploy GitHub
+2. Run package_release.py. It copies the ten lesson MP4s and all companion
+   files into tracked video/published/ folders and stages only the final
+   overview MP4 under ignored .tools/release-overview-v1.0.0/. The PA paper
+   remains in classical/. Sizes and SHA-256 hashes are recorded separately
+   for repository files and the single release asset in release-assets.json.
+3. Commit and push the source, lesson videos, companion files, README and
+   release configuration. Verify that the lesson raw URLs serve MP4 data.
+4. Keep only the final overview MP4 attached to the GitHub release. The
+   captions, chapter data, transcripts, posters, audit files and PA paper
+   are available from the repository rather than duplicated as attachments.
+5. Build the public lesson book using the tracked companion files and raw
+   lesson MP4 URLs, deploy GitHub
    Pages through the manual workflow, and verify the returned public URLs.
 
 Release bookkeeping is not a replacement for the theorem audit. The

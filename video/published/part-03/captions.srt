@@ -1,0 +1,935 @@
+1
+00:00:00,200 --> 00:00:05,752
+Part Two ended with a certificate: a justified interval whose lower
+endpoint is above zero.
+
+2
+00:00:06,274 --> 00:00:10,759
+Now we want a program to find such a certificate and tell us where
+it found it.
+
+3
+00:00:11,282 --> 00:00:14,082
+That sounds like a loop over some sample points.
+
+4
+00:00:14,605 --> 00:00:17,247
+But a loop can finish without finding anything.
+
+5
+00:00:17,770 --> 00:00:29,906
+Our task has three separate parts: construct a finite list of
+addresses… inspect their interval bounds… and prove that an address
+must be found when the hypotheses hold.
+
+6
+00:00:30,429 --> 00:00:33,277
+We will follow one example all the way through.
+
+7
+00:00:33,800 --> 00:00:40,624
+A peak sits between grid points, and the program sees only the
+rational intervals supplied at the grid addresses.
+
+8
+00:00:41,147 --> 00:00:44,020
+It will not know the location of the peak by magic.
+
+9
+00:00:44,542 --> 00:00:52,773
+Instead, a bound on how much the values can fall, together with
+enough numerical precision, will force at least one interval to pass
+the test.
+
+10
+00:00:53,295 --> 00:00:58,677
+This is Part Three of Landau Windows ACL Two: a finite search that
+must succeed.
+
+11
+00:00:59,200 --> 00:01:04,667
+As before, the computed objects and the mathematical guarantees will
+both appear on screen.
+
+12
+00:01:06,800 --> 00:01:09,988
+Begin with four sample intervals, in a fixed order.
+
+13
+00:01:10,511 --> 00:01:16,668
+The threshold is zero, and the test asks whether a lower endpoint is
+strictly greater than that threshold.
+
+14
+00:01:17,191 --> 00:01:21,385
+The first interval runs from minus seven eighths to minus five
+eighths.
+
+15
+00:01:21,908 --> 00:01:26,800
+Its lower endpoint fails the test… so move to the next interval.
+
+16
+00:01:27,323 --> 00:01:31,129
+The second lower endpoint, minus three eighths, fails too.
+
+17
+00:01:31,652 --> 00:01:34,852
+The third interval runs from one eighth to three eighths.
+
+18
+00:01:35,374 --> 00:01:40,739
+Its lower endpoint is positive… so this is our first qualifying
+sample.
+
+19
+00:01:41,262 --> 00:01:47,032
+The fourth interval also has a positive lower endpoint, but this
+scan stops at the first success.
+
+20
+00:01:47,555 --> 00:01:49,664
+We number the positions from zero.
+
+21
+00:01:50,186 --> 00:01:55,920
+So the qualifying interval is at index two, even though it is the
+third interval we inspected.
+
+22
+00:01:56,442 --> 00:02:01,715
+An index is a position in a list; we will distinguish it from the
+numerical grid address.
+
+23
+00:02:02,238 --> 00:02:06,614
+Every comparison in this example is an exact rational comparison.
+
+24
+00:02:08,733 --> 00:02:13,558
+Here is the actual definition of lw-first-above, from the
+repository.
+
+25
+00:02:14,080 --> 00:02:18,044
+We will read it in two cards, so the complete code stays legible.
+
+26
+00:02:18,567 --> 00:02:22,021
+The inputs are a threshold and a list of sample intervals.
+
+27
+00:02:22,544 --> 00:02:25,938
+We are working with proper finite lists, ending in nil.
+
+28
+00:02:26,461 --> 00:02:32,291
+On these lists, endp detects that there are no samples left; the
+function then returns nil.
+
+29
+00:02:32,814 --> 00:02:36,850
+Nil will be our signal that the scan found no qualifying interval.
+
+30
+00:02:37,373 --> 00:02:44,156
+Otherwise, the composed accessor caar takes the first interval… and
+then its lower endpoint.
+
+31
+00:02:44,679 --> 00:02:47,673
+The next if compares that endpoint with the threshold.
+
+32
+00:02:48,195 --> 00:02:52,644
+If it passes, cons returns index zero paired with that first
+interval.
+
+33
+00:02:53,167 --> 00:02:56,355
+Now continue the same definition on the second card.
+
+34
+00:02:56,877 --> 00:03:00,683
+The recursive call scans the remaining list, obtained with cdr.
+
+35
+00:03:01,206 --> 00:03:04,430
+Let gives that returned result the temporary name found.
+
+36
+00:03:04,953 --> 00:03:07,911
+If the recursive call failed, return nil again.
+
+37
+00:03:08,433 --> 00:03:12,070
+If it succeeded, add one to its index and keep its interval.
+
+38
+00:03:12,592 --> 00:03:18,095
+That addition translates an index in the shorter tail back into an
+index in the original list.
+
+39
+00:03:18,618 --> 00:03:23,976
+When we fold the cards into the function name, all of that behavior
+is what the name abbreviates.
+
+40
+00:03:26,100 --> 00:03:28,864
+Unwind the successful call in our example.
+
+41
+00:03:29,386 --> 00:03:34,235
+In the tail that starts at the qualifying interval, the answer has
+index zero.
+
+42
+00:03:34,758 --> 00:03:42,086
+Returning through one earlier interval changes that index to one…
+and returning through the next changes it to two.
+
+43
+00:03:42,609 --> 00:03:46,621
+The interval itself stays the interval from one eighth to three
+eighths.
+
+44
+00:03:47,144 --> 00:03:51,520
+The printed result is a pair: index two, followed by that interval.
+
+45
+00:03:52,042 --> 00:03:56,595
+Car retrieves the index… and cdr retrieves the interval.
+
+46
+00:03:57,118 --> 00:04:01,821
+Nil means failure, but the number zero does not mean failure in
+ACL2.
+
+47
+00:04:02,344 --> 00:04:07,750
+In particular, a result beginning with index zero is still a
+successful pair.
+
+48
+00:04:08,273 --> 00:04:11,194
+Now put the grid addresses beside the samples.
+
+49
+00:04:11,717 --> 00:04:15,341
+The first three addresses are zero, one eighth, and one quarter.
+
+50
+00:04:15,864 --> 00:04:20,833
+The ACL2 operation nth uses a zero-based index to select an item.
+
+51
+00:04:21,356 --> 00:04:24,253
+So index two selects the address one quarter.
+
+52
+00:04:24,776 --> 00:04:32,206
+The returned index and the address have different jobs: one
+identifies a position, and the other identifies where we sampled.
+
+53
+00:04:34,333 --> 00:04:38,794
+Finding an index is useful only if we can justify what it
+identifies.
+
+54
+00:04:39,317 --> 00:04:45,220
+The repository proves that a successful result has a natural-number
+index within the sample list.
+
+55
+00:04:45,742 --> 00:04:49,936
+It also proves that the returned interval is the interval at that
+index.
+
+56
+00:04:50,459 --> 00:04:53,162
+Those are statements about the search's bookkeeping.
+
+57
+00:04:53,685 --> 00:04:57,842
+To relate the interval to a value, we need one more input guarantee.
+
+58
+00:04:58,365 --> 00:05:04,729
+The function lw-encloses-values pairs each sample interval with its
+corresponding rational value.
+
+59
+00:05:05,252 --> 00:05:12,658
+At each position, lw-contains checks the enclosure we defined in
+Part Two, and the function recurses on the two tails.
+
+60
+00:05:13,180 --> 00:05:17,944
+When the lists end, their lengths must agree in the sense expressed
+by the base case.
+
+61
+00:05:18,467 --> 00:05:21,545
+This guarantee is not supplied by the search itself.
+
+62
+00:05:22,068 --> 00:05:28,965
+Given those enclosures, a returned lower endpoint above the
+threshold forces the corresponding value above the threshold.
+
+63
+00:05:29,488 --> 00:05:36,106
+The theorem lw-first-above-value-gt expresses that implication using
+nth at the returned index.
+
+64
+00:05:36,629 --> 00:05:44,806
+A successful computation therefore gives a checkable certificate…
+provided the input intervals really enclose the values.
+
+65
+00:05:45,329 --> 00:05:48,614
+The eventual application must establish that premise.
+
+66
+00:05:50,733 --> 00:05:52,503
+Why does this scan terminate?
+
+67
+00:05:53,026 --> 00:05:57,692
+Every recursive call discards one interval, so the remaining list is
+shorter.
+
+68
+00:05:58,215 --> 00:06:01,779
+That is a natural-number measure that cannot decrease forever.
+
+69
+00:06:02,302 --> 00:06:06,908
+It is the same finite-descent idea behind the recursive proofs in
+Part Zero.
+
+70
+00:06:07,430 --> 00:06:11,018
+But termination alone does not promise a successful result.
+
+71
+00:06:11,541 --> 00:06:15,698
+Consider a grid containing only the two endpoints of the unit
+interval.
+
+72
+00:06:16,221 --> 00:06:23,094
+The function in our illustration has a positive peak between those
+addresses, while both endpoint values are negative.
+
+73
+00:06:23,617 --> 00:06:29,774
+Even perfectly justified, narrow intervals at those two endpoints
+can fail the positivity test.
+
+74
+00:06:30,297 --> 00:06:32,661
+The scan finishes and returns nil.
+
+75
+00:06:33,183 --> 00:06:36,092
+This does not contradict the existence of the peak.
+
+76
+00:06:36,615 --> 00:06:45,447
+It shows why a complete argument needs control of the gaps between
+samples… and control of how far the value can fall across a gap.
+
+77
+00:06:45,970 --> 00:06:52,103
+The triangular curve here is our explicit teaching example, not a
+computed plot of the Landau statistic.
+
+78
+00:06:54,233 --> 00:06:57,688
+Let us build the addresses instead of leaving them implicit.
+
+79
+00:06:58,211 --> 00:07:02,320
+Our teaching constructor takes a count, a starting address, and a
+step.
+
+80
+00:07:02,842 --> 00:07:05,873
+If the count is zero, it returns the empty list.
+
+81
+00:07:06,395 --> 00:07:12,953
+Otherwise it stores the starting address and continues with one
+fewer point, starting one step farther along.
+
+82
+00:07:13,476 --> 00:07:16,894
+Here is the complete definition of video-uniform-grid.
+
+83
+00:07:17,417 --> 00:07:22,095
+For natural counts, this recursion produces exactly that many
+addresses.
+
+84
+00:07:22,618 --> 00:07:28,533
+With nine points, starting at zero and using a step of one eighth,
+the final address is one.
+
+85
+00:07:29,056 --> 00:07:31,977
+Notice the counting: nine points leave eight gaps.
+
+86
+00:07:32,500 --> 00:07:36,185
+Each address is rational when the start and step are rational.
+
+87
+00:07:36,708 --> 00:07:45,911
+We can refine this picture by changing a step of one half… to one
+quarter… and then one eighth, increasing the point count
+accordingly.
+
+88
+00:07:46,433 --> 00:07:53,779
+This constructor is for the lesson; the project's later window
+construction has additional endpoint and rounding obligations.
+
+89
+00:07:54,302 --> 00:07:59,659
+Nothing about writing a finite loop by itself proves that the
+resulting grid is fine enough.
+
+90
+00:08:01,800 --> 00:08:05,000
+We need an exact condition on the list of addresses.
+
+91
+00:08:05,523 --> 00:08:08,553
+The repository calls it lw-meshp.
+
+92
+00:08:09,076 --> 00:08:15,197
+It requires a nonempty list of rational addresses, written in
+increasing order with equality allowed.
+
+93
+00:08:15,720 --> 00:08:19,477
+Each consecutive gap must be at most the supplied mesh bound.
+
+94
+00:08:20,000 --> 00:08:24,436
+The next recursive call checks the same requirements along the rest
+of the list.
+
+95
+00:08:24,959 --> 00:08:28,098
+The final branch checks that the list ends properly.
+
+96
+00:08:28,621 --> 00:08:31,482
+The complete definition is shown in two cards.
+
+97
+00:08:32,005 --> 00:08:38,332
+We also need to name the last address, so here is the short
+definition of lw-last-address.
+
+98
+00:08:38,855 --> 00:08:43,085
+That function follows the tail until only the final address remains.
+
+99
+00:08:43,608 --> 00:08:53,438
+The teaching book proves that our uniform constructor satisfies the
+mesh condition when the count is positive, the start and step are
+rational, and the step is nonnegative.
+
+100
+00:08:53,961 --> 00:08:58,870
+This is a general constructor guarantee, not just a check of the
+nine displayed points.
+
+101
+00:08:59,392 --> 00:09:02,592
+For the worked example, the mesh bound is one eighth.
+
+102
+00:09:04,733 --> 00:09:07,012
+What does the mesh condition buy us?
+
+103
+00:09:07,535 --> 00:09:11,268
+Take any rational point between the first and last addresses.
+
+104
+00:09:11,791 --> 00:09:16,567
+If it is itself a grid address, the distance to a sample can be
+zero.
+
+105
+00:09:17,089 --> 00:09:21,174
+If it lies inside a gap, that gap is at most the mesh bound.
+
+106
+00:09:21,697 --> 00:09:25,406
+So at least one of its bordering addresses is within that bound.
+
+107
+00:09:25,929 --> 00:09:31,989
+We only need this conservative distance bound; we are not claiming
+the smallest possible distance.
+
+108
+00:09:32,512 --> 00:09:39,579
+The predicate lw-some-nearby records that at least one listed
+address has distance at most the mesh bound from the point.
+
+109
+00:09:40,102 --> 00:09:47,556
+Abs means absolute value, the distance from zero, so absolute
+address minus point measures their separation.
+
+110
+00:09:48,079 --> 00:09:55,715
+The theorem lw-mesh-covers-point combines the sorted-gap condition
+with the requirement that the point lies inside the grid's span.
+
+111
+00:09:56,238 --> 00:10:01,474
+In our example, the peak is at seven sixteenths, between three
+eighths and one half.
+
+112
+00:10:01,997 --> 00:10:05,027
+Either of those neighboring addresses is close enough.
+
+113
+00:10:05,550 --> 00:10:12,059
+This geometric guarantee still says nothing about the sampled values
+until we add a bound on their possible drop.
+
+114
+00:10:14,200 --> 00:10:15,861
+Now supply that bound.
+
+115
+00:10:16,383 --> 00:10:22,905
+Suppose the peak value is one, and the value can fall by at most
+four times the distance moved away from the peak.
+
+116
+00:10:23,427 --> 00:10:25,876
+Four is the rate bound in our example.
+
+117
+00:10:26,398 --> 00:10:29,768
+A move of one eighth can therefore lose at most one half.
+
+118
+00:10:30,291 --> 00:10:36,036
+This is the useful part of a Lipschitz bound: distance controls
+possible change in value.
+
+119
+00:10:36,559 --> 00:10:42,729
+We only need a lower bound on the sampled values, not equality with
+the sides of the drawn triangle.
+
+120
+00:10:43,252 --> 00:10:49,664
+The arithmetic condition is: sample value is at least peak minus
+rate times distance from the peak's point.
+
+121
+00:10:50,186 --> 00:10:57,144
+The function lw-lower-lipschitz checks that condition at every
+listed address and its corresponding rational value.
+
+122
+00:10:57,667 --> 00:11:01,558
+Here is its complete definition, continued onto a second card.
+
+123
+00:11:02,080 --> 00:11:07,353
+The first checks keep the address and value lists aligned, and
+require rational entries.
+
+124
+00:11:07,876 --> 00:11:11,876
+The inequality on the second card is the lower bound we just drew.
+
+125
+00:11:12,398 --> 00:11:15,586
+The recursive call repeats it for the remaining entries.
+
+126
+00:11:16,109 --> 00:11:24,327
+A theorem about search can use this as a hypothesis; the search
+cannot manufacture such a bound by looking at finitely many
+intervals.
+
+127
+00:11:24,850 --> 00:11:27,892
+The larger mathematical application must prove it.
+
+128
+00:11:30,033 --> 00:11:35,003
+A nearby value can remain positive while a loose interval still
+crosses zero.
+
+129
+00:11:35,526 --> 00:11:37,671
+So there are two losses to budget.
+
+130
+00:11:38,194 --> 00:11:41,479
+The first is spatial: rate times the mesh bound.
+
+131
+00:11:42,002 --> 00:11:46,050
+The second is numerical: the full width allowed for each enclosure.
+
+132
+00:11:46,573 --> 00:11:51,458
+The function lw-widths-at-most checks that width requirement over
+the sample list.
+
+133
+00:11:51,980 --> 00:11:57,786
+Its composed accessor takes the upper endpoint of the first
+interval, and subtracts the lower endpoint.
+
+134
+00:11:58,309 --> 00:12:00,915
+Then it continues through the remaining intervals.
+
+135
+00:12:01,438 --> 00:12:06,856
+This budget is a full width, not the midpoint error radius we
+distinguished in Part Two.
+
+136
+00:12:07,379 --> 00:12:10,542
+For our example, the width budget is one quarter.
+
+137
+00:12:11,065 --> 00:12:18,035
+Each displayed enclosure is centered on its exact teaching value
+with a radius of one eighth, so its full width is one quarter.
+
+138
+00:12:18,558 --> 00:12:22,061
+The two quantities are consistent, but they are not interchangeable.
+
+139
+00:12:22,583 --> 00:12:27,820
+We also keep the enclosure premise: a narrow interval around the
+wrong value would not help.
+
+140
+00:12:29,933 --> 00:12:32,188
+Here is the central inequality.
+
+141
+00:12:32,711 --> 00:12:39,014
+The peak must be strictly above the threshold, plus the spatial-loss
+budget, plus the interval-width budget.
+
+142
+00:12:39,536 --> 00:12:48,929
+In our example the threshold is zero… the rate is four… the mesh is
+one eighth… and the width budget is one quarter.
+
+143
+00:12:49,452 --> 00:12:53,936
+The total budget is three quarters, which is strictly below the peak
+value one.
+
+144
+00:12:54,459 --> 00:12:56,835
+Coverage supplies a nearby address.
+
+145
+00:12:57,358 --> 00:13:01,842
+The rate bound then places its value above the threshold plus the
+width budget.
+
+146
+00:13:02,365 --> 00:13:09,214
+The predicate lw-some-value-above expresses that at least one listed
+rational value exceeds a supplied level.
+
+147
+00:13:09,736 --> 00:13:16,427
+Now use Part Two's margin lemma: a containing interval this narrow
+must have its lower endpoint above the threshold.
+
+148
+00:13:16,950 --> 00:13:20,659
+So there is at least one interval that passes the scan's test.
+
+149
+00:13:21,182 --> 00:13:27,982
+The function lw-some-lower-above expresses that last existence claim
+directly in terms of lower endpoints.
+
+150
+00:13:28,505 --> 00:13:32,189
+Its definition follows the same list structure as the search.
+
+151
+00:13:32,712 --> 00:13:39,827
+The search's completeness theorem says that the scan returns a non-
+nil result exactly when such a lower endpoint exists.
+
+152
+00:13:40,350 --> 00:13:47,448
+That is the difference between hoping to find a sample… and proving
+that the finite scan cannot miss all of them.
+
+153
+00:13:49,567 --> 00:13:53,906
+The repository combines those steps in lw-grid-search-complete.
+
+154
+00:13:54,429 --> 00:13:57,495
+We will read its complete source across four cards.
+
+155
+00:13:58,018 --> 00:14:05,655
+The opening hypotheses state the rational domains, including the
+point, peak, rate, mesh, threshold, and error budget.
+
+156
+00:14:06,177 --> 00:14:11,620
+Next come nonnegativity of the rate and mesh, and the actual mesh
+condition on the addresses.
+
+157
+00:14:12,142 --> 00:14:15,718
+The point must lie between the first and last addresses.
+
+158
+00:14:16,241 --> 00:14:21,138
+The strict margin pays for both the rate-times-mesh loss and the
+full enclosure width.
+
+159
+00:14:21,661 --> 00:14:25,442
+The sampled values must satisfy the lower transport bound.
+
+160
+00:14:25,965 --> 00:14:30,729
+The intervals must enclose those values, and all their widths must
+meet the budget.
+
+161
+00:14:31,252 --> 00:14:37,215
+Under those hypotheses, the conclusion is that lw-first-above
+returns a successful result.
+
+162
+00:14:37,738 --> 00:14:46,647
+The lines marked hints tell ACL2 which already proved lemmas to use;
+they are instructions to the prover, not extra mathematical
+hypotheses.
+
+163
+00:14:47,170 --> 00:14:50,285
+The final card completes those proof instructions.
+
+164
+00:14:50,808 --> 00:14:53,195
+This is a conditional success theorem.
+
+165
+00:14:53,718 --> 00:15:00,276
+It does not assert that every grid finds every peak, or that every
+numerical estimate is already justified.
+
+166
+00:15:00,798 --> 00:15:05,332
+It states exactly which supplied guarantees make this finite search
+succeed.
+
+167
+00:15:05,855 --> 00:15:15,285
+All values in this checked statement are rational; connecting the
+construction to the intended analytic objects remains an explicit
+interpretation obligation.
+
+168
+00:15:17,400 --> 00:15:20,782
+Let us check the whole chain in the example we have been building.
+
+169
+00:15:21,305 --> 00:15:25,692
+The point is seven sixteenths, the peak is one, and the rate bound
+is four.
+
+170
+00:15:26,215 --> 00:15:29,330
+The grid runs from zero to one in steps of one eighth.
+
+171
+00:15:29,853 --> 00:15:35,659
+The values shown are exactly one minus four times the absolute
+distance from seven sixteenths.
+
+172
+00:15:36,182 --> 00:15:40,473
+Each interval contains its displayed value and has full width one
+quarter.
+
+173
+00:15:40,995 --> 00:15:45,505
+The mesh condition, the span condition, and the strict margin all
+hold.
+
+174
+00:15:46,027 --> 00:15:49,591
+The peak's neighboring samples are at three eighths and one half.
+
+175
+00:15:50,114 --> 00:15:53,980
+But the scan does not have to return the closest address to the
+peak.
+
+176
+00:15:54,503 --> 00:16:02,676
+It examines the list from the beginning… skips the two negative
+lower endpoints… and accepts the next interval.
+
+177
+00:16:03,198 --> 00:16:08,544
+The returned index is two, and selecting that position in the
+address list gives one quarter.
+
+178
+00:16:09,067 --> 00:16:14,315
+The certified interval there is from one eighth to three eighths,
+containing the value one quarter.
+
+179
+00:16:14,838 --> 00:16:17,965
+That lower endpoint proves the value is positive.
+
+180
+00:16:18,488 --> 00:16:23,058
+The teaching book checks the numerical premises and this exact
+returned result.
+
+181
+00:16:23,580 --> 00:16:30,053
+The general theorem explains why some success was forced,
+independently of watching this particular animation.
+
+182
+00:16:32,167 --> 00:16:35,742
+One last distinction matters for the later Landau argument.
+
+183
+00:16:36,265 --> 00:16:40,823
+A result of nil means that none of the supplied lower endpoints
+passed the test.
+
+184
+00:16:41,345 --> 00:16:46,752
+It does not, by itself, mean that every underlying value is below
+the threshold.
+
+185
+00:16:47,274 --> 00:16:52,983
+A positive value of one eighth can sit inside an interval from minus
+one eighth to three eighths.
+
+186
+00:16:53,506 --> 00:16:57,797
+That interval contains the value, but its lower endpoint fails the
+test.
+
+187
+00:16:58,320 --> 00:17:03,035
+Here the width is one half, so a margin greater than that width is
+unavailable.
+
+188
+00:17:03,558 --> 00:17:08,152
+The completeness theorem prevents this failure only when all its
+hypotheses hold.
+
+189
+00:17:08,674 --> 00:17:16,056
+Conversely, if a computation fails, we cannot keep all those
+hypotheses and still claim the required strict peak margin.
+
+190
+00:17:16,579 --> 00:17:22,809
+The larger proof must specify which hypotheses have already been
+established before using such reasoning.
+
+191
+00:17:23,332 --> 00:17:30,144
+We have separated the scan, the accuracy of its inputs, and the
+mathematical reason that a sample must qualify.
+
+192
+00:17:30,667 --> 00:17:34,982
+Those are different obligations, and each now has a place in the
+argument.
+
+193
+00:17:37,100 --> 00:17:41,512
+We can now construct a finite grid and inspect exact rational
+intervals.
+
+194
+00:17:42,035 --> 00:17:48,895
+A successful result identifies a genuine interval in the list and a
+position we can translate into a grid address.
+
+195
+00:17:49,418 --> 00:17:57,333
+The mesh condition supplies coverage, the rate bound controls
+spatial loss, and the width budget controls numerical uncertainty.
+
+196
+00:17:57,856 --> 00:18:02,111
+A strict margin connects those guarantees to a search that must
+succeed.
+
+197
+00:18:02,633 --> 00:18:11,215
+These are reusable arithmetic statements, expressed in ACL2 and
+connected to the Peano Arithmetic goal through explicit finite
+representations.
+
+198
+00:18:11,738 --> 00:18:16,174
+We have not yet explained how the prime-counting signal supplies all
+those inputs.
+
+199
+00:18:16,697 --> 00:18:18,188
+That is the next step.
+
+200
+00:18:18,711 --> 00:18:25,074
+In Part Four, we start with prime powers and build the smoothed
+signal whose intervals the later search will inspect.
+
+201
+00:18:25,597 --> 00:18:29,876
+The machinery from this episode tells us what that evaluator must
+deliver.
+
+202
+00:18:30,398 --> 00:18:37,550
+The eventual Landau theorem still requires the mathematical
+hypotheses and the interpretation of the complete construction.

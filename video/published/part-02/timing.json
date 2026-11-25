@@ -1,0 +1,2196 @@
+[
+  {
+    "id": "opening",
+    "chapter": "Exact answers, incomplete information",
+    "start": 0.0,
+    "audio_start": 0.2,
+    "duration": 57.207375,
+    "sentences": [
+      {
+        "text": "In Part One, we separated a written claim, its proof, and the meaning of its symbols.",
+        "start": 0,
+        "end": 5.309090909090909,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.309090909090909
+          }
+        ]
+      },
+      {
+        "text": "Now we return to a calculation we can actually inspect.",
+        "start": 5.831818181818181,
+        "end": 9.431818181818183,
+        "phrases": [
+          {
+            "start": 5.831818181818181,
+            "end": 9.431818181818183
+          }
+        ]
+      },
+      {
+        "text": "One third is an exact number\u2026 but a decimal display has room for only finitely many digits.",
+        "start": 9.954545454545455,
+        "end": 16.76212121212121,
+        "phrases": [
+          {
+            "start": 9.954545454545455,
+            "end": 12.075757575757576
+          },
+          {
+            "start": 12.871212121212121,
+            "end": 16.76212121212121
+          }
+        ]
+      },
+      {
+        "text": "If we stop at zero point three three three\u2026 we have changed the number.",
+        "start": 17.284848484848485,
+        "end": 22.504545454545454,
+        "phrases": [
+          {
+            "start": 17.284848484848485,
+            "end": 20.133333333333333
+          },
+          {
+            "start": 20.928787878787876,
+            "end": 22.504545454545454
+          }
+        ]
+      },
+      {
+        "text": "Multiply that displayed decimal by three, and we get zero point nine nine nine\u2026 rather than one.",
+        "start": 23.027272727272727,
+        "end": 30.04090909090909,
+        "phrases": [
+          {
+            "start": 23.027272727272727,
+            "end": 28.009090909090908
+          },
+          {
+            "start": 28.804545454545455,
+            "end": 30.04090909090909
+          }
+        ]
+      },
+      {
+        "text": "The missing amount is small, but a proof cannot quietly discard it.",
+        "start": 30.563636363636366,
+        "end": 34.56363636363636,
+        "phrases": [
+          {
+            "start": 30.563636363636366,
+            "end": 34.56363636363636
+          }
+        ]
+      },
+      {
+        "text": "We can handle that problem in two different ways.",
+        "start": 35.086363636363636,
+        "end": 38.00757575757576,
+        "phrases": [
+          {
+            "start": 35.086363636363636,
+            "end": 38.00757575757576
+          }
+        ]
+      },
+      {
+        "text": "Keep fractions exact\u2026 and when a value is not known exactly, keep a justified interval around it.",
+        "start": 38.53030303030303,
+        "end": 45.446969696969695,
+        "phrases": [
+          {
+            "start": 38.53030303030303,
+            "end": 40.13030303030303
+          },
+          {
+            "start": 40.92575757575757,
+            "end": 45.446969696969695
+          }
+        ]
+      },
+      {
+        "text": "This is Part Two of Landau Windows ACL Two: exact arithmetic with imperfect information.",
+        "start": 45.96969696969697,
+        "end": 51.75151515151515,
+        "phrases": [
+          {
+            "start": 45.96969696969697,
+            "end": 51.75151515151515
+          }
+        ]
+      },
+      {
+        "text": "Our aim is to make every later numerical claim carry its own guarantee.",
+        "start": 52.27424242424242,
+        "end": 56.71060606060606,
+        "phrases": [
+          {
+            "start": 52.27424242424242,
+            "end": 56.71060606060606
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fractions",
+    "chapter": "Fractions still have finite descriptions",
+    "start": 58.833333333333236,
+    "audio_start": 59.03333333333324,
+    "duration": 73.727458,
+    "sentences": [
+      {
+        "text": "A fraction gives a number a finite description using integers.",
+        "start": 0,
+        "end": 3.878787878787879,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.878787878787879
+          }
+        ]
+      },
+      {
+        "text": "For two thirds, record a numerator of two\u2026 and a denominator of three.",
+        "start": 4.401515151515151,
+        "end": 9.875757575757577,
+        "phrases": [
+          {
+            "start": 4.401515151515151,
+            "end": 7.177272727272727
+          },
+          {
+            "start": 7.972727272727273,
+            "end": 9.875757575757577
+          }
+        ]
+      },
+      {
+        "text": "The denominator must be positive in the convention we will use.",
+        "start": 10.398484848484848,
+        "end": 13.998484848484848,
+        "phrases": [
+          {
+            "start": 10.398484848484848,
+            "end": 13.998484848484848
+          }
+        ]
+      },
+      {
+        "text": "Four sixths describes the same rational number, so different pairs can have the same meaning.",
+        "start": 14.521212121212121,
+        "end": 19.781818181818185,
+        "phrases": [
+          {
+            "start": 14.521212121212121,
+            "end": 19.781818181818185
+          }
+        ]
+      },
+      {
+        "text": "ACL2 reduces rational numbers to a canonical form; four sixths is read as two thirds.",
+        "start": 20.30454545454545,
+        "end": 26.765151515151516,
+        "phrases": [
+          {
+            "start": 20.30454545454545,
+            "end": 26.765151515151516
+          }
+        ]
+      },
+      {
+        "text": "Negative fractions also have finite descriptions: record a sign together with the numerator and denominator.",
+        "start": 27.287878787878785,
+        "end": 33.48181818181818,
+        "phrases": [
+          {
+            "start": 27.287878787878785,
+            "end": 33.48181818181818
+          }
+        ]
+      },
+      {
+        "text": "This does not add a new kind of infinite object to Peano Arithmetic.",
+        "start": 34.00454545454545,
+        "end": 38.08939393939394,
+        "phrases": [
+          {
+            "start": 34.00454545454545,
+            "end": 38.08939393939394
+          }
+        ]
+      },
+      {
+        "text": "Signed integers and fractions can be encoded using natural numbers, with arithmetic rules for their representations.",
+        "start": 38.61212121212122,
+        "end": 45.50909090909091,
+        "phrases": [
+          {
+            "start": 38.61212121212122,
+            "end": 45.50909090909091
+          }
+        ]
+      },
+      {
+        "text": "For example, comparing two thirds with three quarters becomes comparing two times four\u2026 with three times three.",
+        "start": 46.03181818181818,
+        "end": 53.881818181818176,
+        "phrases": [
+          {
+            "start": 46.03181818181818,
+            "end": 51.474242424242426
+          },
+          {
+            "start": 52.269696969696966,
+            "end": 53.881818181818176
+          }
+        ]
+      },
+      {
+        "text": "Eight is less than nine, so two thirds is less than three quarters.",
+        "start": 54.40454545454545,
+        "end": 58.622727272727275,
+        "phrases": [
+          {
+            "start": 54.40454545454545,
+            "end": 58.622727272727275
+          }
+        ]
+      },
+      {
+        "text": "That is the sort of explicit arithmetic connection we need when we move between a convenient notation and a weaker foundation.",
+        "start": 59.14545454545455,
+        "end": 66.04242424242425,
+        "phrases": [
+          {
+            "start": 59.14545454545455,
+            "end": 66.04242424242425
+          }
+        ]
+      },
+      {
+        "text": "These examples illustrate that connection; they are not a full formal interpretation of all of ACL2.",
+        "start": 66.56515151515151,
+        "end": 73.23181818181818,
+        "phrases": [
+          {
+            "start": 66.56515151515151,
+            "end": 73.23181818181818
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "exact_sum",
+    "chapter": "Compute with fractions before rounding",
+    "start": 134.19999999999928,
+    "audio_start": 134.39999999999927,
+    "duration": 56.68725,
+    "sentences": [
+      {
+        "text": "Let us add one third and one sixth, slowly.",
+        "start": 0,
+        "end": 2.909090909090909,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.909090909090909
+          }
+        ]
+      },
+      {
+        "text": "Split each third into two sixths\u2026 so one third becomes two sixths.",
+        "start": 3.4318181818181817,
+        "end": 8.796969696969697,
+        "phrases": [
+          {
+            "start": 3.4318181818181817,
+            "end": 5.637878787878788
+          },
+          {
+            "start": 6.433333333333334,
+            "end": 8.796969696969697
+          }
+        ]
+      },
+      {
+        "text": "Now the denominators agree.",
+        "start": 9.319696969696968,
+        "end": 11.38030303030303,
+        "phrases": [
+          {
+            "start": 9.319696969696968,
+            "end": 11.38030303030303
+          }
+        ]
+      },
+      {
+        "text": "Two sixths plus one sixth gives three sixths\u2026 which is one half.",
+        "start": 11.903030303030302,
+        "end": 17.03787878787879,
+        "phrases": [
+          {
+            "start": 11.903030303030302,
+            "end": 14.909090909090908
+          },
+          {
+            "start": 15.704545454545455,
+            "end": 17.03787878787879
+          }
+        ]
+      },
+      {
+        "text": "No decimal approximation was needed at any step.",
+        "start": 17.56060606060606,
+        "end": 20.845454545454547,
+        "phrases": [
+          {
+            "start": 17.56060606060606,
+            "end": 20.845454545454547
+          }
+        ]
+      },
+      {
+        "text": "In ACL2, the expression on screen asks for exactly that sum.",
+        "start": 21.368181818181817,
+        "end": 25.925757575757576,
+        "phrases": [
+          {
+            "start": 21.368181818181817,
+            "end": 25.925757575757576
+          }
+        ]
+      },
+      {
+        "text": "The slash inside a rational literal is part of its written number representation.",
+        "start": 26.44848484848485,
+        "end": 31.333333333333336,
+        "phrases": [
+          {
+            "start": 26.44848484848485,
+            "end": 31.333333333333336
+          }
+        ]
+      },
+      {
+        "text": "A slash at the start of a parenthesized expression is the division operation.",
+        "start": 31.85606060606061,
+        "end": 36.52272727272727,
+        "phrases": [
+          {
+            "start": 31.85606060606061,
+            "end": 36.52272727272727
+          }
+        ]
+      },
+      {
+        "text": "Both expressions here produce the same exact rational answer.",
+        "start": 37.04545454545455,
+        "end": 40.9,
+        "phrases": [
+          {
+            "start": 37.04545454545455,
+            "end": 40.9
+          }
+        ]
+      },
+      {
+        "text": "The small theorem below records this equality in our separately checked teaching book.",
+        "start": 41.42272727272727,
+        "end": 46.125757575757575,
+        "phrases": [
+          {
+            "start": 41.42272727272727,
+            "end": 46.125757575757575
+          }
+        ]
+      },
+      {
+        "text": "Exact arithmetic solves rounding in these operations, but it does not tell us every value we will later want to study.",
+        "start": 46.64848484848485,
+        "end": 53.921212121212115,
+        "phrases": [
+          {
+            "start": 46.64848484848485,
+            "end": 53.921212121212115
+          }
+        ]
+      },
+      {
+        "text": "For those, we need bounds.",
+        "start": 54.44393939393939,
+        "end": 56.18939393939394,
+        "phrases": [
+          {
+            "start": 54.44393939393939,
+            "end": 56.18939393939394
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "intervals",
+    "chapter": "An interval is a claim about a value",
+    "start": 192.5333333333321,
+    "audio_start": 192.7333333333321,
+    "duration": 59.165542,
+    "sentences": [
+      {
+        "text": "Suppose we know that x lies between one half and three quarters.",
+        "start": 0,
+        "end": 3.9393939393939394,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.9393939393939394
+          }
+        ]
+      },
+      {
+        "text": "We draw the whole interval\u2026 and then place x somewhere inside it.",
+        "start": 4.462121212121212,
+        "end": 9.26969696969697,
+        "phrases": [
+          {
+            "start": 4.462121212121212,
+            "end": 6.183333333333334
+          },
+          {
+            "start": 6.978787878787879,
+            "end": 9.26969696969697
+          }
+        ]
+      },
+      {
+        "text": "Two thirds is one possible example, but the guarantee should not depend on that particular choice.",
+        "start": 9.792424242424241,
+        "end": 15.816666666666666,
+        "phrases": [
+          {
+            "start": 9.792424242424241,
+            "end": 15.816666666666666
+          }
+        ]
+      },
+      {
+        "text": "Move the point and the claim remains true\u2026 as long as it stays between the endpoints.",
+        "start": 16.33939393939394,
+        "end": 22.48030303030303,
+        "phrases": [
+          {
+            "start": 16.33939393939394,
+            "end": 18.957575757575757
+          },
+          {
+            "start": 19.7530303030303,
+            "end": 22.48030303030303
+          }
+        ]
+      },
+      {
+        "text": "The square brackets mean that both endpoints are allowed.",
+        "start": 23.003030303030304,
+        "end": 26.154545454545453,
+        "phrases": [
+          {
+            "start": 23.003030303030304,
+            "end": 26.154545454545453
+          }
+        ]
+      },
+      {
+        "text": "An interval is not a guess that its midpoint is correct.",
+        "start": 26.677272727272726,
+        "end": 29.96212121212121,
+        "phrases": [
+          {
+            "start": 26.677272727272726,
+            "end": 29.96212121212121
+          }
+        ]
+      },
+      {
+        "text": "It is a claim that the value is at least the lower endpoint\u2026 and at most the upper endpoint.",
+        "start": 30.484848484848488,
+        "end": 36.52878787878788,
+        "phrases": [
+          {
+            "start": 30.484848484848488,
+            "end": 33.903030303030306
+          },
+          {
+            "start": 34.698484848484846,
+            "end": 36.52878787878788
+          }
+        ]
+      },
+      {
+        "text": "Making that claim requires evidence; drawing the picture does not supply it.",
+        "start": 37.051515151515154,
+        "end": 41.71818181818182,
+        "phrases": [
+          {
+            "start": 37.051515151515154,
+            "end": 41.71818181818182
+          }
+        ]
+      },
+      {
+        "text": "We will first assume input bounds are justified and prove that our arithmetic preserves them.",
+        "start": 42.240909090909085,
+        "end": 47.39242424242425,
+        "phrases": [
+          {
+            "start": 42.240909090909085,
+            "end": 47.39242424242425
+          }
+        ]
+      },
+      {
+        "text": "Later episodes explain how the project constructs bounds for its less elementary functions.",
+        "start": 47.91515151515152,
+        "end": 53.4060606060606,
+        "phrases": [
+          {
+            "start": 47.91515151515152,
+            "end": 53.4060606060606
+          }
+        ]
+      },
+      {
+        "text": "Here the endpoints and the values in the ACL2 statements are rational numbers.",
+        "start": 53.92878787878787,
+        "end": 58.66818181818182,
+        "phrases": [
+          {
+            "start": 53.92878787878787,
+            "end": 58.66818181818182
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "representation",
+    "chapter": "Give the interval an actual ACL2 definition",
+    "start": 253.33333333333152,
+    "audio_start": 253.5333333333315,
+    "duration": 80.15925,
+    "sentences": [
+      {
+        "text": "We need an explicit representation before we name an interval function.",
+        "start": 0,
+        "end": 4.218181818181819,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.218181818181819
+          }
+        ]
+      },
+      {
+        "text": "Store the lower and upper endpoints in a pair.",
+        "start": 4.74090909090909,
+        "end": 7.540909090909091,
+        "phrases": [
+          {
+            "start": 4.74090909090909,
+            "end": 7.540909090909091
+          }
+        ]
+      },
+      {
+        "text": "Cons builds that pair\u2026 car retrieves its first component\u2026 and cdr retrieves its second component.",
+        "start": 8.063636363636364,
+        "end": 15.969696969696969,
+        "phrases": [
+          {
+            "start": 8.063636363636364,
+            "end": 9.7
+          },
+          {
+            "start": 10.495454545454546,
+            "end": 12.701515151515151
+          },
+          {
+            "start": 13.496969696969696,
+            "end": 15.969696969696969
+          }
+        ]
+      },
+      {
+        "text": "The dot in this printed pair separates those two components.",
+        "start": 16.492424242424242,
+        "end": 19.9469696969697,
+        "phrases": [
+          {
+            "start": 16.492424242424242,
+            "end": 19.9469696969697
+          }
+        ]
+      },
+      {
+        "text": "It is a dotted pair, rather than the proper list of digits used in Part One.",
+        "start": 20.46969696969697,
+        "end": 24.893939393939394,
+        "phrases": [
+          {
+            "start": 20.46969696969697,
+            "end": 24.893939393939394
+          }
+        ]
+      },
+      {
+        "text": "The function lw-intervalp checks that a pair exists, that both endpoints are rational, and that the lower one does not exceed the upper one.",
+        "start": 25.416666666666668,
+        "end": 33.97424242424242,
+        "phrases": [
+          {
+            "start": 25.416666666666668,
+            "end": 33.97424242424242
+          }
+        ]
+      },
+      {
+        "text": "Here is the complete definition from the project's interval kernel, copied into our isolated teaching book.",
+        "start": 34.4969696969697,
+        "end": 40.78787878787878,
+        "phrases": [
+          {
+            "start": 34.4969696969697,
+            "end": 40.78787878787878
+          }
+        ]
+      },
+      {
+        "text": "Consp checks for a pair\u2026 rationalp checks each endpoint\u2026 and the last comparison checks their order.",
+        "start": 41.310606060606055,
+        "end": 49.49545454545454,
+        "phrases": [
+          {
+            "start": 41.310606060606055,
+            "end": 43.11666666666667
+          },
+          {
+            "start": 43.91212121212121,
+            "end": 46.08181818181818
+          },
+          {
+            "start": 46.87727272727273,
+            "end": 49.49545454545454
+          }
+        ]
+      },
+      {
+        "text": "Once we have read those checks, we can fold the definition into a compact name.",
+        "start": 50.018181818181816,
+        "end": 54.515151515151516,
+        "phrases": [
+          {
+            "start": 50.018181818181816,
+            "end": 54.515151515151516
+          }
+        ]
+      },
+      {
+        "text": "Now define the claim that the pair contains a value.",
+        "start": 55.03787878787878,
+        "end": 58.12878787878788,
+        "phrases": [
+          {
+            "start": 55.03787878787878,
+            "end": 58.12878787878788
+          }
+        ]
+      },
+      {
+        "text": "Lw-contains requires a valid interval, a rational value, and the two endpoint inequalities.",
+        "start": 58.651515151515156,
+        "end": 65.18484848484849,
+        "phrases": [
+          {
+            "start": 58.651515151515156,
+            "end": 65.18484848484849
+          }
+        ]
+      },
+      {
+        "text": "The conjunction and means that all those requirements must hold.",
+        "start": 65.70757575757577,
+        "end": 69.2469696969697,
+        "phrases": [
+          {
+            "start": 65.70757575757577,
+            "end": 69.2469696969697
+          }
+        ]
+      },
+      {
+        "text": "This is a test of a supplied interval and value; it does not discover an unknown value for us.",
+        "start": 69.76969696969697,
+        "end": 76.0121212121212,
+        "phrases": [
+          {
+            "start": 69.76969696969697,
+            "end": 76.0121212121212
+          }
+        ]
+      },
+      {
+        "text": "We will use its name as shorthand for that full claim.",
+        "start": 76.53484848484848,
+        "end": 79.6621212121212,
+        "phrases": [
+          {
+            "start": 76.53484848484848,
+            "end": 79.6621212121212
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "addition",
+    "chapter": "Add lower to lower, upper to upper",
+    "start": 335.1333333333411,
+    "audio_start": 335.3333333333411,
+    "duration": 76.858458,
+    "sentences": [
+      {
+        "text": "Take x in the interval from one half to three quarters.",
+        "start": 0,
+        "end": 3.2969696969696973,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.2969696969696973
+          }
+        ]
+      },
+      {
+        "text": "Take y in the interval from one quarter to one third.",
+        "start": 3.81969696969697,
+        "end": 6.922727272727272,
+        "phrases": [
+          {
+            "start": 3.81969696969697,
+            "end": 6.922727272727272
+          }
+        ]
+      },
+      {
+        "text": "We want bounds for x plus y that work for every allowed choice.",
+        "start": 7.445454545454545,
+        "end": 11.384848484848485,
+        "phrases": [
+          {
+            "start": 7.445454545454545,
+            "end": 11.384848484848485
+          }
+        ]
+      },
+      {
+        "text": "The smallest possible sum comes from adding the two lower endpoints.",
+        "start": 11.907575757575758,
+        "end": 15.895454545454545,
+        "phrases": [
+          {
+            "start": 11.907575757575758,
+            "end": 15.895454545454545
+          }
+        ]
+      },
+      {
+        "text": "One half plus one quarter is three quarters.",
+        "start": 16.418181818181818,
+        "end": 19.29090909090909,
+        "phrases": [
+          {
+            "start": 16.418181818181818,
+            "end": 19.29090909090909
+          }
+        ]
+      },
+      {
+        "text": "The largest possible sum comes from adding the two upper endpoints.",
+        "start": 19.813636363636363,
+        "end": 23.716666666666665,
+        "phrases": [
+          {
+            "start": 19.813636363636363,
+            "end": 23.716666666666665
+          }
+        ]
+      },
+      {
+        "text": "Three quarters plus one third is thirteen twelfths.",
+        "start": 24.23939393939394,
+        "end": 27.330303030303032,
+        "phrases": [
+          {
+            "start": 24.23939393939394,
+            "end": 27.330303030303032
+          }
+        ]
+      },
+      {
+        "text": "Here is lw-interval-add: cons stores the two sums, using car for lower endpoints and cdr for upper endpoints.",
+        "start": 27.8530303030303,
+        "end": 35.35606060606061,
+        "phrases": [
+          {
+            "start": 27.8530303030303,
+            "end": 35.35606060606061
+          }
+        ]
+      },
+      {
+        "text": "There is no search for the hidden values in this definition.",
+        "start": 35.87878787878788,
+        "end": 39.333333333333336,
+        "phrases": [
+          {
+            "start": 35.87878787878788,
+            "end": 39.333333333333336
+          }
+        ]
+      },
+      {
+        "text": "The reason it works is that inequalities can be added.",
+        "start": 39.8560606060606,
+        "end": 43.08030303030303,
+        "phrases": [
+          {
+            "start": 39.8560606060606,
+            "end": 43.08030303030303
+          }
+        ]
+      },
+      {
+        "text": "If each lower endpoint is below its value, their sum is below the sum of the values\u2026 and the upper endpoints give the other inequality.",
+        "start": 43.6030303030303,
+        "end": 52.16818181818182,
+        "phrases": [
+          {
+            "start": 43.6030303030303,
+            "end": 48.57272727272727
+          },
+          {
+            "start": 49.368181818181824,
+            "end": 52.16818181818182
+          }
+        ]
+      },
+      {
+        "text": "The theorem lw-contains-add says exactly that the output interval contains x plus y whenever the two input intervals contain x and y.",
+        "start": 52.690909090909095,
+        "end": 61.35757575757576,
+        "phrases": [
+          {
+            "start": 52.690909090909095,
+            "end": 61.35757575757576
+          }
+        ]
+      },
+      {
+        "text": "The letters in the source are left-value and right-value; those play the roles of x and y in our picture.",
+        "start": 61.88030303030303,
+        "end": 68.05,
+        "phrases": [
+          {
+            "start": 61.88030303030303,
+            "end": 68.05
+          }
+        ]
+      },
+      {
+        "text": "That is a general statement about all rational inputs satisfying the hypotheses\u2026 not just the points we animated.",
+        "start": 68.57272727272728,
+        "end": 76.36212121212121,
+        "phrases": [
+          {
+            "start": 68.57272727272728,
+            "end": 73.55454545454545
+          },
+          {
+            "start": 74.35,
+            "end": 76.36212121212121
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "subtraction",
+    "chapter": "Subtraction crosses the endpoints",
+    "start": 413.63333333335225,
+    "audio_start": 413.83333333335224,
+    "duration": 67.847458,
+    "sentences": [
+      {
+        "text": "Subtraction needs more care.",
+        "start": 0,
+        "end": 1.987878787878788,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 1.987878787878788
+          }
+        ]
+      },
+      {
+        "text": "Use the same two input intervals, but now consider x minus y.",
+        "start": 2.5106060606060607,
+        "end": 6.801515151515152,
+        "phrases": [
+          {
+            "start": 2.5106060606060607,
+            "end": 6.801515151515152
+          }
+        ]
+      },
+      {
+        "text": "Subtracting the two lower endpoints would give one quarter.",
+        "start": 7.324242424242424,
+        "end": 10.5,
+        "phrases": [
+          {
+            "start": 7.324242424242424,
+            "end": 10.5
+          }
+        ]
+      },
+      {
+        "text": "That cannot be a safe lower bound: choose x equal to one half\u2026 and y equal to one third.",
+        "start": 11.022727272727272,
+        "end": 18.036363636363635,
+        "phrases": [
+          {
+            "start": 11.022727272727272,
+            "end": 15.374242424242425
+          },
+          {
+            "start": 16.169696969696968,
+            "end": 18.036363636363635
+          }
+        ]
+      },
+      {
+        "text": "Their difference is one sixth, which is smaller than one quarter.",
+        "start": 18.55909090909091,
+        "end": 22.06212121212121,
+        "phrases": [
+          {
+            "start": 18.55909090909091,
+            "end": 22.06212121212121
+          }
+        ]
+      },
+      {
+        "text": "To make x minus y as small as possible, make x small\u2026 and y large.",
+        "start": 22.584848484848486,
+        "end": 28.604545454545455,
+        "phrases": [
+          {
+            "start": 22.584848484848486,
+            "end": 26.572727272727274
+          },
+          {
+            "start": 27.368181818181817,
+            "end": 28.604545454545455
+          }
+        ]
+      },
+      {
+        "text": "So the lower output is the lower endpoint of x minus the upper endpoint of y.",
+        "start": 29.12727272727273,
+        "end": 33.86666666666667,
+        "phrases": [
+          {
+            "start": 29.12727272727273,
+            "end": 33.86666666666667
+          }
+        ]
+      },
+      {
+        "text": "To make the difference large, make x large\u2026 and y small.",
+        "start": 34.38939393939394,
+        "end": 39.02727272727273,
+        "phrases": [
+          {
+            "start": 34.38939393939394,
+            "end": 36.95909090909091
+          },
+          {
+            "start": 37.75454545454545,
+            "end": 39.02727272727273
+          }
+        ]
+      },
+      {
+        "text": "The upper output is the upper endpoint of x minus the lower endpoint of y.",
+        "start": 39.550000000000004,
+        "end": 44.010606060606065,
+        "phrases": [
+          {
+            "start": 39.550000000000004,
+            "end": 44.010606060606065
+          }
+        ]
+      },
+      {
+        "text": "Those choices give the interval from one sixth to one half.",
+        "start": 44.53333333333333,
+        "end": 48.07272727272728,
+        "phrases": [
+          {
+            "start": 44.53333333333333,
+            "end": 48.07272727272728
+          }
+        ]
+      },
+      {
+        "text": "The complete definition of lw-interval-sub shows the crossed components explicitly.",
+        "start": 48.59545454545455,
+        "end": 54.23181818181818,
+        "phrases": [
+          {
+            "start": 48.59545454545455,
+            "end": 54.23181818181818
+          }
+        ]
+      },
+      {
+        "text": "After folding it into its name, the theorem guarantees containment for every allowed rational x and y.",
+        "start": 54.75454545454545,
+        "end": 61.02121212121212,
+        "phrases": [
+          {
+            "start": 54.75454545454545,
+            "end": 61.02121212121212
+          }
+        ]
+      },
+      {
+        "text": "This crossing of endpoints is part of the mathematical guarantee, not a cosmetic choice in the code.",
+        "start": 61.5439393939394,
+        "end": 67.35,
+        "phrases": [
+          {
+            "start": 61.5439393939394,
+            "end": 67.35
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scaling",
+    "chapter": "A negative scale reverses the order",
+    "start": 483.1000000000291,
+    "audio_start": 483.3000000000291,
+    "duration": 74.88425,
+    "sentences": [
+      {
+        "text": "Next multiply an interval by a fixed rational coefficient.",
+        "start": 0,
+        "end": 3.76969696969697,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.76969696969697
+          }
+        ]
+      },
+      {
+        "text": "For a coefficient of two, every point moves to twice its original value.",
+        "start": 4.292424242424243,
+        "end": 9.01969696969697,
+        "phrases": [
+          {
+            "start": 4.292424242424243,
+            "end": 9.01969696969697
+          }
+        ]
+      },
+      {
+        "text": "The interval from one half to three quarters becomes the interval from one to three halves.",
+        "start": 9.542424242424243,
+        "end": 14.487878787878786,
+        "phrases": [
+          {
+            "start": 9.542424242424243,
+            "end": 14.487878787878786
+          }
+        ]
+      },
+      {
+        "text": "A negative coefficient introduces one more step.",
+        "start": 15.01060606060606,
+        "end": 18.162121212121214,
+        "phrases": [
+          {
+            "start": 15.01060606060606,
+            "end": 18.162121212121214
+          }
+        ]
+      },
+      {
+        "text": "Multiplication by minus two reflects the points across zero\u2026 as well as doubling their distance from zero.",
+        "start": 18.684848484848487,
+        "end": 26.05,
+        "phrases": [
+          {
+            "start": 18.684848484848487,
+            "end": 22.55151515151515
+          },
+          {
+            "start": 23.346969696969694,
+            "end": 26.05
+          }
+        ]
+      },
+      {
+        "text": "The old lower endpoint now lands on the right, at minus one.",
+        "start": 26.572727272727274,
+        "end": 30.39090909090909,
+        "phrases": [
+          {
+            "start": 26.572727272727274,
+            "end": 30.39090909090909
+          }
+        ]
+      },
+      {
+        "text": "The old upper endpoint lands on the left, at minus three halves.",
+        "start": 30.913636363636364,
+        "end": 35.10757575757576,
+        "phrases": [
+          {
+            "start": 30.913636363636364,
+            "end": 35.10757575757576
+          }
+        ]
+      },
+      {
+        "text": "We must therefore reverse the endpoint order to store a valid interval.",
+        "start": 35.63030303030303,
+        "end": 39.666666666666664,
+        "phrases": [
+          {
+            "start": 35.63030303030303,
+            "end": 39.666666666666664
+          }
+        ]
+      },
+      {
+        "text": "Here is the full definition of lw-interval-scale.",
+        "start": 40.18939393939394,
+        "end": 43.77727272727273,
+        "phrases": [
+          {
+            "start": 40.18939393939394,
+            "end": 43.77727272727273
+          }
+        ]
+      },
+      {
+        "text": "The if expression chooses a branch according to the sign of the coefficient.",
+        "start": 44.300000000000004,
+        "end": 48.32424242424243,
+        "phrases": [
+          {
+            "start": 44.300000000000004,
+            "end": 48.32424242424243
+          }
+        ]
+      },
+      {
+        "text": "A nonnegative coefficient keeps the order\u2026 and a negative coefficient swaps which endpoint supplies the lower output.",
+        "start": 48.8469696969697,
+        "end": 56.61212121212121,
+        "phrases": [
+          {
+            "start": 48.8469696969697,
+            "end": 51.586363636363636
+          },
+          {
+            "start": 52.381818181818176,
+            "end": 56.61212121212121
+          }
+        ]
+      },
+      {
+        "text": "Zero belongs to the first branch and collapses the interval to the single point zero.",
+        "start": 57.13484848484848,
+        "end": 62.298484848484854,
+        "phrases": [
+          {
+            "start": 57.13484848484848,
+            "end": 62.298484848484854
+          }
+        ]
+      },
+      {
+        "text": "The corresponding containment theorem includes the hypothesis that the coefficient is rational.",
+        "start": 62.82121212121212,
+        "end": 68.11818181818182,
+        "phrases": [
+          {
+            "start": 62.82121212121212,
+            "end": 68.11818181818182
+          }
+        ]
+      },
+      {
+        "text": "We have now justified addition, subtraction, and multiplication by a fixed rational number.",
+        "start": 68.64090909090909,
+        "end": 74.38636363636363,
+        "phrases": [
+          {
+            "start": 68.64090909090909,
+            "end": 74.38636363636363
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "width",
+    "chapter": "Keep width separate from error radius",
+    "start": 559.6333333333611,
+    "audio_start": 559.8333333333611,
+    "duration": 63.437542,
+    "sentences": [
+      {
+        "text": "How much uncertainty have we carried through the calculation?",
+        "start": 0,
+        "end": 3.2363636363636363,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.2363636363636363
+          }
+        ]
+      },
+      {
+        "text": "The width of an interval is its upper endpoint minus its lower endpoint.",
+        "start": 3.759090909090909,
+        "end": 7.843939393939394,
+        "phrases": [
+          {
+            "start": 3.759090909090909,
+            "end": 7.843939393939394
+          }
+        ]
+      },
+      {
+        "text": "Our first interval has width one quarter\u2026 and our second has width one twelfth.",
+        "start": 8.366666666666667,
+        "end": 13.877272727272727,
+        "phrases": [
+          {
+            "start": 8.366666666666667,
+            "end": 10.924242424242424
+          },
+          {
+            "start": 11.719696969696969,
+            "end": 13.877272727272727
+          }
+        ]
+      },
+      {
+        "text": "Their sum interval has width one third, the sum of those two widths.",
+        "start": 14.4,
+        "end": 18.315151515151516,
+        "phrases": [
+          {
+            "start": 14.4,
+            "end": 18.315151515151516
+          }
+        ]
+      },
+      {
+        "text": "Subtraction also adds the input widths, because its endpoints cross.",
+        "start": 18.837878787878786,
+        "end": 23.17727272727273,
+        "phrases": [
+          {
+            "start": 18.837878787878786,
+            "end": 23.17727272727273
+          }
+        ]
+      },
+      {
+        "text": "Multiplication by a fixed coefficient multiplies width by that coefficient's absolute value.",
+        "start": 23.700000000000003,
+        "end": 29.37272727272727,
+        "phrases": [
+          {
+            "start": 23.700000000000003,
+            "end": 29.37272727272727
+          }
+        ]
+      },
+      {
+        "text": "We should distinguish width from a symmetric error radius.",
+        "start": 29.895454545454545,
+        "end": 33.156060606060606,
+        "phrases": [
+          {
+            "start": 29.895454545454545,
+            "end": 33.156060606060606
+          }
+        ]
+      },
+      {
+        "text": "For an interval centered on an approximation, the radius is the distance from the center to either endpoint.",
+        "start": 33.67878787878788,
+        "end": 39.581818181818186,
+        "phrases": [
+          {
+            "start": 33.67878787878788,
+            "end": 39.581818181818186
+          }
+        ]
+      },
+      {
+        "text": "A symmetric interval's full width is twice that radius.",
+        "start": 40.10454545454546,
+        "end": 43.53484848484849,
+        "phrases": [
+          {
+            "start": 40.10454545454546,
+            "end": 43.53484848484849
+          }
+        ]
+      },
+      {
+        "text": "So a width of two hundredths means an error radius of one hundredth\u2026 when the displayed approximation is its midpoint.",
+        "start": 44.057575757575755,
+        "end": 51.665151515151514,
+        "phrases": [
+          {
+            "start": 44.057575757575755,
+            "end": 47.94848484848485
+          },
+          {
+            "start": 48.74393939393939,
+            "end": 51.665151515151514
+          }
+        ]
+      },
+      {
+        "text": "The containment guarantee comes from the endpoints, whether or not we choose to display a midpoint.",
+        "start": 52.18787878787879,
+        "end": 57.56969696969697,
+        "phrases": [
+          {
+            "start": 52.18787878787879,
+            "end": 57.56969696969697
+          }
+        ]
+      },
+      {
+        "text": "Keeping these two quantities separate prevents a factor-of-two mistake in an error budget.",
+        "start": 58.092424242424244,
+        "end": 62.94090909090909,
+        "phrases": [
+          {
+            "start": 58.092424242424244,
+            "end": 62.94090909090909
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "budgets",
+    "chapter": "Build an error budget for a whole calculation",
+    "start": 624.7000000000202,
+    "audio_start": 624.9000000000202,
+    "duration": 92.380792,
+    "sentences": [
+      {
+        "text": "Consider the expression two times x minus y.",
+        "start": 0,
+        "end": 3.187878787878788,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.187878787878788
+          }
+        ]
+      },
+      {
+        "text": "Suppose x is enclosed from ninety-nine hundredths to one hundred and one hundredths.",
+        "start": 3.710606060606061,
+        "end": 8.401515151515152,
+        "phrases": [
+          {
+            "start": 3.710606060606061,
+            "end": 8.401515151515152
+          }
+        ]
+      },
+      {
+        "text": "Suppose y is enclosed from one hundred and ninety-nine hundredths to two hundred and one hundredths.",
+        "start": 8.924242424242424,
+        "end": 14.306060606060607,
+        "phrases": [
+          {
+            "start": 8.924242424242424,
+            "end": 14.306060606060607
+          }
+        ]
+      },
+      {
+        "text": "Both input intervals have an error radius of one hundredth around their displayed centers.",
+        "start": 14.828787878787878,
+        "end": 20.10151515151515,
+        "phrases": [
+          {
+            "start": 14.828787878787878,
+            "end": 20.10151515151515
+          }
+        ]
+      },
+      {
+        "text": "Doubling x doubles its error radius\u2026 and subtracting y adds the other radius.",
+        "start": 20.624242424242425,
+        "end": 26.777272727272727,
+        "phrases": [
+          {
+            "start": 20.624242424242425,
+            "end": 23.206060606060607
+          },
+          {
+            "start": 24.00151515151515,
+            "end": 26.777272727272727
+          }
+        ]
+      },
+      {
+        "text": "The total output radius is therefore three hundredths.",
+        "start": 27.3,
+        "end": 30.5,
+        "phrases": [
+          {
+            "start": 27.3,
+            "end": 30.5
+          }
+        ]
+      },
+      {
+        "text": "The resulting interval runs from minus three hundredths to plus three hundredths.",
+        "start": 31.022727272727273,
+        "end": 35.628787878787875,
+        "phrases": [
+          {
+            "start": 31.022727272727273,
+            "end": 35.628787878787875
+          }
+        ]
+      },
+      {
+        "text": "That interval crosses zero, so these bounds alone cannot establish a positive result.",
+        "start": 36.15151515151515,
+        "end": 41.60606060606061,
+        "phrases": [
+          {
+            "start": 36.15151515151515,
+            "end": 41.60606060606061
+          }
+        ]
+      },
+      {
+        "text": "Now suppose a more precise computation justifies narrower input intervals.",
+        "start": 42.128787878787875,
+        "end": 46.9530303030303,
+        "phrases": [
+          {
+            "start": 42.128787878787875,
+            "end": 46.9530303030303
+          }
+        ]
+      },
+      {
+        "text": "Enclose x from exactly one point zero zero one\u2026 to exactly one point zero zero three.",
+        "start": 47.47575757575758,
+        "end": 54.440909090909095,
+        "phrases": [
+          {
+            "start": 47.47575757575758,
+            "end": 50.93030303030303
+          },
+          {
+            "start": 51.72575757575758,
+            "end": 54.440909090909095
+          }
+        ]
+      },
+      {
+        "text": "Enclose y from exactly one point nine nine nine\u2026 to exactly two point zero zero one.",
+        "start": 54.96363636363637,
+        "end": 61.443939393939395,
+        "phrases": [
+          {
+            "start": 54.96363636363637,
+            "end": 58.127272727272725
+          },
+          {
+            "start": 58.92272727272727,
+            "end": 61.443939393939395
+          }
+        ]
+      },
+      {
+        "text": "These terminating decimals are exact fractions, and the narrower bounds still require a new justification.",
+        "start": 61.96666666666667,
+        "end": 68.46363636363635,
+        "phrases": [
+          {
+            "start": 61.96666666666667,
+            "end": 68.46363636363635
+          }
+        ]
+      },
+      {
+        "text": "The output now runs from one thousandth to seven thousandths.",
+        "start": 68.98636363636363,
+        "end": 72.48939393939393,
+        "phrases": [
+          {
+            "start": 68.98636363636363,
+            "end": 72.48939393939393
+          }
+        ]
+      },
+      {
+        "text": "Its midpoint is four thousandths and its error radius is three thousandths\u2026 so the entire interval is positive.",
+        "start": 73.0121212121212,
+        "end": 80.70454545454545,
+        "phrases": [
+          {
+            "start": 73.0121212121212,
+            "end": 77.46060606060607
+          },
+          {
+            "start": 78.25606060606061,
+            "end": 80.70454545454545
+          }
+        ]
+      },
+      {
+        "text": "Every endpoint in this example is calculated by the functions we have already defined.",
+        "start": 81.22727272727273,
+        "end": 86.23333333333333,
+        "phrases": [
+          {
+            "start": 81.22727272727273,
+            "end": 86.23333333333333
+          }
+        ]
+      },
+      {
+        "text": "An error budget tells us how accurate the ingredients must be for the final claim we want.",
+        "start": 86.7560606060606,
+        "end": 91.88333333333333,
+        "phrases": [
+          {
+            "start": 86.7560606060606,
+            "end": 91.88333333333333
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "positivity",
+    "chapter": "A positive lower endpoint is a certificate",
+    "start": 718.7000000000087,
+    "audio_start": 718.9000000000087,
+    "duration": 58.22225,
+    "sentences": [
+      {
+        "text": "Let us isolate that final claim.",
+        "start": 0,
+        "end": 2.2666666666666666,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.2666666666666666
+          }
+        ]
+      },
+      {
+        "text": "If an interval crosses zero, its midpoint might be positive while an allowed value is negative.",
+        "start": 2.7893939393939395,
+        "end": 8.328787878787878,
+        "phrases": [
+          {
+            "start": 2.7893939393939395,
+            "end": 8.328787878787878
+          }
+        ]
+      },
+      {
+        "text": "If its lower endpoint equals zero, the interval still permits zero.",
+        "start": 8.851515151515152,
+        "end": 13.057575757575757,
+        "phrases": [
+          {
+            "start": 8.851515151515152,
+            "end": 13.057575757575757
+          }
+        ]
+      },
+      {
+        "text": "A strictly positive lower endpoint rules out both possibilities.",
+        "start": 13.58030303030303,
+        "end": 17.677272727272726,
+        "phrases": [
+          {
+            "start": 13.58030303030303,
+            "end": 17.677272727272726
+          }
+        ]
+      },
+      {
+        "text": "Once x is at least that endpoint, x must be positive as well.",
+        "start": 18.2,
+        "end": 22.381818181818183,
+        "phrases": [
+          {
+            "start": 18.2,
+            "end": 22.381818181818183
+          }
+        ]
+      },
+      {
+        "text": "The ACL2 comparison on screen checks only the stored lower endpoint.",
+        "start": 22.904545454545453,
+        "end": 27.486363636363635,
+        "phrases": [
+          {
+            "start": 22.904545454545453,
+            "end": 27.486363636363635
+          }
+        ]
+      },
+      {
+        "text": "The theorem adds the essential hypothesis: the interval really contains the value.",
+        "start": 28.009090909090908,
+        "end": 33.124242424242425,
+        "phrases": [
+          {
+            "start": 28.009090909090908,
+            "end": 33.124242424242425
+          }
+        ]
+      },
+      {
+        "text": "Without that hypothesis, a positive pair of endpoints says nothing about an unrelated quantity.",
+        "start": 33.6469696969697,
+        "end": 39.50151515151515,
+        "phrases": [
+          {
+            "start": 33.6469696969697,
+            "end": 39.50151515151515
+          }
+        ]
+      },
+      {
+        "text": "This small implication turns a computed bound into a certificate of a mathematical inequality.",
+        "start": 40.02424242424242,
+        "end": 45.84242424242424,
+        "phrases": [
+          {
+            "start": 40.02424242424242,
+            "end": 45.84242424242424
+          }
+        ]
+      },
+      {
+        "text": "The same idea works above any rational threshold, by comparing the lower endpoint with that threshold.",
+        "start": 46.36515151515152,
+        "end": 52.304545454545455,
+        "phrases": [
+          {
+            "start": 46.36515151515152,
+            "end": 52.304545454545455
+          }
+        ]
+      },
+      {
+        "text": "The difficulty in a larger proof is to justify the enclosure and make it narrow enough.",
+        "start": 52.82727272727273,
+        "end": 57.724242424242426,
+        "phrases": [
+          {
+            "start": 52.82727272727273,
+            "end": 57.724242424242426
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "margin",
+    "chapter": "A strict margin makes precision sufficient",
+    "start": 778.5666666666674,
+    "audio_start": 778.7666666666674,
+    "duration": 82.746333,
+    "sentences": [
+      {
+        "text": "There is a useful converse guarantee behind that last difficulty.",
+        "start": 0,
+        "end": 3.806060606060606,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.806060606060606
+          }
+        ]
+      },
+      {
+        "text": "Suppose the true value is above a threshold by more than an error budget.",
+        "start": 4.328787878787879,
+        "end": 8.68030303030303,
+        "phrases": [
+          {
+            "start": 4.328787878787879,
+            "end": 8.68030303030303
+          }
+        ]
+      },
+      {
+        "text": "Also suppose our interval contains that value and has width at most that budget.",
+        "start": 9.203030303030303,
+        "end": 13.954545454545453,
+        "phrases": [
+          {
+            "start": 9.203030303030303,
+            "end": 13.954545454545453
+          }
+        ]
+      },
+      {
+        "text": "Then its lower endpoint must already lie above the threshold.",
+        "start": 14.477272727272727,
+        "end": 18.016666666666666,
+        "phrases": [
+          {
+            "start": 14.477272727272727,
+            "end": 18.016666666666666
+          }
+        ]
+      },
+      {
+        "text": "Here is a numerical picture: threshold zero\u2026 width budget one tenth\u2026 and value one fifth.",
+        "start": 18.53939393939394,
+        "end": 26.384848484848487,
+        "phrases": [
+          {
+            "start": 18.53939393939394,
+            "end": 21.727272727272727
+          },
+          {
+            "start": 22.522727272727273,
+            "end": 24.074242424242424
+          },
+          {
+            "start": 24.869696969696967,
+            "end": 26.384848484848487
+          }
+        ]
+      },
+      {
+        "text": "Any containing interval of width at most one tenth cannot stretch all the way down to zero.",
+        "start": 26.90757575757576,
+        "end": 32.083333333333336,
+        "phrases": [
+          {
+            "start": 26.90757575757576,
+            "end": 32.083333333333336
+          }
+        ]
+      },
+      {
+        "text": "To see the general reason, call the endpoints lower and upper.",
+        "start": 32.6060606060606,
+        "end": 36.4,
+        "phrases": [
+          {
+            "start": 32.6060606060606,
+            "end": 36.4
+          }
+        ]
+      },
+      {
+        "text": "The value is no larger than upper\u2026 so the distance from lower to the value is no greater than the full interval width.",
+        "start": 36.92272727272727,
+        "end": 44.67575757575758,
+        "phrases": [
+          {
+            "start": 36.92272727272727,
+            "end": 39.22575757575758
+          },
+          {
+            "start": 40.021212121212116,
+            "end": 44.67575757575758
+          }
+        ]
+      },
+      {
+        "text": "That distance is at most the error budget.",
+        "start": 45.19848484848485,
+        "end": 47.68333333333334,
+        "phrases": [
+          {
+            "start": 45.19848484848485,
+            "end": 47.68333333333334
+          }
+        ]
+      },
+      {
+        "text": "Rearrange: lower is at least the value minus the budget.",
+        "start": 48.20606060606061,
+        "end": 51.95151515151515,
+        "phrases": [
+          {
+            "start": 48.20606060606061,
+            "end": 51.95151515151515
+          }
+        ]
+      },
+      {
+        "text": "And the assumed strict margin makes that last quantity greater than the threshold.",
+        "start": 52.47424242424242,
+        "end": 57.08030303030303,
+        "phrases": [
+          {
+            "start": 52.47424242424242,
+            "end": 57.08030303030303
+          }
+        ]
+      },
+      {
+        "text": "The theorem lw-lower-gt-of-margin states this guarantee for rational values, thresholds, and budgets.",
+        "start": 57.6030303030303,
+        "end": 64.48787878787878,
+        "phrases": [
+          {
+            "start": 57.6030303030303,
+            "end": 64.48787878787878
+          }
+        ]
+      },
+      {
+        "text": "We are not asking the program to look up an unknown true value.",
+        "start": 65.01060606060607,
+        "end": 68.80454545454546,
+        "phrases": [
+          {
+            "start": 65.01060606060607,
+            "end": 68.80454545454546
+          }
+        ]
+      },
+      {
+        "text": "The theorem says that when mathematics supplies a sufficient margin, any justified interval with the required precision must reveal it.",
+        "start": 69.32727272727273,
+        "end": 77.21818181818182,
+        "phrases": [
+          {
+            "start": 69.32727272727273,
+            "end": 77.21818181818182
+          }
+        ]
+      },
+      {
+        "text": "This is what will connect an error budget to a search that is guaranteed to succeed.",
+        "start": 77.7409090909091,
+        "end": 82.25,
+        "phrases": [
+          {
+            "start": 77.7409090909091,
+            "end": 82.25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "real_meaning",
+    "chapter": "A rational certificate and its real meaning",
+    "start": 862.9333333333212,
+    "audio_start": 863.1333333333213,
+    "duration": 81.085333,
+    "sentences": [
+      {
+        "text": "One boundary still deserves attention.",
+        "start": 0,
+        "end": 2.5090909090909093,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.5090909090909093
+          }
+        ]
+      },
+      {
+        "text": "The containment function we showed quantifies over rational values.",
+        "start": 3.031818181818182,
+        "end": 7.056060606060606,
+        "phrases": [
+          {
+            "start": 3.031818181818182,
+            "end": 7.056060606060606
+          }
+        ]
+      },
+      {
+        "text": "It does not quietly turn an irrational number into an ordinary ACL2 rational object.",
+        "start": 7.578787878787879,
+        "end": 13.275757575757575,
+        "phrases": [
+          {
+            "start": 7.578787878787879,
+            "end": 13.275757575757575
+          }
+        ]
+      },
+      {
+        "text": "Yet rational calculations can provide evidence for a bound on an irrational quantity.",
+        "start": 13.798484848484849,
+        "end": 18.816666666666666,
+        "phrases": [
+          {
+            "start": 13.798484848484849,
+            "end": 18.816666666666666
+          }
+        ]
+      },
+      {
+        "text": "For example, seven fifths squared is less than two\u2026 and three halves squared is greater than two.",
+        "start": 19.33939393939394,
+        "end": 26.292424242424243,
+        "phrases": [
+          {
+            "start": 19.33939393939394,
+            "end": 22.672727272727276
+          },
+          {
+            "start": 23.46818181818182,
+            "end": 26.292424242424243
+          }
+        ]
+      },
+      {
+        "text": "Clear the positive denominators and these become the integer comparisons forty-nine is less than fifty\u2026 and eight is less than nine.",
+        "start": 26.815151515151516,
+        "end": 35.30757575757576,
+        "phrases": [
+          {
+            "start": 26.815151515151516,
+            "end": 32.730303030303034
+          },
+          {
+            "start": 33.525757575757574,
+            "end": 35.30757575757576
+          }
+        ]
+      },
+      {
+        "text": "Our teaching book checks those exact arithmetic facts.",
+        "start": 35.83030303030303,
+        "end": 39.24848484848484,
+        "phrases": [
+          {
+            "start": 35.83030303030303,
+            "end": 39.24848484848484
+          }
+        ]
+      },
+      {
+        "text": "To conclude that the positive square root of two lies between seven fifths and three halves, we also use the mathematical meaning of a positive square root and the order of positive squares.",
+        "start": 39.771212121212116,
+        "end": 50.53484848484848,
+        "phrases": [
+          {
+            "start": 39.771212121212116,
+            "end": 50.53484848484848
+          }
+        ]
+      },
+      {
+        "text": "The integer certificate and its interpretation are related, but they are distinct proof obligations.",
+        "start": 51.057575757575755,
+        "end": 57.04545454545455,
+        "phrases": [
+          {
+            "start": 51.057575757575755,
+            "end": 57.04545454545455
+          }
+        ]
+      },
+      {
+        "text": "The project follows that discipline: arithmetic constructions in ACL2, and explicit interpretation statements connecting them to the classical quantities.",
+        "start": 57.56818181818181,
+        "end": 66.91363636363636,
+        "phrases": [
+          {
+            "start": 57.56818181818181,
+            "end": 66.91363636363636
+          }
+        ]
+      },
+      {
+        "text": "Peano Arithmetic can describe finite integer calculations; a complete reduction must also explain what its encoded statements mean.",
+        "start": 67.43636363636364,
+        "end": 75.53333333333335,
+        "phrases": [
+          {
+            "start": 67.43636363636364,
+            "end": 75.53333333333335
+          }
+        ]
+      },
+      {
+        "text": "We should track that bridge as carefully as the numerical operations themselves.",
+        "start": 76.0560606060606,
+        "end": 80.58939393939394,
+        "phrases": [
+          {
+            "start": 76.0560606060606,
+            "end": 80.58939393939394
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "next",
+    "chapter": "From one certified bound to a finite search",
+    "start": 945.6666666666462,
+    "audio_start": 945.8666666666462,
+    "duration": 57.589458,
+    "sentences": [
+      {
+        "text": "We began with a decimal display that silently changed one third.",
+        "start": 0,
+        "end": 4.072727272727273,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.072727272727273
+          }
+        ]
+      },
+      {
+        "text": "Exact rational arithmetic removed that particular error.",
+        "start": 4.595454545454545,
+        "end": 8.256060606060606,
+        "phrases": [
+          {
+            "start": 4.595454545454545,
+            "end": 8.256060606060606
+          }
+        ]
+      },
+      {
+        "text": "Intervals then let us carry justified uncertainty through addition, subtraction, and scaling.",
+        "start": 8.77878787878788,
+        "end": 14.354545454545454,
+        "phrases": [
+          {
+            "start": 8.77878787878788,
+            "end": 14.354545454545454
+          }
+        ]
+      },
+      {
+        "text": "We kept width separate from radius, composed an error budget, and proved why a positive lower endpoint certifies positivity.",
+        "start": 14.877272727272727,
+        "end": 22.428787878787876,
+        "phrases": [
+          {
+            "start": 14.877272727272727,
+            "end": 22.428787878787876
+          }
+        ]
+      },
+      {
+        "text": "A strict mathematical margin tells us when enough precision must make that certificate appear.",
+        "start": 22.95151515151515,
+        "end": 28.333333333333332,
+        "phrases": [
+          {
+            "start": 22.95151515151515,
+            "end": 28.333333333333332
+          }
+        ]
+      },
+      {
+        "text": "These are small reusable guarantees, and the interval definitions come directly from this repository.",
+        "start": 28.856060606060606,
+        "end": 34.96515151515151,
+        "phrases": [
+          {
+            "start": 28.856060606060606,
+            "end": 34.96515151515151
+          }
+        ]
+      },
+      {
+        "text": "Next we will lay down a finite grid, examine its intervals, and return an address where a certified inequality holds.",
+        "start": 35.487878787878785,
+        "end": 42.57878787878788,
+        "phrases": [
+          {
+            "start": 35.487878787878785,
+            "end": 42.57878787878788
+          }
+        ]
+      },
+      {
+        "text": "Checking a returned address is only one obligation.",
+        "start": 43.10151515151515,
+        "end": 46.2530303030303,
+        "phrases": [
+          {
+            "start": 43.10151515151515,
+            "end": 46.2530303030303
+          }
+        ]
+      },
+      {
+        "text": "We must also prove that the search finds an address under the intended hypotheses.",
+        "start": 46.775757575757574,
+        "end": 51.769696969696966,
+        "phrases": [
+          {
+            "start": 46.775757575757574,
+            "end": 51.769696969696966
+          }
+        ]
+      },
+      {
+        "text": "That is where the exact bounds from this episode become part of the Landau construction.",
+        "start": 52.29242424242424,
+        "end": 57.09242424242424,
+        "phrases": [
+          {
+            "start": 52.29242424242424,
+            "end": 57.09242424242424
+          }
+        ]
+      }
+    ]
+  }
+]

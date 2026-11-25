@@ -1,0 +1,16 @@
+00:00:00  A finite search, with a reason to succeed
+00:01:06  Inspect the lower endpoints in order
+00:02:08  Read the actual search definition
+00:03:25  An index is not a grid address
+00:04:34  Why a returned certificate is sound
+00:05:50  Finishing is different from finding
+00:06:54  Construct a finite rational grid
+00:08:01  State what the grid must guarantee
+00:09:04  A point inside the span has a nearby sample
+00:10:14  How much can a nearby value fall?
+00:11:29  Budget both spatial loss and interval width
+00:12:29  Why the margin forces a qualifying interval
+00:13:49  Read the hypotheses of the full guarantee
+00:15:17  The complete numerical example
+00:16:31  What a failed scan does and does not say
+00:17:36  The search is ready for a real signal

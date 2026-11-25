@@ -31,9 +31,11 @@ Landau certificate or the provenance of an input interval.
 
 The manual GitHub Pages workflow builds with python site/build.py --release.
 It checks video/release.json for the completed proof, interpretation and
-proof commit, and fetches released chapter metadata and captions from its
-publicMediaBase. MP4s and posters stay in GitHub release assets, keeping the
-Pages artifact small. Relative asset paths support the repository subpath.
+proof commit. Chapter metadata, captions and posters come from the tracked
+video/published/ folders. Lesson MP4s play from repositoryMediaBase raw Git
+URLs; only the final overview uses publicMediaBase on the GitHub release.
+The Pages artifact contains the small companion files, keeping it small.
+Relative asset paths support the repository subpath.
 
 The release configuration is bookkeeping, not a proof verifier. The actual
 ACL2 certificate, direct Peano Arithmetic manuscript and classical

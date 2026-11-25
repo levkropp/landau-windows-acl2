@@ -1,0 +1,806 @@
+WEBVTT
+
+00:00:00.200 --> 00:00:05.885
+Part Seven assembled a rational oscillating sample and a finite sum
+with a proved error budget.
+
+00:00:06.408 --> 00:00:11.402
+Those computations are tools for comparing two descriptions of the
+same weighted reading.
+
+00:00:11.924 --> 00:00:15.403
+One description comes from a ceiling on the original signal.
+
+00:00:15.926 --> 00:00:19.744
+The other comes from a pole associated with a hypothetical zero.
+
+00:00:20.267 --> 00:00:26.255
+To make the second description usable, we need to isolate a pole and
+control everything around it.
+
+00:00:26.777 --> 00:00:35.395
+This episode follows that chain through finite geometry, coefficient
+bounds, and the conditional contradiction already formalized in the
+repository.
+
+00:00:35.918 --> 00:00:43.203
+The pictures use deliberately small illustrative examples; they are
+not certificates for actual zeros of the zeta function.
+
+00:00:43.726 --> 00:00:49.520
+This is Part Eight of Landau Windows ACL Two: poles, zero covers,
+and the contradiction.
+
+00:00:51.667 --> 00:00:55.109
+Begin with the function one divided by one minus x.
+
+00:00:55.632 --> 00:01:02.044
+As x approaches one from the left, the denominator approaches zero
+and the output grows without bound.
+
+00:01:02.567 --> 00:01:06.664
+On the complex plane, the corresponding expression has a pole at
+one.
+
+00:01:07.186 --> 00:01:15.877
+A simple pole is a reciprocal singularity: near its location, a
+nonzero constant divided by the displacement supplies the singular
+part.
+
+00:01:16.400 --> 00:01:20.073
+What remains after subtracting that part is regular nearby.
+
+00:01:20.595 --> 00:01:26.292
+Regular means analytic here: it admits a convergent power-series
+description in a neighborhood.
+
+00:01:26.815 --> 00:01:30.415
+We will not calculate a complex integral from this drawing.
+
+00:01:30.938 --> 00:01:35.750
+We will use the pole's algebraic fingerprint in the coefficients of
+a power series.
+
+00:01:37.867 --> 00:01:42.315
+The familiar geometric series can be introduced without taking an
+infinite sum.
+
+00:01:42.838 --> 00:01:50.421
+At x equal to one half, the first three terms are one… one half… and
+one quarter.
+
+00:01:50.944 --> 00:01:52.750
+They add to seven quarters.
+
+00:01:53.273 --> 00:01:57.430
+The remaining correction is one quarter, so the total is exactly
+two.
+
+00:01:57.953 --> 00:02:06.232
+More generally, multiplying a finite geometric prefix by one minus x
+cancels the interior terms and leaves one minus the next power.
+
+00:02:06.755 --> 00:02:12.003
+Dividing by one minus x gives the displayed finite identity,
+whenever x is not one.
+
+00:02:12.526 --> 00:02:18.295
+The teaching function computes the prefix by adding one and
+multiplying the shorter prefix by x.
+
+00:02:18.818 --> 00:02:27.812
+For absolute x less than one, the correction tends to zero; that
+final limiting statement is the analytic interpretation of these
+finite identities.
+
+00:02:29.933 --> 00:02:33.048
+Move the pole to an offset from the expansion center.
+
+00:02:33.571 --> 00:02:38.068
+Write its contribution as a constant divided by the offset minus z.
+
+00:02:38.591 --> 00:02:42.227
+Factor out the offset and apply the same geometric identity.
+
+00:02:42.750 --> 00:02:49.017
+The coefficient of the j-th power of z is the constant divided by
+the offset to the power j plus one.
+
+00:02:49.539 --> 00:02:57.620
+For constant one and offset two, the first coefficients are one
+half… one quarter… and one eighth.
+
+00:02:58.142 --> 00:03:01.355
+The coefficient at index five is one sixty-fourth.
+
+00:03:01.877 --> 00:03:07.138
+These coefficients get smaller, but a farther pole's coefficients
+can get smaller faster.
+
+00:03:07.661 --> 00:03:12.691
+That relative rate will matter more than whether an individual
+sequence grows or shrinks.
+
+00:03:14.833 --> 00:03:19.233
+A complex reciprocal still has an exact rational representation.
+
+00:03:19.756 --> 00:03:27.283
+For a pair x and y, conjugation reverses the sign of y, and the
+squared magnitude is x squared plus y squared.
+
+00:03:27.806 --> 00:03:34.630
+Divide the conjugate by that squared magnitude to obtain the
+reciprocal, provided the original point is nonzero.
+
+00:03:35.153 --> 00:03:39.868
+For the point two plus i, this gives two fifths minus one fifth
+times i.
+
+00:03:40.391 --> 00:03:47.991
+The actual pole-coefficient function multiplies the residue
+parameter by the reciprocal offset raised to the requested power
+plus one.
+
+00:03:48.514 --> 00:03:53.665
+The multiplication and finite-power operations are the ones
+introduced in Part Seven.
+
+00:03:54.188 --> 00:04:03.424
+The displayed definition is executable rational code, while its use
+as a Taylor coefficient has the stated nonzero-offset and analytic
+hypotheses.
+
+00:04:03.947 --> 00:04:09.995
+The usual nfix convention appears again in the index; our stated
+domain uses a natural number.
+
+00:04:12.133 --> 00:04:18.400
+Now consider three rational points, all strictly to the left of the
+vertical line through real coordinate two.
+
+00:04:18.923 --> 00:04:23.274
+They are illustrative pole locations, not actual zeta zeros.
+
+00:04:23.797 --> 00:04:28.379
+At height zero, the upper and lower points are equally far from our
+center.
+
+00:04:28.902 --> 00:04:31.229
+The squared distance to either is two.
+
+00:04:31.752 --> 00:04:36.164
+A nearest-point argument with a strict gap cannot simply ignore that
+tie.
+
+00:04:36.686 --> 00:04:41.826
+Move the center upward along the vertical line, and one of those
+points becomes closer.
+
+00:04:42.348 --> 00:04:47.609
+The distance calculation uses only differences of rational
+coordinates and their squares.
+
+00:04:48.132 --> 00:04:53.562
+We will choose the height by a finite construction, rather than
+saying to pick a generic point.
+
+00:04:55.700 --> 00:04:58.755
+Compare the squared distances to two fixed points.
+
+00:04:59.277 --> 00:05:03.665
+The height-squared terms cancel, leaving a linear equation in the
+center height.
+
+00:05:04.188 --> 00:05:09.533
+If the two imaginary coordinates differ, at most one height makes
+the distances equal.
+
+00:05:10.056 --> 00:05:14.153
+The code computes that candidate using a numerator and a
+denominator.
+
+00:05:14.676 --> 00:05:19.888
+In our three-point example, the distinct forbidden heights are minus
+one, zero, and one.
+
+00:05:20.411 --> 00:05:29.380
+If two distinct points have the same imaginary coordinate, their
+horizontal distances differ because both points lie strictly to the
+left of the center line.
+
+00:05:29.903 --> 00:05:33.285
+So that case cannot create a distance tie at any height.
+
+00:05:33.808 --> 00:05:41.202
+The code's zero-denominator branch returns a harmless extra
+candidate; avoiding extra heights does not hurt the construction.
+
+00:05:43.333 --> 00:05:48.242
+Start with the interval from minus one to one, and process the
+forbidden list in order.
+
+00:05:48.765 --> 00:05:54.644
+The first midpoint is zero; minus one lies on its lower side, so
+keep the upper half.
+
+00:05:55.167 --> 00:06:01.300
+The next midpoint is one half; zero lies on its lower side, so keep
+the upper half again.
+
+00:06:01.823 --> 00:06:07.362
+The next midpoint is three quarters; one lies on its upper side, so
+keep the lower half.
+
+00:06:07.885 --> 00:06:11.267
+We are left with the interval from one half to three quarters.
+
+00:06:11.789 --> 00:06:15.826
+Every processed forbidden value is outside its open interior.
+
+00:06:16.348 --> 00:06:19.673
+Choose its midpoint… five eighths.
+
+00:06:20.196 --> 00:06:29.566
+The interval still has positive width after finitely many halvings,
+so this gives a rational height inside the original interval and
+different from every forbidden height.
+
+00:06:30.089 --> 00:06:34.428
+The source shows both the interval recursion and the final midpoint
+wrapper.
+
+00:06:36.567 --> 00:06:40.106
+At height five eighths, compute the three squared distances.
+
+00:06:40.629 --> 00:06:49.424
+They are seventy-three sixty-fourths… two hundred thirty-three
+sixty-fourths… and two hundred eighty-one sixty-fourths.
+
+00:06:49.947 --> 00:06:52.456
+The upper point is now strictly nearest.
+
+00:06:52.979 --> 00:06:58.567
+The nearest-point function recursively compares the first candidate
+with the winner from the rest of the list.
+
+00:06:59.089 --> 00:07:04.629
+It uses squared distances, so no square-root approximation is needed
+for the comparison.
+
+00:07:05.152 --> 00:07:10.255
+The finite comparison theorem establishes that the returned point
+minimizes distance.
+
+00:07:10.777 --> 00:07:16.002
+The avoided-height argument strengthens this to a strict inequality
+for every different point.
+
+00:07:16.524 --> 00:07:22.815
+A repeated copy of the selected point is the same location, so it is
+not treated as a separate competitor.
+
+00:07:24.933 --> 00:07:29.442
+Take the selected squared distance and the next different point's
+squared distance.
+
+00:07:29.965 --> 00:07:34.862
+Also impose a rational upper cap, if the surrounding argument
+requires one.
+
+00:07:35.385 --> 00:07:40.052
+Average the selected distance with the smaller of that cap and the
+next distance.
+
+00:07:40.574 --> 00:07:45.811
+In this example the resulting squared radius is one hundred fifty-
+three sixty-fourths.
+
+00:07:46.333 --> 00:07:52.576
+It is strictly above seventy-three sixty-fourths and strictly below
+two hundred thirty-three sixty-fourths.
+
+00:07:53.098 --> 00:07:57.438
+The circle therefore contains the selected location and excludes the
+others.
+
+00:07:57.961 --> 00:08:03.488
+The code first removes every equal copy of the selected point, then
+computes this midpoint.
+
+00:08:04.011 --> 00:08:10.411
+The drawing uses the square root only to display the circle; the
+certificate stores its squared radius.
+
+00:08:10.933 --> 00:08:19.479
+This construction requires a nonempty finite point list, the left-
+of-center condition, and a cap strictly above the selected squared
+distance.
+
+00:08:21.600 --> 00:08:25.806
+An actual zero of the zeta function need not have rational
+coordinates.
+
+00:08:26.329 --> 00:08:29.602
+A rational marker drawn near it is therefore not enough.
+
+00:08:30.124 --> 00:08:35.664
+Instead, represent uncertainty by a box with rational horizontal and
+vertical bounds.
+
+00:08:36.186 --> 00:08:43.641
+The four entries are the real lower endpoint, real upper endpoint,
+imaginary lower endpoint, and imaginary upper endpoint.
+
+00:08:44.164 --> 00:08:47.739
+The box predicate checks that both intervals are well formed.
+
+00:08:48.262 --> 00:08:52.262
+The containment predicate checks a rational point against those
+intervals.
+
+00:08:52.785 --> 00:08:58.785
+For actual complex points, the Lean interpretation theorem supplies
+the corresponding real meaning.
+
+00:08:59.308 --> 00:09:07.198
+From now on, the circle must include the whole selected box and
+exclude every competing box, rather than merely separating their
+centers.
+
+00:09:09.333 --> 00:09:13.552
+The distance from a center to a box is computed with interval
+arithmetic.
+
+00:09:14.074 --> 00:09:19.395
+There is one detail worth slowing down for: squaring an interval
+that crosses zero.
+
+00:09:19.918 --> 00:09:24.585
+For the interval from minus two to three, squaring the endpoints
+gives four and nine.
+
+00:09:25.108 --> 00:09:29.738
+But zero is also inside the original interval, and its square is
+zero.
+
+00:09:30.261 --> 00:09:33.485
+So the correct squared interval is from zero to nine.
+
+00:09:34.008 --> 00:09:39.692
+If an interval stays on one side of zero, the smaller endpoint
+square supplies the lower bound.
+
+00:09:40.215 --> 00:09:44.227
+The larger endpoint square supplies the upper bound in either case.
+
+00:09:44.750 --> 00:09:48.786
+The actual square-interval definition makes exactly that
+distinction.
+
+00:09:50.900 --> 00:09:57.567
+Subtract the box's real interval from the center's real coordinate,
+and do the same for the imaginary coordinate.
+
+00:09:58.089 --> 00:10:02.453
+Square those two interval differences, then add the resulting
+intervals.
+
+00:10:02.976 --> 00:10:07.679
+The result encloses every squared distance from the center to a
+point in the box.
+
+00:10:08.202 --> 00:10:12.032
+We now use a separate box example with center two plus i.
+
+00:10:12.555 --> 00:10:20.979
+The selected box is a small rectangle around three fifths plus i,
+and the competing box is around its reflection below the real axis.
+
+00:10:21.502 --> 00:10:30.168
+The exact bounds certify that every selected-box squared distance is
+less than two, while every competing-box squared distance is greater
+than five.
+
+00:10:30.691 --> 00:10:35.855
+These are conservative summaries of the exact rational intervals
+shown in the code example.
+
+00:10:36.377 --> 00:10:40.292
+A squared radius of three therefore has room on both sides.
+
+00:10:42.433 --> 00:10:50.070
+The outside-boxes recursion checks that each box's lower squared-
+distance bound is strictly greater than the stored squared radius.
+
+00:10:50.592 --> 00:10:56.702
+The circle checker also requires a positive rational squared radius
+and a valid selected box.
+
+00:10:57.224 --> 00:11:03.455
+It checks that the selected box's upper squared-distance bound is
+strictly smaller than that radius value.
+
+00:11:03.977 --> 00:11:11.432
+Together these comparisons imply that every point in the selected
+box is inside, and every point in the other boxes is outside.
+
+00:11:11.955 --> 00:11:19.320
+In the worked example, the short summary is two… less than three…
+less than five.
+
+00:11:19.842 --> 00:11:25.467
+The word radius in the ACL2 parameter name refers to the squared
+radius in this checker.
+
+00:11:25.989 --> 00:11:32.111
+Keeping that distinction explicit avoids taking a square root or
+comparing quantities with different meanings.
+
+00:11:34.233 --> 00:11:38.597
+The checker has established a geometric statement about the supplied
+boxes.
+
+00:11:39.120 --> 00:11:43.180
+It has not proved that every relevant zero occurs in those boxes.
+
+00:11:43.703 --> 00:11:53.073
+To isolate an actual zero, we also need a complete cover of the
+relevant zero set and a proof that the selected box contains only
+the selected zero point.
+
+00:11:53.595 --> 00:11:59.292
+That point may have multiplicity greater than one; uniqueness of
+location is not simplicity.
+
+00:11:59.815 --> 00:12:03.427
+A missing box could hide another zero inside the circle.
+
+00:12:03.950 --> 00:12:09.368
+A selected box containing two distinct zeros would also defeat the
+intended conclusion.
+
+00:12:09.891 --> 00:12:15.539
+The Lean circle-isolation theorem carries these coverage and
+uniqueness hypotheses explicitly.
+
+00:12:16.062 --> 00:12:23.298
+Generating and refining suitable complete covers, including
+clusters, remains a separate obligation in the full reduction.
+
+00:12:25.433 --> 00:12:28.864
+Why does a zero produce a pole in the transform at all?
+
+00:12:29.386 --> 00:12:36.683
+Near a zero of multiplicity m, the logarithmic derivative has
+principal part m divided by s minus the zero.
+
+00:12:37.206 --> 00:12:41.327
+The normalized transform introduces the factor displayed on screen.
+
+00:12:41.850 --> 00:12:49.183
+The resulting coefficient in the repository's reciprocal-pole
+convention is minus m divided by rho times rho minus one.
+
+00:12:49.706 --> 00:12:55.548
+The source computes that value with rational complex arithmetic when
+supplied rational model data.
+
+00:12:56.071 --> 00:13:02.374
+For the illustrative input one half plus i, multiplicities one and
+two give four fifths and eight fifths.
+
+00:13:02.897 --> 00:13:06.145
+This input is not being asserted to be a zeta zero.
+
+00:13:06.668 --> 00:13:14.971
+Multiplicity scales the contribution at one location; it does not
+create several distinct locations that the geometry must separate.
+
+00:13:17.100 --> 00:13:20.494
+Return to a deliberately simple model with two poles.
+
+00:13:21.017 --> 00:13:26.665
+Take one divided by two minus z, then subtract three divided by
+three minus z.
+
+00:13:27.188 --> 00:13:32.218
+At index zero, the second contribution is larger and the coefficient
+is negative.
+
+00:13:32.741 --> 00:13:36.377
+So nearest does not mean dominant at every small index.
+
+00:13:36.900 --> 00:13:41.530
+Multiply the coefficient at index j by two to the power j plus one.
+
+00:13:42.053 --> 00:13:49.471
+The selected contribution becomes one, while the competing
+contribution becomes three times two thirds to that same power.
+
+00:13:49.994 --> 00:13:57.521
+At index five, the normalized coefficient is one hundred seventy-
+nine over two hundred forty-three, which is greater than one half.
+
+00:13:58.044 --> 00:14:02.444
+The farther contribution has become too small to cancel the selected
+one.
+
+00:14:02.967 --> 00:14:07.767
+The teaching function uses the actual pole-coefficient constructor
+for both terms.
+
+00:14:09.900 --> 00:14:15.609
+A real pole model also has a regular part, not just the listed
+reciprocal terms.
+
+00:14:16.132 --> 00:14:29.235
+If that regular part is analytic on a sufficiently large disk and
+bounded by a constant on its boundary, Cauchy's coefficient estimate
+bounds its j-th coefficient by that constant divided by the radius
+to the power j.
+
+00:14:29.758 --> 00:14:37.006
+After normalization by the selected distance, the important factor
+is the distance divided by that larger radius.
+
+00:14:37.529 --> 00:14:39.347
+It is strictly less than one.
+
+00:14:39.870 --> 00:14:48.197
+The code stores a regular polynomial in a unit-disk variable and
+rescales its coefficients by the physical radius to the power minus
+j.
+
+00:14:48.720 --> 00:14:56.259
+The finite arithmetic development obtains coefficient caps from
+checked polynomial boundary data with a proved extraction allowance.
+
+00:14:56.782 --> 00:15:03.097
+Sampling a few points of an arbitrary analytic function would not
+establish a bound everywhere between them.
+
+00:15:03.620 --> 00:15:09.535
+The polynomial representation and the quantitative extraction
+theorem are essential parts of that step.
+
+00:15:11.667 --> 00:15:19.970
+The actual model coefficient adds three pieces: the selected pole,
+the other listed poles, and the rescaled regular coefficient.
+
+00:15:20.492 --> 00:15:22.941
+The first source card shows that sum.
+
+00:15:23.464 --> 00:15:30.955
+The model-polynomial constructor then builds a finite list of those
+coefficients, advancing the index on each recursive call.
+
+00:15:31.477 --> 00:15:36.605
+The list is a constructed object, not an assumed agreement with the
+Mellin computation.
+
+00:15:37.127 --> 00:15:41.697
+For fixed rational model inputs, its entries can be computed
+exactly.
+
+00:15:42.220 --> 00:15:47.662
+The analytic work must still justify that these inputs describe the
+transform we care about.
+
+00:15:48.185 --> 00:15:57.130
+Keeping construction and interpretation separate lets the proof
+checker verify the finite algebra without silently accepting a
+missing analytic identity.
+
+00:15:59.267 --> 00:16:05.970
+The boundary-comparison function first constructs the polynomial
+attached to the actual improper Mellin evaluator.
+
+00:16:06.492 --> 00:16:12.650
+It constructs a pole-model polynomial of the matching degree, then
+forms their coefficientwise difference.
+
+00:16:13.173 --> 00:16:17.670
+The second page checks that difference on the prescribed rational
+boundary orbit.
+
+00:16:18.192 --> 00:16:24.980
+The computed sample count and extraction bounds turn an accepted
+check into a bound on the selected coefficient difference.
+
+00:16:25.503 --> 00:16:31.006
+This is a certificate to be verified, not a claim that every
+proposed model will pass.
+
+00:16:31.529 --> 00:16:39.080
+The numerical improper-polynomial theorem currently uses a disk
+wholly inside the region where the real part is greater than two.
+
+00:16:39.603 --> 00:16:45.058
+Taking a longer cutoff does not itself provide meromorphic
+continuation beyond that region.
+
+00:16:45.580 --> 00:16:51.508
+Connecting suitable analytic models to these comparisons is one of
+the remaining mathematical jobs.
+
+00:16:53.633 --> 00:17:00.967
+Part Five's one-sided inequality contained an extra plain real
+reading alongside the magnitude of the oscillating reading.
+
+00:17:01.489 --> 00:17:04.338
+We cannot erase it when we combine the estimates.
+
+00:17:04.861 --> 00:17:09.236
+The repository controls that height-zero reading with its own
+checked model.
+
+00:17:09.759 --> 00:17:18.753
+Its bound contains a pole-family mass over a clearance power, a
+regular-part cap over a contour-radius power, and explicit
+comparison errors.
+
+00:17:19.276 --> 00:17:21.918
+The displayed function assembles those terms.
+
+00:17:22.441 --> 00:17:27.568
+A bound on the absolute value of the real reading also bounds how
+negative it can be.
+
+00:17:28.091 --> 00:17:34.939
+That supplies the additional term needed to turn the failed-search
+inequality into an upper cap for the oscillating reading.
+
+00:17:35.462 --> 00:17:41.305
+This is why two compatible models are needed: one at the selected
+height and one at height zero.
+
+00:17:43.433 --> 00:17:52.524
+We now have several small terms to pay for: competing poles, regular
+coefficients, the window upper bound, the real anchor, and
+comparison errors.
+
+00:17:53.047 --> 00:17:57.605
+Strict distance-to-radius gaps make the geometric ratios smaller
+than one.
+
+00:17:58.127 --> 00:18:05.679
+The project's geometric threshold machinery computes a sufficiently
+large natural index for the prescribed fractions of the budget.
+
+00:18:06.202 --> 00:18:11.450
+The source shown here combines those requirements for the window,
+anchor, and regular terms.
+
+00:18:11.973 --> 00:18:19.621
+After the index fixes the scale, the model-error precision is one
+divided by one hundred twenty-eight times one plus that scale.
+
+00:18:20.144 --> 00:18:25.186
+Multiplying that tolerance by the scale still gives a small
+controlled contribution.
+
+00:18:25.709 --> 00:18:32.848
+The order matters: caps and clearances must be justified uniformly
+before they are used to select an index and a precision.
+
+00:18:33.371 --> 00:18:42.195
+If the required cap secretly grows when the requested precision
+changes, that circular dependency has not been solved by writing
+down a threshold.
+
+00:18:44.333 --> 00:18:48.891
+The final arithmetic pattern is simple once all those estimates are
+available.
+
+00:18:49.414 --> 00:18:55.571
+A selected pole gives a lower bound after subtracting the allowed
+cancellation and comparison errors.
+
+00:18:56.094 --> 00:19:02.130
+Search failure gives an upper bound for that same normalized
+reading, using the separate real-anchor estimate.
+
+00:19:02.653 --> 00:19:07.926
+If the lower bound is strictly larger than the upper bound, no value
+can satisfy both.
+
+00:19:08.448 --> 00:19:13.115
+The teaching theorem on screen states this elementary ordered-
+arithmetic obstruction.
+
+00:19:13.638 --> 00:19:21.638
+The actual project theorem obtains its bounds from the checked
+models and computed budgets, rather than inserting the numbers in
+our illustration.
+
+00:19:22.161 --> 00:19:27.215
+In that conditional setting, assuming the window search failed leads
+to a contradiction.
+
+00:19:27.738 --> 00:19:30.295
+Therefore the finite search must succeed.
+
+00:19:32.433 --> 00:19:37.330
+Success is more informative than an abstract statement that some
+violation exists.
+
+00:19:37.853 --> 00:19:43.683
+The conditional witness theorem returns the result of the
+repository's actual finite window search.
+
+00:19:44.206 --> 00:19:48.594
+From that result it computes a rational address inside the intended
+window.
+
+00:19:49.117 --> 00:19:54.086
+The address is at least the window start, and its square is at most
+the cube of that start.
+
+00:19:54.609 --> 00:20:00.003
+That squared comparison expresses the upper endpoint without
+computing an irrational square root.
+
+00:20:00.526 --> 00:20:04.550
+The returned signal interval has a strictly positive lower endpoint.
+
+00:20:05.073 --> 00:20:10.745
+Its interpretation therefore certifies that the signal exceeds the
+proposed ceiling at that address.
+
+00:20:11.268 --> 00:20:18.177
+Every accepted model, coverage statement, and parameter condition
+remains attached to the route that produced this conclusion.
+
+00:20:20.300 --> 00:20:25.548
+We have followed the conditional chain from finite geometry to a
+returned arithmetic witness.
+
+00:20:26.071 --> 00:20:30.338
+The geometry algorithms and box checker are certified constructions.
+
+00:20:30.861 --> 00:20:37.079
+The model comparison and coefficient-budget theorems are certified
+implications with explicit premises.
+
+00:20:37.602 --> 00:20:46.220
+What remains for the full Landau reduction is to supply suitable
+analytic models and complete zero covers for the general
+mathematical situation.
+
+00:20:46.742 --> 00:20:55.579
+Their caps must remain compatible as precision changes, and the
+final encoded statement still needs its intended Peano Arithmetic
+interpretation.
+
+00:20:56.102 --> 00:21:01.823
+These are substantial proof obligations, not missing labels on an
+otherwise finished theorem.
+
+00:21:02.345 --> 00:21:10.891
+Exposing the finite chain is valuable because it identifies exactly
+which work is already arithmetic and exactly where further demotion
+is needed.
+
+00:21:11.414 --> 00:21:16.965
+This episode does not announce a completed proof of the Riemann
+Hypothesis in Peano Arithmetic.
+
+00:21:19.100 --> 00:21:25.427
+The next milestone is the completed reduction, with its hypotheses
+supplied and its arithmetic meaning audited.
+
+00:21:25.950 --> 00:21:29.744
+We will make that final episode when the proof evidence supports it.
+
+00:21:30.267 --> 00:21:43.272
+For now, the result is a concrete route: checked local geometry…
+constructed coefficient models… verified comparisons… and a
+conditional finite witness.
+
+00:21:43.795 --> 00:21:48.583
+Each step can be inspected independently and connected through
+stated hypotheses.
+
+00:21:49.105 --> 00:21:56.766
+That is how Landau Windows ACL Two turns a large foundational
+question into smaller, reviewable mathematical tasks.

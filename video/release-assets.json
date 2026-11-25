@@ -7,507 +7,509 @@
   "films": 11,
   "assets": [
     {
-      "file": "landau-windows-acl2-part-00-r6.mp4",
+      "file": "landau-windows-acl2-overview-05.mp4",
+      "bytes": 25613274,
+      "sha256": "bbbf8bdf818f15bf1fce320a4cd0e13f36ca458fcea150cc61a6e8120bb29501"
+    }
+  ],
+  "repositoryFiles": [
+    {
+      "file": "video/published/part-00/film.mp4",
       "bytes": 56332084,
       "sha256": "0787c6878d58fb0f9c5bdea741c9ff7cd0272653e2578497309fc4c9012d8974"
     },
     {
-      "file": "landau-windows-acl2-part-00-r6.vtt",
-      "bytes": 23505,
-      "sha256": "0c61253b702952f91d355ece2caa8025bb33fe8fe52a7f84741cda60edb3b125"
+      "file": "video/published/part-00/captions.vtt",
+      "bytes": 22700,
+      "sha256": "05f01f9ad46f1079ebbba7bbb977122a2bf0d4d8c1971d5fdf75c0591b137191"
     },
     {
-      "file": "landau-windows-acl2-part-00-r6.srt",
-      "bytes": 24582,
-      "sha256": "0e22c40d856867b5d39df9ed424a23d5d2d191446d865e28e59e9a1aaa9667b1"
+      "file": "video/published/part-00/captions.srt",
+      "bytes": 23540,
+      "sha256": "dfdc6705cf87ab248e909c10add229a032187a9b7509d7d4e00a33467de65b5c"
     },
     {
-      "file": "landau-windows-acl2-part-00-r6-poster.jpg",
+      "file": "video/published/part-00/poster.jpg",
       "bytes": 33383,
       "sha256": "3aa7ba357becdeffb0bfeb7e9b805864408e9d9a3f507f35887e0322804652c4"
     },
     {
-      "file": "landau-windows-acl2-part-00-r6-web.json",
-      "bytes": 17485,
-      "sha256": "24a84de7ed1ed8ab5390f55c632e2e6afde47c40890baaa3c398095074208c03"
+      "file": "video/published/part-00/chapters.json",
+      "bytes": 17397,
+      "sha256": "740830360380c2f87b559cc5672d800274bee842ee3e43270f909e510ccf408c"
     },
     {
-      "file": "landau-windows-acl2-part-00-r6-transcript.md",
-      "bytes": 16271,
-      "sha256": "5a106bffe47a3c6c660f937418ea86391a493c7c212366359e43603045bd4600"
+      "file": "video/published/part-00/transcript.md",
+      "bytes": 16204,
+      "sha256": "d173e6d955cbd17c7c76432815f2b19fb9b772c9ee4ab19bda858edc86db919a"
     },
     {
-      "file": "landau-windows-acl2-part-00-r6-chapters.txt",
-      "bytes": 802,
-      "sha256": "fc8e39a3b6421569dc64d3d6aaee16b57ba3256185cf08afa90fffcb7fe5e569"
+      "file": "video/published/part-00/chapters.txt",
+      "bytes": 785,
+      "sha256": "9e161cc345ca6d11ec5f10996c1cdf28bd4f88d52dc976dd4b5cf5a6318036d2"
     },
     {
-      "file": "landau-windows-acl2-part-00-r6-verification.json",
-      "bytes": 702,
-      "sha256": "348a67e0edd5c6bf15a5710bfa14b335bbf776721d164cf715d091e1537d2900"
+      "file": "video/published/part-00/verification.json",
+      "bytes": 644,
+      "sha256": "11d1b983d2b948b17ca7e04e668b93b72689ed13a868178141be41aac2d006cb"
     },
     {
-      "file": "timing-part00-r6.json",
-      "bytes": 96795,
-      "sha256": "982bc4c607bf403721150d1d3d62429c327eb797a617073673e35d6a0234ffdc"
+      "file": "video/published/part-00/timing.json",
+      "bytes": 93301,
+      "sha256": "1cf4110f9169dd7b56ebf7f101900712f3e6ea8a2f440c9f7c6d1fcf813e90f1"
     },
     {
-      "file": "landau-windows-acl2-part-01-r3.mp4",
+      "file": "video/published/part-01/film.mp4",
       "bytes": 44252789,
       "sha256": "050733944b62cef0dc85650c36f9300f679c385022c707c808dc61230692cdea"
     },
     {
-      "file": "landau-windows-acl2-part-01-r3.vtt",
-      "bytes": 18516,
-      "sha256": "bec884c64ee8e58a166b75bac013ee454769a7d908766b9456123826f54bae05"
+      "file": "video/published/part-01/captions.vtt",
+      "bytes": 17933,
+      "sha256": "3d7385b700945860a0bc8c2eea431fc29971535155a3b2ef073533e59a68f879"
     },
     {
-      "file": "landau-windows-acl2-part-01-r3.srt",
-      "bytes": 19178,
-      "sha256": "11a44405a83ecc62621397b389aff87834f1a0df73e9b2789b5be02d993a0466"
+      "file": "video/published/part-01/captions.srt",
+      "bytes": 18441,
+      "sha256": "476c0eaac2f2c2cf32f2a2660fc65a4a2c545d2fe73768e7217c2129115f917b"
     },
     {
-      "file": "landau-windows-acl2-part-01-r3-poster.jpg",
+      "file": "video/published/part-01/poster.jpg",
       "bytes": 43409,
       "sha256": "117cc4700e9e8dde1226589c9c68caa5dfccc68575d9b294b444a7eb2bc82ae2"
     },
     {
-      "file": "landau-windows-acl2-part-01-r3-web.json",
-      "bytes": 14910,
-      "sha256": "6f556d798b52dd46dc5d355a403671983f9eba5ebcec9452cfbb48d637e4d4ab"
+      "file": "video/published/part-01/chapters.json",
+      "bytes": 14837,
+      "sha256": "0d52373142be40984d28d8c5ecbb4705d018f2510572ce31d4d018d2533a7986"
     },
     {
-      "file": "landau-windows-acl2-part-01-r3-transcript.md",
-      "bytes": 13904,
-      "sha256": "186b3940062a289ed65a4eb6295b5bdb634365be2f468d162ccfb11d89bccf9a"
+      "file": "video/published/part-01/transcript.md",
+      "bytes": 13849,
+      "sha256": "e765d33ae8f5d423a551a281b7f3d6f26bcc46e1ff731cf566edff74259683ec"
     },
     {
-      "file": "landau-windows-acl2-part-01-r3-chapters.txt",
-      "bytes": 665,
-      "sha256": "dce64d7c5a1b63238a4a5a5d272f78b939e55df82180e2b706ae03511847db26"
+      "file": "video/published/part-01/chapters.txt",
+      "bytes": 651,
+      "sha256": "686503d394dd403a466ad672d6c87eb90009d9afe50c6bb9bb6cb20608b91494"
     },
     {
-      "file": "landau-windows-acl2-part-01-r3-verification.json",
-      "bytes": 698,
-      "sha256": "6dca81dd0e4cda8c6f02d10de58f12a14acb3bd48fd893f7d92d8cec260449d2"
+      "file": "video/published/part-01/verification.json",
+      "bytes": 640,
+      "sha256": "71cf3a8eec2628af1fdef44e83d77c127c9b018ffdd88279a5a77af9cdc67c97"
     },
     {
-      "file": "timing-part01-r3.json",
-      "bytes": 58480,
-      "sha256": "4462f98e706a9dc7e842d36f5b29b401e3c9350ae26007d30cfbdffebec51cac"
+      "file": "video/published/part-01/timing.json",
+      "bytes": 56490,
+      "sha256": "7dbbed40522b5a77db735da9f8ab5cab794267c9219ba7644d2655057a3c79f9"
     },
     {
-      "file": "landau-windows-acl2-part-02.mp4",
+      "file": "video/published/part-02/film.mp4",
       "bytes": 49071266,
       "sha256": "3d5ac5b488fb152adfe55e118846163f9be6229607fdc668dc739d5392b7c730"
     },
     {
-      "file": "landau-windows-acl2-part-02.vtt",
-      "bytes": 20450,
-      "sha256": "22c9d9b2640ba85136684a3444e60cb141b6d4a0aafe3500052dbe73cd1a0ad8"
+      "file": "video/published/part-02/captions.vtt",
+      "bytes": 19809,
+      "sha256": "d4d14cc5f331470220e6424f8b0ae8e611f9dd35c6fc5c70d71c390901ec82af"
     },
     {
-      "file": "landau-windows-acl2-part-02.srt",
-      "bytes": 21212,
-      "sha256": "42628fc99ac7fadf7914d559afb42eb256fe89a60f1093ddb3cfaaafd7dddf30"
+      "file": "video/published/part-02/captions.srt",
+      "bytes": 20397,
+      "sha256": "13b061f79190927dfb889c48538c074a04eacd4890b7044638a5154c4d7ba34e"
     },
     {
-      "file": "landau-windows-acl2-part-02-poster.jpg",
+      "file": "video/published/part-02/poster.jpg",
       "bytes": 21653,
       "sha256": "207167ae88c87da5034e1c4aef303d2441874327a3758dc323565d4460fd3924"
     },
     {
-      "file": "landau-windows-acl2-part-02-web.json",
-      "bytes": 16227,
-      "sha256": "cee212260cca9dccfd8cc0c870b2bbf75ed39acef9693b862dcc8804c8a7658f"
+      "file": "video/published/part-02/chapters.json",
+      "bytes": 16154,
+      "sha256": "3893831f9e7c5618314f0012c42155aabccca5a02ab93d4b7426ede87e02a0ed"
     },
     {
-      "file": "landau-windows-acl2-part-02-transcript.md",
-      "bytes": 15214,
-      "sha256": "0eeabd7a48247bf58c90458c4301ce2d571831d97789a9c7995ca78aee5021a2"
+      "file": "video/published/part-02/transcript.md",
+      "bytes": 15159,
+      "sha256": "e75d2c2da4891cbf8c8aa9d0ec9ad9e0d3b752f45c099c36680595a2a4dc14b6"
     },
     {
-      "file": "landau-windows-acl2-part-02-chapters.txt",
-      "bytes": 716,
-      "sha256": "9377c273e75b0b766e8d2792f1b13e2b4f9bf46e41b48ae20390eb2758308700"
+      "file": "video/published/part-02/chapters.txt",
+      "bytes": 702,
+      "sha256": "c51ccb1cd082a073ff29129d6044829eba32d4c65de8ac091cc91fd25fd5a80a"
     },
     {
-      "file": "landau-windows-acl2-part-02-verification.json",
-      "bytes": 699,
-      "sha256": "dd9fc2e37ccd755ebcb848427f7cb72538e7462abc2bed2e8660895ea418afd0"
+      "file": "video/published/part-02/verification.json",
+      "bytes": 644,
+      "sha256": "eee441e61bb0ec824e2ae1f3598de955c66bf6e2666b84c5dd7d7fe2ab80e3e1"
     },
     {
-      "file": "timing-part02.json",
-      "bytes": 64277,
-      "sha256": "36e6583faea01acf5816da3996c7bd2f045f4da2bdb4e7959bee413519d0631b"
+      "file": "video/published/part-02/timing.json",
+      "bytes": 62083,
+      "sha256": "e87ecac9dd5bdfdade9631c72bd8fb53c59e52ba8082127e5572af6b4cc4c633"
     },
     {
-      "file": "landau-windows-acl2-part-03.mp4",
+      "file": "video/published/part-03/film.mp4",
       "bytes": 59557043,
       "sha256": "963c0404c38d731d87297c1584b04ee256b5841d67055d3c20a8b27e8cff5cf4"
     },
     {
-      "file": "landau-windows-acl2-part-03.vtt",
-      "bytes": 23336,
-      "sha256": "2adb56528cda10df7cfc122d55e595ac9b90e4c99f611fbe2d6b77001816871e"
+      "file": "video/published/part-03/captions.vtt",
+      "bytes": 22601,
+      "sha256": "06283774d4c50354a49b0630a05770d1c3ba0e77fe744c7c1fa9debae49eacf5"
     },
     {
-      "file": "landau-windows-acl2-part-03.srt",
-      "bytes": 24228,
-      "sha256": "acf58ecc38428ae5b9c74ead5e23670a693d93dd04b24489553deb89ab39bc5c"
+      "file": "video/published/part-03/captions.srt",
+      "bytes": 23293,
+      "sha256": "8c64ee977a63ec3dba38467de22f75566918d195bde99ac907ce26f52b8ef390"
     },
     {
-      "file": "landau-windows-acl2-part-03-poster.jpg",
+      "file": "video/published/part-03/poster.jpg",
       "bytes": 35538,
       "sha256": "daa56fbf16d34390c6d1adf530128faaeb05a2a2777623e9d58a2a73b75d26b9"
     },
     {
-      "file": "landau-windows-acl2-part-03-web.json",
-      "bytes": 18420,
-      "sha256": "2a310cce7bf74554ce3fe42659af8f771ccbd62ddf0cc2b69ad9ef66ddcf696b"
+      "file": "video/published/part-03/chapters.json",
+      "bytes": 18337,
+      "sha256": "4d10bd17cc6d8199288c15176c8b725649b47467a389cb4690624d70964fb428"
     },
     {
-      "file": "landau-windows-acl2-part-03-transcript.md",
-      "bytes": 17283,
-      "sha256": "fe3bae95deabf2735fc03b5bc57337bd45481954a6c4eede2dd220610c64f4d5"
+      "file": "video/published/part-03/transcript.md",
+      "bytes": 17220,
+      "sha256": "7b84ee287fb91489f5354a7ec99abf9b57d8f94ae02f73f887d5676b8c3d0e97"
     },
     {
-      "file": "landau-windows-acl2-part-03-chapters.txt",
-      "bytes": 778,
-      "sha256": "091cfac990ee65ca4e71453734f252def5c88b1842846035ebe737f8a3d1c8f6"
+      "file": "video/published/part-03/chapters.txt",
+      "bytes": 762,
+      "sha256": "1c2accf0cb379c7b1c805fc7027aa9bd2f855dc864c69c409fc97358d7ae9b1e"
     },
     {
-      "file": "landau-windows-acl2-part-03-verification.json",
-      "bytes": 699,
-      "sha256": "150aaf6202cfd386a82ba408b7e13d3cfd906adcb0461f37063b9fc252c577b5"
+      "file": "video/published/part-03/verification.json",
+      "bytes": 644,
+      "sha256": "3ee251d8530574a596df79660c6860ff24b1c9e3c50a45f26ea83d5e4d9b543a"
     },
     {
-      "file": "timing-part03.json",
-      "bytes": 71415,
-      "sha256": "3fc34f19596053fb6e7e3cc6981e0b226bb1c80512c91d4b12a553fa1e709f1e"
+      "file": "video/published/part-03/timing.json",
+      "bytes": 68981,
+      "sha256": "31b50e32d18e477896d63f2431bb7c156eeb151b3555efe383766b650b897d94"
     },
     {
-      "file": "landau-windows-acl2-part-04.mp4",
+      "file": "video/published/part-04/film.mp4",
       "bytes": 58887028,
       "sha256": "7ea99bcc3df6a7b533503c6ca675b77acfeaf72d0a06afc7a6b83aab46a3d72c"
     },
     {
-      "file": "landau-windows-acl2-part-04.vtt",
-      "bytes": 26898,
-      "sha256": "0f019c69968687aca6b63bb28dbe20951e08c1f8ee79979e6c1e33398b39e044"
+      "file": "video/published/part-04/captions.vtt",
+      "bytes": 26029,
+      "sha256": "eb0602f6f1f936cf2241620b786c8ed3c6f24d866c2bdf3d7568eed502598d75"
     },
     {
-      "file": "landau-windows-acl2-part-04.srt",
-      "bytes": 27975,
-      "sha256": "5ccd06560566fb06ec925d8e751d8543fef228eb8964598e4de751eb2f8f209d"
+      "file": "video/published/part-04/captions.srt",
+      "bytes": 26869,
+      "sha256": "3884af9e2b79cf778c75c8d11be3590abc6af2fa6b727d530f5cbe12614a386f"
     },
     {
-      "file": "landau-windows-acl2-part-04-poster.jpg",
+      "file": "video/published/part-04/poster.jpg",
       "bytes": 34370,
       "sha256": "e4cafb1c62f7f1490031506e403635c78c3d7ada698b3ab6eddcae69f866cdf3"
     },
     {
-      "file": "landau-windows-acl2-part-04-web.json",
-      "bytes": 21279,
-      "sha256": "7b856f3f2d7749e67dd3d588410513fe9690ad34d0d5d08a27205fdae6fa3dd2"
+      "file": "video/published/part-04/chapters.json",
+      "bytes": 21176,
+      "sha256": "a5242e7f305906ff5f77e46b6b83faba96027129fc2c3c68721dfec324fd3f54"
     },
     {
-      "file": "landau-windows-acl2-part-04-transcript.md",
-      "bytes": 19878,
-      "sha256": "930665c6d8bf8b82aba5c5ab2440ab3e96e06fdc161db81b0e305a95e4fac9f6"
+      "file": "video/published/part-04/transcript.md",
+      "bytes": 19799,
+      "sha256": "01db6fbc1f1f64ef3a594a1fee9a22e12e142fa6def7fc4fc028a83ca65840eb"
     },
     {
-      "file": "landau-windows-acl2-part-04-chapters.txt",
-      "bytes": 1048,
-      "sha256": "72d640ce015c77e753d4757edd443b193f9fd7fe749080f5aebfb6585c8a7bfd"
+      "file": "video/published/part-04/chapters.txt",
+      "bytes": 1028,
+      "sha256": "2f32fd355f882a192ec4bba67c9a01ba8af9b5732e7a8e76d1de0c8291cdc990"
     },
     {
-      "file": "landau-windows-acl2-part-04-verification.json",
-      "bytes": 699,
-      "sha256": "b31158a2f31ef848d6b2a8efb979b5937c7292533bb4c63977aed0f40e76659c"
+      "file": "video/published/part-04/verification.json",
+      "bytes": 644,
+      "sha256": "0176acde778d0523b30d2306d05eae0a5c461f0ed45cd2d5226221ab24c256fb"
     },
     {
-      "file": "timing-part04.json",
-      "bytes": 84180,
-      "sha256": "22a0655b7b491f0403e4c22e3bce007c391b54b42a9bb71a12edde46ac98359e"
+      "file": "video/published/part-04/timing.json",
+      "bytes": 81291,
+      "sha256": "6c0510ab1929b55184030218f3f81bbe5e908699b19af714e8876771cea3dbfe"
     },
     {
-      "file": "landau-windows-acl2-part-05.mp4",
+      "file": "video/published/part-05/film.mp4",
       "bytes": 57355218,
       "sha256": "5a8fe8204d6425afd38114fc4807839c500324d7bbd661e5de46fe87230b5372"
     },
     {
-      "file": "landau-windows-acl2-part-05.vtt",
-      "bytes": 25390,
-      "sha256": "4f56c8d50543b0f5f55d8b42c8939d0335eaaa0251a54cc292454941dc194f44"
+      "file": "video/published/part-05/captions.vtt",
+      "bytes": 24580,
+      "sha256": "d28aa08f88b5791b682b02e9bb9f050729944020de8c60346eccac257449849c"
     },
     {
-      "file": "landau-windows-acl2-part-05.srt",
-      "bytes": 26402,
-      "sha256": "b4853266d62a1f3acf0779efb9a97498cb066ef1edbc030a95521c8ee2866c45"
+      "file": "video/published/part-05/captions.srt",
+      "bytes": 25368,
+      "sha256": "fcce372530419e494ef2dbdaad9d6be12b5d6518db54716313429064e7a3253d"
     },
     {
-      "file": "landau-windows-acl2-part-05-poster.jpg",
+      "file": "video/published/part-05/poster.jpg",
       "bytes": 26323,
       "sha256": "ceac4e2a34841565b547b5a1a0e02af7bbc25e40690c18655f7faa21993506ea"
     },
     {
-      "file": "landau-windows-acl2-part-05-web.json",
-      "bytes": 20351,
-      "sha256": "3c6e8da5efaa45666255bfc400dd12fdf2d4e39ba71d5a5922d20de6e5619e25"
+      "file": "video/published/part-05/chapters.json",
+      "bytes": 20238,
+      "sha256": "d33d01da28f07b036f39d97c34b3c7d04137b4709c25f066da0fae5aba0697da"
     },
     {
-      "file": "landau-windows-acl2-part-05-transcript.md",
-      "bytes": 18823,
-      "sha256": "448c6d94fdf79c55a741f7c6bbb8883bba51c77f83af2a6d7ccc72eda823c2e3"
+      "file": "video/published/part-05/transcript.md",
+      "bytes": 18736,
+      "sha256": "1bfb7e65d3b276d31068dbfe16b7447d5fca0ca567d31c034729e708c84127d3"
     },
     {
-      "file": "landau-windows-acl2-part-05-chapters.txt",
-      "bytes": 1019,
-      "sha256": "828e5d57b752aebe076f54f35c8d2898f4ae62cc9b5cfa394381b21a10eec642"
+      "file": "video/published/part-05/chapters.txt",
+      "bytes": 997,
+      "sha256": "9238e7d5d8899e38bedcd219529d25228efda3a98f21c3898dea1fa7e97ea5b4"
     },
     {
-      "file": "landau-windows-acl2-part-05-verification.json",
-      "bytes": 699,
-      "sha256": "a5bfdd94afd2b7f78d57f1d96091461e7a3f1f9ac2b4dc87827d6ee291f30d3c"
+      "file": "video/published/part-05/verification.json",
+      "bytes": 644,
+      "sha256": "246527fdc5d514de0458d6324f09a93e183a7208ac3fde2ee6d5ef35ea65e773"
     },
     {
-      "file": "timing-part05.json",
-      "bytes": 78496,
-      "sha256": "756cd80b1463503ae893330c4a5a51d142163c5dbf199a70496178052ace4085"
+      "file": "video/published/part-05/timing.json",
+      "bytes": 75792,
+      "sha256": "50f5e56ecae475f20ba1656498bdf479a755c8d933d239116281426abed81c13"
     },
     {
-      "file": "landau-windows-acl2-part-06.mp4",
+      "file": "video/published/part-06/film.mp4",
       "bytes": 57107966,
       "sha256": "52b9c1e99de56c34d2c406137c4401b230b8e7c941aee7885a8d9227b4765058"
     },
     {
-      "file": "landau-windows-acl2-part-06.vtt",
-      "bytes": 23922,
-      "sha256": "9f0d415ddf423fe8e996760d8c573a666c85333f036ff98c90d7a124cac408ff"
+      "file": "video/published/part-06/captions.vtt",
+      "bytes": 23160,
+      "sha256": "075487945c43c5882df089d962502f4f105a387035b752a8ae534f1be500dd70"
     },
     {
-      "file": "landau-windows-acl2-part-06.srt",
-      "bytes": 24859,
-      "sha256": "3ec0d03c28e53fbad41ecdb3cb214cd50f9f5cc777f54a522b3ae885310e3b77"
+      "file": "video/published/part-06/captions.srt",
+      "bytes": 23888,
+      "sha256": "19e1cc855d6e0b0892c78977c73e2fa938b24837c9acbac69a9b014ce2371d57"
     },
     {
-      "file": "landau-windows-acl2-part-06-poster.jpg",
+      "file": "video/published/part-06/poster.jpg",
       "bytes": 26002,
       "sha256": "1ab4411f81487500254ac816775b12a439137fbc30f355a54b5c1ec16c86cc54"
     },
     {
-      "file": "landau-windows-acl2-part-06-web.json",
-      "bytes": 19567,
-      "sha256": "d25fd3024bf2e6cf12e1c571d8054f48c7f15f6e9ab2edbc5243e188ac385da2"
+      "file": "video/published/part-06/chapters.json",
+      "bytes": 19449,
+      "sha256": "21e3861e80c246dc1161d2d08ca499ff8f917ff40cddeebf6564fb60b6cd82b7"
     },
     {
-      "file": "landau-windows-acl2-part-06-transcript.md",
-      "bytes": 17968,
-      "sha256": "c601072531ce72a93e06858236bd5968742b092217ab970f82aae4c9764c8560"
+      "file": "video/published/part-06/transcript.md",
+      "bytes": 17877,
+      "sha256": "00b13eeafd02f88f94fb5b87d7c61f51342f4a7ec757cb4ce144316bfdb26f4d"
     },
     {
-      "file": "landau-windows-acl2-part-06-chapters.txt",
-      "bytes": 1108,
-      "sha256": "ca84ab7a0c4a7acba96ccb513527f4147fb94cf1c3b9e487a6ee6860ad66b4ee"
+      "file": "video/published/part-06/chapters.txt",
+      "bytes": 1085,
+      "sha256": "1891ab357bbc9b742487045f3f058dc3b7ca34ac5f4acce9678453c0b8eae960"
     },
     {
-      "file": "landau-windows-acl2-part-06-verification.json",
-      "bytes": 699,
-      "sha256": "0af1d0fb30efc3e78c586e8cc5388e468bb8331b171d14cdbb07fcfe23885f72"
+      "file": "video/published/part-06/verification.json",
+      "bytes": 644,
+      "sha256": "a8f35894422e3b13341098f9264967ee9219a755505b38737d3fc632b0435429"
     },
     {
-      "file": "timing-part06.json",
-      "bytes": 75058,
-      "sha256": "e42d46a2e32192ad6a6e400326e27a62bbf85928f2a8e590ac79922470573157"
+      "file": "video/published/part-06/timing.json",
+      "bytes": 72470,
+      "sha256": "97f21d72621b695483b6b59aa1fd93a6b077888b31b414e7919763bafa106ff3"
     },
     {
-      "file": "landau-windows-acl2-part-07.mp4",
+      "file": "video/published/part-07/film.mp4",
       "bytes": 64215312,
       "sha256": "331d5966951493cb08d365b05282758ae85fff42629f025cbae7c9d542da5f05"
     },
     {
-      "file": "landau-windows-acl2-part-07.vtt",
-      "bytes": 26360,
-      "sha256": "99504fa5cc062e6bf97205df4fe88a8ab4307cafad5a9d4aa67cb5481bdb47bf"
+      "file": "video/published/part-07/captions.vtt",
+      "bytes": 25530,
+      "sha256": "c4b21593339f718962421ef09f81de96a47055bea322a18e3b39792ed8edf7b3"
     },
     {
-      "file": "landau-windows-acl2-part-07.srt",
-      "bytes": 27352,
-      "sha256": "ae8134ef9cb2acd0997ecd6af56cf8184f86b3ed3939bb4515c6c71a46c1f3f1"
+      "file": "video/published/part-07/captions.srt",
+      "bytes": 26302,
+      "sha256": "d8a77711ec11e4b6d5ce975d1ee5cc60b3a756cc017fec8431cf4077f06d0b4a"
     },
     {
-      "file": "landau-windows-acl2-part-07-poster.jpg",
+      "file": "video/published/part-07/poster.jpg",
       "bytes": 30578,
       "sha256": "4fdda87b7c91d212f7144f8e359ef32d8691bed7513bbe77a9fd0f3f42c308c1"
     },
     {
-      "file": "landau-windows-acl2-part-07-web.json",
-      "bytes": 22028,
-      "sha256": "9334f1e02b414c69c8cd51ba8fc4503d6386ddaa7725a53c9ed24a82fc3eed5c"
+      "file": "video/published/part-07/chapters.json",
+      "bytes": 21895,
+      "sha256": "cc618c4c95c35509a61004bda6382740edcec5d7adacbaaf2fd168ef038327a9"
     },
     {
-      "file": "landau-windows-acl2-part-07-transcript.md",
-      "bytes": 20220,
-      "sha256": "2a8d0608bc86b3d4542b8137ee4e791e8b2110b67b22e0eac010e8fff4dca7f1"
+      "file": "video/published/part-07/transcript.md",
+      "bytes": 20117,
+      "sha256": "f2bfb4de708f5527124ee1ab6b3c3dac9b844d886d8300f893a8551807d8a51c"
     },
     {
-      "file": "landau-windows-acl2-part-07-chapters.txt",
-      "bytes": 1296,
-      "sha256": "997bcc8fa41df084f317fc3eaddfbdd251ed8d847b1204ca08ff16052b8debb9"
+      "file": "video/published/part-07/chapters.txt",
+      "bytes": 1270,
+      "sha256": "6819a1b1e81e16f7ef0e5bcd52df2457050276a92f1fc635facb6371a0799872"
     },
     {
-      "file": "landau-windows-acl2-part-07-verification.json",
-      "bytes": 699,
-      "sha256": "fd9aaac7d373749f400ed6de769d4a8cb0070ba06eae94bf104a5cee72ce2bd2"
+      "file": "video/published/part-07/verification.json",
+      "bytes": 644,
+      "sha256": "90a5b52a62b1c28d7bfa6f4f3d3f43c6e236d644c4eb993a21e4b2382c0633a0"
     },
     {
-      "file": "timing-part07.json",
-      "bytes": 79306,
-      "sha256": "69751fc363b9407251206d2093a7fa1234ebc35e9f8606976705c78a9319131d"
+      "file": "video/published/part-07/timing.json",
+      "bytes": 76610,
+      "sha256": "4cc806a2d2150333a97e4f286f48c83fd7fb519f7c20b5607a4440a0a1645c85"
     },
     {
-      "file": "landau-windows-acl2-part-08.mp4",
+      "file": "video/published/part-08/film.mp4",
       "bytes": 65245819,
       "sha256": "e2d6d88f1186157bb1281afce82991dedfb9bc36407f8bcb3736e02444e172e9"
     },
     {
-      "file": "landau-windows-acl2-part-08.vtt",
-      "bytes": 26627,
-      "sha256": "4cdbbfd1daee8b69f02facdebca9e674f74f287baea9a417380970d9783ca8d8"
+      "file": "video/published/part-08/captions.vtt",
+      "bytes": 25821,
+      "sha256": "a5db021ba2fe523b2d2190af9f5656cdd0696ff4775e75b71f82606137d388e3"
     },
     {
-      "file": "landau-windows-acl2-part-08.srt",
-      "bytes": 27539,
-      "sha256": "5c0de08a4102ec694698888524ce64eb8ca165d54d7fabd2ab1382f88497728f"
+      "file": "video/published/part-08/captions.srt",
+      "bytes": 26529,
+      "sha256": "2b20d26b69e86c60fc32ff065d298ab2dd41e508119727147fd1c74003f074dd"
     },
     {
-      "file": "landau-windows-acl2-part-08-poster.jpg",
+      "file": "video/published/part-08/poster.jpg",
       "bytes": 38191,
       "sha256": "2fec0d94e1f1d1bad33d07b57081f2ab75238ba3e1bd47eb97fb2b7c2feff546"
     },
     {
-      "file": "landau-windows-acl2-part-08-web.json",
-      "bytes": 22766,
-      "sha256": "f5dca15e95fca5f71f4a1070057bd819afcefef0f6f5d90e8739103d7959c437"
+      "file": "video/published/part-08/chapters.json",
+      "bytes": 22633,
+      "sha256": "5a77de3753194a92f4b199408bd0919d952bba3bb8ae5b0df4f06c615aef4325"
     },
     {
-      "file": "landau-windows-acl2-part-08-transcript.md",
-      "bytes": 20963,
-      "sha256": "bd348cba8106ae8f69ddff81b015e6341235b1b4a05c63f420d874494b37c614"
+      "file": "video/published/part-08/transcript.md",
+      "bytes": 20860,
+      "sha256": "3c404d428c7373265e35e10d0bc6123ec8db0692efdb14381d01a04d0cda957f"
     },
     {
-      "file": "landau-windows-acl2-part-08-chapters.txt",
-      "bytes": 1256,
-      "sha256": "e838f35ad6fdc3b45c6fadeb767f401b63579833e09c099dac8bc1d06dda84e1"
+      "file": "video/published/part-08/chapters.txt",
+      "bytes": 1230,
+      "sha256": "b77a6456875a401248a51e8dd4b7b235c80d376c454095f211f9dedbbb85a464"
     },
     {
-      "file": "landau-windows-acl2-part-08-verification.json",
-      "bytes": 699,
-      "sha256": "c36f779503531bfdbc7c01b6cf5d70bfc6a95fc81587c9158dc62d276759c4b7"
+      "file": "video/published/part-08/verification.json",
+      "bytes": 644,
+      "sha256": "4699367fc93599c6d3779dcb23c6149c1361897a5f4a44d9c592ef21c02cf614"
     },
     {
-      "file": "timing-part08.json",
-      "bytes": 76933,
-      "sha256": "ee4c9647de0cbf0d4d877e634a399d62ce3a316d732cbb3a31b0af019420171e"
+      "file": "video/published/part-08/timing.json",
+      "bytes": 74385,
+      "sha256": "bf876fe26b2955c15f4b3fe1e11498e79adbed55116a9b695d102ee54f707d21"
     },
     {
-      "file": "landau-windows-acl2-part-09.mp4",
+      "file": "video/published/part-09/film.mp4",
       "bytes": 64913597,
       "sha256": "d9e0f75e9af679814055e114a4e4c89624ce02b5cda529611ccf4f7192ee92c2"
     },
     {
-      "file": "landau-windows-acl2-part-09.vtt",
-      "bytes": 28057,
-      "sha256": "fb94b0ebda3e9bcafbdd684965e208acf52534fc705322a1369b8e8e242cd4ca"
+      "file": "video/published/part-09/captions.vtt",
+      "bytes": 27228,
+      "sha256": "40fea451726bde265d3dcb7dccd2a80a747c46d254c281813ae8834361295dbc"
     },
     {
-      "file": "landau-windows-acl2-part-09.srt",
-      "bytes": 28989,
-      "sha256": "1ec9798b9553c3b21241041e25e56d26d8ea8001f71bb3d60f7307f54578fbf2"
+      "file": "video/published/part-09/captions.srt",
+      "bytes": 27952,
+      "sha256": "7a9f09ebba06bdec068a6da457f4e048f3cb9634c885e56ada5def27a988a8a4"
     },
     {
-      "file": "landau-windows-acl2-part-09-poster.jpg",
+      "file": "video/published/part-09/poster.jpg",
       "bytes": 38374,
       "sha256": "d1fd80df954bd0aef608a0f2dd20c48a2a3056f54b50da86846c576bd5c57c26"
     },
     {
-      "file": "landau-windows-acl2-part-09-web.json",
-      "bytes": 24212,
-      "sha256": "f1fd70a430116e66f2f0bf6032fbedff32c4733cd65b0c400b05294b3355020c"
+      "file": "video/published/part-09/chapters.json",
+      "bytes": 24079,
+      "sha256": "e8182f1b30e30d8e3a83d0876df1e5807affc269115fbb08c6679b28b73e8384"
     },
     {
-      "file": "landau-windows-acl2-part-09-transcript.md",
-      "bytes": 22418,
-      "sha256": "41e7233f97ca058a2439d97bbb4f1faff09351152b08405f3888dc99e14068fa"
+      "file": "video/published/part-09/transcript.md",
+      "bytes": 22315,
+      "sha256": "d0217e6ffa5c8b6fb4d7934f68ad0f0eca162a346847e23553a17e6dede62390"
     },
     {
-      "file": "landau-windows-acl2-part-09-chapters.txt",
-      "bytes": 1427,
-      "sha256": "bee05103429081c105c8e9dab4fcb5c8944fa55a6b22f8de624c07b2eb3fecd5"
+      "file": "video/published/part-09/chapters.txt",
+      "bytes": 1401,
+      "sha256": "80975fb18af81b60af7558f21c551d4f9a3137999e97cdc228c767997bbcfb5c"
     },
     {
-      "file": "landau-windows-acl2-part-09-verification.json",
-      "bytes": 699,
-      "sha256": "794fcafd2e1a54d6592152acf5b6de31dfd3bf3fe0f8502f371afdd15a1a95fd"
+      "file": "video/published/part-09/verification.json",
+      "bytes": 644,
+      "sha256": "e76532c01ecbf477378fbb77db6b3699af11dd6512c081a485e73de8b7f310ec"
     },
     {
-      "file": "timing-part09.json",
-      "bytes": 78245,
-      "sha256": "0cebb88219bd68ea29b8addffb946e80509a237cdb0c9897efb60b2bcc4461a2"
+      "file": "video/published/part-09/timing.json",
+      "bytes": 75693,
+      "sha256": "aff4bd28408458d33f857f522232198870b9daec7a651fec533489030103cad3"
     },
     {
-      "file": "landau-windows-acl2-overview-05.mp4",
-      "bytes": 25613274,
-      "sha256": "bbbf8bdf818f15bf1fce320a4cd0e13f36ca458fcea150cc61a6e8120bb29501"
+      "file": "video/published/overview/captions.vtt",
+      "bytes": 11234,
+      "sha256": "bb9aa20d8ef933d03908d80c5965a146e6713c7cd66af005301c38d387c36a7c"
     },
     {
-      "file": "landau-windows-acl2-overview-05.vtt",
-      "bytes": 11619,
-      "sha256": "30dcf299ac0cb40e64d03f1f7785b90d0cffa1c075fdcc76cc6cd7b9dc2c8b6a"
+      "file": "video/published/overview/captions.srt",
+      "bytes": 11550,
+      "sha256": "dde07ff18c77a1161e2e97cfd36252d9e9b8c894880d67e37993b2eb03697515"
     },
     {
-      "file": "landau-windows-acl2-overview-05.srt",
-      "bytes": 12041,
-      "sha256": "93d0ec3f639402f388461562be859fe6d2d4a239b4d63a58367e586647efd241"
-    },
-    {
-      "file": "landau-windows-acl2-overview-05-poster.jpg",
+      "file": "video/published/overview/poster.jpg",
       "bytes": 31776,
       "sha256": "8261a118df31b60d4ee3336c7df351c6dfe796f98d2b24f1ab8640fe3b144567"
     },
     {
-      "file": "landau-windows-acl2-overview-05-web.json",
-      "bytes": 9508,
-      "sha256": "673549e8ac85108b15628c7fd412d15fec8ad0dfc088a2baaf4c561ee0410975"
+      "file": "video/published/overview/chapters.json",
+      "bytes": 9440,
+      "sha256": "0cc9c78aac8ca6a00ecb676823d6693ac9057121103d995108d28b5191b6f7e7"
     },
     {
-      "file": "landau-windows-acl2-overview-05-transcript.md",
-      "bytes": 8550,
-      "sha256": "0c3097b406f4bc44890468f6e26159472c6af73037afcf51c0a42a71320dc3f7"
+      "file": "video/published/overview/transcript.md",
+      "bytes": 8499,
+      "sha256": "19fcc5d101d416d06c504cd75241bb1dd28f774f0127a7bd9cea10c8da2ba555"
     },
     {
-      "file": "landau-windows-acl2-overview-05-chapters.txt",
-      "bytes": 529,
-      "sha256": "e35ad6fa3629dc051ab75f57fa19cad7e922c7c1dce54fcdf5360f7a8ee10b82"
+      "file": "video/published/overview/chapters.txt",
+      "bytes": 516,
+      "sha256": "b4ace05cf555cd19a504fc018d674532c6cd4540c5527c8829b32ef75e629aa9"
     },
     {
-      "file": "landau-windows-acl2-overview-05-verification.json",
-      "bytes": 699,
-      "sha256": "07750181686122d01907ddddbb396618e68df8945390079281f42616e1c0bff7"
+      "file": "video/published/overview/verification.json",
+      "bytes": 740,
+      "sha256": "aa555afefcd92fde9c74f2f0da11822e6dce79ae0e5112d5d08ac9935e06369a"
     },
     {
-      "file": "timing-v5.json",
-      "bytes": 26316,
-      "sha256": "4ea82e0971fd61c2ab56730a0d4a7066bf596f5c3253d42fd3cd835aa4e9db4a"
+      "file": "video/published/overview/timing.json",
+      "bytes": 25485,
+      "sha256": "a9e92ea1d1028dd1abec40323d17906fe70836ffca3acc8280d4a5a1d588eeef"
     },
     {
-      "file": "pa-paper.pdf",
+      "file": "classical/pa-paper.pdf",
       "bytes": 769381,
       "sha256": "91c30f1afd4deb8c71bc007fd21672ea18a2df1952bae680c5c3cb4e2b40ca04"
     },
     {
-      "file": "pa-paper.tex",
+      "file": "classical/pa-paper.tex",
       "bytes": 196598,
       "sha256": "9b26d19d8d5db386bd877fa345f28927ee44c59f367fefc8fbb9047d0b5836b6"
     }

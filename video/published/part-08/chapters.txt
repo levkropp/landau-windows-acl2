@@ -1,0 +1,26 @@
+00:00:00  From finite readings to a contradiction
+00:00:51  What a pole contributes
+00:01:37  A finite identity before an infinite series
+00:02:29  A pole leaves a coefficient fingerprint
+00:03:14  Exact reciprocal and coefficient code
+00:04:11  Move the center to break a distance tie
+00:04:55  Only finitely many heights need avoiding
+00:05:43  Choose a rational height explicitly
+00:06:36  Find the nearest point at that height
+00:07:24  Put a circle inside the strict gap
+00:08:21  A rational point is not an actual zero
+00:09:09  Square an interval carefully
+00:09:50  Bound every distance inside a box
+00:10:42  Check the entire boxes against the circle
+00:11:34  What a complete zero cover must add
+00:12:25  From a zero to its pole coefficient
+00:13:16  Nearer poles dominate relatively
+00:14:09  Control the regular part as well
+00:15:11  Construct a finite pole-model polynomial
+00:15:59  Compare the model with the actual computation
+00:16:53  Keep the plain real reading
+00:17:43  Choose indices and precision without a loop
+00:18:44  Make the incompatible bounds visible
+00:19:32  The conclusion is an actual search address
+00:20:20  What is proved and what remains
+00:21:18  The final milestone stays evidence-based

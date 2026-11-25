@@ -1,0 +1,1992 @@
+[
+  {
+    "id": "opening",
+    "chapter": "One claim, three different questions",
+    "start": 0.0,
+    "audio_start": 0.2,
+    "duration": 47.888542,
+    "sentences": [
+      {
+        "text": "In Part Zero, we proved that zero plus n equals n.",
+        "start": 0,
+        "end": 3.531851851851852,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.531851851851852
+          }
+        ]
+      },
+      {
+        "text": "We wrote the same claim in ACL2, with a hypothesis saying that n is a natural number.",
+        "start": 3.9762962962962964,
+        "end": 9.38074074074074,
+        "phrases": [
+          {
+            "start": 3.9762962962962964,
+            "end": 9.38074074074074
+          }
+        ]
+      },
+      {
+        "text": "Today, keep that one small example in view: the written claim, its proof, and what it means.",
+        "start": 9.825185185185184,
+        "end": 17.786666666666665,
+        "phrases": [
+          {
+            "start": 9.825185185185184,
+            "end": 12.622222222222222
+          },
+          {
+            "start": 13.28888888888889,
+            "end": 14.39111111111111
+          },
+          {
+            "start": 15.057777777777776,
+            "end": 15.851851851851853
+          },
+          {
+            "start": 16.51851851851852,
+            "end": 17.786666666666665
+          }
+        ]
+      },
+      {
+        "text": "Those are three different things, and separating them explains the purpose of this project.",
+        "start": 18.23111111111111,
+        "end": 23.16148148148148,
+        "phrases": [
+          {
+            "start": 18.23111111111111,
+            "end": 23.16148148148148
+          }
+        ]
+      },
+      {
+        "text": "A proof can be checked by a computer, while questions remain about the rules that computer is checking.",
+        "start": 23.605925925925927,
+        "end": 29.330370370370368,
+        "phrases": [
+          {
+            "start": 23.605925925925927,
+            "end": 29.330370370370368
+          }
+        ]
+      },
+      {
+        "text": "We will build from our arithmetic example to models, consistency, and G\u00f6del's second incompleteness theorem.",
+        "start": 29.774814814814814,
+        "end": 35.96148148148148,
+        "phrases": [
+          {
+            "start": 29.774814814814814,
+            "end": 35.96148148148148
+          }
+        ]
+      },
+      {
+        "text": "Then we can say precisely what is gained by moving an argument to a weaker foundation.",
+        "start": 36.40592592592592,
+        "end": 41.35999999999999,
+        "phrases": [
+          {
+            "start": 36.40592592592592,
+            "end": 41.35999999999999
+          }
+        ]
+      },
+      {
+        "text": "This is Part One of Landau Windows ACL Two: proofs, models, and stronger foundations.",
+        "start": 41.80444444444445,
+        "end": 47.46962962962963,
+        "phrases": [
+          {
+            "start": 41.80444444444445,
+            "end": 47.46962962962963
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "proof_steps",
+    "chapter": "What makes a proof step valid?",
+    "start": 49.53333333333328,
+    "audio_start": 49.733333333333285,
+    "duration": 57.8395,
+    "sentences": [
+      {
+        "text": "A formal proof is a finite sequence or tree of justified steps.",
+        "start": 0,
+        "end": 4.077037037037037,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.077037037037037
+          }
+        ]
+      },
+      {
+        "text": "Some steps are starting axioms; others follow from earlier steps by a stated inference rule.",
+        "start": 4.521481481481482,
+        "end": 10.103703703703705,
+        "phrases": [
+          {
+            "start": 4.521481481481482,
+            "end": 10.103703703703705
+          }
+        ]
+      },
+      {
+        "text": "Here is one familiar rule: p holds, and p implies q, so q holds.",
+        "start": 10.54814814814815,
+        "end": 18.094814814814814,
+        "phrases": [
+          {
+            "start": 10.54814814814815,
+            "end": 12.325925925925926
+          },
+          {
+            "start": 12.992592592592592,
+            "end": 13.976296296296296
+          },
+          {
+            "start": 14.642962962962962,
+            "end": 16.14814814814815
+          },
+          {
+            "start": 16.814814814814813,
+            "end": 18.094814814814814
+          }
+        ]
+      },
+      {
+        "text": "The letters here name claims with truth values, rather than natural-number inputs.",
+        "start": 18.539259259259257,
+        "end": 23.268148148148146,
+        "phrases": [
+          {
+            "start": 18.539259259259257,
+            "end": 23.268148148148146
+          }
+        ]
+      },
+      {
+        "text": "We can inspect the four possible pairs of truth values.",
+        "start": 23.712592592592593,
+        "end": 27.11407407407407,
+        "phrases": [
+          {
+            "start": 23.712592592592593,
+            "end": 27.11407407407407
+          }
+        ]
+      },
+      {
+        "text": "When p is true and q is false, the implication is false, so the two premises cannot both hold.",
+        "start": 27.558518518518518,
+        "end": 34.337777777777774,
+        "phrases": [
+          {
+            "start": 27.558518518518518,
+            "end": 34.337777777777774
+          }
+        ]
+      },
+      {
+        "text": "The only row in which both premises hold has q true as well.",
+        "start": 34.78222222222222,
+        "end": 38.62222222222222,
+        "phrases": [
+          {
+            "start": 34.78222222222222,
+            "end": 38.62222222222222
+          }
+        ]
+      },
+      {
+        "text": "That is why this inference preserves truth.",
+        "start": 39.06666666666666,
+        "end": 41.57925925925926,
+        "phrases": [
+          {
+            "start": 39.06666666666666,
+            "end": 41.57925925925926
+          }
+        ]
+      },
+      {
+        "text": "The ACL2 statement underneath expresses the same rule, and our teaching book checks it.",
+        "start": 42.0237037037037,
+        "end": 47.26222222222222,
+        "phrases": [
+          {
+            "start": 42.0237037037037,
+            "end": 47.26222222222222
+          }
+        ]
+      },
+      {
+        "text": "A larger proof links many such justified steps; its final line is the conclusion.",
+        "start": 47.70666666666666,
+        "end": 53.07555555555555,
+        "phrases": [
+          {
+            "start": 47.70666666666666,
+            "end": 53.07555555555555
+          }
+        ]
+      },
+      {
+        "text": "Checking one supplied proof asks whether its steps obey the rules.",
+        "start": 53.519999999999996,
+        "end": 57.419259259259256,
+        "phrases": [
+          {
+            "start": 53.519999999999996,
+            "end": 57.419259259259256
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "models",
+    "chapter": "Give the symbols a meaning",
+    "start": 108.99999999999939,
+    "audio_start": 109.19999999999939,
+    "duration": 100.601083,
+    "sentences": [
+      {
+        "text": "Now give the written symbols an interpretation.",
+        "start": 0,
+        "end": 2.8606060606060604,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.8606060606060604
+          }
+        ]
+      },
+      {
+        "text": "For ordinary arithmetic, zero names zero, successor adds one, and the variables range over natural numbers.",
+        "start": 3.315151515151515,
+        "end": 10.260606060606062,
+        "phrases": [
+          {
+            "start": 3.315151515151515,
+            "end": 10.260606060606062
+          }
+        ]
+      },
+      {
+        "text": "An interpretation that makes every axiom true is called a model of the theory.",
+        "start": 10.715151515151517,
+        "end": 15.47878787878788,
+        "phrases": [
+          {
+            "start": 10.715151515151517,
+            "end": 15.47878787878788
+          }
+        ]
+      },
+      {
+        "text": "To see why every axiom matters, try a different interpretation: a clock with three positions.",
+        "start": 15.933333333333332,
+        "end": 21.53333333333333,
+        "phrases": [
+          {
+            "start": 15.933333333333332,
+            "end": 21.53333333333333
+          }
+        ]
+      },
+      {
+        "text": "Its successor operation moves from zero to one, from one to two, and from two back to zero.",
+        "start": 21.98787878787879,
+        "end": 29.484848484848484,
+        "phrases": [
+          {
+            "start": 21.98787878787879,
+            "end": 25.078787878787878
+          },
+          {
+            "start": 25.76060606060606,
+            "end": 26.960606060606057
+          },
+          {
+            "start": 27.64242424242424,
+            "end": 29.484848484848484
+          }
+        ]
+      },
+      {
+        "text": "Before we call that clock operation by name, here is its full ACL2 definition.",
+        "start": 29.93939393939394,
+        "end": 35.13939393939394,
+        "phrases": [
+          {
+            "start": 29.93939393939394,
+            "end": 35.13939393939394
+          }
+        ]
+      },
+      {
+        "text": "Defun introduces video-clock-next, with the input n.",
+        "start": 35.593939393939394,
+        "end": 39.86363636363636,
+        "phrases": [
+          {
+            "start": 35.593939393939394,
+            "end": 37.981818181818184
+          },
+          {
+            "start": 38.663636363636364,
+            "end": 39.86363636363636
+          }
+        ]
+      },
+      {
+        "text": "Nfix keeps n unchanged when it is natural, and returns zero for other objects.",
+        "start": 40.31818181818181,
+        "end": 46.52727272727273,
+        "phrases": [
+          {
+            "start": 40.31818181818181,
+            "end": 43.27575757575758
+          },
+          {
+            "start": 43.95757575757576,
+            "end": 46.52727272727273
+          }
+        ]
+      },
+      {
+        "text": "We add one, then mod takes the remainder after division by three.",
+        "start": 46.981818181818184,
+        "end": 52.00303030303031,
+        "phrases": [
+          {
+            "start": 46.981818181818184,
+            "end": 48.02424242424242
+          },
+          {
+            "start": 48.70606060606061,
+            "end": 52.00303030303031
+          }
+        ]
+      },
+      {
+        "text": "For input two, the intermediate total is three, and the remainder is zero.",
+        "start": 52.45757575757576,
+        "end": 58.86363636363636,
+        "phrases": [
+          {
+            "start": 52.45757575757576,
+            "end": 53.73030303030303
+          },
+          {
+            "start": 54.412121212121214,
+            "end": 56.47272727272727
+          },
+          {
+            "start": 57.154545454545456,
+            "end": 58.86363636363636
+          }
+        ]
+      },
+      {
+        "text": "Now fold the definition into its name, while keeping the inputs and outputs visible.",
+        "start": 59.31818181818182,
+        "end": 64.36060606060606,
+        "phrases": [
+          {
+            "start": 59.31818181818182,
+            "end": 64.36060606060606
+          }
+        ]
+      },
+      {
+        "text": "This call is video-clock-next at two, and its value is zero.",
+        "start": 64.81515151515151,
+        "end": 68.9121212121212,
+        "phrases": [
+          {
+            "start": 64.81515151515151,
+            "end": 68.9121212121212
+          }
+        ]
+      },
+      {
+        "text": "But PA requires that a successor never equals zero.",
+        "start": 69.36666666666667,
+        "end": 73.62121212121211,
+        "phrases": [
+          {
+            "start": 69.36666666666667,
+            "end": 73.62121212121211
+          }
+        ]
+      },
+      {
+        "text": "The ordinary natural-number successor satisfies that rule.",
+        "start": 74.07575757575758,
+        "end": 77.88181818181819,
+        "phrases": [
+          {
+            "start": 74.07575757575758,
+            "end": 77.88181818181819
+          }
+        ]
+      },
+      {
+        "text": "The clock fails it: the successor of two is zero.",
+        "start": 78.33636363636364,
+        "end": 81.63333333333334,
+        "phrases": [
+          {
+            "start": 78.33636363636364,
+            "end": 81.63333333333334
+          }
+        ]
+      },
+      {
+        "text": "This proposed clock interpretation already fails one of the PA successor axioms.",
+        "start": 82.0878787878788,
+        "end": 88.0030303030303,
+        "phrases": [
+          {
+            "start": 82.0878787878788,
+            "end": 88.0030303030303
+          }
+        ]
+      },
+      {
+        "text": "A few familiar equations can survive an interpretation while another axiom fails.",
+        "start": 88.45757575757577,
+        "end": 93.69393939393939,
+        "phrases": [
+          {
+            "start": 88.45757575757577,
+            "end": 93.69393939393939
+          }
+        ]
+      },
+      {
+        "text": "To claim that we have a model, we must justify all the axioms, including every instance of induction.",
+        "start": 94.14848484848486,
+        "end": 100.17272727272727,
+        "phrases": [
+          {
+            "start": 94.14848484848486,
+            "end": 100.17272727272727
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "contradiction",
+    "chapter": "What consistency actually asserts",
+    "start": 211.23333333333179,
+    "audio_start": 211.43333333333177,
+    "duration": 47.768542,
+    "sentences": [
+      {
+        "text": "Consistency concerns the entire collection of possible formal proofs.",
+        "start": 0,
+        "end": 4.266666666666667,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.266666666666667
+          }
+        ]
+      },
+      {
+        "text": "For PA, we can express it by saying that no valid PA proof ends with zero equals one.",
+        "start": 4.711111111111111,
+        "end": 11.28888888888889,
+        "phrases": [
+          {
+            "start": 4.711111111111111,
+            "end": 11.28888888888889
+          }
+        ]
+      },
+      {
+        "text": "A system that derives a claim and its negation is inconsistent.",
+        "start": 11.733333333333334,
+        "end": 15.703703703703702,
+        "phrases": [
+          {
+            "start": 11.733333333333334,
+            "end": 15.703703703703702
+          }
+        ]
+      },
+      {
+        "text": "In classical logic, contradictory premises allow any conclusion; the ACL2 formula illustrates that principle.",
+        "start": 16.14814814814815,
+        "end": 23.804444444444442,
+        "phrases": [
+          {
+            "start": 16.14814814814815,
+            "end": 23.804444444444442
+          }
+        ]
+      },
+      {
+        "text": "This is why consistency is a basic requirement for a useful foundation.",
+        "start": 24.24888888888889,
+        "end": 28.586666666666666,
+        "phrases": [
+          {
+            "start": 24.24888888888889,
+            "end": 28.586666666666666
+          }
+        ]
+      },
+      {
+        "text": "Checking this one arithmetic proof does not examine all other possible proofs.",
+        "start": 29.03111111111111,
+        "end": 33.617777777777775,
+        "phrases": [
+          {
+            "start": 29.03111111111111,
+            "end": 33.617777777777775
+          }
+        ]
+      },
+      {
+        "text": "Nor does checking a billion proof files establish that no longer contradiction proof exists.",
+        "start": 34.06222222222222,
+        "end": 39.45481481481481,
+        "phrases": [
+          {
+            "start": 34.06222222222222,
+            "end": 39.45481481481481
+          }
+        ]
+      },
+      {
+        "text": "We need a general argument about every permitted proof, however long it is.",
+        "start": 39.89925925925926,
+        "end": 44.37925925925926,
+        "phrases": [
+          {
+            "start": 39.89925925925926,
+            "end": 44.37925925925926
+          }
+        ]
+      },
+      {
+        "text": "One route to that argument uses a model.",
+        "start": 44.8237037037037,
+        "end": 47.34814814814815,
+        "phrases": [
+          {
+            "start": 44.8237037037037,
+            "end": 47.34814814814815
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "set_numbers",
+    "chapter": "How set theory supplies a number system",
+    "start": 260.6333333333318,
+    "audio_start": 260.8333333333318,
+    "duration": 72.036833,
+    "sentences": [
+      {
+        "text": "ZFC is a theory whose variables range over sets.",
+        "start": 0,
+        "end": 3.591111111111111,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.591111111111111
+          }
+        ]
+      },
+      {
+        "text": "Its name abbreviates the Zermelo Fraenkel axioms together with the axiom of choice.",
+        "start": 4.035555555555556,
+        "end": 8.811851851851852,
+        "phrases": [
+          {
+            "start": 4.035555555555556,
+            "end": 8.811851851851852
+          }
+        ]
+      },
+      {
+        "text": "We will use one construction rather than list all of its axioms.",
+        "start": 9.256296296296297,
+        "end": 12.942222222222222,
+        "phrases": [
+          {
+            "start": 9.256296296296297,
+            "end": 12.942222222222222
+          }
+        ]
+      },
+      {
+        "text": "Start with the empty set and call it zero; it has no elements.",
+        "start": 13.386666666666667,
+        "end": 18.05925925925926,
+        "phrases": [
+          {
+            "start": 13.386666666666667,
+            "end": 15.982222222222223
+          },
+          {
+            "start": 16.648888888888887,
+            "end": 18.05925925925926
+          }
+        ]
+      },
+      {
+        "text": "To build the next number, collect the elements already present and add the previous number itself.",
+        "start": 18.503703703703703,
+        "end": 25.751111111111108,
+        "phrases": [
+          {
+            "start": 18.503703703703703,
+            "end": 20.044444444444444
+          },
+          {
+            "start": 20.711111111111112,
+            "end": 22.832592592592594
+          },
+          {
+            "start": 23.49925925925926,
+            "end": 25.751111111111108
+          }
+        ]
+      },
+      {
+        "text": "One is the set containing zero; two is the set containing zero and one.",
+        "start": 26.195555555555554,
+        "end": 30.85333333333333,
+        "phrases": [
+          {
+            "start": 26.195555555555554,
+            "end": 30.85333333333333
+          }
+        ]
+      },
+      {
+        "text": "Continuing gives a set representation of every ordinary natural number.",
+        "start": 31.297777777777775,
+        "end": 35.69481481481481,
+        "phrases": [
+          {
+            "start": 31.297777777777775,
+            "end": 35.69481481481481
+          }
+        ]
+      },
+      {
+        "text": "ZFC can also form the infinite collection of these natural numbers, usually called omega.",
+        "start": 36.13925925925926,
+        "end": 41.87555555555556,
+        "phrases": [
+          {
+            "start": 36.13925925925926,
+            "end": 41.87555555555556
+          }
+        ]
+      },
+      {
+        "text": "Within set theory, that whole collection is an object we can study.",
+        "start": 42.32,
+        "end": 46.46814814814815,
+        "phrases": [
+          {
+            "start": 42.32,
+            "end": 46.46814814814815
+          }
+        ]
+      },
+      {
+        "text": "Addition and multiplication can be defined on it by their recursive rules.",
+        "start": 46.912592592592596,
+        "end": 51.28592592592592,
+        "phrases": [
+          {
+            "start": 46.912592592592596,
+            "end": 51.28592592592592
+          }
+        ]
+      },
+      {
+        "text": "Two other set operations will be useful: a union collects the elements of a family of sets.",
+        "start": 51.730370370370366,
+        "end": 57.45481481481481,
+        "phrases": [
+          {
+            "start": 51.730370370370366,
+            "end": 57.45481481481481
+          }
+        ]
+      },
+      {
+        "text": "A power set is the collection of all subsets of a given set; a two-element set has four subsets.",
+        "start": 57.89925925925925,
+        "end": 63.76592592592593,
+        "phrases": [
+          {
+            "start": 57.89925925925925,
+            "end": 63.76592592592593
+          }
+        ]
+      },
+      {
+        "text": "These are set-theoretic constructions; our ACL2 arithmetic examples retain their explicit natural-number domains.",
+        "start": 64.21037037037037,
+        "end": 71.61777777777777,
+        "phrases": [
+          {
+            "start": 64.21037037037037,
+            "end": 71.61777777777777
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "model_consistency",
+    "chapter": "Why a model gives a consistency proof",
+    "start": 334.300000000008,
+    "audio_start": 334.500000000008,
+    "duration": 45.794167,
+    "sentences": [
+      {
+        "text": "Inside ZFC, construct the natural numbers and prove that they satisfy the axioms of PA.",
+        "start": 0,
+        "end": 6.459259259259259,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 6.459259259259259
+          }
+        ]
+      },
+      {
+        "text": "This includes a uniform justification of the induction scheme, rather than checking a finite sample of instances.",
+        "start": 6.9037037037037035,
+        "end": 13.706666666666667,
+        "phrases": [
+          {
+            "start": 6.9037037037037035,
+            "end": 13.706666666666667
+          }
+        ]
+      },
+      {
+        "text": "Now take any alleged PA proof and follow its steps in that model.",
+        "start": 14.151111111111112,
+        "end": 18.939259259259256,
+        "phrases": [
+          {
+            "start": 14.151111111111112,
+            "end": 18.939259259259256
+          }
+        ]
+      },
+      {
+        "text": "The axioms are true there, and the inference rules preserve truth.",
+        "start": 19.383703703703706,
+        "end": 23.401481481481483,
+        "phrases": [
+          {
+            "start": 19.383703703703706,
+            "end": 23.401481481481483
+          }
+        ]
+      },
+      {
+        "text": "Induction on the finite proof therefore shows that its conclusion is true in the model.",
+        "start": 23.845925925925926,
+        "end": 28.527407407407406,
+        "phrases": [
+          {
+            "start": 23.845925925925926,
+            "end": 28.527407407407406
+          }
+        ]
+      },
+      {
+        "text": "This connection between derivations and truth is called soundness.",
+        "start": 28.97185185185185,
+        "end": 32.85925925925926,
+        "phrases": [
+          {
+            "start": 28.97185185185185,
+            "end": 32.85925925925926
+          }
+        ]
+      },
+      {
+        "text": "Zero and one are distinct in the constructed number system, so a valid PA proof cannot conclude that they are equal.",
+        "start": 33.303703703703704,
+        "end": 40.86518518518518,
+        "phrases": [
+          {
+            "start": 33.303703703703704,
+            "end": 40.86518518518518
+          }
+        ]
+      },
+      {
+        "text": "That yields a ZFC proof of the consistency of PA.",
+        "start": 41.309629629629626,
+        "end": 45.37481481481481,
+        "phrases": [
+          {
+            "start": 41.309629629629626,
+            "end": 45.37481481481481
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "proof_numbers",
+    "chapter": "How a proof becomes a number",
+    "start": 381.7333333333475,
+    "audio_start": 381.9333333333475,
+    "duration": 46.309333,
+    "sentences": [
+      {
+        "text": "There is another useful viewpoint: a proof file is a finite string of symbols.",
+        "start": 0,
+        "end": 4.705185185185185,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.705185185185185
+          }
+        ]
+      },
+      {
+        "text": "Assign numeric codes to symbols and encode finite lists of those codes as natural numbers.",
+        "start": 5.14962962962963,
+        "end": 10.53037037037037,
+        "phrases": [
+          {
+            "start": 5.14962962962963,
+            "end": 10.53037037037037
+          }
+        ]
+      },
+      {
+        "text": "Here is a tiny example using decimal digits, just to make the mechanism visible.",
+        "start": 10.974814814814813,
+        "end": 16.094814814814814,
+        "phrases": [
+          {
+            "start": 10.974814814814813,
+            "end": 16.094814814814814
+          }
+        ]
+      },
+      {
+        "text": "Start with a leading one, then append the digits two, zero, and three.",
+        "start": 16.53925925925926,
+        "end": 23.505185185185187,
+        "phrases": [
+          {
+            "start": 16.53925925925926,
+            "end": 18.056296296296296
+          },
+          {
+            "start": 18.72296296296296,
+            "end": 20.500740740740742
+          },
+          {
+            "start": 21.16740740740741,
+            "end": 21.914074074074072
+          },
+          {
+            "start": 22.58074074074074,
+            "end": 23.505185185185187
+          }
+        ]
+      },
+      {
+        "text": "The successive codes are twelve, one hundred twenty, and one thousand two hundred three.",
+        "start": 23.94962962962963,
+        "end": 30.72296296296296,
+        "phrases": [
+          {
+            "start": 23.94962962962963,
+            "end": 25.928888888888885
+          },
+          {
+            "start": 26.595555555555556,
+            "end": 27.922962962962963
+          },
+          {
+            "start": 28.58962962962963,
+            "end": 30.72296296296296
+          }
+        ]
+      },
+      {
+        "text": "Each append operation multiplies the previous code by ten and adds the new digit.",
+        "start": 31.16740740740741,
+        "end": 36.121481481481474,
+        "phrases": [
+          {
+            "start": 31.16740740740741,
+            "end": 36.121481481481474
+          }
+        ]
+      },
+      {
+        "text": "The leading marker keeps a zero in the data from being lost at the beginning.",
+        "start": 36.56592592592593,
+        "end": 40.70222222222222,
+        "phrases": [
+          {
+            "start": 36.56592592592593,
+            "end": 40.70222222222222
+          }
+        ]
+      },
+      {
+        "text": "Now let us define that encoder before using its function name.",
+        "start": 41.14666666666666,
+        "end": 45.89037037037037,
+        "phrases": [
+          {
+            "start": 41.14666666666666,
+            "end": 43.24444444444445
+          },
+          {
+            "start": 43.91111111111111,
+            "end": 45.89037037037037
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "encoder_code",
+    "chapter": "Show the digit predicate and encoder definitions",
+    "start": 429.66666666668795,
+    "audio_start": 429.86666666668793,
+    "duration": 108.476375,
+    "sentences": [
+      {
+        "text": "The encoder processes a list of digits; let us first name the basic list operations.",
+        "start": 0,
+        "end": 5.648484848484848,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.648484848484848
+          }
+        ]
+      },
+      {
+        "text": "Car selects the first item; cdr selects the remaining list.",
+        "start": 6.1030303030303035,
+        "end": 11.136363636363637,
+        "phrases": [
+          {
+            "start": 6.1030303030303035,
+            "end": 7.993939393939393
+          },
+          {
+            "start": 8.675757575757576,
+            "end": 11.136363636363637
+          }
+        ]
+      },
+      {
+        "text": "Consp asks whether there is a list cell still to process.",
+        "start": 11.59090909090909,
+        "end": 15.384848484848485,
+        "phrases": [
+          {
+            "start": 11.59090909090909,
+            "end": 15.384848484848485
+          }
+        ]
+      },
+      {
+        "text": "Here is the complete definition of the digit-list predicate.",
+        "start": 15.83939393939394,
+        "end": 19.245454545454546,
+        "phrases": [
+          {
+            "start": 15.83939393939394,
+            "end": 19.245454545454546
+          }
+        ]
+      },
+      {
+        "text": "For a nonempty list, the first item must be natural and below ten, and the remaining list must pass the same test.",
+        "start": 19.7,
+        "end": 28.263636363636362,
+        "phrases": [
+          {
+            "start": 19.7,
+            "end": 21.093939393939394
+          },
+          {
+            "start": 21.775757575757577,
+            "end": 24.757575757575754
+          },
+          {
+            "start": 25.439393939393938,
+            "end": 28.263636363636362
+          }
+        ]
+      },
+      {
+        "text": "At the end of a proper list, the tail is nil, the empty list; other atomic tails are rejected.",
+        "start": 28.718181818181815,
+        "end": 36.40909090909091,
+        "phrases": [
+          {
+            "start": 28.718181818181815,
+            "end": 30.51212121212121
+          },
+          {
+            "start": 31.193939393939395,
+            "end": 33.4
+          },
+          {
+            "start": 34.081818181818186,
+            "end": 36.40909090909091
+          }
+        ]
+      },
+      {
+        "text": "We can now fold this definition into the name video-digit-listp.",
+        "start": 36.86363636363636,
+        "end": 40.912121212121214,
+        "phrases": [
+          {
+            "start": 36.86363636363636,
+            "end": 40.912121212121214
+          }
+        ]
+      },
+      {
+        "text": "Next, here is the actual recursive encoder.",
+        "start": 41.36666666666667,
+        "end": 44.21515151515152,
+        "phrases": [
+          {
+            "start": 41.36666666666667,
+            "end": 44.21515151515152
+          }
+        ]
+      },
+      {
+        "text": "It has two inputs: the remaining digits and the accumulated code.",
+        "start": 44.66969696969697,
+        "end": 50.57878787878788,
+        "phrases": [
+          {
+            "start": 44.66969696969697,
+            "end": 46.06363636363636
+          },
+          {
+            "start": 46.74545454545455,
+            "end": 48.151515151515156
+          },
+          {
+            "start": 48.833333333333336,
+            "end": 50.57878787878788
+          }
+        ]
+      },
+      {
+        "text": "If a digit remains, append the first item by multiplying the code by ten and adding that digit, then recurse on the rest.",
+        "start": 51.03333333333334,
+        "end": 60.08181818181818,
+        "phrases": [
+          {
+            "start": 51.03333333333334,
+            "end": 52.5
+          },
+          {
+            "start": 53.18181818181818,
+            "end": 57.75151515151515
+          },
+          {
+            "start": 58.43333333333334,
+            "end": 60.08181818181818
+          }
+        ]
+      },
+      {
+        "text": "When no list cell remains, return the accumulated code.",
+        "start": 60.53636363636363,
+        "end": 64.1,
+        "phrases": [
+          {
+            "start": 60.53636363636363,
+            "end": 64.1
+          }
+        ]
+      },
+      {
+        "text": "The complete definition can now fold into the compact name video-encode-digits.",
+        "start": 64.55454545454545,
+        "end": 69.31818181818181,
+        "phrases": [
+          {
+            "start": 64.55454545454545,
+            "end": 69.31818181818181
+          }
+        ]
+      },
+      {
+        "text": "The quote marks this list as data; the starting code is one.",
+        "start": 69.77272727272727,
+        "end": 74.24848484848485,
+        "phrases": [
+          {
+            "start": 69.77272727272727,
+            "end": 71.95454545454545
+          },
+          {
+            "start": 72.63636363636364,
+            "end": 74.24848484848485
+          }
+        ]
+      },
+      {
+        "text": "Calling the defined function on two, zero, and three returns one thousand two hundred three.",
+        "start": 74.70303030303029,
+        "end": 80.42424242424242,
+        "phrases": [
+          {
+            "start": 74.70303030303029,
+            "end": 80.42424242424242
+          }
+        ]
+      },
+      {
+        "text": "For a digit list and a natural starting code, our checked ACL2 theorem proves that the output is natural.",
+        "start": 80.87878787878788,
+        "end": 87.38787878787878,
+        "phrases": [
+          {
+            "start": 80.87878787878788,
+            "end": 87.38787878787878
+          }
+        ]
+      },
+      {
+        "text": "A real encoding of formulas and proofs also needs a specified grammar and proof rules.",
+        "start": 87.84242424242424,
+        "end": 93.50303030303031,
+        "phrases": [
+          {
+            "start": 87.84242424242424,
+            "end": 93.50303030303031
+          }
+        ]
+      },
+      {
+        "text": "The definitions we have shown implement the toy encoder; a complete PA proof checker is a separate construction.",
+        "start": 93.95757575757575,
+        "end": 101.3030303030303,
+        "phrases": [
+          {
+            "start": 93.95757575757575,
+            "end": 101.3030303030303
+          }
+        ]
+      },
+      {
+        "text": "With a full encoding and checker in place, questions about proofs can be expressed as questions about numbers.",
+        "start": 101.75757575757575,
+        "end": 108.04848484848485,
+        "phrases": [
+          {
+            "start": 101.75757575757575,
+            "end": 108.04848484848485
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "consistency_claim",
+    "chapter": "A statement about every proof code",
+    "start": 539.766666666695,
+    "audio_start": 539.966666666695,
+    "duration": 65.290667,
+    "sentences": [
+      {
+        "text": "We can now unpack the phrase PA is consistent in arithmetic language.",
+        "start": 0,
+        "end": 4.882962962962963,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.882962962962963
+          }
+        ]
+      },
+      {
+        "text": "Let a proof predicate test whether a natural-number code describes a valid PA proof of the chosen conclusion.",
+        "start": 5.327407407407407,
+        "end": 12.402962962962963,
+        "phrases": [
+          {
+            "start": 5.327407407407407,
+            "end": 12.402962962962963
+          }
+        ]
+      },
+      {
+        "text": "For consistency, the chosen conclusion is the contradiction zero equals one.",
+        "start": 12.847407407407408,
+        "end": 17.398518518518518,
+        "phrases": [
+          {
+            "start": 12.847407407407408,
+            "end": 17.398518518518518
+          }
+        ]
+      },
+      {
+        "text": "The claim is: for every natural-number code p, that code does not describe a PA contradiction proof.",
+        "start": 17.842962962962964,
+        "end": 26.394074074074073,
+        "phrases": [
+          {
+            "start": 17.842962962962964,
+            "end": 18.802962962962965
+          },
+          {
+            "start": 19.46962962962963,
+            "end": 21.804444444444442
+          },
+          {
+            "start": 22.47111111111111,
+            "end": 26.394074074074073
+          }
+        ]
+      },
+      {
+        "text": "The notation Con of PA is a short name for this standard formal consistency statement.",
+        "start": 26.83851851851852,
+        "end": 32.56296296296296,
+        "phrases": [
+          {
+            "start": 26.83851851851852,
+            "end": 32.56296296296296
+          }
+        ]
+      },
+      {
+        "text": "To turn this into a concrete ACL2 statement, we would first need a full PA proof checker.",
+        "start": 33.007407407407406,
+        "end": 39.96740740740741,
+        "phrases": [
+          {
+            "start": 33.007407407407406,
+            "end": 35.91111111111111
+          },
+          {
+            "start": 36.577777777777776,
+            "end": 39.96740740740741
+          }
+        ]
+      },
+      {
+        "text": "That full checker is not implemented in the teaching book; this is a specification of what it would have to decide.",
+        "start": 40.41185185185185,
+        "end": 47.18222222222222,
+        "phrases": [
+          {
+            "start": 40.41185185185185,
+            "end": 43.56444444444444
+          },
+          {
+            "start": 44.23111111111111,
+            "end": 47.18222222222222
+          }
+        ]
+      },
+      {
+        "text": "We are displaying a specification, not a consistency theorem admitted in our teaching book.",
+        "start": 47.626666666666665,
+        "end": 52.93629629629629,
+        "phrases": [
+          {
+            "start": 47.626666666666665,
+            "end": 52.93629629629629
+          }
+        ]
+      },
+      {
+        "text": "Notice the jump in scope: the digit example computed one code, while consistency rules out every contradiction-proof code.",
+        "start": 53.38074074074074,
+        "end": 61.28592592592592,
+        "phrases": [
+          {
+            "start": 53.38074074074074,
+            "end": 61.28592592592592
+          }
+        ]
+      },
+      {
+        "text": "That universal claim is where G\u00f6del's theorem enters.",
+        "start": 61.730370370370366,
+        "end": 64.8711111111111,
+        "phrases": [
+          {
+            "start": 61.730370370370366,
+            "end": 64.8711111111111
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "godel",
+    "chapter": "G\u00f6del's second incompleteness theorem",
+    "start": 606.7000000000215,
+    "audio_start": 606.9000000000216,
+    "duration": 67.242167,
+    "sentences": [
+      {
+        "text": "G\u00f6del's second incompleteness theorem applies to theories with enough arithmetic and an effective description of their axioms.",
+        "start": 0,
+        "end": 6.826666666666666,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 6.826666666666666
+          }
+        ]
+      },
+      {
+        "text": "PA is one of the standard examples.",
+        "start": 7.271111111111111,
+        "end": 10.317037037037037,
+        "phrases": [
+          {
+            "start": 7.271111111111111,
+            "end": 10.317037037037037
+          }
+        ]
+      },
+      {
+        "text": "Effective means that the rules can be specified by algorithms, as they are for the theories discussed here.",
+        "start": 10.76148148148148,
+        "end": 16.663703703703703,
+        "phrases": [
+          {
+            "start": 10.76148148148148,
+            "end": 16.663703703703703
+          }
+        ]
+      },
+      {
+        "text": "Use the usual arithmetic encoding of formal proofs and the resulting consistency statement.",
+        "start": 17.10814814814815,
+        "end": 22.417777777777776,
+        "phrases": [
+          {
+            "start": 17.10814814814815,
+            "end": 22.417777777777776
+          }
+        ]
+      },
+      {
+        "text": "If such a theory is consistent, it cannot prove that standard statement of its own consistency.",
+        "start": 22.862222222222222,
+        "end": 29.075555555555553,
+        "phrases": [
+          {
+            "start": 22.862222222222222,
+            "end": 24.90074074074074
+          },
+          {
+            "start": 25.567407407407405,
+            "end": 29.075555555555553
+          }
+        ]
+      },
+      {
+        "text": "We are stating the theorem here; its proof requires the formal machinery behind provability.",
+        "start": 29.52,
+        "end": 34.85333333333333,
+        "phrases": [
+          {
+            "start": 29.52,
+            "end": 34.85333333333333
+          }
+        ]
+      },
+      {
+        "text": "For PA, the forbidden self-proof would be a PA derivation of Con of PA.",
+        "start": 35.297777777777775,
+        "end": 42.01777777777778,
+        "phrases": [
+          {
+            "start": 35.297777777777775,
+            "end": 42.01777777777778
+          }
+        ]
+      },
+      {
+        "text": "For ZFC, the analogous limitation concerns a ZFC derivation of Con of ZFC.",
+        "start": 42.46222222222222,
+        "end": 48.55407407407407,
+        "phrases": [
+          {
+            "start": 42.46222222222222,
+            "end": 48.55407407407407
+          }
+        ]
+      },
+      {
+        "text": "This is a precise result with hypotheses, rather than a blanket slogan about every conceivable formal system.",
+        "start": 48.998518518518516,
+        "end": 55.70666666666667,
+        "phrases": [
+          {
+            "start": 48.998518518518516,
+            "end": 55.70666666666667
+          }
+        ]
+      },
+      {
+        "text": "It leaves room for a stronger theory to prove the consistency of a weaker one.",
+        "start": 56.15111111111111,
+        "end": 60.35851851851852,
+        "phrases": [
+          {
+            "start": 56.15111111111111,
+            "end": 60.35851851851852
+          }
+        ]
+      },
+      {
+        "text": "The ZFC argument about the natural-number model of PA is exactly that kind of result.",
+        "start": 60.802962962962965,
+        "end": 66.8237037037037,
+        "phrases": [
+          {
+            "start": 60.802962962962965,
+            "end": 66.8237037037037
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stronger",
+    "chapter": "Stronger rules and a smaller dependency budget",
+    "start": 675.5666666666793,
+    "audio_start": 675.7666666666794,
+    "duration": 61.177625,
+    "sentences": [
+      {
+        "text": "Compare the two statements on screen: ZFC proves Con of PA, and ZFC proves Con of ZFC.",
+        "start": 0,
+        "end": 8.047407407407407,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 8.047407407407407
+          }
+        ]
+      },
+      {
+        "text": "The model construction supplies the first statement.",
+        "start": 8.491851851851852,
+        "end": 11.36,
+        "phrases": [
+          {
+            "start": 8.491851851851852,
+            "end": 11.36
+          }
+        ]
+      },
+      {
+        "text": "If ZFC is consistent, G\u00f6del's second theorem rules out the second statement, with its standard proof encoding.",
+        "start": 11.804444444444444,
+        "end": 18.76148148148148,
+        "phrases": [
+          {
+            "start": 11.804444444444444,
+            "end": 18.76148148148148
+          }
+        ]
+      },
+      {
+        "text": "A consistency argument must therefore say which background supplies its reasoning.",
+        "start": 19.205925925925925,
+        "end": 23.85185185185185,
+        "phrases": [
+          {
+            "start": 19.205925925925925,
+            "end": 23.85185185185185
+          }
+        ]
+      },
+      {
+        "text": "Likewise, a proof of an ordinary arithmetic claim comes with some set of dependencies.",
+        "start": 24.296296296296298,
+        "end": 29.522962962962964,
+        "phrases": [
+          {
+            "start": 24.296296296296298,
+            "end": 29.522962962962964
+          }
+        ]
+      },
+      {
+        "text": "The claim zero plus n equals n can be established without building the whole set-theoretic model first.",
+        "start": 29.967407407407407,
+        "end": 35.9762962962963,
+        "phrases": [
+          {
+            "start": 29.967407407407407,
+            "end": 35.9762962962963
+          }
+        ]
+      },
+      {
+        "text": "A successful reduction replaces a use of stronger resources with a derivation using weaker ones.",
+        "start": 36.42074074074074,
+        "end": 42.358518518518515,
+        "phrases": [
+          {
+            "start": 36.42074074074074,
+            "end": 42.358518518518515
+          }
+        ]
+      },
+      {
+        "text": "The mathematical conclusion stays the same, while the assumptions we rely on become smaller.",
+        "start": 42.80296296296296,
+        "end": 48.373333333333335,
+        "phrases": [
+          {
+            "start": 42.80296296296296,
+            "end": 48.373333333333335
+          }
+        ]
+      },
+      {
+        "text": "This is the sense in which a proof with fewer foundational assumptions is a stronger assurance.",
+        "start": 48.81777777777778,
+        "end": 53.949629629629634,
+        "phrases": [
+          {
+            "start": 48.81777777777778,
+            "end": 53.949629629629634
+          }
+        ]
+      },
+      {
+        "text": "Finding such a reduction is mathematical work; writing the statement in arithmetic is only the starting point.",
+        "start": 54.39407407407408,
+        "end": 60.75851851851852,
+        "phrases": [
+          {
+            "start": 54.39407407407408,
+            "end": 60.75851851851852
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "universes",
+    "chapter": "One more use of the model idea",
+    "start": 738.3666666666708,
+    "audio_start": 738.5666666666708,
+    "duration": 82.8075,
+    "sentences": [
+      {
+        "text": "The model idea also explains why inaccessible cardinals enter discussions of foundations.",
+        "start": 0,
+        "end": 5.594074074074074,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.594074074074074
+          }
+        ]
+      },
+      {
+        "text": "A cardinal measures the size of a set: equal sizes mean that the elements can be paired one for one.",
+        "start": 6.038518518518519,
+        "end": 11.786666666666667,
+        "phrases": [
+          {
+            "start": 6.038518518518519,
+            "end": 11.786666666666667
+          }
+        ]
+      },
+      {
+        "text": "Infinite sets also have cardinal sizes.",
+        "start": 12.23111111111111,
+        "end": 14.957037037037038,
+        "phrases": [
+          {
+            "start": 12.23111111111111,
+            "end": 14.957037037037038
+          }
+        ]
+      },
+      {
+        "text": "A strongly inaccessible cardinal, called kappa, is an uncountable size with two closure properties.",
+        "start": 15.40148148148148,
+        "end": 21.80148148148148,
+        "phrases": [
+          {
+            "start": 15.40148148148148,
+            "end": 21.80148148148148
+          }
+        ]
+      },
+      {
+        "text": "First, the power set of any set smaller than kappa is still smaller than kappa.",
+        "start": 22.245925925925928,
+        "end": 27.069629629629627,
+        "phrases": [
+          {
+            "start": 22.245925925925928,
+            "end": 27.069629629629627
+          }
+        ]
+      },
+      {
+        "text": "Second, a union of fewer than kappa sets, each smaller than kappa, is still smaller than kappa.",
+        "start": 27.514074074074074,
+        "end": 33.321481481481484,
+        "phrases": [
+          {
+            "start": 27.514074074074074,
+            "end": 33.321481481481484
+          }
+        ]
+      },
+      {
+        "text": "These conditions let us build a particularly well-behaved universe of sets.",
+        "start": 33.76592592592593,
+        "end": 38.11555555555556,
+        "phrases": [
+          {
+            "start": 33.76592592592593,
+            "end": 38.11555555555556
+          }
+        ]
+      },
+      {
+        "text": "Build sets in stages, taking power sets at successor stages and collecting earlier stages at limit stages.",
+        "start": 38.56,
+        "end": 44.9837037037037,
+        "phrases": [
+          {
+            "start": 38.56,
+            "end": 44.9837037037037
+          }
+        ]
+      },
+      {
+        "text": "The sets appearing before stage kappa form the collection written V kappa.",
+        "start": 45.428148148148146,
+        "end": 49.6237037037037,
+        "phrases": [
+          {
+            "start": 45.428148148148146,
+            "end": 49.6237037037037
+          }
+        ]
+      },
+      {
+        "text": "If kappa is strongly inaccessible, V kappa is a model of ZFC.",
+        "start": 50.06814814814814,
+        "end": 54.61925925925926,
+        "phrases": [
+          {
+            "start": 50.06814814814814,
+            "end": 54.61925925925926
+          }
+        ]
+      },
+      {
+        "text": "Consequently, ZFC with that extra existence assumption proves the consistency of ZFC.",
+        "start": 55.0637037037037,
+        "end": 61.096296296296295,
+        "phrases": [
+          {
+            "start": 55.0637037037037,
+            "end": 61.096296296296295
+          }
+        ]
+      },
+      {
+        "text": "If ZFC is consistent, it therefore cannot prove that such an inaccessible cardinal exists.",
+        "start": 61.54074074074074,
+        "end": 67.59703703703704,
+        "phrases": [
+          {
+            "start": 61.54074074074074,
+            "end": 67.59703703703704
+          }
+        ]
+      },
+      {
+        "text": "A standard set-theoretic treatment of Lean's universe hierarchy uses a sequence of suitable inaccessible sizes.",
+        "start": 68.04148148148148,
+        "end": 74.86814814814814,
+        "phrases": [
+          {
+            "start": 68.04148148148148,
+            "end": 74.86814814814814
+          }
+        ]
+      },
+      {
+        "text": "That describes a way to model the foundation; the dependencies of a particular theorem still need their own examination.",
+        "start": 75.3125925925926,
+        "end": 82.38814814814815,
+        "phrases": [
+          {
+            "start": 75.3125925925926,
+            "end": 82.38814814814815
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dependencies",
+    "chapter": "What this project is trying to reduce",
+    "start": 822.7999999999917,
+    "audio_start": 822.9999999999917,
+    "duration": 59.210667,
+    "sentences": [
+      {
+        "text": "Return to our actual goal: an arithmetic account of the windowed Landau argument.",
+        "start": 0,
+        "end": 4.728888888888889,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.728888888888889
+          }
+        ]
+      },
+      {
+        "text": "We want the same intended conclusion, reached through explicit functions and checked theorems about their behavior.",
+        "start": 5.173333333333333,
+        "end": 11.087407407407408,
+        "phrases": [
+          {
+            "start": 5.173333333333333,
+            "end": 11.087407407407408
+          }
+        ]
+      },
+      {
+        "text": "For each component, we need a statement, a proof, and an interpretation connecting it to the mathematics.",
+        "start": 11.531851851851851,
+        "end": 17.80148148148148,
+        "phrases": [
+          {
+            "start": 11.531851851851851,
+            "end": 17.80148148148148
+          }
+        ]
+      },
+      {
+        "text": "An ACL2 theorem is a concrete artifact in ACL2's logic.",
+        "start": 18.245925925925924,
+        "end": 22.595555555555553,
+        "phrases": [
+          {
+            "start": 18.245925925925924,
+            "end": 22.595555555555553
+          }
+        ]
+      },
+      {
+        "text": "A claim about PA strength additionally needs the arithmetic interpretation of the fragment and principles used.",
+        "start": 23.04,
+        "end": 30.127407407407407,
+        "phrases": [
+          {
+            "start": 23.04,
+            "end": 30.127407407407407
+          }
+        ]
+      },
+      {
+        "text": "The programming language alone does not settle that foundational comparison.",
+        "start": 30.57185185185185,
+        "end": 34.86222222222222,
+        "phrases": [
+          {
+            "start": 30.57185185185185,
+            "end": 34.86222222222222
+          }
+        ]
+      },
+      {
+        "text": "Nor does the existence of one verified numerical example establish a general success theorem.",
+        "start": 35.306666666666665,
+        "end": 41.007407407407406,
+        "phrases": [
+          {
+            "start": 35.306666666666665,
+            "end": 41.007407407407406
+          }
+        ]
+      },
+      {
+        "text": "The later parts will keep the mathematical statement beside its ACL2 counterpart and state the input domains.",
+        "start": 41.45185185185185,
+        "end": 47.733333333333334,
+        "phrases": [
+          {
+            "start": 41.45185185185185,
+            "end": 47.733333333333334
+          }
+        ]
+      },
+      {
+        "text": "They will also distinguish a proved component from an outstanding interpretation or composition obligation.",
+        "start": 48.17777777777778,
+        "end": 54.162962962962965,
+        "phrases": [
+          {
+            "start": 48.17777777777778,
+            "end": 54.162962962962965
+          }
+        ]
+      },
+      {
+        "text": "That is how reducing assumptions becomes a precise, reviewable result.",
+        "start": 54.60740740740741,
+        "end": 58.79111111111111,
+        "phrases": [
+          {
+            "start": 54.60740740740741,
+            "end": 58.79111111111111
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "next",
+    "chapter": "Next: exact fractions and intervals",
+    "start": 883.6333333333172,
+    "audio_start": 883.8333333333172,
+    "duration": 47.513625,
+    "sentences": [
+      {
+        "text": "We now have three separate questions: what follows from the rules, what the symbols mean, and what justifies the rules.",
+        "start": 0,
+        "end": 7.1466666666666665,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 7.1466666666666665
+          }
+        ]
+      },
+      {
+        "text": "A model connects the first two, and a consistency proof names the background in which that connection is justified.",
+        "start": 7.591111111111111,
+        "end": 14.014814814814814,
+        "phrases": [
+          {
+            "start": 7.591111111111111,
+            "end": 14.014814814814814
+          }
+        ]
+      },
+      {
+        "text": "G\u00f6del's theorem explains why the background matters.",
+        "start": 14.459259259259259,
+        "end": 17.52888888888889,
+        "phrases": [
+          {
+            "start": 14.459259259259259,
+            "end": 17.52888888888889
+          }
+        ]
+      },
+      {
+        "text": "The next part returns to calculations we can inspect directly.",
+        "start": 17.973333333333333,
+        "end": 21.765925925925924,
+        "phrases": [
+          {
+            "start": 17.973333333333333,
+            "end": 21.765925925925924
+          }
+        ]
+      },
+      {
+        "text": "We will represent fractions and intervals exactly, then prove that their bounds survive arithmetic operations.",
+        "start": 22.21037037037037,
+        "end": 28.847407407407406,
+        "phrases": [
+          {
+            "start": 22.21037037037037,
+            "end": 28.847407407407406
+          }
+        ]
+      },
+      {
+        "text": "For example, two thirds lies between one half and three quarters; ACL2 can express that comparison with exact rationals.",
+        "start": 29.29185185185185,
+        "end": 37.114074074074075,
+        "phrases": [
+          {
+            "start": 29.29185185185185,
+            "end": 37.114074074074075
+          }
+        ]
+      },
+      {
+        "text": "Those small guarantees will become the error budgets behind the later search and Landau arguments.",
+        "start": 37.55851851851852,
+        "end": 42.97481481481481,
+        "phrases": [
+          {
+            "start": 37.55851851851852,
+            "end": 42.97481481481481
+          }
+        ]
+      },
+      {
+        "text": "Same mathematical target, with the dependencies made explicit.",
+        "start": 43.41925925925926,
+        "end": 47.093333333333334,
+        "phrases": [
+          {
+            "start": 43.41925925925926,
+            "end": 47.093333333333334
+          }
+        ]
+      }
+    ]
+  }
+]

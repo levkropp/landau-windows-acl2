@@ -1,0 +1,2554 @@
+[
+  {
+    "id": "opening",
+    "chapter": "The completed arithmetic reduction",
+    "start": 0.0,
+    "audio_start": 0.2,
+    "duration": 56.581125,
+    "sentences": [
+      {
+        "text": "The encoded windowed Landau ceiling reduction is now proved in first-order Peano Arithmetic and certified in vanilla ACL2.",
+        "start": 0,
+        "end": 7.987878787878788,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 7.987878787878788
+          }
+        ]
+      },
+      {
+        "text": "It computes a threshold, proves that the bounded search succeeds, and returns a rational address with a strictly positive lower signal bound.",
+        "start": 8.510606060606062,
+        "end": 16.57121212121212,
+        "phrases": [
+          {
+            "start": 8.510606060606062,
+            "end": 16.57121212121212
+          }
+        ]
+      },
+      {
+        "text": "This is the completed arithmetic theorem that the earlier lessons were building toward.",
+        "start": 17.093939393939394,
+        "end": 21.687878787878788,
+        "phrases": [
+          {
+            "start": 17.093939393939394,
+            "end": 21.687878787878788
+          }
+        ]
+      },
+      {
+        "text": "Part Eight stopped at a conditional chain whose model and geometry data still had to be supplied.",
+        "start": 22.210606060606057,
+        "end": 27.725757575757576,
+        "phrases": [
+          {
+            "start": 22.210606060606057,
+            "end": 27.725757575757576
+          }
+        ]
+      },
+      {
+        "text": "The new construction supplies those data from the encoded zero region and its small-value probe.",
+        "start": 28.24848484848485,
+        "end": 33.86060606060606,
+        "phrases": [
+          {
+            "start": 28.24848484848485,
+            "end": 33.86060606060606
+          }
+        ]
+      },
+      {
+        "text": "We will follow what changed, read the final theorem, and explain the direct Peano Arithmetic proof given in the manuscript.",
+        "start": 34.38333333333333,
+        "end": 41.29242424242424,
+        "phrases": [
+          {
+            "start": 34.38333333333333,
+            "end": 41.29242424242424
+          }
+        ]
+      },
+      {
+        "text": "The manuscript derives the arithmetic theorem by ordinary induction on coded finite computations and supplies its connection to the classical zeta statement.",
+        "start": 41.81515151515151,
+        "end": 50.80909090909091,
+        "phrases": [
+          {
+            "start": 41.81515151515151,
+            "end": 50.80909090909091
+          }
+        ]
+      },
+      {
+        "text": "This is Part Nine of Landau Windows ACL Two: the completed reduction.",
+        "start": 51.33181818181818,
+        "end": 56.08333333333333,
+        "phrases": [
+          {
+            "start": 51.33181818181818,
+            "end": 56.08333333333333
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "contract",
+    "chapter": "Read the input and output contract",
+    "start": 58.19999999999992,
+    "audio_start": 58.39999999999992,
+    "duration": 51.513167,
+    "sentences": [
+      {
+        "text": "The theorem begins with a proposed ceiling: a nonnegative rational constant times x to a rational exponent.",
+        "start": 0,
+        "end": 7.054545454545455,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 7.054545454545455
+          }
+        ]
+      },
+      {
+        "text": "The exponent is a fraction between zero and one, with one excluded for the nonempty region we use.",
+        "start": 7.577272727272727,
+        "end": 13.746969696969696,
+        "phrases": [
+          {
+            "start": 7.577272727272727,
+            "end": 13.746969696969696
+          }
+        ]
+      },
+      {
+        "text": "It also takes a rational region describing where a forbidden zero would be, and a sufficiently accurate rational small-value probe in that region.",
+        "start": 14.269696969696971,
+        "end": 22.754545454545454,
+        "phrases": [
+          {
+            "start": 14.269696969696971,
+            "end": 22.754545454545454
+          }
+        ]
+      },
+      {
+        "text": "From the region and ceiling data it computes a threshold for the window start.",
+        "start": 23.27727272727273,
+        "end": 27.580303030303032,
+        "phrases": [
+          {
+            "start": 23.27727272727273,
+            "end": 27.580303030303032
+          }
+        ]
+      },
+      {
+        "text": "Every rational start above that threshold leads to a successful search and a returned violation.",
+        "start": 28.103030303030305,
+        "end": 33.86060606060606,
+        "phrases": [
+          {
+            "start": 28.103030303030305,
+            "end": 33.86060606060606
+          }
+        ]
+      },
+      {
+        "text": "The theorem does not assume that the desired ceiling has already been disproved by an externally supplied witness.",
+        "start": 34.38333333333333,
+        "end": 40.843939393939394,
+        "phrases": [
+          {
+            "start": 34.38333333333333,
+            "end": 40.843939393939394
+          }
+        ]
+      },
+      {
+        "text": "It proves that its own finite search finds the address.",
+        "start": 41.36666666666667,
+        "end": 44.578787878787885,
+        "phrases": [
+          {
+            "start": 41.36666666666667,
+            "end": 44.578787878787885
+          }
+        ]
+      },
+      {
+        "text": "And it does not prove the separate ceiling hypothesis used by an entire Riemann Hypothesis argument.",
+        "start": 45.101515151515144,
+        "end": 51.016666666666666,
+        "phrases": [
+          {
+            "start": 45.101515151515144,
+            "end": 51.016666666666666
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "region",
+    "chapter": "A rational region with a reserved margin",
+    "start": 111.333333333333,
+    "audio_start": 111.533333333333,
+    "duration": 51.998708,
+    "sentences": [
+      {
+        "text": "The construction places the disk center at real coordinate two hundred fifty-two and a rational seed height.",
+        "start": 0,
+        "end": 6.036363636363637,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 6.036363636363637
+          }
+        ]
+      },
+      {
+        "text": "A rational outer cap lies strictly between two hundred fifty-one and two hundred fifty-two minus the ceiling exponent.",
+        "start": 6.5590909090909095,
+        "end": 13.407575757575758,
+        "phrases": [
+          {
+            "start": 6.5590909090909095,
+            "end": 13.407575757575758
+          }
+        ]
+      },
+      {
+        "text": "Reserve a positive rational slack and use the smaller radius: cap minus slack.",
+        "start": 13.93030303030303,
+        "end": 19.506060606060604,
+        "phrases": [
+          {
+            "start": 13.93030303030303,
+            "end": 19.506060606060604
+          }
+        ]
+      },
+      {
+        "text": "These are conservative constants in a quantitative construction, not new kinds of infinity.",
+        "start": 20.028787878787877,
+        "end": 25.568181818181817,
+        "phrases": [
+          {
+            "start": 20.028787878787877,
+            "end": 25.568181818181817
+          }
+        ]
+      },
+      {
+        "text": "The smaller disk stays strictly in the positive half-plane, where the native Euler evaluator is defined.",
+        "start": 26.090909090909093,
+        "end": 32.13939393939394,
+        "phrases": [
+          {
+            "start": 26.090909090909093,
+            "end": 32.13939393939394
+          }
+        ]
+      },
+      {
+        "text": "For a hypothetical zero whose real part exceeds the exponent, an appropriate cap and a small slack place that zero inside a suitable region.",
+        "start": 32.662121212121214,
+        "end": 41.7530303030303,
+        "phrases": [
+          {
+            "start": 32.662121212121214,
+            "end": 41.7530303030303
+          }
+        ]
+      },
+      {
+        "text": "The center height can be chosen rationally, with the margin absorbing its approximation.",
+        "start": 42.275757575757574,
+        "end": 47.14848484848485,
+        "phrases": [
+          {
+            "start": 42.275757575757574,
+            "end": 47.14848484848485
+          }
+        ]
+      },
+      {
+        "text": "The actual theorem keeps these parameter restrictions explicit.",
+        "start": 47.671212121212115,
+        "end": 51.50151515151515,
+        "phrases": [
+          {
+            "start": 47.671212121212115,
+            "end": 51.50151515151515
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "encoded",
+    "chapter": "A zero encoded by arbitrarily fine probes",
+    "start": 164.96666666666601,
+    "audio_start": 165.166666666666,
+    "duration": 51.206667,
+    "sentences": [
+      {
+        "text": "An actual complex zero need not have rational coordinates.",
+        "start": 0,
+        "end": 3.6606060606060606,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.6606060606060606
+          }
+        ]
+      },
+      {
+        "text": "The arithmetic statement therefore uses rational probes with arbitrarily small residuals in one fixed compact disk.",
+        "start": 4.183333333333334,
+        "end": 11.189393939393938,
+        "phrases": [
+          {
+            "start": 4.183333333333334,
+            "end": 11.189393939393938
+          }
+        ]
+      },
+      {
+        "text": "For every positive rational error request\u2026 there is a rational offset\u2026 whose native Euler sample has magnitude at most that request.",
+        "start": 11.712121212121213,
+        "end": 21.792424242424243,
+        "phrases": [
+          {
+            "start": 11.712121212121213,
+            "end": 14.475757575757576
+          },
+          {
+            "start": 15.328030303030303,
+            "end": 17.134090909090908
+          },
+          {
+            "start": 17.986363636363635,
+            "end": 21.792424242424243
+          }
+        ]
+      },
+      {
+        "text": "The offset may change when the request changes.",
+        "start": 22.315151515151516,
+        "end": 25.115151515151513,
+        "phrases": [
+          {
+            "start": 22.315151515151516,
+            "end": 25.115151515151513
+          }
+        ]
+      },
+      {
+        "text": "This is an arithmetic statement about codes and finite computations; it does not require storing an irrational point exactly.",
+        "start": 25.637878787878787,
+        "end": 33.334848484848486,
+        "phrases": [
+          {
+            "start": 25.637878787878787,
+            "end": 33.334848484848486
+          }
+        ]
+      },
+      {
+        "text": "The displayed predicate checks membership in the disk and the small native value.",
+        "start": 33.85757575757576,
+        "end": 38.36666666666667,
+        "phrases": [
+          {
+            "start": 33.85757575757576,
+            "end": 38.36666666666667
+          }
+        ]
+      },
+      {
+        "text": "A single accidental small sample at a coarse request is not the entire encoded-zero condition.",
+        "start": 38.88939393939394,
+        "end": 45.022727272727266,
+        "phrases": [
+          {
+            "start": 38.88939393939394,
+            "end": 45.022727272727266
+          }
+        ]
+      },
+      {
+        "text": "The full condition gives probes at whatever finer request the construction eventually needs.",
+        "start": 45.54545454545455,
+        "end": 50.70909090909091,
+        "phrases": [
+          {
+            "start": 45.54545454545455,
+            "end": 50.70909090909091
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "requests",
+    "chapter": "Choose the request before the probe",
+    "start": 217.79999999999905,
+    "audio_start": 217.99999999999903,
+    "duration": 43.645875,
+    "sentences": [
+      {
+        "text": "Quantifier order is one of the important changes since the conditional version.",
+        "start": 0,
+        "end": 4.412121212121212,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.412121212121212
+          }
+        ]
+      },
+      {
+        "text": "First fix the region and ceiling parameters.",
+        "start": 4.934848484848485,
+        "end": 7.807575757575758,
+        "phrases": [
+          {
+            "start": 4.934848484848485,
+            "end": 7.807575757575758
+          }
+        ]
+      },
+      {
+        "text": "The construction chooses its geometry, a positive sample request, and a window threshold from those data.",
+        "start": 8.33030303030303,
+        "end": 15.106060606060606,
+        "phrases": [
+          {
+            "start": 8.33030303030303,
+            "end": 15.106060606060606
+          }
+        ]
+      },
+      {
+        "text": "Only then do we use the encoded-zero hypothesis to obtain a probe at the required accuracy.",
+        "start": 15.628787878787879,
+        "end": 21.301515151515154,
+        "phrases": [
+          {
+            "start": 15.628787878787879,
+            "end": 21.301515151515154
+          }
+        ]
+      },
+      {
+        "text": "The threshold does not depend on that probe's rational coordinates.",
+        "start": 21.824242424242424,
+        "end": 25.654545454545456,
+        "phrases": [
+          {
+            "start": 21.824242424242424,
+            "end": 25.654545454545456
+          }
+        ]
+      },
+      {
+        "text": "This prevents the selection from chasing a moving target as the probe becomes more accurate.",
+        "start": 26.17727272727273,
+        "end": 31.292424242424243,
+        "phrases": [
+          {
+            "start": 26.17727272727273,
+            "end": 31.292424242424243
+          }
+        ]
+      },
+      {
+        "text": "The final theorem only needs one probe at an error no larger than one quarter of the computed request.",
+        "start": 31.815151515151516,
+        "end": 37.803030303030305,
+        "phrases": [
+          {
+            "start": 31.815151515151516,
+            "end": 37.803030303030305
+          }
+        ]
+      },
+      {
+        "text": "The universal encoded-zero condition supplies that particular finite witness.",
+        "start": 38.32575757575758,
+        "end": 43.15,
+        "phrases": [
+          {
+            "start": 38.32575757575758,
+            "end": 43.15
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "euler",
+    "chapter": "The evaluator targets an entire normalized zeta",
+    "start": 263.066666666666,
+    "audio_start": 263.26666666666597,
+    "duration": 46.02325,
+    "sentences": [
+      {
+        "text": "The native continuation evaluator is built from rational finite sums with computed cutoffs and internal precisions.",
+        "start": 0,
+        "end": 6.824242424242424,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 6.824242424242424
+          }
+        ]
+      },
+      {
+        "text": "Its intended complex value is Z of s, equal to s minus one times zeta of s away from one.",
+        "start": 7.346969696969698,
+        "end": 13.722727272727273,
+        "phrases": [
+          {
+            "start": 7.346969696969698,
+            "end": 13.722727272727273
+          }
+        ]
+      },
+      {
+        "text": "At one, Z has value one.",
+        "start": 14.245454545454544,
+        "end": 16.245454545454546,
+        "phrases": [
+          {
+            "start": 14.245454545454544,
+            "end": 16.245454545454546
+          }
+        ]
+      },
+      {
+        "text": "That normalization removes the zeta pole at one and gives an entire function.",
+        "start": 16.76818181818182,
+        "end": 21.410606060606064,
+        "phrases": [
+          {
+            "start": 16.76818181818182,
+            "end": 21.410606060606064
+          }
+        ]
+      },
+      {
+        "text": "So zeros of Z in our region are zeros of zeta; the normalization point does not introduce a spurious zero.",
+        "start": 21.933333333333334,
+        "end": 29.242424242424242,
+        "phrases": [
+          {
+            "start": 21.933333333333334,
+            "end": 29.242424242424242
+          }
+        ]
+      },
+      {
+        "text": "The actual wrapper chooses the cutoff and primitive error, then evaluates a finite dyadic Euler prefix.",
+        "start": 29.765151515151512,
+        "end": 36.48030303030303,
+        "phrases": [
+          {
+            "start": 29.765151515151512,
+            "end": 36.48030303030303
+          }
+        ]
+      },
+      {
+        "text": "The arithmetic bounds compare its values at different requests.",
+        "start": 37.0030303030303,
+        "end": 40.74848484848484,
+        "phrases": [
+          {
+            "start": 37.0030303030303,
+            "end": 40.74848484848484
+          }
+        ]
+      },
+      {
+        "text": "The classical interpretation identifies the value it approximates.",
+        "start": 41.271212121212116,
+        "end": 45.525757575757574,
+        "phrases": [
+          {
+            "start": 41.271212121212116,
+            "end": 45.525757575757574
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fixed",
+    "chapter": "Interpret a fixed finite approximation before taking limits",
+    "start": 310.73333333333676,
+    "audio_start": 310.93333333333675,
+    "duration": 50.522083,
+    "sentences": [
+      {
+        "text": "The interpretation does not begin by declaring the evaluator to be zeta.",
+        "start": 0,
+        "end": 4.278787878787879,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.278787878787879
+          }
+        ]
+      },
+      {
+        "text": "Fix a finite cutoff and compare the native computation with a finite Dirichlet sum plus an Euler correction.",
+        "start": 4.801515151515152,
+        "end": 11.225757575757575,
+        "phrases": [
+          {
+            "start": 4.801515151515152,
+            "end": 11.225757575757575
+          }
+        ]
+      },
+      {
+        "text": "The correction compensates for the omitted leading tail.",
+        "start": 11.748484848484848,
+        "end": 14.924242424242424,
+        "phrases": [
+          {
+            "start": 11.748484848484848,
+            "end": 14.924242424242424
+          }
+        ]
+      },
+      {
+        "text": "The certified fixed-truncation estimate separates the native request, a cutoff term that decreases with the dyadic level, and primitive rounding error.",
+        "start": 15.446969696969697,
+        "end": 24.295454545454543,
+        "phrases": [
+          {
+            "start": 15.446969696969697,
+            "end": 24.295454545454543
+          }
+        ]
+      },
+      {
+        "text": "First let the primitive error shrink while the cutoff stays fixed.",
+        "start": 24.818181818181817,
+        "end": 28.599999999999998,
+        "phrases": [
+          {
+            "start": 24.818181818181817,
+            "end": 28.599999999999998
+          }
+        ]
+      },
+      {
+        "text": "A fractional-part identity then identifies the limit of those finite corrected sums as the normalized zeta value.",
+        "start": 29.12272727272727,
+        "end": 35.91060606060606,
+        "phrases": [
+          {
+            "start": 29.12272727272727,
+            "end": 35.91060606060606
+          }
+        ]
+      },
+      {
+        "text": "Finally let the cutoff increase.",
+        "start": 36.43333333333333,
+        "end": 38.67575757575757,
+        "phrases": [
+          {
+            "start": 36.43333333333333,
+            "end": 38.67575757575757
+          }
+        ]
+      },
+      {
+        "text": "The result is an error bound of one quarter of the native request.",
+        "start": 39.198484848484846,
+        "end": 42.93181818181818,
+        "phrases": [
+          {
+            "start": 39.198484848484846,
+            "end": 42.93181818181818
+          }
+        ]
+      },
+      {
+        "text": "The manuscript proves the finite arithmetic bounds and establishes this zeta comparison in its final section.",
+        "start": 43.45454545454545,
+        "end": 50.02424242424242,
+        "phrases": [
+          {
+            "start": 43.45454545454545,
+            "end": 50.02424242424242
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "clearances",
+    "chapter": "Prove the clearances instead of requesting them",
+    "start": 362.9000000000086,
+    "audio_start": 363.1000000000086,
+    "duration": 47.62325,
+    "sentences": [
+      {
+        "text": "The contour construction needs regions where the native Euler value stays away from zero.",
+        "start": 0,
+        "end": 5.309090909090909,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.309090909090909
+          }
+        ]
+      },
+      {
+        "text": "On the real axis, the proof pairs alternating Dirichlet terms, controls the Euler correction, and obtains a positive lower bound.",
+        "start": 5.831818181818181,
+        "end": 13.940909090909091,
+        "phrases": [
+          {
+            "start": 5.831818181818181,
+            "end": 13.940909090909091
+          }
+        ]
+      },
+      {
+        "text": "A quantitative neighborhood argument extends that clearance to a narrow strip.",
+        "start": 14.463636363636363,
+        "end": 18.827272727272728,
+        "phrases": [
+          {
+            "start": 14.463636363636363,
+            "end": 18.827272727272728
+          }
+        ]
+      },
+      {
+        "text": "Strictly to the right of one, finite Mobius weights produce an approximate inverse with a positive lower bound.",
+        "start": 19.349999999999998,
+        "end": 25.810606060606062,
+        "phrases": [
+          {
+            "start": 19.349999999999998,
+            "end": 25.810606060606062
+          }
+        ]
+      },
+      {
+        "text": "These are arithmetic constructions with finite truncation and rounding budgets.",
+        "start": 26.333333333333332,
+        "end": 30.963636363636365,
+        "phrases": [
+          {
+            "start": 26.333333333333332,
+            "end": 30.963636363636365
+          }
+        ]
+      },
+      {
+        "text": "They replace the earlier need to supply those clearances as separate geometric promises.",
+        "start": 31.486363636363635,
+        "end": 36.60151515151515,
+        "phrases": [
+          {
+            "start": 31.486363636363635,
+            "end": 36.60151515151515
+          }
+        ]
+      },
+      {
+        "text": "The size of every safe region and the precision needed there are part of the computed data.",
+        "start": 37.124242424242425,
+        "end": 42.06969696969697,
+        "phrases": [
+          {
+            "start": 37.124242424242425,
+            "end": 42.06969696969697
+          }
+        ]
+      },
+      {
+        "text": "None of this says that a picture of a zero-free region is itself a certificate.",
+        "start": 42.592424242424244,
+        "end": 47.125757575757575,
+        "phrases": [
+          {
+            "start": 42.592424242424244,
+            "end": 47.125757575757575
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "circles",
+    "chapter": "Generate checked contour charts",
+    "start": 412.16666666667874,
+    "audio_start": 412.3666666666787,
+    "duration": 49.634583,
+    "sentences": [
+      {
+        "text": "The proof constructs finite polynomial approximations and rational contour charts with explicit lower value bounds.",
+        "start": 0,
+        "end": 7.066666666666666,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 7.066666666666666
+          }
+        ]
+      },
+      {
+        "text": "A chart is a collection of local checks whose quantitative radii cover the required contour.",
+        "start": 7.589393939393939,
+        "end": 12.765151515151514,
+        "phrases": [
+          {
+            "start": 7.589393939393939,
+            "end": 12.765151515151514
+          }
+        ]
+      },
+      {
+        "text": "The lower bounds must remain compatible when factorization and approximation precision are refined.",
+        "start": 13.287878787878787,
+        "end": 19.14242424242424,
+        "phrases": [
+          {
+            "start": 13.287878787878787,
+            "end": 19.14242424242424
+          }
+        ]
+      },
+      {
+        "text": "The new construction derives a uniform floor from its fixed coarse data.",
+        "start": 19.665151515151514,
+        "end": 23.895454545454545,
+        "phrases": [
+          {
+            "start": 19.665151515151514,
+            "end": 23.895454545454545
+          }
+        ]
+      },
+      {
+        "text": "That avoids choosing an index from a cap that secretly depends on the index's later precision request.",
+        "start": 24.418181818181818,
+        "end": 30.587878787878786,
+        "phrases": [
+          {
+            "start": 24.418181818181818,
+            "end": 30.587878787878786
+          }
+        ]
+      },
+      {
+        "text": "The circles carry finite integer counts, rather than a demand to name an exact analytic zero.",
+        "start": 31.11060606060606,
+        "end": 36.843939393939394,
+        "phrases": [
+          {
+            "start": 31.11060606060606,
+            "end": 36.843939393939394
+          }
+        ]
+      },
+      {
+        "text": "Accepted charts and count comparisons can therefore be manipulated by rational arithmetic.",
+        "start": 37.36666666666667,
+        "end": 42.86969696969697,
+        "phrases": [
+          {
+            "start": 37.36666666666667,
+            "end": 42.86969696969697
+          }
+        ]
+      },
+      {
+        "text": "The pictures here illustrate the interfaces; the computed objects in the proof are much larger.",
+        "start": 43.39242424242424,
+        "end": 49.13787878787878,
+        "phrases": [
+          {
+            "start": 43.39242424242424,
+            "end": 49.13787878787878
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scan",
+    "chapter": "Scan from an empty real circle",
+    "start": 463.4333333333501,
+    "audio_start": 463.6333333333501,
+    "duration": 44.773542,
+    "sentences": [
+      {
+        "text": "Begin with a certified empty circle centered on the real axis.",
+        "start": 0,
+        "end": 3.8545454545454545,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.8545454545454545
+          }
+        ]
+      },
+      {
+        "text": "Scan a finite sequence of real-centered circles toward the desired outer cap.",
+        "start": 4.377272727272727,
+        "end": 8.959090909090909,
+        "phrases": [
+          {
+            "start": 4.377272727272727,
+            "end": 8.959090909090909
+          }
+        ]
+      },
+      {
+        "text": "There are two outcomes.",
+        "start": 9.48181818181818,
+        "end": 10.972727272727273,
+        "phrases": [
+          {
+            "start": 9.48181818181818,
+            "end": 10.972727272727273
+          }
+        ]
+      },
+      {
+        "text": "If the scan reaches an outer empty circle, the original small probe supplies the positive modulated count.",
+        "start": 11.495454545454544,
+        "end": 18.125757575757575,
+        "phrases": [
+          {
+            "start": 11.495454545454544,
+            "end": 18.125757575757575
+          }
+        ]
+      },
+      {
+        "text": "If it encounters a positive count, use the first positive successor of the preceding empty circle.",
+        "start": 18.64848484848485,
+        "end": 24.32121212121212,
+        "phrases": [
+          {
+            "start": 18.64848484848485,
+            "end": 24.32121212121212
+          }
+        ]
+      },
+      {
+        "text": "A computed interior probe from that positive circle supplies the modulation height.",
+        "start": 24.843939393939394,
+        "end": 29.631818181818183,
+        "phrases": [
+          {
+            "start": 24.843939393939394,
+            "end": 29.631818181818183
+          }
+        ]
+      },
+      {
+        "text": "The real-axis and right-half-plane clearances leave enough radial room for the required nesting.",
+        "start": 30.154545454545456,
+        "end": 35.86363636363636,
+        "phrases": [
+          {
+            "start": 30.154545454545456,
+            "end": 35.86363636363636
+          }
+        ]
+      },
+      {
+        "text": "Both cases produce the same checked pair interface: an empty real circle and a compatible modulated circle with positive count.",
+        "start": 36.38636363636364,
+        "end": 44.277272727272724,
+        "phrases": [
+          {
+            "start": 36.38636363636364,
+            "end": 44.277272727272724
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "clusters",
+    "chapter": "Multiple and clustered zeros use the same interface",
+    "start": 509.8333333333548,
+    "audio_start": 510.0333333333548,
+    "duration": 46.556583,
+    "sentences": [
+      {
+        "text": "The earlier isolated-pole picture made one point look special.",
+        "start": 0,
+        "end": 3.7575757575757573,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.7575757575757573
+          }
+        ]
+      },
+      {
+        "text": "The completed reduction does not assume that every hypothetical zero is simple or separated from its neighbors.",
+        "start": 4.28030303030303,
+        "end": 10.692424242424241,
+        "phrases": [
+          {
+            "start": 4.28030303030303,
+            "end": 10.692424242424241
+          }
+        ]
+      },
+      {
+        "text": "It uses small values and finite counts.",
+        "start": 11.215151515151515,
+        "end": 14.027272727272727,
+        "phrases": [
+          {
+            "start": 11.215151515151515,
+            "end": 14.027272727272727
+          }
+        ]
+      },
+      {
+        "text": "Positive count gives a sufficiently accurate interior probe; a small enough probe prevents the relevant count from being zero.",
+        "start": 14.55,
+        "end": 21.665151515151518,
+        "phrases": [
+          {
+            "start": 14.55,
+            "end": 21.665151515151518
+          }
+        ]
+      },
+      {
+        "text": "Several zeros at one location or several nearby distinct locations enter through that same interface.",
+        "start": 22.187878787878788,
+        "end": 28.284848484848485,
+        "phrases": [
+          {
+            "start": 22.187878787878788,
+            "end": 28.284848484848485
+          }
+        ]
+      },
+      {
+        "text": "The construction still proves its own clearances and contour validity.",
+        "start": 28.807575757575755,
+        "end": 32.904545454545456,
+        "phrases": [
+          {
+            "start": 28.807575757575755,
+            "end": 32.904545454545456
+          }
+        ]
+      },
+      {
+        "text": "What disappears is the requirement to provide an exact isolated zero in advance.",
+        "start": 33.42727272727273,
+        "end": 38.554545454545455,
+        "phrases": [
+          {
+            "start": 33.42727272727273,
+            "end": 38.554545454545455
+          }
+        ]
+      },
+      {
+        "text": "This is why the cluster work was a mathematical part of the reduction, rather than a cosmetic addition to the diagram.",
+        "start": 39.07727272727273,
+        "end": 46.059090909090905,
+        "phrases": [
+          {
+            "start": 39.07727272727273,
+            "end": 46.059090909090905
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "generated",
+    "chapter": "The paired data are now returned by a constructor",
+    "start": 558.0333333333526,
+    "audio_start": 558.2333333333527,
+    "duration": 44.508167,
+    "sentences": [
+      {
+        "text": "The source card shows the constructor that packages the circle data.",
+        "start": 0,
+        "end": 3.9636363636363634,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.9636363636363634
+          }
+        ]
+      },
+      {
+        "text": "It first obtains the real-circle scan result.",
+        "start": 4.486363636363636,
+        "end": 7.3954545454545455,
+        "phrases": [
+          {
+            "start": 4.486363636363636,
+            "end": 7.3954545454545455
+          }
+        ]
+      },
+      {
+        "text": "If a positive successor was found, it computes a modulation height from that result; otherwise it keeps the seed height.",
+        "start": 7.918181818181818,
+        "end": 14.657575757575758,
+        "phrases": [
+          {
+            "start": 7.918181818181818,
+            "end": 14.657575757575758
+          }
+        ]
+      },
+      {
+        "text": "It builds the modulated cover and selects the positive sample request appropriate to the case.",
+        "start": 15.18030303030303,
+        "end": 20.743939393939392,
+        "phrases": [
+          {
+            "start": 15.18030303030303,
+            "end": 20.743939393939392
+          }
+        ]
+      },
+      {
+        "text": "The returned list records the chosen height, both covers, an interior real radius, and the request.",
+        "start": 21.266666666666666,
+        "end": 27.46060606060606,
+        "phrases": [
+          {
+            "start": 21.266666666666666,
+            "end": 27.46060606060606
+          }
+        ]
+      },
+      {
+        "text": "The short request wrapper extracts the last of those fields.",
+        "start": 27.983333333333334,
+        "end": 31.595454545454544,
+        "phrases": [
+          {
+            "start": 27.983333333333334,
+            "end": 31.595454545454544
+          }
+        ]
+      },
+      {
+        "text": "This is the data previously supplied to the conditional theorem, now generated by the arithmetic construction.",
+        "start": 32.11818181818182,
+        "end": 38.3,
+        "phrases": [
+          {
+            "start": 32.11818181818182,
+            "end": 38.3
+          }
+        ]
+      },
+      {
+        "text": "Its validity theorems connect the returned fields to the checks needed by the coefficient argument.",
+        "start": 38.82272727272728,
+        "end": 44.010606060606065,
+        "phrases": [
+          {
+            "start": 38.82272727272728,
+            "end": 44.010606060606065
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coefficients",
+    "chapter": "Connect native values to the actual Mellin coefficients",
+    "start": 604.1666666666812,
+    "audio_start": 604.3666666666812,
+    "duration": 50.483625,
+    "sentences": [
+      {
+        "text": "Part Seven computed oscillating Mellin samples and their finite sums.",
+        "start": 0,
+        "end": 4.2303030303030305,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.2303030303030305
+          }
+        ]
+      },
+      {
+        "text": "The completed proof connects the actual improper evaluator to the native Euler coefficient family, rather than accepting an unrelated analytic model.",
+        "start": 4.753030303030303,
+        "end": 13.334848484848486,
+        "phrases": [
+          {
+            "start": 4.753030303030303,
+            "end": 13.334848484848486
+          }
+        ]
+      },
+      {
+        "text": "The coefficients are taken in the shifted variable s minus z.",
+        "start": 13.857575757575757,
+        "end": 17.772727272727273,
+        "phrases": [
+          {
+            "start": 13.857575757575757,
+            "end": 17.772727272727273
+          }
+        ]
+      },
+      {
+        "text": "That orientation accounts for the reciprocal-pole coefficient convention used in Part Eight.",
+        "start": 18.295454545454547,
+        "end": 23.41060606060606,
+        "phrases": [
+          {
+            "start": 18.295454545454547,
+            "end": 23.41060606060606
+          }
+        ]
+      },
+      {
+        "text": "The comparison keeps independent precision requests on both computations and proves an explicit disk allowance for their difference.",
+        "start": 23.933333333333334,
+        "end": 31.327272727272728,
+        "phrases": [
+          {
+            "start": 23.933333333333334,
+            "end": 31.327272727272728
+          }
+        ]
+      },
+      {
+        "text": "A common refinement lets the proof make that allowance as small as needed.",
+        "start": 31.849999999999998,
+        "end": 36.153030303030306,
+        "phrases": [
+          {
+            "start": 31.849999999999998,
+            "end": 36.153030303030306
+          }
+        ]
+      },
+      {
+        "text": "The zero data, contour data, and coefficients now refer to compatible constructions in the same arithmetic chain.",
+        "start": 36.67575757575758,
+        "end": 43.52424242424242,
+        "phrases": [
+          {
+            "start": 36.67575757575758,
+            "end": 43.52424242424242
+          }
+        ]
+      },
+      {
+        "text": "This is the connection needed before a coefficient contradiction can say anything about the real window search.",
+        "start": 44.0469696969697,
+        "end": 49.986363636363635,
+        "phrases": [
+          {
+            "start": 44.0469696969697,
+            "end": 49.986363636363635
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "anchor",
+    "chapter": "The extra real coefficient is still there",
+    "start": 656.3000000000096,
+    "audio_start": 656.5000000000097,
+    "duration": 46.434583,
+    "sentences": [
+      {
+        "text": "The completed proof also retains the plain height-zero reading from the one-sided inequality.",
+        "start": 0,
+        "end": 5.466666666666667,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.466666666666667
+          }
+        ]
+      },
+      {
+        "text": "Failure of the window search bounds the magnitude of an oscillating coefficient plus that real coefficient.",
+        "start": 5.98939393939394,
+        "end": 12.049999999999999,
+        "phrases": [
+          {
+            "start": 5.98939393939394,
+            "end": 12.049999999999999
+          }
+        ]
+      },
+      {
+        "text": "The coefficient at height zero can be negative, so dropping it would change the statement.",
+        "start": 12.572727272727272,
+        "end": 17.396969696969695,
+        "phrases": [
+          {
+            "start": 12.572727272727272,
+            "end": 17.396969696969695
+          }
+        ]
+      },
+      {
+        "text": "The empty real-circle construction supplies the separate control needed for it.",
+        "start": 17.91969696969697,
+        "end": 22.525757575757577,
+        "phrases": [
+          {
+            "start": 17.91969696969697,
+            "end": 22.525757575757577
+          }
+        ]
+      },
+      {
+        "text": "The selected-height and real-height models are generated together so their normalizations and radii are compatible.",
+        "start": 23.04848484848485,
+        "end": 29.509090909090908,
+        "phrases": [
+          {
+            "start": 23.04848484848485,
+            "end": 29.509090909090908
+          }
+        ]
+      },
+      {
+        "text": "After adding the anchor allowance, search failure gives the required upper cap.",
+        "start": 30.03181818181818,
+        "end": 34.61363636363637,
+        "phrases": [
+          {
+            "start": 30.03181818181818,
+            "end": 34.61363636363637
+          }
+        ]
+      },
+      {
+        "text": "The large-index coefficient argument supplies the conflicting lower information.",
+        "start": 35.13636363636364,
+        "end": 39.693939393939395,
+        "phrases": [
+          {
+            "start": 35.13636363636364,
+            "end": 39.693939393939395
+          }
+        ]
+      },
+      {
+        "text": "The conclusion depends on that combined estimate, just as the small three-value example did.",
+        "start": 40.21666666666667,
+        "end": 45.93787878787879,
+        "phrases": [
+          {
+            "start": 40.21666666666667,
+            "end": 45.93787878787879
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "budgets",
+    "chapter": "Uniform bounds close the precision loop",
+    "start": 704.3666666666721,
+    "audio_start": 704.5666666666722,
+    "duration": 55.708167,
+    "sentences": [
+      {
+        "text": "There are several error channels: finite evaluation, contour approximation, coefficient comparison, and geometric remainder terms.",
+        "start": 0,
+        "end": 8.533333333333333,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 8.533333333333333
+          }
+        ]
+      },
+      {
+        "text": "The proof assigns explicit rational portions of the final budget to them.",
+        "start": 9.056060606060607,
+        "end": 13.334848484848486,
+        "phrases": [
+          {
+            "start": 9.056060606060607,
+            "end": 13.334848484848486
+          }
+        ]
+      },
+      {
+        "text": "More accurate factor data can change the lists and their degree, so a cap chosen from an arbitrary later approximation would risk a circular dependency.",
+        "start": 13.857575757575757,
+        "end": 22.8030303030303,
+        "phrases": [
+          {
+            "start": 13.857575757575757,
+            "end": 22.8030303030303
+          }
+        ]
+      },
+      {
+        "text": "The completed construction instead derives the needed uniform caps and clearances from fixed coarse data.",
+        "start": 23.325757575757578,
+        "end": 29.483333333333334,
+        "phrases": [
+          {
+            "start": 23.325757575757578,
+            "end": 29.483333333333334
+          }
+        ]
+      },
+      {
+        "text": "Then it chooses an index large enough for the geometric terms and requests the required finer precision.",
+        "start": 30.006060606060608,
+        "end": 35.96969696969697,
+        "phrases": [
+          {
+            "start": 30.006060606060608,
+            "end": 35.96969696969697
+          }
+        ]
+      },
+      {
+        "text": "This order lets the same proof work at every subsequent refinement.",
+        "start": 36.49242424242425,
+        "end": 40.39545454545455,
+        "phrases": [
+          {
+            "start": 36.49242424242425,
+            "end": 40.39545454545455
+          }
+        ]
+      },
+      {
+        "text": "The theorem is about the whole prescribed parameter range, not a successful numerical experiment at one convenient input.",
+        "start": 40.91818181818182,
+        "end": 48.08181818181818,
+        "phrases": [
+          {
+            "start": 40.91818181818182,
+            "end": 48.08181818181818
+          }
+        ]
+      },
+      {
+        "text": "The thresholds are conservative; the result promises a certified witness, not a practical running time.",
+        "start": 48.60454545454545,
+        "end": 55.21060606060606,
+        "phrases": [
+          {
+            "start": 48.60454545454545,
+            "end": 55.21060606060606
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "threshold",
+    "chapter": "Compute the window threshold from the prepared pair",
+    "start": 761.7000000000014,
+    "audio_start": 761.9000000000015,
+    "duration": 47.416333,
+    "sentences": [
+      {
+        "text": "The threshold wrapper first calls the paired-circle constructor.",
+        "start": 0,
+        "end": 3.6,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.6
+          }
+        ]
+      },
+      {
+        "text": "It reads the chosen height, the modulated cover, the empty cover, and the reserved real radius from the returned data.",
+        "start": 4.122727272727273,
+        "end": 11.31060606060606,
+        "phrases": [
+          {
+            "start": 4.122727272727273,
+            "end": 11.31060606060606
+          }
+        ]
+      },
+      {
+        "text": "It then calls the proved pair-threshold routine with those fields and the ceiling parameters.",
+        "start": 11.833333333333334,
+        "end": 17.06969696969697,
+        "phrases": [
+          {
+            "start": 11.833333333333334,
+            "end": 17.06969696969697
+          }
+        ]
+      },
+      {
+        "text": "The small-value request and the window threshold use the same prepared region data.",
+        "start": 17.592424242424244,
+        "end": 22.87727272727273,
+        "phrases": [
+          {
+            "start": 17.592424242424244,
+            "end": 22.87727272727273
+          }
+        ]
+      },
+      {
+        "text": "The source makes their independence from the later offset visible: the offset is not an input to either wrapper.",
+        "start": 23.4,
+        "end": 29.8,
+        "phrases": [
+          {
+            "start": 23.4,
+            "end": 29.8
+          }
+        ]
+      },
+      {
+        "text": "The validity theorems prove that the request is positive and the threshold is a positive integer.",
+        "start": 30.322727272727274,
+        "end": 35.849999999999994,
+        "phrases": [
+          {
+            "start": 30.322727272727274,
+            "end": 35.849999999999994
+          }
+        ]
+      },
+      {
+        "text": "At this point the infinite-looking Landau argument has supplied the finite bounds needed to run the window search.",
+        "start": 36.372727272727275,
+        "end": 42.518181818181816,
+        "phrases": [
+          {
+            "start": 36.372727272727275,
+            "end": 42.518181818181816
+          }
+        ]
+      },
+      {
+        "text": "We can now read the final theorem as an input-and-output contract.",
+        "start": 43.04090909090909,
+        "end": 46.919696969696965,
+        "phrases": [
+          {
+            "start": 43.04090909090909,
+            "end": 46.919696969696965
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "theorem",
+    "chapter": "Read the final ACL2 theorem",
+    "start": 810.7333333333307,
+    "audio_start": 810.9333333333308,
+    "duration": 57.091917,
+    "sentences": [
+      {
+        "text": "The first source page lists the rational region, slack, ceiling, exponent, and window-start hypotheses.",
+        "start": 0,
+        "end": 6.533333333333333,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 6.533333333333333
+          }
+        ]
+      },
+      {
+        "text": "It also requires a passing approximate-zero predicate at a request at most one quarter of the prepared request.",
+        "start": 7.056060606060606,
+        "end": 13.613636363636363,
+        "phrases": [
+          {
+            "start": 7.056060606060606,
+            "end": 13.613636363636363
+          }
+        ]
+      },
+      {
+        "text": "The conclusion runs the actual bounded window search and computes its address.",
+        "start": 14.136363636363635,
+        "end": 18.62121212121212,
+        "phrases": [
+          {
+            "start": 14.136363636363635,
+            "end": 18.62121212121212
+          }
+        ]
+      },
+      {
+        "text": "It says the search result exists, the address is rational, and the address satisfies the two window inequalities.",
+        "start": 19.143939393939394,
+        "end": 26.525757575757574,
+        "phrases": [
+          {
+            "start": 19.143939393939394,
+            "end": 26.525757575757574
+          }
+        ]
+      },
+      {
+        "text": "It also says that the returned lower signal endpoint is strictly positive and that the interval is exactly the one produced by the signal evaluator.",
+        "start": 27.04848484848485,
+        "end": 35.266666666666666,
+        "phrases": [
+          {
+            "start": 27.04848484848485,
+            "end": 35.266666666666666
+          }
+        ]
+      },
+      {
+        "text": "The final page contains the proof's use of the preceding reduction and probe-admission theorems.",
+        "start": 35.78939393939394,
+        "end": 41.26818181818182,
+        "phrases": [
+          {
+            "start": 35.78939393939394,
+            "end": 41.26818181818182
+          }
+        ]
+      },
+      {
+        "text": "These proof hints direct ACL2 toward already checked results; they are not extra assumptions added to the theorem.",
+        "start": 41.790909090909096,
+        "end": 48.906060606060606,
+        "phrases": [
+          {
+            "start": 41.790909090909096,
+            "end": 48.906060606060606
+          }
+        ]
+      },
+      {
+        "text": "The complete source form is shown across the numbered cards.",
+        "start": 49.42878787878787,
+        "end": 52.81060606060606,
+        "phrases": [
+          {
+            "start": 49.42878787878787,
+            "end": 52.81060606060606
+          }
+        ]
+      },
+      {
+        "text": "The name of this result is the encoded-zero reduction.",
+        "start": 53.33333333333333,
+        "end": 56.593939393939394,
+        "phrases": [
+          {
+            "start": 53.33333333333333,
+            "end": 56.593939393939394
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "address",
+    "chapter": "Run the actual finite search, then decode its address",
+    "start": 869.4666666666616,
+    "audio_start": 869.6666666666616,
+    "duration": 51.720125,
+    "sentences": [
+      {
+        "text": "The theorem uses the same finite search built earlier in the series.",
+        "start": 0,
+        "end": 4.012121212121213,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.012121212121213
+          }
+        ]
+      },
+      {
+        "text": "The search wrapper chooses the constructed grid and evaluates the centered signal minus the proposed ceiling.",
+        "start": 4.534848484848485,
+        "end": 10.680303030303032,
+        "phrases": [
+          {
+            "start": 4.534848484848485,
+            "end": 10.680303030303032
+          }
+        ]
+      },
+      {
+        "text": "The address wrapper converts a returned sample index into a rational point on that grid.",
+        "start": 11.203030303030303,
+        "end": 16.354545454545455,
+        "phrases": [
+          {
+            "start": 11.203030303030303,
+            "end": 16.354545454545455
+          }
+        ]
+      },
+      {
+        "text": "For a window beginning at Y, the conclusion gives Y less than or equal to x and x squared less than or equal to Y cubed.",
+        "start": 16.87727272727273,
+        "end": 24.30757575757576,
+        "phrases": [
+          {
+            "start": 16.87727272727273,
+            "end": 24.30757575757576
+          }
+        ]
+      },
+      {
+        "text": "Because the quantities are nonnegative, this places x in the window from Y to Y to the power three halves.",
+        "start": 24.83030303030303,
+        "end": 31,
+        "phrases": [
+          {
+            "start": 24.83030303030303,
+            "end": 31
+          }
+        ]
+      },
+      {
+        "text": "The squared comparison is an exact rational test; no rounded square root defines the endpoint.",
+        "start": 31.52272727272727,
+        "end": 37.36515151515151,
+        "phrases": [
+          {
+            "start": 31.52272727272727,
+            "end": 37.36515151515151
+          }
+        ]
+      },
+      {
+        "text": "For illustration, a window beginning at four ends at eight, and the rational address six lies inside it.",
+        "start": 37.88787878787878,
+        "end": 44.093939393939394,
+        "phrases": [
+          {
+            "start": 37.88787878787878,
+            "end": 44.093939393939394
+          }
+        ]
+      },
+      {
+        "text": "Those small numbers illustrate the conclusion's geometry, not an execution of the enormous final threshold.",
+        "start": 44.61666666666667,
+        "end": 51.222727272727276,
+        "phrases": [
+          {
+            "start": 44.61666666666667,
+            "end": 51.222727272727276
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "positive",
+    "chapter": "A positive lower endpoint has mathematical meaning",
+    "start": 922.8333333333229,
+    "audio_start": 923.033333333323,
+    "duration": 52.240208,
+    "sentences": [
+      {
+        "text": "The returned interval encloses Gz of x minus the ceiling constant times x to the chosen exponent.",
+        "start": 0,
+        "end": 6.448484848484849,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 6.448484848484849
+          }
+        ]
+      },
+      {
+        "text": "The prime-power classifier, logarithm bands, Euler-constant bands, and rational-power bands provide the components of that enclosure.",
+        "start": 6.971212121212122,
+        "end": 14.777272727272727,
+        "phrases": [
+          {
+            "start": 6.971212121212122,
+            "end": 14.777272727272727
+          }
+        ]
+      },
+      {
+        "text": "The interval operations preserve their real meanings through finite addition, scaling and subtraction.",
+        "start": 15.3,
+        "end": 20.948484848484846,
+        "phrases": [
+          {
+            "start": 15.3,
+            "end": 20.948484848484846
+          }
+        ]
+      },
+      {
+        "text": "So a strictly positive lower endpoint proves a strict ceiling violation at the returned address.",
+        "start": 21.47121212121212,
+        "end": 27.05909090909091,
+        "phrases": [
+          {
+            "start": 21.47121212121212,
+            "end": 27.05909090909091
+          }
+        ]
+      },
+      {
+        "text": "It is stronger than a positive floating-point estimate with no error allowance.",
+        "start": 27.58181818181818,
+        "end": 32.054545454545455,
+        "phrases": [
+          {
+            "start": 27.58181818181818,
+            "end": 32.054545454545455
+          }
+        ]
+      },
+      {
+        "text": "If the lower endpoint were one eighth in an illustrative enclosure, the true difference would be at least one eighth.",
+        "start": 32.57727272727273,
+        "end": 38.78333333333334,
+        "phrases": [
+          {
+            "start": 32.57727272727273,
+            "end": 38.78333333333334
+          }
+        ]
+      },
+      {
+        "text": "The theorem computes the actual endpoint; the film is not substituting that illustrative value.",
+        "start": 39.30606060606061,
+        "end": 45.03939393939394,
+        "phrases": [
+          {
+            "start": 39.30606060606061,
+            "end": 45.03939393939394
+          }
+        ]
+      },
+      {
+        "text": "The interpretation document spells out the original smoothed prime statistic that the evaluator encloses.",
+        "start": 45.56212121212121,
+        "end": 51.74393939393939,
+        "phrases": [
+          {
+            "start": 45.56212121212121,
+            "end": 51.74393939393939
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quantifiers",
+    "chapter": "From every fine probe to one certified violation",
+    "start": 976.6999999999855,
+    "audio_start": 976.8999999999855,
+    "duration": 48.676708,
+    "sentences": [
+      {
+        "text": "Return to the encoded-zero condition: every positive rational request has a suitable rational probe in the fixed region.",
+        "start": 0,
+        "end": 7.296969696969697,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 7.296969696969697
+          }
+        ]
+      },
+      {
+        "text": "The arithmetic construction proves that one particular positive request is sufficient.",
+        "start": 7.819696969696969,
+        "end": 12.80151515151515,
+        "phrases": [
+          {
+            "start": 7.819696969696969,
+            "end": 12.80151515151515
+          }
+        ]
+      },
+      {
+        "text": "Instantiate the encoded-zero condition at one quarter of that request.",
+        "start": 13.324242424242424,
+        "end": 17.687878787878788,
+        "phrases": [
+          {
+            "start": 13.324242424242424,
+            "end": 17.687878787878788
+          }
+        ]
+      },
+      {
+        "text": "The final theorem now applies to every rational window start above its computed threshold.",
+        "start": 18.21060606060606,
+        "end": 23.495454545454542,
+        "phrases": [
+          {
+            "start": 18.21060606060606,
+            "end": 23.495454545454542
+          }
+        ]
+      },
+      {
+        "text": "There is no need to choose a new analytic zero, guess a contour, or supply a separate peak selector for each window.",
+        "start": 24.018181818181816,
+        "end": 30.866666666666667,
+        "phrases": [
+          {
+            "start": 24.018181818181816,
+            "end": 30.866666666666667
+          }
+        ]
+      },
+      {
+        "text": "The search returns the violation directly.",
+        "start": 31.38939393939394,
+        "end": 33.983333333333334,
+        "phrases": [
+          {
+            "start": 31.38939393939394,
+            "end": 33.983333333333334
+          }
+        ]
+      },
+      {
+        "text": "In contrapositive form, a failed search above the threshold excludes every probe at that required accuracy, and therefore excludes the encoded-zero condition.",
+        "start": 34.50606060606061,
+        "end": 43.93636363636364,
+        "phrases": [
+          {
+            "start": 34.50606060606061,
+            "end": 43.93636363636364
+          }
+        ]
+      },
+      {
+        "text": "That is the effective arithmetic ceiling-to-zero-free conversion.",
+        "start": 44.45909090909091,
+        "end": 48.18030303030303,
+        "phrases": [
+          {
+            "start": 44.45909090909091,
+            "end": 48.18030303030303
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coding",
+    "chapter": "Encode the finite data by natural numbers",
+    "start": 1026.9999999999814,
+    "audio_start": 1027.1999999999814,
+    "duration": 52.943375,
+    "sentences": [
+      {
+        "text": "The Peano Arithmetic proof represents fractions, lists, and complex pairs by natural-number codes.",
+        "start": 0,
+        "end": 6.460606060606061,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 6.460606060606061
+          }
+        ]
+      },
+      {
+        "text": "Represent an integer by a sign and a magnitude.",
+        "start": 6.983333333333333,
+        "end": 10.171212121212122,
+        "phrases": [
+          {
+            "start": 6.983333333333333,
+            "end": 10.171212121212122
+          }
+        ]
+      },
+      {
+        "text": "Represent a rational by a numerator and a nonzero denominator, with the chosen normalization convention.",
+        "start": 10.693939393939393,
+        "end": 16.972727272727273,
+        "phrases": [
+          {
+            "start": 10.693939393939393,
+            "end": 16.972727272727273
+          }
+        ]
+      },
+      {
+        "text": "Finite pairs and lists can themselves be represented by natural-number codes.",
+        "start": 17.495454545454546,
+        "end": 22.27121212121212,
+        "phrases": [
+          {
+            "start": 17.495454545454546,
+            "end": 22.27121212121212
+          }
+        ]
+      },
+      {
+        "text": "A rational complex value is then a code for two rational coordinates, and a polynomial is a code for a finite coefficient list.",
+        "start": 22.793939393939393,
+        "end": 30.78181818181818,
+        "phrases": [
+          {
+            "start": 22.793939393939393,
+            "end": 30.78181818181818
+          }
+        ]
+      },
+      {
+        "text": "The graphs of the recursive functions become arithmetic relations on those codes.",
+        "start": 31.30454545454545,
+        "end": 36.03181818181818,
+        "phrases": [
+          {
+            "start": 31.30454545454545,
+            "end": 36.03181818181818
+          }
+        ]
+      },
+      {
+        "text": "This is how the theorem can be stated using whole-number variables even though its convenient working notation uses richer data.",
+        "start": 36.554545454545455,
+        "end": 43.70606060606061,
+        "phrases": [
+          {
+            "start": 36.554545454545455,
+            "end": 43.70606060606061
+          }
+        ]
+      },
+      {
+        "text": "The encoding must preserve the operations and hypotheses used by the proof; merely renaming a fraction as an integer would not suffice.",
+        "start": 44.228787878787884,
+        "end": 52.4469696969697,
+        "phrases": [
+          {
+            "start": 44.228787878787884,
+            "end": 52.4469696969697
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "induction",
+    "chapter": "A direct proof in Peano Arithmetic",
+    "start": 1081.566666666644,
+    "audio_start": 1081.7666666666441,
+    "duration": 59.998708,
+    "sentences": [
+      {
+        "text": "We now have a direct mathematical proof in first-order Peano Arithmetic, as well as the machine-checked ACL2 development.",
+        "start": 0,
+        "end": 7.369696969696969,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 7.369696969696969
+          }
+        ]
+      },
+      {
+        "text": "The manuscript proves the encoded windowed ceiling theorem by deriving its finite computations and inequalities in arithmetic.",
+        "start": 7.892424242424243,
+        "end": 15.286363636363637,
+        "phrases": [
+          {
+            "start": 7.892424242424243,
+            "end": 15.286363636363637
+          }
+        ]
+      },
+      {
+        "text": "Natural-number codes represent integers, rationals, finite lists, polynomials, and computation graphs.",
+        "start": 15.80909090909091,
+        "end": 22.863636363636363,
+        "phrases": [
+          {
+            "start": 15.80909090909091,
+            "end": 22.863636363636363
+          }
+        ]
+      },
+      {
+        "text": "Termination and induction are justified using natural-valued measures and ordinary strong induction.",
+        "start": 23.386363636363633,
+        "end": 29.313636363636363,
+        "phrases": [
+          {
+            "start": 23.386363636363633,
+            "end": 29.313636363636363
+          }
+        ]
+      },
+      {
+        "text": "Section fourteen supplies the finite Mellin quadrature estimates rather than importing an unproved analytic estimate.",
+        "start": 29.836363636363636,
+        "end": 36.624242424242425,
+        "phrases": [
+          {
+            "start": 29.836363636363636,
+            "end": 36.624242424242425
+          }
+        ]
+      },
+      {
+        "text": "Theorem fifteen point two assembles the contour construction, coefficient bounds, threshold, and returned rational witness.",
+        "start": 37.14696969696969,
+        "end": 44.18939393939394,
+        "phrases": [
+          {
+            "start": 37.14696969696969,
+            "end": 44.18939393939394
+          }
+        ]
+      },
+      {
+        "text": "The manuscript also proves the correspondence with the classical zeta-function statement.",
+        "start": 44.71212121212121,
+        "end": 49.839393939393936,
+        "phrases": [
+          {
+            "start": 44.71212121212121,
+            "end": 49.839393939393936
+          }
+        ]
+      },
+      {
+        "text": "The result is proved in Peano Arithmetic; the manuscript and ACL2 certificates provide the direct arithmetic proof and the machine-checked development.",
+        "start": 50.36212121212121,
+        "end": 59.50151515151515,
+        "phrases": [
+          {
+            "start": 50.36212121212121,
+            "end": 59.50151515151515
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "audit",
+    "chapter": "What the completion audit checked",
+    "start": 1143.1999999999705,
+    "audio_start": 1143.3999999999705,
+    "duration": 52.518833,
+    "sentences": [
+      {
+        "text": "The release checkpoint contains six hundred forty-seven certified ACL2 books and three thousand six hundred forty-nine exported theorems.",
+        "start": 0,
+        "end": 8.084848484848484,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 8.084848484848484
+          }
+        ]
+      },
+      {
+        "text": "The certificate files are present and newer than their source files.",
+        "start": 8.607575757575757,
+        "end": 12.474242424242425,
+        "phrases": [
+          {
+            "start": 8.607575757575757,
+            "end": 12.474242424242425
+          }
+        ]
+      },
+      {
+        "text": "Loading the final book successfully imports its five hundred fifty-eight-book dependency closure.",
+        "start": 12.996969696969696,
+        "end": 18.56060606060606,
+        "phrases": [
+          {
+            "start": 12.996969696969696,
+            "end": 18.56060606060606
+          }
+        ]
+      },
+      {
+        "text": "The source audit found no skipped-proof, custom-axiom, trust-tag, or function-attachment events in the recorded books.",
+        "start": 19.083333333333332,
+        "end": 26.61060606060606,
+        "phrases": [
+          {
+            "start": 19.083333333333332,
+            "end": 26.61060606060606
+          }
+        ]
+      },
+      {
+        "text": "The source hashes identify the exact checkpoint behind this film.",
+        "start": 27.133333333333333,
+        "end": 31.072727272727274,
+        "phrases": [
+          {
+            "start": 27.133333333333333,
+            "end": 31.072727272727274
+          }
+        ]
+      },
+      {
+        "text": "These checks support reproducibility and reveal the proof path; they do not replace understanding the theorem statement.",
+        "start": 31.595454545454544,
+        "end": 38.65,
+        "phrases": [
+          {
+            "start": 31.595454545454544,
+            "end": 38.65
+          }
+        ]
+      },
+      {
+        "text": "The direct Peano Arithmetic manuscript and its classical comparison are recorded alongside the ACL2 certificate audit.",
+        "start": 39.17272727272727,
+        "end": 46.724242424242426,
+        "phrases": [
+          {
+            "start": 39.17272727272727,
+            "end": 46.724242424242426
+          }
+        ]
+      },
+      {
+        "text": "The proof source is available for independent checking with vanilla ACL2.",
+        "start": 47.2469696969697,
+        "end": 52.02272727272727,
+        "phrases": [
+          {
+            "start": 47.2469696969697,
+            "end": 52.02272727272727
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "classical",
+    "chapter": "Connect the arithmetic zero and witness to the classical theorem",
+    "start": 1197.3666666666331,
+    "audio_start": 1197.5666666666332,
+    "duration": 59.417583,
+    "sentences": [
+      {
+        "text": "The classical comparison proves that the native Euler value differs from the normalized zeta value by at most one quarter of its request.",
+        "start": 0,
+        "end": 7.878787878787879,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 7.878787878787879
+          }
+        ]
+      },
+      {
+        "text": "Continuity and rational density turn an actual zero in the interior of a suitable disk into arbitrarily fine rational probes.",
+        "start": 8.401515151515152,
+        "end": 16.195454545454545,
+        "phrases": [
+          {
+            "start": 8.401515151515152,
+            "end": 16.195454545454545
+          }
+        ]
+      },
+      {
+        "text": "Conversely, probes in one compact disk with errors tending to zero have a limit point where the normalized zeta value vanishes.",
+        "start": 16.71818181818182,
+        "end": 24.403030303030302,
+        "phrases": [
+          {
+            "start": 16.71818181818182,
+            "end": 24.403030303030302
+          }
+        ]
+      },
+      {
+        "text": "The value at one is one, so that limit does not manufacture a zero at the normalization point.",
+        "start": 24.925757575757572,
+        "end": 30.586363636363636,
+        "phrases": [
+          {
+            "start": 24.925757575757572,
+            "end": 30.586363636363636
+          }
+        ]
+      },
+      {
+        "text": "The signal enclosure turns the returned positive endpoint into a genuine violation of the classical ceiling.",
+        "start": 31.10909090909091,
+        "end": 37.290909090909096,
+        "phrases": [
+          {
+            "start": 31.10909090909091,
+            "end": 37.290909090909096
+          }
+        ]
+      },
+      {
+        "text": "Rational approximation of exponents, heights, constants, and window starts then gives the recurring-window formulation.",
+        "start": 37.81363636363637,
+        "end": 44.78333333333334,
+        "phrases": [
+          {
+            "start": 37.81363636363637,
+            "end": 44.78333333333334
+          }
+        ]
+      },
+      {
+        "text": "The manuscript proves this comparison after completing the arithmetic derivation.",
+        "start": 45.306060606060605,
+        "end": 50.11818181818182,
+        "phrases": [
+          {
+            "start": 45.306060606060605,
+            "end": 50.11818181818182
+          }
+        ]
+      },
+      {
+        "text": "Both are supplied: the Peano Arithmetic proof of the encoded reduction, and its mathematical identification with the original Landau statement.",
+        "start": 50.64090909090909,
+        "end": 58.91969696969697,
+        "phrases": [
+          {
+            "start": 50.64090909090909,
+            "end": 58.91969696969697
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scope",
+    "chapter": "State the completed result at its real scope",
+    "start": 1258.4333333332959,
+    "audio_start": 1258.633333333296,
+    "duration": 61.6465,
+    "sentences": [
+      {
+        "text": "The encoded windowed Landau ceiling reduction is proved in Peano Arithmetic, with the corresponding development certified in vanilla ACL2.",
+        "start": 0,
+        "end": 8.593939393939394,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 8.593939393939394
+          }
+        ]
+      },
+      {
+        "text": "It supplies a computed threshold, a proof of search success, and a certified rational witness under the encoded zero hypotheses.",
+        "start": 9.116666666666665,
+        "end": 17.322727272727274,
+        "phrases": [
+          {
+            "start": 9.116666666666665,
+            "end": 17.322727272727274
+          }
+        ]
+      },
+      {
+        "text": "The contour and budget constructors discharge the applicability inputs left open in Part Eight, and the manuscript derives their arithmetic guarantees directly.",
+        "start": 17.845454545454547,
+        "end": 27.215151515151515,
+        "phrases": [
+          {
+            "start": 17.845454545454547,
+            "end": 27.215151515151515
+          }
+        ]
+      },
+      {
+        "text": "The result handles multiple and clustered zeros through the small-value and count interface.",
+        "start": 27.73787878787879,
+        "end": 33.13181818181818,
+        "phrases": [
+          {
+            "start": 27.73787878787879,
+            "end": 33.13181818181818
+          }
+        ]
+      },
+      {
+        "text": "This is one essential conversion in a larger Riemann Hypothesis proof architecture.",
+        "start": 33.654545454545456,
+        "end": 38.624242424242425,
+        "phrases": [
+          {
+            "start": 33.654545454545456,
+            "end": 38.624242424242425
+          }
+        ]
+      },
+      {
+        "text": "It does not establish the separate ceiling hypothesis, prove every component of that architecture in Peano Arithmetic, or claim a full arithmetic proof of the Riemann Hypothesis.",
+        "start": 39.1469696969697,
+        "end": 49.668181818181814,
+        "phrases": [
+          {
+            "start": 39.1469696969697,
+            "end": 49.668181818181814
+          }
+        ]
+      },
+      {
+        "text": "Those are different questions about further reductions.",
+        "start": 50.19090909090909,
+        "end": 53.22121212121212,
+        "phrases": [
+          {
+            "start": 50.19090909090909,
+            "end": 53.22121212121212
+          }
+        ]
+      },
+      {
+        "text": "The value of this result is that this particular bridge now has a concrete arithmetic proof path with its interpretation exposed.",
+        "start": 53.74393939393939,
+        "end": 61.15,
+        "phrases": [
+          {
+            "start": 53.74393939393939,
+            "end": 61.15
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ending",
+    "chapter": "Read, reproduce and extend the result",
+    "start": 1321.6999999999584,
+    "audio_start": 1321.8999999999585,
+    "duration": 55.005,
+    "sentences": [
+      {
+        "text": "The repository now connects the Peano Arithmetic manuscript, the final ACL2 theorem, the certificate inventory, and the proof source hashes.",
+        "start": 0,
+        "end": 9.224242424242423,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 9.224242424242423
+          }
+        ]
+      },
+      {
+        "text": "The companion lesson book puts the videos beside worked articles and interactive arithmetic examples.",
+        "start": 9.746969696969698,
+        "end": 15.77121212121212,
+        "phrases": [
+          {
+            "start": 9.746969696969698,
+            "end": 15.77121212121212
+          }
+        ]
+      },
+      {
+        "text": "Those demos help explain the constructions; they are not substitutes for the ACL2 checker.",
+        "start": 16.293939393939393,
+        "end": 22.136363636363637,
+        "phrases": [
+          {
+            "start": 16.293939393939393,
+            "end": 22.136363636363637
+          }
+        ]
+      },
+      {
+        "text": "To reproduce the machine-checked development, use the pinned local toolchain instructions and the certification command.",
+        "start": 22.65909090909091,
+        "end": 29.36212121212121,
+        "phrases": [
+          {
+            "start": 22.65909090909091,
+            "end": 29.36212121212121
+          }
+        ]
+      },
+      {
+        "text": "To read the Peano Arithmetic proof, begin with Theorem fifteen point two and its preceding finite derivations in the manuscript.",
+        "start": 29.884848484848483,
+        "end": 37.49696969696969,
+        "phrases": [
+          {
+            "start": 29.884848484848483,
+            "end": 37.49696969696969
+          }
+        ]
+      },
+      {
+        "text": "We started with successor, induction, and a finite sum of odd numbers.",
+        "start": 38.019696969696966,
+        "end": 42.49242424242424,
+        "phrases": [
+          {
+            "start": 38.019696969696966,
+            "end": 42.49242424242424
+          }
+        ]
+      },
+      {
+        "text": "We finish with a finite proof that a prescribed search must return a window violation.",
+        "start": 43.015151515151516,
+        "end": 47.984848484848484,
+        "phrases": [
+          {
+            "start": 43.015151515151516,
+            "end": 47.984848484848484
+          }
+        ]
+      },
+      {
+        "text": "Landau Windows ACL Two: the same Landau conversion, with fewer foundational assumptions.",
+        "start": 48.50757575757576,
+        "end": 54.50757575757576,
+        "phrases": [
+          {
+            "start": 48.50757575757576,
+            "end": 54.50757575757576
+          }
+        ]
+      }
+    ]
+  }
+]

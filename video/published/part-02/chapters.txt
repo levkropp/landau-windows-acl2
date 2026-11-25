@@ -1,0 +1,14 @@
+00:00:00  Exact answers, incomplete information
+00:00:58  Fractions still have finite descriptions
+00:02:14  Compute with fractions before rounding
+00:03:12  An interval is a claim about a value
+00:04:13  Give the interval an actual ACL2 definition
+00:05:35  Add lower to lower, upper to upper
+00:06:53  Subtraction crosses the endpoints
+00:08:03  A negative scale reverses the order
+00:09:19  Keep width separate from error radius
+00:10:24  Build an error budget for a whole calculation
+00:11:58  A positive lower endpoint is a certificate
+00:12:58  A strict margin makes precision sufficient
+00:14:22  A rational certificate and its real meaning
+00:15:45  From one certified bound to a finite search

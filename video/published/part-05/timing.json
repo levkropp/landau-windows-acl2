@@ -1,0 +1,2706 @@
+[
+  {
+    "id": "opening",
+    "chapter": "Why the signal's ceiling matters",
+    "start": 0.0,
+    "audio_start": 0.2,
+    "duration": 47.162917,
+    "sentences": [
+      {
+        "text": "Part Four built the smoothed signal G_z from prime powers, logarithm bounds, and weighted ramps.",
+        "start": 0,
+        "end": 6.096969696969697,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 6.096969696969697
+          }
+        ]
+      },
+      {
+        "text": "We can now compute rational intervals for its values.",
+        "start": 6.619696969696969,
+        "end": 9.92878787878788,
+        "phrases": [
+          {
+            "start": 6.619696969696969,
+            "end": 9.92878787878788
+          }
+        ]
+      },
+      {
+        "text": "But why is this the signal that matters?",
+        "start": 10.451515151515151,
+        "end": 12.754545454545454,
+        "phrases": [
+          {
+            "start": 10.451515151515151,
+            "end": 12.754545454545454
+          }
+        ]
+      },
+      {
+        "text": "The Landau bridge connects an upper ceiling on this signal to the location of zeta's zeros.",
+        "start": 13.277272727272726,
+        "end": 18.671212121212122,
+        "phrases": [
+          {
+            "start": 13.277272727272726,
+            "end": 18.671212121212122
+          }
+        ]
+      },
+      {
+        "text": "This episode will unpack that sentence, starting with what a zero looks like on a map.",
+        "start": 19.193939393939395,
+        "end": 24.5030303030303,
+        "phrases": [
+          {
+            "start": 19.193939393939395,
+            "end": 24.5030303030303
+          }
+        ]
+      },
+      {
+        "text": "Then we will explain the windows, and the reason a ceiling can work without a floor.",
+        "start": 25.025757575757574,
+        "end": 29.80151515151515,
+        "phrases": [
+          {
+            "start": 25.025757575757574,
+            "end": 29.80151515151515
+          }
+        ]
+      },
+      {
+        "text": "We will check small pieces of the reasoning in ACL2 as we go.",
+        "start": 30.324242424242424,
+        "end": 34.518181818181816,
+        "phrases": [
+          {
+            "start": 30.324242424242424,
+            "end": 34.518181818181816
+          }
+        ]
+      },
+      {
+        "text": "The full complex analytic theorem and these finite arithmetic examples will keep their own labels.",
+        "start": 35.04090909090909,
+        "end": 40.85909090909091,
+        "phrases": [
+          {
+            "start": 35.04090909090909,
+            "end": 40.85909090909091
+          }
+        ]
+      },
+      {
+        "text": "This is Part Five of Landau Windows ACL Two: why a ceiling controls zeros.",
+        "start": 41.381818181818176,
+        "end": 46.66666666666667,
+        "phrases": [
+          {
+            "start": 41.381818181818176,
+            "end": 46.66666666666667
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "complex",
+    "chapter": "A complex number has two coordinates",
+    "start": 48.79999999999995,
+    "audio_start": 48.99999999999995,
+    "duration": 45.479375,
+    "sentences": [
+      {
+        "text": "A complex number gives us two real coordinates.",
+        "start": 0,
+        "end": 3.0666666666666664,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.0666666666666664
+          }
+        ]
+      },
+      {
+        "text": "The real part tells us how far to move horizontally.",
+        "start": 3.5893939393939394,
+        "end": 6.837878787878788,
+        "phrases": [
+          {
+            "start": 3.5893939393939394,
+            "end": 6.837878787878788
+          }
+        ]
+      },
+      {
+        "text": "The imaginary part tells us how far to move vertically.",
+        "start": 7.36060606060606,
+        "end": 10.766666666666666,
+        "phrases": [
+          {
+            "start": 7.36060606060606,
+            "end": 10.766666666666666
+          }
+        ]
+      },
+      {
+        "text": "We write the point as beta plus i times its height.",
+        "start": 11.289393939393939,
+        "end": 14.331818181818182,
+        "phrases": [
+          {
+            "start": 11.289393939393939,
+            "end": 14.331818181818182
+          }
+        ]
+      },
+      {
+        "text": "The symbol i obeys the rule that i squared equals minus one.",
+        "start": 14.854545454545454,
+        "end": 18.76969696969697,
+        "phrases": [
+          {
+            "start": 14.854545454545454,
+            "end": 18.76969696969697
+          }
+        ]
+      },
+      {
+        "text": "For the map in this episode, you can simply read the two coordinates as an address.",
+        "start": 19.292424242424243,
+        "end": 24.274242424242427,
+        "phrases": [
+          {
+            "start": 19.292424242424243,
+            "end": 24.274242424242427
+          }
+        ]
+      },
+      {
+        "text": "A complex function takes an address and returns another complex number.",
+        "start": 24.796969696969693,
+        "end": 29.20909090909091,
+        "phrases": [
+          {
+            "start": 24.796969696969693,
+            "end": 29.20909090909091
+          }
+        ]
+      },
+      {
+        "text": "A zero is an input address where the output has both coordinates equal to zero.",
+        "start": 29.731818181818184,
+        "end": 34.592424242424244,
+        "phrases": [
+          {
+            "start": 29.731818181818184,
+            "end": 34.592424242424244
+          }
+        ]
+      },
+      {
+        "text": "It is not a point where just the real part of the output vanishes.",
+        "start": 35.11515151515152,
+        "end": 38.95757575757575,
+        "phrases": [
+          {
+            "start": 35.11515151515152,
+            "end": 38.95757575757575
+          }
+        ]
+      },
+      {
+        "text": "The map will show the input addresses of zeros, rather than drawing a three-dimensional surface.",
+        "start": 39.48030303030303,
+        "end": 44.98333333333333,
+        "phrases": [
+          {
+            "start": 39.48030303030303,
+            "end": 44.98333333333333
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "zeros",
+    "chapter": "The zeta function and the critical strip",
+    "start": 95.89999999999944,
+    "audio_start": 96.09999999999944,
+    "duration": 51.53975,
+    "sentences": [
+      {
+        "text": "The Riemann zeta function begins with a familiar-looking infinite sum.",
+        "start": 0,
+        "end": 3.9636363636363634,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.9636363636363634
+          }
+        ]
+      },
+      {
+        "text": "When the real part of its input is greater than one, add one divided by each positive integer raised to that input.",
+        "start": 4.486363636363636,
+        "end": 11.007575757575758,
+        "phrases": [
+          {
+            "start": 4.486363636363636,
+            "end": 11.007575757575758
+          }
+        ]
+      },
+      {
+        "text": "This series does not define the function everywhere we need it.",
+        "start": 11.53030303030303,
+        "end": 15.00909090909091,
+        "phrases": [
+          {
+            "start": 11.53030303030303,
+            "end": 15.00909090909091
+          }
+        ]
+      },
+      {
+        "text": "Complex analysis extends the function to the rest of the plane, apart from its pole at one.",
+        "start": 15.531818181818181,
+        "end": 21.034848484848485,
+        "phrases": [
+          {
+            "start": 15.531818181818181,
+            "end": 21.034848484848485
+          }
+        ]
+      },
+      {
+        "text": "That extension is called analytic continuation.",
+        "start": 21.55757575757576,
+        "end": 24.55151515151515,
+        "phrases": [
+          {
+            "start": 21.55757575757576,
+            "end": 24.55151515151515
+          }
+        ]
+      },
+      {
+        "text": "The nontrivial zeros lie in the strip between real part zero and real part one.",
+        "start": 25.074242424242428,
+        "end": 30.116666666666667,
+        "phrases": [
+          {
+            "start": 25.074242424242428,
+            "end": 30.116666666666667
+          }
+        ]
+      },
+      {
+        "text": "The Riemann Hypothesis places all of those zeros on the vertical line at one half.",
+        "start": 30.63939393939394,
+        "end": 35.54848484848485,
+        "phrases": [
+          {
+            "start": 30.63939393939394,
+            "end": 35.54848484848485
+          }
+        ]
+      },
+      {
+        "text": "The yellow dots here are sample known zeros from the original video's data.",
+        "start": 36.07121212121212,
+        "end": 40.628787878787875,
+        "phrases": [
+          {
+            "start": 36.07121212121212,
+            "end": 40.628787878787875
+          }
+        ]
+      },
+      {
+        "text": "A finite collection of dots cannot establish a statement about every zero.",
+        "start": 41.15151515151515,
+        "end": 45.806060606060605,
+        "phrases": [
+          {
+            "start": 41.15151515151515,
+            "end": 45.806060606060605
+          }
+        ]
+      },
+      {
+        "text": "The vertical line is the target, and the entire critical strip is the territory.",
+        "start": 46.32878787878788,
+        "end": 51.0439393939394,
+        "phrases": [
+          {
+            "start": 46.32878787878788,
+            "end": 51.0439393939394
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "symmetry",
+    "chapter": "Why excluding the right side is enough",
+    "start": 149.0666666666656,
+    "audio_start": 149.2666666666656,
+    "duration": 44.424583,
+    "sentences": [
+      {
+        "text": "The zero set has a reflection symmetry across the line at one half.",
+        "start": 0,
+        "end": 4.084848484848485,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.084848484848485
+          }
+        ]
+      },
+      {
+        "text": "If a nontrivial zero appeared to the left, a reflected zero would appear to the right at the same height.",
+        "start": 4.607575757575757,
+        "end": 10.583333333333332,
+        "phrases": [
+          {
+            "start": 4.607575757575757,
+            "end": 10.583333333333332
+          }
+        ]
+      },
+      {
+        "text": "The purple dots in this illustration are hypothetical.",
+        "start": 11.106060606060606,
+        "end": 14.354545454545454,
+        "phrases": [
+          {
+            "start": 11.106060606060606,
+            "end": 14.354545454545454
+          }
+        ]
+      },
+      {
+        "text": "We have not discovered an off-line zero.",
+        "start": 14.877272727272727,
+        "end": 17.374242424242425,
+        "phrases": [
+          {
+            "start": 14.877272727272727,
+            "end": 17.374242424242425
+          }
+        ]
+      },
+      {
+        "text": "The symmetry comes from the functional equation together with complex conjugation.",
+        "start": 17.896969696969695,
+        "end": 22.46666666666667,
+        "phrases": [
+          {
+            "start": 17.896969696969695,
+            "end": 22.46666666666667
+          }
+        ]
+      },
+      {
+        "text": "Therefore, excluding every zero to the right of one half also excludes every zero to its left.",
+        "start": 22.989393939393942,
+        "end": 29.1469696969697,
+        "phrases": [
+          {
+            "start": 22.989393939393942,
+            "end": 29.1469696969697
+          }
+        ]
+      },
+      {
+        "text": "The only possible horizontal position left is one half.",
+        "start": 29.669696969696968,
+        "end": 33.26969696969697,
+        "phrases": [
+          {
+            "start": 29.669696969696968,
+            "end": 33.26969696969697
+          }
+        ]
+      },
+      {
+        "text": "This is the mirror step from the original video.",
+        "start": 33.79242424242424,
+        "end": 36.64090909090909,
+        "phrases": [
+          {
+            "start": 33.79242424242424,
+            "end": 36.64090909090909
+          }
+        ]
+      },
+      {
+        "text": "The Landau step will give us a way to exclude a region on the right, by controlling a real-valued signal instead.",
+        "start": 37.163636363636364,
+        "end": 43.92727272727272,
+        "phrases": [
+          {
+            "start": 37.163636363636364,
+            "end": 43.92727272727272
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ceiling",
+    "chapter": "A ceiling controls only the upper side",
+    "start": 195.13333333333188,
+    "audio_start": 195.33333333333186,
+    "duration": 53.748625,
+    "sentences": [
+      {
+        "text": "Recall that G_z is the smoothed prime-power sum after subtracting its main term.",
+        "start": 0,
+        "end": 5.224242424242425,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.224242424242425
+          }
+        ]
+      },
+      {
+        "text": "It is a real number for each positive real input.",
+        "start": 5.746969696969697,
+        "end": 8.813636363636364,
+        "phrases": [
+          {
+            "start": 5.746969696969697,
+            "end": 8.813636363636364
+          }
+        ]
+      },
+      {
+        "text": "A ceiling says that this number is less than or equal to some chosen upper bound.",
+        "start": 9.336363636363636,
+        "end": 14.112121212121211,
+        "phrases": [
+          {
+            "start": 9.336363636363636,
+            "end": 14.112121212121211
+          }
+        ]
+      },
+      {
+        "text": "Here the bound is C times x to the power theta.",
+        "start": 14.634848484848483,
+        "end": 17.701515151515153,
+        "phrases": [
+          {
+            "start": 14.634848484848483,
+            "end": 17.701515151515153
+          }
+        ]
+      },
+      {
+        "text": "The constant C is positive, and theta lies strictly between zero and one.",
+        "start": 18.224242424242423,
+        "end": 22.866666666666667,
+        "phrases": [
+          {
+            "start": 18.224242424242423,
+            "end": 22.866666666666667
+          }
+        ]
+      },
+      {
+        "text": "The exponent determines the rate of growth allowed by the ceiling.",
+        "start": 23.38939393939394,
+        "end": 27.074242424242424,
+        "phrases": [
+          {
+            "start": 23.38939393939394,
+            "end": 27.074242424242424
+          }
+        ]
+      },
+      {
+        "text": "At x equal to sixteen, x to the one-half power is four, while x to the three-quarter power is eight.",
+        "start": 27.596969696969698,
+        "end": 33.62121212121212,
+        "phrases": [
+          {
+            "start": 27.596969696969698,
+            "end": 33.62121212121212
+          }
+        ]
+      },
+      {
+        "text": "The multiplier C can raise either ceiling.",
+        "start": 34.14393939393939,
+        "end": 36.82272727272728,
+        "phrases": [
+          {
+            "start": 34.14393939393939,
+            "end": 36.82272727272728
+          }
+        ]
+      },
+      {
+        "text": "This animation borrows the original video's ceiling plot, and is a schematic illustration rather than computed values of G_z.",
+        "start": 37.345454545454544,
+        "end": 45.587878787878786,
+        "phrases": [
+          {
+            "start": 37.345454545454544,
+            "end": 45.587878787878786
+          }
+        ]
+      },
+      {
+        "text": "A ceiling allows the signal to fall arbitrarily far below it.",
+        "start": 46.11060606060606,
+        "end": 49.91666666666667,
+        "phrases": [
+          {
+            "start": 46.11060606060606,
+            "end": 49.91666666666667
+          }
+        ]
+      },
+      {
+        "text": "We are not assuming an absolute-value bound.",
+        "start": 50.43939393939394,
+        "end": 53.25151515151515,
+        "phrases": [
+          {
+            "start": 50.43939393939394,
+            "end": 53.25151515151515
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows",
+    "chapter": "A window is an entire interval",
+    "start": 250.49999999999804,
+    "audio_start": 250.69999999999803,
+    "duration": 49.09325,
+    "sentences": [
+      {
+        "text": "The ceiling does not have to hold at every sufficiently large input.",
+        "start": 0,
+        "end": 3.975757575757576,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.975757575757576
+          }
+        ]
+      },
+      {
+        "text": "The windowed theorem asks for long stretches where it holds.",
+        "start": 4.498484848484849,
+        "end": 7.953030303030303,
+        "phrases": [
+          {
+            "start": 4.498484848484849,
+            "end": 7.953030303030303
+          }
+        ]
+      },
+      {
+        "text": "Start a stretch at Y, and end it at Y to the three-halves power.",
+        "start": 8.475757575757576,
+        "end": 12.524242424242424,
+        "phrases": [
+          {
+            "start": 8.475757575757576,
+            "end": 12.524242424242424
+          }
+        ]
+      },
+      {
+        "text": "For Y equal to four, that gives the interval from four to eight.",
+        "start": 13.046969696969697,
+        "end": 16.901515151515152,
+        "phrases": [
+          {
+            "start": 13.046969696969697,
+            "end": 16.901515151515152
+          }
+        ]
+      },
+      {
+        "text": "For Y equal to sixteen, the interval runs from sixteen to sixty-four.",
+        "start": 17.424242424242426,
+        "end": 21.921212121212122,
+        "phrases": [
+          {
+            "start": 17.424242424242426,
+            "end": 21.921212121212122
+          }
+        ]
+      },
+      {
+        "text": "For Y equal to sixty-four, it runs all the way to five hundred and twelve.",
+        "start": 22.443939393939395,
+        "end": 26.940909090909088,
+        "phrases": [
+          {
+            "start": 22.443939393939395,
+            "end": 26.940909090909088
+          }
+        ]
+      },
+      {
+        "text": "These are example addresses, not a claim that the actual signal obeys the ceiling on these particular intervals.",
+        "start": 27.46363636363636,
+        "end": 33.81515151515151,
+        "phrases": [
+          {
+            "start": 27.46363636363636,
+            "end": 33.81515151515151
+          }
+        ]
+      },
+      {
+        "text": "Notice that the window grows in width as it moves out.",
+        "start": 34.337878787878786,
+        "end": 37.50151515151515,
+        "phrases": [
+          {
+            "start": 34.337878787878786,
+            "end": 37.50151515151515
+          }
+        ]
+      },
+      {
+        "text": "Every real point in a selected window must satisfy the ceiling, including the points between any samples.",
+        "start": 38.02424242424242,
+        "end": 44.27878787878788,
+        "phrases": [
+          {
+            "start": 38.02424242424242,
+            "end": 44.27878787878788
+          }
+        ]
+      },
+      {
+        "text": "A single successful sample is not a whole-window certificate.",
+        "start": 44.801515151515154,
+        "end": 48.59545454545455,
+        "phrases": [
+          {
+            "start": 44.801515151515154,
+            "end": 48.59545454545455
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "recurring",
+    "chapter": "Read the quantifiers in their order",
+    "start": 301.23333333333653,
+    "audio_start": 301.4333333333365,
+    "duration": 43.700208,
+    "sentences": [
+      {
+        "text": "Now the important word: recurring.",
+        "start": 0,
+        "end": 2.1333333333333333,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.1333333333333333
+          }
+        ]
+      },
+      {
+        "text": "First fix the exponent theta and the positive constant C.",
+        "start": 2.6560606060606062,
+        "end": 6.413636363636364,
+        "phrases": [
+          {
+            "start": 2.6560606060606062,
+            "end": 6.413636363636364
+          }
+        ]
+      },
+      {
+        "text": "Those two choices stay fixed across the windows.",
+        "start": 6.9363636363636365,
+        "end": 10.039393939393939,
+        "phrases": [
+          {
+            "start": 6.9363636363636365,
+            "end": 10.039393939393939
+          }
+        ]
+      },
+      {
+        "text": "Someone can then demand any starting threshold, however large.",
+        "start": 10.56212121212121,
+        "end": 14.416666666666668,
+        "phrases": [
+          {
+            "start": 10.56212121212121,
+            "end": 14.416666666666668
+          }
+        ]
+      },
+      {
+        "text": "Beyond that threshold, there must be some window on which the same ceiling holds throughout.",
+        "start": 14.93939393939394,
+        "end": 19.836363636363636,
+        "phrases": [
+          {
+            "start": 14.93939393939394,
+            "end": 19.836363636363636
+          }
+        ]
+      },
+      {
+        "text": "The window does not have to begin exactly at the demanded threshold.",
+        "start": 20.35909090909091,
+        "end": 24.298484848484847,
+        "phrases": [
+          {
+            "start": 20.35909090909091,
+            "end": 24.298484848484847
+          }
+        ]
+      },
+      {
+        "text": "There may be gaps between the good windows.",
+        "start": 24.82121212121212,
+        "end": 27.28181818181818,
+        "phrases": [
+          {
+            "start": 24.82121212121212,
+            "end": 27.28181818181818
+          }
+        ]
+      },
+      {
+        "text": "But there cannot be a final good window after which they stop.",
+        "start": 27.804545454545455,
+        "end": 31.271212121212123,
+        "phrases": [
+          {
+            "start": 27.804545454545455,
+            "end": 31.271212121212123
+          }
+        ]
+      },
+      {
+        "text": "The order of these choices matters.",
+        "start": 31.793939393939393,
+        "end": 34,
+        "phrases": [
+          {
+            "start": 31.793939393939393,
+            "end": 34
+          }
+        ]
+      },
+      {
+        "text": "Choosing a new and larger C for each window would be a different hypothesis.",
+        "start": 34.52272727272727,
+        "end": 38.97121212121212,
+        "phrases": [
+          {
+            "start": 34.52272727272727,
+            "end": 38.97121212121212
+          }
+        ]
+      },
+      {
+        "text": "We need arbitrarily large good windows for one fixed ceiling.",
+        "start": 39.49393939393939,
+        "end": 43.2030303030303,
+        "phrases": [
+          {
+            "start": 39.49393939393939,
+            "end": 43.2030303030303
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "theorem",
+    "chapter": "The classical windowed Landau theorem",
+    "start": 346.5666666666768,
+    "audio_start": 346.76666666667677,
+    "duration": 53.784417,
+    "sentences": [
+      {
+        "text": "Here is the theorem with its conditions gathered together.",
+        "start": 0,
+        "end": 3.2727272727272725,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.2727272727272725
+          }
+        ]
+      },
+      {
+        "text": "Fix theta strictly between zero and one, and fix a positive constant C.",
+        "start": 3.7954545454545454,
+        "end": 8.656060606060606,
+        "phrases": [
+          {
+            "start": 3.7954545454545454,
+            "end": 8.656060606060606
+          }
+        ]
+      },
+      {
+        "text": "Suppose the bound G_z of x is less than or equal to C times x to the power theta holds on arbitrarily large windows of the stated shape.",
+        "start": 9.17878787878788,
+        "end": 17.893939393939394,
+        "phrases": [
+          {
+            "start": 9.17878787878788,
+            "end": 17.893939393939394
+          }
+        ]
+      },
+      {
+        "text": "Then zeta has no zero whose real part is greater than theta.",
+        "start": 18.416666666666668,
+        "end": 22.404545454545456,
+        "phrases": [
+          {
+            "start": 18.416666666666668,
+            "end": 22.404545454545456
+          }
+        ]
+      },
+      {
+        "text": "In the picture, every zero must stay on or to the left of the boundary at theta.",
+        "start": 22.927272727272726,
+        "end": 27.55757575757576,
+        "phrases": [
+          {
+            "start": 22.927272727272726,
+            "end": 27.55757575757576
+          }
+        ]
+      },
+      {
+        "text": "The repository proves this classical statement in Lean.",
+        "start": 28.080303030303032,
+        "end": 31.486363636363635,
+        "phrases": [
+          {
+            "start": 28.080303030303032,
+            "end": 31.486363636363635
+          }
+        ]
+      },
+      {
+        "text": "This card shows the actual theorem statement from its source.",
+        "start": 32.00909090909091,
+        "end": 35.56060606060606,
+        "phrases": [
+          {
+            "start": 32.00909090909091,
+            "end": 35.56060606060606
+          }
+        ]
+      },
+      {
+        "text": "The notation for a closed interval includes both endpoints, and the conclusion says that the zeta value is not zero.",
+        "start": 36.083333333333336,
+        "end": 43.222727272727276,
+        "phrases": [
+          {
+            "start": 36.083333333333336,
+            "end": 43.222727272727276
+          }
+        ]
+      },
+      {
+        "text": "The proof supplies the analytic connection; the ceiling itself remains a hypothesis.",
+        "start": 43.74545454545455,
+        "end": 49.17575757575758,
+        "phrases": [
+          {
+            "start": 43.74545454545455,
+            "end": 49.17575757575758
+          }
+        ]
+      },
+      {
+        "text": "Proving that hypothesis is a separate mathematical task.",
+        "start": 49.69848484848485,
+        "end": 53.28636363636364,
+        "phrases": [
+          {
+            "start": 49.69848484848485,
+            "end": 53.28636363636364
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "contrary",
+    "chapter": "Turn the theorem around carefully",
+    "start": 402.0000000000156,
+    "audio_start": 402.20000000001556,
+    "duration": 48.437875,
+    "sentences": [
+      {
+        "text": "We can also read the theorem by contradiction.",
+        "start": 0,
+        "end": 2.7878787878787876,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.7878787878787876
+          }
+        ]
+      },
+      {
+        "text": "Suppose there were a zero with horizontal coordinate beta greater than theta.",
+        "start": 3.310606060606061,
+        "end": 7.928787878787879,
+        "phrases": [
+          {
+            "start": 3.310606060606061,
+            "end": 7.928787878787879
+          }
+        ]
+      },
+      {
+        "text": "Fix a positive C.",
+        "start": 8.451515151515151,
+        "end": 10.063636363636363,
+        "phrases": [
+          {
+            "start": 8.451515151515151,
+            "end": 10.063636363636363
+          }
+        ]
+      },
+      {
+        "text": "There could no longer be arbitrarily large windows on which the corresponding ceiling holds.",
+        "start": 10.586363636363638,
+        "end": 15.701515151515153,
+        "phrases": [
+          {
+            "start": 10.586363636363638,
+            "end": 15.701515151515153
+          }
+        ]
+      },
+      {
+        "text": "In fact, beyond some threshold, every window of that shape would contain a point where the signal is strictly above the ceiling.",
+        "start": 16.224242424242423,
+        "end": 23.07272727272727,
+        "phrases": [
+          {
+            "start": 16.224242424242423,
+            "end": 23.07272727272727
+          }
+        ]
+      },
+      {
+        "text": "This is the logical negation of having arbitrarily large good windows.",
+        "start": 23.595454545454544,
+        "end": 28.007575757575758,
+        "phrases": [
+          {
+            "start": 23.595454545454544,
+            "end": 28.007575757575758
+          }
+        ]
+      },
+      {
+        "text": "It does not mean the signal is above the ceiling everywhere.",
+        "start": 28.530303030303028,
+        "end": 31.778787878787877,
+        "phrases": [
+          {
+            "start": 28.530303030303028,
+            "end": 31.778787878787877
+          }
+        ]
+      },
+      {
+        "text": "It does not say that every sampled point detects a violation.",
+        "start": 32.301515151515154,
+        "end": 36.03484848484849,
+        "phrases": [
+          {
+            "start": 32.301515151515154,
+            "end": 36.03484848484849
+          }
+        ]
+      },
+      {
+        "text": "And this classical existence statement has not yet computed the threshold or the violating address.",
+        "start": 36.55757575757576,
+        "end": 42.24242424242424,
+        "phrases": [
+          {
+            "start": 36.55757575757576,
+            "end": 42.24242424242424
+          }
+        ]
+      },
+      {
+        "text": "Making that information explicit is why the arithmetic search and its error budgets matter.",
+        "start": 42.765151515151516,
+        "end": 47.940909090909095,
+        "phrases": [
+          {
+            "start": 42.765151515151516,
+            "end": 47.940909090909095
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "logarithm",
+    "chapter": "Use logarithmic addresses",
+    "start": 452.0666666666875,
+    "audio_start": 452.2666666666875,
+    "duration": 47.043458,
+    "sentences": [
+      {
+        "text": "To understand the proof's structure, it helps to change the horizontal coordinate.",
+        "start": 0,
+        "end": 4.593939393939394,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.593939393939394
+          }
+        ]
+      },
+      {
+        "text": "Write x as e to the power u, so u is the natural logarithm of x.",
+        "start": 5.116666666666666,
+        "end": 9.52878787878788,
+        "phrases": [
+          {
+            "start": 5.116666666666666,
+            "end": 9.52878787878788
+          }
+        ]
+      },
+      {
+        "text": "Multiplication of x now becomes addition in the new coordinate.",
+        "start": 10.05151515151515,
+        "end": 13.869696969696971,
+        "phrases": [
+          {
+            "start": 10.05151515151515,
+            "end": 13.869696969696971
+          }
+        ]
+      },
+      {
+        "text": "The window from Y to Y to the three-halves power becomes the interval from U to three-halves U, where U is the logarithm of Y.",
+        "start": 14.392424242424243,
+        "end": 21.956060606060603,
+        "phrases": [
+          {
+            "start": 14.392424242424243,
+            "end": 21.956060606060603
+          }
+        ]
+      },
+      {
+        "text": "The power ceiling becomes C times e to the power theta u.",
+        "start": 22.478787878787877,
+        "end": 26.078787878787878,
+        "phrases": [
+          {
+            "start": 22.478787878787877,
+            "end": 26.078787878787878
+          }
+        ]
+      },
+      {
+        "text": "Define the new signal g of u to mean G_z evaluated at e to the power u.",
+        "start": 26.60151515151515,
+        "end": 31.583333333333332,
+        "phrases": [
+          {
+            "start": 26.60151515151515,
+            "end": 31.583333333333332
+          }
+        ]
+      },
+      {
+        "text": "No new prime-counting statistic has appeared; we have changed its address system.",
+        "start": 32.10606060606061,
+        "end": 36.96666666666667,
+        "phrases": [
+          {
+            "start": 32.10606060606061,
+            "end": 36.96666666666667
+          }
+        ]
+      },
+      {
+        "text": "In logarithmic coordinates, the window has a width equal to one half of its starting address.",
+        "start": 37.48939393939394,
+        "end": 43.0530303030303,
+        "phrases": [
+          {
+            "start": 37.48939393939394,
+            "end": 43.0530303030303
+          }
+        ]
+      },
+      {
+        "text": "That shape will fit the proof's concentrated weights.",
+        "start": 43.57575757575757,
+        "end": 46.54545454545455,
+        "phrases": [
+          {
+            "start": 43.57575757575757,
+            "end": 46.54545454545455
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "waves",
+    "chapter": "Growth, oscillation, and cancellation",
+    "start": 500.7333333333604,
+    "audio_start": 500.9333333333604,
+    "duration": 48.886292,
+    "sentences": [
+      {
+        "text": "The original video's waves give a useful first intuition.",
+        "start": 0,
+        "end": 3.76969696969697,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.76969696969697
+          }
+        ]
+      },
+      {
+        "text": "A hypothetical zero with real part beta suggests an oscillating contribution with a growth scale like e to the power beta u.",
+        "start": 4.292424242424243,
+        "end": 11.904545454545456,
+        "phrases": [
+          {
+            "start": 4.292424242424243,
+            "end": 11.904545454545456
+          }
+        ]
+      },
+      {
+        "text": "Its height supplies an oscillation frequency.",
+        "start": 12.427272727272728,
+        "end": 15.227272727272728,
+        "phrases": [
+          {
+            "start": 12.427272727272728,
+            "end": 15.227272727272728
+          }
+        ]
+      },
+      {
+        "text": "Move beta to the right, and the envelope grows faster.",
+        "start": 15.75,
+        "end": 19.337878787878786,
+        "phrases": [
+          {
+            "start": 15.75,
+            "end": 19.337878787878786
+          }
+        ]
+      },
+      {
+        "text": "A ceiling with exponent theta grows more slowly when beta is greater than theta.",
+        "start": 19.860606060606063,
+        "end": 24.745454545454546,
+        "phrases": [
+          {
+            "start": 19.860606060606063,
+            "end": 24.745454545454546
+          }
+        ]
+      },
+      {
+        "text": "This picture explains why a rightward zero should cause trouble.",
+        "start": 25.26818181818182,
+        "end": 29.001515151515154,
+        "phrases": [
+          {
+            "start": 25.26818181818182,
+            "end": 29.001515151515154
+          }
+        ]
+      },
+      {
+        "text": "But the picture alone is not the proof.",
+        "start": 29.524242424242424,
+        "end": 31.803030303030305,
+        "phrases": [
+          {
+            "start": 29.524242424242424,
+            "end": 31.803030303030305
+          }
+        ]
+      },
+      {
+        "text": "A cosine changes sign, and contributions from different zeros can cancel.",
+        "start": 32.32575757575757,
+        "end": 37.234848484848484,
+        "phrases": [
+          {
+            "start": 32.32575757575757,
+            "end": 37.234848484848484
+          }
+        ]
+      },
+      {
+        "text": "Seeing one wave above a curve in a finite animation does not settle those issues.",
+        "start": 37.75757575757576,
+        "end": 42.593939393939394,
+        "phrases": [
+          {
+            "start": 37.75757575757576,
+            "end": 42.593939393939394
+          }
+        ]
+      },
+      {
+        "text": "The rigorous argument uses a transform and estimates that can control the combined signal.",
+        "start": 43.11666666666667,
+        "end": 48.38939393939394,
+        "phrases": [
+          {
+            "start": 43.11666666666667,
+            "end": 48.38939393939394
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "transform",
+    "chapter": "A transform records weighted readings",
+    "start": 551.2666666666903,
+    "audio_start": 551.4666666666903,
+    "duration": 54.813958,
+    "sentences": [
+      {
+        "text": "A transform takes many weighted readings of the signal.",
+        "start": 0,
+        "end": 3.2363636363636363,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.2363636363636363
+          }
+        ]
+      },
+      {
+        "text": "Here we integrate g of u against e to the power minus s u, over nonnegative u.",
+        "start": 3.759090909090909,
+        "end": 8.68030303030303,
+        "phrases": [
+          {
+            "start": 3.759090909090909,
+            "end": 8.68030303030303
+          }
+        ]
+      },
+      {
+        "text": "An integral is the continuous analogue of a weighted sum.",
+        "start": 9.203030303030303,
+        "end": 12.56060606060606,
+        "phrases": [
+          {
+            "start": 9.203030303030303,
+            "end": 12.56060606060606
+          }
+        ]
+      },
+      {
+        "text": "The real part of s supplies exponential damping, while its imaginary part supplies an oscillating phase.",
+        "start": 13.083333333333334,
+        "end": 19.91969696969697,
+        "phrases": [
+          {
+            "start": 13.083333333333334,
+            "end": 19.91969696969697
+          }
+        ]
+      },
+      {
+        "text": "Far enough to the right, in the region with real part greater than two, the crude growth bound makes this integral converge.",
+        "start": 20.442424242424245,
+        "end": 27.424242424242422,
+        "phrases": [
+          {
+            "start": 20.442424242424245,
+            "end": 27.424242424242422
+          }
+        ]
+      },
+      {
+        "text": "Analytic continuation then connects the transform to a larger region.",
+        "start": 27.9469696969697,
+        "end": 32.27424242424242,
+        "phrases": [
+          {
+            "start": 27.9469696969697,
+            "end": 32.27424242424242
+          }
+        ]
+      },
+      {
+        "text": "The crucial identity ties it to the logarithmic derivative of zeta.",
+        "start": 32.7969696969697,
+        "end": 36.80909090909091,
+        "phrases": [
+          {
+            "start": 32.7969696969697,
+            "end": 36.80909090909091
+          }
+        ]
+      },
+      {
+        "text": "Near a zero of zeta, that identity produces a pole of the transform.",
+        "start": 37.33181818181818,
+        "end": 41.61060606060606,
+        "phrases": [
+          {
+            "start": 37.33181818181818,
+            "end": 41.61060606060606
+          }
+        ]
+      },
+      {
+        "text": "Locally a pole looks like a nonzero constant divided by s minus the pole's address, plus a regular remainder.",
+        "start": 42.13333333333333,
+        "end": 49.28484848484848,
+        "phrases": [
+          {
+            "start": 42.13333333333333,
+            "end": 49.28484848484848
+          }
+        ]
+      },
+      {
+        "text": "This is the precise bridge from a zero address to a feature of the transform.",
+        "start": 49.807575757575755,
+        "end": 54.31666666666667,
+        "phrases": [
+          {
+            "start": 49.807575757575755,
+            "end": 54.31666666666667
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kernel",
+    "chapter": "High derivatives focus the reading",
+    "start": 607.7000000000156,
+    "audio_start": 607.9000000000157,
+    "duration": 54.875,
+    "sentences": [
+      {
+        "text": "Higher derivatives of the transform add powers of u to the weight.",
+        "start": 0,
+        "end": 3.6484848484848484,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.6484848484848484
+          }
+        ]
+      },
+      {
+        "text": "After normalization, the nonnegative kernel has the form u to the power k, times e to the power minus sigma u, divided by k factorial.",
+        "start": 4.171212121212121,
+        "end": 13.068181818181818,
+        "phrases": [
+          {
+            "start": 4.171212121212121,
+            "end": 13.068181818181818
+          }
+        ]
+      },
+      {
+        "text": "The factorial is the product of the positive integers through k.",
+        "start": 13.590909090909092,
+        "end": 17.25151515151515,
+        "phrases": [
+          {
+            "start": 13.590909090909092,
+            "end": 17.25151515151515
+          }
+        ]
+      },
+      {
+        "text": "For positive k, this kernel has its peak at u equal to k divided by sigma.",
+        "start": 17.774242424242424,
+        "end": 22.743939393939392,
+        "phrases": [
+          {
+            "start": 17.774242424242424,
+            "end": 22.743939393939392
+          }
+        ]
+      },
+      {
+        "text": "Increasing k moves the region where the reading is most sensitive.",
+        "start": 23.26666666666667,
+        "end": 27.12121212121212,
+        "phrases": [
+          {
+            "start": 23.26666666666667,
+            "end": 27.12121212121212
+          }
+        ]
+      },
+      {
+        "text": "The proof chooses the order in relation to the log-window, and estimates the weighted mass both inside and outside it.",
+        "start": 27.643939393939394,
+        "end": 34.516666666666666,
+        "phrases": [
+          {
+            "start": 27.643939393939394,
+            "end": 34.516666666666666
+          }
+        ]
+      },
+      {
+        "text": "Our curves show normalized kernel shapes so their different heights fit on screen.",
+        "start": 35.03939393939394,
+        "end": 39.68181818181819,
+        "phrases": [
+          {
+            "start": 35.03939393939394,
+            "end": 39.68181818181819
+          }
+        ]
+      },
+      {
+        "text": "Their absolute sizes are not being compared by this normalization.",
+        "start": 40.20454545454546,
+        "end": 44.31363636363636,
+        "phrases": [
+          {
+            "start": 40.20454545454546,
+            "end": 44.31363636363636
+          }
+        ]
+      },
+      {
+        "text": "The actual estimates also include the signal's growth and the ceiling exponent.",
+        "start": 44.83636363636364,
+        "end": 49.57575757575757,
+        "phrases": [
+          {
+            "start": 44.83636363636364,
+            "end": 49.57575757575757
+          }
+        ]
+      },
+      {
+        "text": "The outside tails are bounded, rather than silently thrown away.",
+        "start": 50.098484848484844,
+        "end": 54.377272727272725,
+        "phrases": [
+          {
+            "start": 50.098484848484844,
+            "end": 54.377272727272725
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "positive_part",
+    "chapter": "Why large negative values need no floor",
+    "start": 664.2000000000064,
+    "audio_start": 664.4000000000065,
+    "duration": 55.56225,
+    "sentences": [
+      {
+        "text": "The reason a one-sided estimate works starts with an elementary identity.",
+        "start": 0,
+        "end": 4.363636363636363,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.363636363636363
+          }
+        ]
+      },
+      {
+        "text": "Take a real number x and add it to its absolute value.",
+        "start": 4.886363636363636,
+        "end": 8.510606060606062,
+        "phrases": [
+          {
+            "start": 4.886363636363636,
+            "end": 8.510606060606062
+          }
+        ]
+      },
+      {
+        "text": "If x is positive, the result is twice x.",
+        "start": 9.033333333333333,
+        "end": 12.233333333333333,
+        "phrases": [
+          {
+            "start": 9.033333333333333,
+            "end": 12.233333333333333
+          }
+        ]
+      },
+      {
+        "text": "If x is negative, its absolute value cancels it and the result is zero.",
+        "start": 12.756060606060606,
+        "end": 17.483333333333334,
+        "phrases": [
+          {
+            "start": 12.756060606060606,
+            "end": 17.483333333333334
+          }
+        ]
+      },
+      {
+        "text": "So the expression is twice the positive part of x, meaning the larger of x and zero.",
+        "start": 18.006060606060604,
+        "end": 23.23030303030303,
+        "phrases": [
+          {
+            "start": 18.006060606060604,
+            "end": 23.23030303030303
+          }
+        ]
+      },
+      {
+        "text": "For minus three the result is zero\u2026 for two the result is four\u2026 and for minus one it is zero again.",
+        "start": 23.7530303030303,
+        "end": 31.82121212121212,
+        "phrases": [
+          {
+            "start": 23.7530303030303,
+            "end": 26.116666666666667
+          },
+          {
+            "start": 26.968939393939394,
+            "end": 28.71439393939394
+          },
+          {
+            "start": 29.56666666666667,
+            "end": 31.82121212121212
+          }
+        ]
+      },
+      {
+        "text": "This is an identity about every real value.",
+        "start": 32.343939393939394,
+        "end": 35.27727272727273,
+        "phrases": [
+          {
+            "start": 32.343939393939394,
+            "end": 35.27727272727273
+          }
+        ]
+      },
+      {
+        "text": "Our ACL2 teaching function represents the positive part on rational inputs.",
+        "start": 35.800000000000004,
+        "end": 40.733333333333334,
+        "phrases": [
+          {
+            "start": 35.800000000000004,
+            "end": 40.733333333333334
+          }
+        ]
+      },
+      {
+        "text": "Its complete definition and the checked rational identity are shown here.",
+        "start": 41.2560606060606,
+        "end": 45.486363636363635,
+        "phrases": [
+          {
+            "start": 41.2560606060606,
+            "end": 45.486363636363635
+          }
+        ]
+      },
+      {
+        "text": "An upper bound on x, when that bound is nonnegative, also bounds its positive part.",
+        "start": 46.00909090909091,
+        "end": 51.621212121212125,
+        "phrases": [
+          {
+            "start": 46.00909090909091,
+            "end": 51.621212121212125
+          }
+        ]
+      },
+      {
+        "text": "No lower bound on x is needed for this step.",
+        "start": 52.14393939393939,
+        "end": 55.06515151515151,
+        "phrases": [
+          {
+            "start": 52.14393939393939,
+            "end": 55.06515151515151
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "readings",
+    "chapter": "Keep both weighted readings",
+    "start": 721.399999999995,
+    "audio_start": 721.599999999995,
+    "duration": 61.046833,
+    "sentences": [
+      {
+        "text": "Now use three signal values: minus three, two, and minus one.",
+        "start": 0,
+        "end": 4.339393939393939,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.339393939393939
+          }
+        ]
+      },
+      {
+        "text": "Give each weight one.",
+        "start": 4.862121212121212,
+        "end": 6.086363636363636,
+        "phrases": [
+          {
+            "start": 4.862121212121212,
+            "end": 6.086363636363636
+          }
+        ]
+      },
+      {
+        "text": "The plain reading adds them, producing minus two.",
+        "start": 6.6090909090909085,
+        "end": 9.724242424242425,
+        "phrases": [
+          {
+            "start": 6.6090909090909085,
+            "end": 9.724242424242425
+          }
+        ]
+      },
+      {
+        "text": "For a second reading, use phases one, minus one, and one.",
+        "start": 10.246969696969696,
+        "end": 13.931818181818182,
+        "phrases": [
+          {
+            "start": 10.246969696969696,
+            "end": 13.931818181818182
+          }
+        ]
+      },
+      {
+        "text": "Multiplying by these phases produces minus three, minus two, and minus one, so the signed reading is minus six.",
+        "start": 14.454545454545455,
+        "end": 21.921212121212122,
+        "phrases": [
+          {
+            "start": 14.454545454545455,
+            "end": 21.921212121212122
+          }
+        ]
+      },
+      {
+        "text": "Its absolute value is six.",
+        "start": 22.443939393939395,
+        "end": 24.577272727272728,
+        "phrases": [
+          {
+            "start": 22.443939393939395,
+            "end": 24.577272727272728
+          }
+        ]
+      },
+      {
+        "text": "Add back the plain reading, and six plus minus two is four.",
+        "start": 25.1,
+        "end": 28.918181818181818,
+        "phrases": [
+          {
+            "start": 25.1,
+            "end": 28.918181818181818
+          }
+        ]
+      },
+      {
+        "text": "The triangle inequality says that the absolute value of a sum is at most the sum of absolute values.",
+        "start": 29.44090909090909,
+        "end": 35.622727272727275,
+        "phrases": [
+          {
+            "start": 29.44090909090909,
+            "end": 35.622727272727275
+          }
+        ]
+      },
+      {
+        "text": "Combining that fact with the positive-part identity bounds this combined reading by twice the sum of the positive contributions.",
+        "start": 36.14545454545455,
+        "end": 43.30909090909091,
+        "phrases": [
+          {
+            "start": 36.14545454545455,
+            "end": 43.30909090909091
+          }
+        ]
+      },
+      {
+        "text": "Here the only positive signal value was two, and twice two is four.",
+        "start": 43.831818181818186,
+        "end": 48.25606060606061,
+        "phrases": [
+          {
+            "start": 43.831818181818186,
+            "end": 48.25606060606061
+          }
+        ]
+      },
+      {
+        "text": "If the first signal value falls from minus three to minus ten, the combined reading is still four.",
+        "start": 48.77878787878788,
+        "end": 54.548484848484854,
+        "phrases": [
+          {
+            "start": 48.77878787878788,
+            "end": 54.548484848484854
+          }
+        ]
+      },
+      {
+        "text": "The negative value disappeared from this upper bound; we did not need to put a floor under it.",
+        "start": 55.07121212121212,
+        "end": 60.55,
+        "phrases": [
+          {
+            "start": 55.07121212121212,
+            "end": 60.55
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "checked_readings",
+    "chapter": "The finite cancellation in ACL2",
+    "start": 784.0666666666496,
+    "audio_start": 784.2666666666496,
+    "duration": 58.864375,
+    "sentences": [
+      {
+        "text": "Here are the two ACL2 functions used for this finite example.",
+        "start": 0,
+        "end": 3.9393939393939394,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.9393939393939394
+          }
+        ]
+      },
+      {
+        "text": "The plain function adds its three rational inputs.",
+        "start": 4.462121212121212,
+        "end": 7.456060606060606,
+        "phrases": [
+          {
+            "start": 4.462121212121212,
+            "end": 7.456060606060606
+          }
+        ]
+      },
+      {
+        "text": "The signed function subtracts the middle input instead of adding it.",
+        "start": 7.978787878787879,
+        "end": 11.784848484848485,
+        "phrases": [
+          {
+            "start": 7.978787878787879,
+            "end": 11.784848484848485
+          }
+        ]
+      },
+      {
+        "text": "These fixed real phases are a small special case, chosen so we can see every calculation.",
+        "start": 12.307575757575759,
+        "end": 18.416666666666668,
+        "phrases": [
+          {
+            "start": 12.307575757575759,
+            "end": 18.416666666666668
+          }
+        ]
+      },
+      {
+        "text": "The general teaching theorem allows all three rational signal values to vary.",
+        "start": 18.93939393939394,
+        "end": 23.727272727272727,
+        "phrases": [
+          {
+            "start": 18.93939393939394,
+            "end": 23.727272727272727
+          }
+        ]
+      },
+      {
+        "text": "It bounds the absolute signed reading plus the plain reading by twice the sum of their positive parts.",
+        "start": 24.25,
+        "end": 30.03181818181818,
+        "phrases": [
+          {
+            "start": 24.25,
+            "end": 30.03181818181818
+          }
+        ]
+      },
+      {
+        "text": "There is no nonnegativity hypothesis on the signal values.",
+        "start": 30.554545454545455,
+        "end": 34.518181818181816,
+        "phrases": [
+          {
+            "start": 30.554545454545455,
+            "end": 34.518181818181816
+          }
+        ]
+      },
+      {
+        "text": "The project also has a disk-based version for complex phases and nonnegative weights.",
+        "start": 35.04090909090909,
+        "end": 40.10757575757575,
+        "phrases": [
+          {
+            "start": 35.04090909090909,
+            "end": 40.10757575757575
+          }
+        ]
+      },
+      {
+        "text": "For the continuous transform, the same idea controls the magnitude of an oscillating reading plus a plain real reading.",
+        "start": 40.630303030303025,
+        "end": 47.624242424242425,
+        "phrases": [
+          {
+            "start": 40.630303030303025,
+            "end": 47.624242424242425
+          }
+        ]
+      },
+      {
+        "text": "That extra real reading must be retained.",
+        "start": 48.14696969696969,
+        "end": 50.801515151515154,
+        "phrases": [
+          {
+            "start": 48.14696969696969,
+            "end": 50.801515151515154
+          }
+        ]
+      },
+      {
+        "text": "Analytic estimates must control it before one can turn the combined estimate into a bound on the oscillating reading alone.",
+        "start": 51.32424242424243,
+        "end": 58.36666666666667,
+        "phrases": [
+          {
+            "start": 51.32424242424243,
+            "end": 58.36666666666667
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "geometry",
+    "chapter": "A nearby pole forces large coefficients",
+    "start": 844.5666666666409,
+    "audio_start": 844.766666666641,
+    "duration": 64.354292,
+    "sentences": [
+      {
+        "text": "The other side of the argument comes from the pole.",
+        "start": 0,
+        "end": 2.884848484848485,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.884848484848485
+          }
+        ]
+      },
+      {
+        "text": "Expand the transform around an ordinary point to the right of the forbidden region.",
+        "start": 3.4075757575757577,
+        "end": 8.049999999999999,
+        "phrases": [
+          {
+            "start": 3.4075757575757577,
+            "end": 8.049999999999999
+          }
+        ]
+      },
+      {
+        "text": "Its successive coefficients record its higher derivatives, with factorial normalization.",
+        "start": 8.572727272727272,
+        "end": 13.736363636363635,
+        "phrases": [
+          {
+            "start": 8.572727272727272,
+            "end": 13.736363636363635
+          }
+        ]
+      },
+      {
+        "text": "For a simple pole at distance d, the pole contribution has coefficient magnitudes proportional to one divided by successive powers of d.",
+        "start": 14.25909090909091,
+        "end": 22.586363636363636,
+        "phrases": [
+          {
+            "start": 14.25909090909091,
+            "end": 22.586363636363636
+          }
+        ]
+      },
+      {
+        "text": "A more distant regular remainder contributes a slower geometric scale once an enclosing circle has been justified.",
+        "start": 23.109090909090906,
+        "end": 29.933333333333334,
+        "phrases": [
+          {
+            "start": 23.109090909090906,
+            "end": 29.933333333333334
+          }
+        ]
+      },
+      {
+        "text": "In a favorable isolated picture, the zero is closer to our expansion point than the boundary at theta.",
+        "start": 30.456060606060603,
+        "end": 36.97727272727273,
+        "phrases": [
+          {
+            "start": 30.456060606060603,
+            "end": 36.97727272727273
+          }
+        ]
+      },
+      {
+        "text": "That smaller distance makes the pole's coefficient scale grow faster relative to the ceiling scale.",
+        "start": 37.5,
+        "end": 43.24545454545454,
+        "phrases": [
+          {
+            "start": 37.5,
+            "end": 43.24545454545454
+          }
+        ]
+      },
+      {
+        "text": "This diagram is a local schematic, not a certificate for an actual zero.",
+        "start": 43.768181818181816,
+        "end": 48.60454545454545,
+        "phrases": [
+          {
+            "start": 43.768181818181816,
+            "end": 48.60454545454545
+          }
+        ]
+      },
+      {
+        "text": "A complete proof must arrange the geometry and control every competing pole and the regular remainder.",
+        "start": 49.127272727272725,
+        "end": 55.18787878787879,
+        "phrases": [
+          {
+            "start": 49.127272727272725,
+            "end": 55.18787878787879
+          }
+        ]
+      },
+      {
+        "text": "Multiple zeros and clusters cannot be ignored.",
+        "start": 55.71060606060606,
+        "end": 58.82575757575758,
+        "phrases": [
+          {
+            "start": 55.71060606060606,
+            "end": 58.82575757575758
+          }
+        ]
+      },
+      {
+        "text": "Those obligations will return when we build the pole and circle certificates.",
+        "start": 59.34848484848485,
+        "end": 63.85757575757576,
+        "phrases": [
+          {
+            "start": 59.34848484848485,
+            "end": 63.85757575757576
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "growth",
+    "chapter": "Incompatible geometric scales",
+    "start": 910.5666666666311,
+    "audio_start": 910.7666666666312,
+    "duration": 54.73775,
+    "sentences": [
+      {
+        "text": "After the analytic estimates are in place, the final contradiction has an arithmetic shape.",
+        "start": 0,
+        "end": 5.260606060606061,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.260606060606061
+          }
+        ]
+      },
+      {
+        "text": "The same coefficient cannot be at least a lower estimate and at most a smaller upper estimate.",
+        "start": 5.783333333333333,
+        "end": 11.128787878787879,
+        "phrases": [
+          {
+            "start": 5.783333333333333,
+            "end": 11.128787878787879
+          }
+        ]
+      },
+      {
+        "text": "If one geometric scale grows by a factor greater than one relative to the other, repeated multiplication eventually exceeds any fixed target.",
+        "start": 11.651515151515152,
+        "end": 19.833333333333332,
+        "phrases": [
+          {
+            "start": 11.651515151515152,
+            "end": 19.833333333333332
+          }
+        ]
+      },
+      {
+        "text": "For example, multiply repeatedly by three halves.",
+        "start": 20.356060606060606,
+        "end": 24.01666666666667,
+        "phrases": [
+          {
+            "start": 20.356060606060606,
+            "end": 24.01666666666667
+          }
+        ]
+      },
+      {
+        "text": "The values at exponents zero, two, four, and six are one\u2026 nine quarters\u2026 eighty-one sixteenths\u2026 and seven hundred twenty-nine sixty-fourths.",
+        "start": 24.53939393939394,
+        "end": 36.47803030303031,
+        "phrases": [
+          {
+            "start": 24.53939393939394,
+            "end": 28.527272727272727
+          },
+          {
+            "start": 29.379545454545454,
+            "end": 30.579545454545453
+          },
+          {
+            "start": 31.431818181818183,
+            "end": 32.874242424242425
+          },
+          {
+            "start": 33.72651515151515,
+            "end": 36.47803030303031
+          }
+        ]
+      },
+      {
+        "text": "By the sixth exponent this example has passed eight.",
+        "start": 37.00075757575758,
+        "end": 40.225,
+        "phrases": [
+          {
+            "start": 37.00075757575758,
+            "end": 40.225
+          }
+        ]
+      },
+      {
+        "text": "This demonstrates the geometric-growth mechanism.",
+        "start": 40.74772727272727,
+        "end": 43.69318181818182,
+        "phrases": [
+          {
+            "start": 40.74772727272727,
+            "end": 43.69318181818182
+          }
+        ]
+      },
+      {
+        "text": "It does not derive the analytic estimates that feed it.",
+        "start": 44.215909090909086,
+        "end": 47.35530303030303,
+        "phrases": [
+          {
+            "start": 44.215909090909086,
+            "end": 47.35530303030303
+          }
+        ]
+      },
+      {
+        "text": "We still need justified coefficients, remainders, and constants before applying this mechanism to the transform.",
+        "start": 47.8780303030303,
+        "end": 54.24166666666667,
+        "phrases": [
+          {
+            "start": 47.8780303030303,
+            "end": 54.24166666666667
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "threshold",
+    "chapter": "Compute a sufficient order",
+    "start": 966.9333333332896,
+    "audio_start": 967.1333333332897,
+    "duration": 61.626625,
+    "sentences": [
+      {
+        "text": "An existence argument says that some sufficiently large order will work.",
+        "start": 0,
+        "end": 4.266666666666667,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.266666666666667
+          }
+        ]
+      },
+      {
+        "text": "The arithmetic version asks us to compute a sufficient order.",
+        "start": 4.78939393939394,
+        "end": 8.413636363636364,
+        "phrases": [
+          {
+            "start": 4.78939393939394,
+            "end": 8.413636363636364
+          }
+        ]
+      },
+      {
+        "text": "The repository's geometric index does this for a rational growth factor greater than one and a nonnegative rational target.",
+        "start": 8.936363636363636,
+        "end": 16.245454545454546,
+        "phrases": [
+          {
+            "start": 8.936363636363636,
+            "end": 16.245454545454546
+          }
+        ]
+      },
+      {
+        "text": "Its definition uses the precision fuel introduced in Part Four.",
+        "start": 16.76818181818182,
+        "end": 20.719696969696972,
+        "phrases": [
+          {
+            "start": 16.76818181818182,
+            "end": 20.719696969696972
+          }
+        ]
+      },
+      {
+        "text": "For growth factor three halves and target eight, it returns seventeen.",
+        "start": 21.24242424242424,
+        "end": 25.67878787878788,
+        "phrases": [
+          {
+            "start": 21.24242424242424,
+            "end": 25.67878787878788
+          }
+        ]
+      },
+      {
+        "text": "That is a conservative bound, not the first crossing we saw in the example.",
+        "start": 26.20151515151515,
+        "end": 30.928787878787876,
+        "phrases": [
+          {
+            "start": 26.20151515151515,
+            "end": 30.928787878787876
+          }
+        ]
+      },
+      {
+        "text": "The proof uses a linear lower estimate for repeated multiplication: the kth power is at least one plus k times the quantity growth factor minus one.",
+        "start": 31.451515151515153,
+        "end": 40.83333333333333,
+        "phrases": [
+          {
+            "start": 31.451515151515153,
+            "end": 40.83333333333333
+          }
+        ]
+      },
+      {
+        "text": "At order seventeen, that lower estimate is nineteen halves, already greater than eight.",
+        "start": 41.3560606060606,
+        "end": 46.49545454545454,
+        "phrases": [
+          {
+            "start": 41.3560606060606,
+            "end": 46.49545454545454
+          }
+        ]
+      },
+      {
+        "text": "The checked theorem guarantees that every natural order at least seventeen reaches the target.",
+        "start": 47.018181818181816,
+        "end": 52.24242424242424,
+        "phrases": [
+          {
+            "start": 47.018181818181816,
+            "end": 52.24242424242424
+          }
+        ]
+      },
+      {
+        "text": "This is a real computed component of the project.",
+        "start": 52.76515151515151,
+        "end": 55.71060606060606,
+        "phrases": [
+          {
+            "start": 52.76515151515151,
+            "end": 55.71060606060606
+          }
+        ]
+      },
+      {
+        "text": "It still needs the analytic data and inequalities supplied to the larger argument.",
+        "start": 56.233333333333334,
+        "end": 61.130303030303025,
+        "phrases": [
+          {
+            "start": 56.233333333333334,
+            "end": 61.130303030303025
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rh",
+    "chapter": "Why ceilings near one half would suffice",
+    "start": 1030.1999999999473,
+    "audio_start": 1030.3999999999473,
+    "duration": 72.999083,
+    "sentences": [
+      {
+        "text": "Return to the line at one half.",
+        "start": 0,
+        "end": 2.0363636363636366,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.0363636363636366
+          }
+        ]
+      },
+      {
+        "text": "Suppose the required recurring-window ceilings were available for every exponent just above one half.",
+        "start": 2.5590909090909086,
+        "end": 8.474242424242425,
+        "phrases": [
+          {
+            "start": 2.5590909090909086,
+            "end": 8.474242424242425
+          }
+        ]
+      },
+      {
+        "text": "For each such exponent, its positive constant may be different, but it must stay fixed across that exponent's windows.",
+        "start": 8.996969696969698,
+        "end": 16.221212121212123,
+        "phrases": [
+          {
+            "start": 8.996969696969698,
+            "end": 16.221212121212123
+          }
+        ]
+      },
+      {
+        "text": "A hypothetical zero with real part beta greater than one half leaves a positive gap.",
+        "start": 16.743939393939396,
+        "end": 21.98030303030303,
+        "phrases": [
+          {
+            "start": 16.743939393939396,
+            "end": 21.98030303030303
+          }
+        ]
+      },
+      {
+        "text": "Choose epsilon to be half that gap.",
+        "start": 22.503030303030304,
+        "end": 24.866666666666664,
+        "phrases": [
+          {
+            "start": 22.503030303030304,
+            "end": 24.866666666666664
+          }
+        ]
+      },
+      {
+        "text": "The exponent one half plus epsilon then lies strictly between one half and beta.",
+        "start": 25.38939393939394,
+        "end": 30.407575757575756,
+        "phrases": [
+          {
+            "start": 25.38939393939394,
+            "end": 30.407575757575756
+          }
+        ]
+      },
+      {
+        "text": "The Landau theorem at that exponent excludes the supposed zero.",
+        "start": 30.93030303030303,
+        "end": 34.736363636363635,
+        "phrases": [
+          {
+            "start": 30.93030303030303,
+            "end": 34.736363636363635
+          }
+        ]
+      },
+      {
+        "text": "For a concrete illustration, take beta equal to three quarters.",
+        "start": 35.25909090909091,
+        "end": 38.99242424242424,
+        "phrases": [
+          {
+            "start": 35.25909090909091,
+            "end": 38.99242424242424
+          }
+        ]
+      },
+      {
+        "text": "Epsilon is one eighth, and the chosen exponent is five eighths.",
+        "start": 39.515151515151516,
+        "end": 43.30909090909091,
+        "phrases": [
+          {
+            "start": 39.515151515151516,
+            "end": 43.30909090909091
+          }
+        ]
+      },
+      {
+        "text": "The ACL2 card checks this midpoint inequality for any rational beta in the stated range.",
+        "start": 43.831818181818186,
+        "end": 49.69848484848485,
+        "phrases": [
+          {
+            "start": 43.831818181818186,
+            "end": 49.69848484848485
+          }
+        ]
+      },
+      {
+        "text": "That arithmetic fact chooses the exponent in our example; the zero-free conclusion still uses the analytic theorem.",
+        "start": 50.221212121212126,
+        "end": 57.445454545454545,
+        "phrases": [
+          {
+            "start": 50.221212121212126,
+            "end": 57.445454545454545
+          }
+        ]
+      },
+      {
+        "text": "Excluding every zero on the right, together with reflection, puts every nontrivial zero on the central line.",
+        "start": 57.96818181818182,
+        "end": 64.61060606060606,
+        "phrases": [
+          {
+            "start": 57.96818181818182,
+            "end": 64.61060606060606
+          }
+        ]
+      },
+      {
+        "text": "This explains what the ceiling-building part of an RH proof has to deliver; this episode has not constructed those ceilings.",
+        "start": 65.13333333333333,
+        "end": 72.5030303030303,
+        "phrases": [
+          {
+            "start": 65.13333333333333,
+            "end": 72.5030303030303
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scope",
+    "chapter": "What is being brought into arithmetic",
+    "start": 1104.8333333332691,
+    "audio_start": 1105.0333333332692,
+    "duration": 58.024625,
+    "sentences": [
+      {
+        "text": "We can now name the job of this repository more clearly.",
+        "start": 0,
+        "end": 3.490909090909091,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.490909090909091
+          }
+        ]
+      },
+      {
+        "text": "The classical Landau theorem turns recurring ceilings into a zero-free region.",
+        "start": 4.013636363636364,
+        "end": 8.728787878787879,
+        "phrases": [
+          {
+            "start": 4.013636363636364,
+            "end": 8.728787878787879
+          }
+        ]
+      },
+      {
+        "text": "The arithmetic project aims to replace the relevant existence steps with explicit constructions and checked bounds.",
+        "start": 9.251515151515152,
+        "end": 15.772727272727273,
+        "phrases": [
+          {
+            "start": 9.251515151515152,
+            "end": 15.772727272727273
+          }
+        ]
+      },
+      {
+        "text": "The finite search, rational signal evaluator, one-sided estimates, and computed orders each address part of that job.",
+        "start": 16.295454545454547,
+        "end": 23.725757575757576,
+        "phrases": [
+          {
+            "start": 16.295454545454547,
+            "end": 23.725757575757576
+          }
+        ]
+      },
+      {
+        "text": "A proof of an isolated arithmetic lemma is not yet the full reduction.",
+        "start": 24.248484848484846,
+        "end": 28.503030303030304,
+        "phrases": [
+          {
+            "start": 24.248484848484846,
+            "end": 28.503030303030304
+          }
+        ]
+      },
+      {
+        "text": "The analytic meanings, zero data, remainder estimates, and final composition must all match.",
+        "start": 29.025757575757574,
+        "end": 34.96515151515151,
+        "phrases": [
+          {
+            "start": 29.025757575757574,
+            "end": 34.96515151515151
+          }
+        ]
+      },
+      {
+        "text": "Working toward Peano Arithmetic means accounting for those links as well as running a checker.",
+        "start": 35.487878787878785,
+        "end": 40.7,
+        "phrases": [
+          {
+            "start": 35.487878787878785,
+            "end": 40.7
+          }
+        ]
+      },
+      {
+        "text": "There is no claim that this is the only part of an RH argument that could be brought into Peano Arithmetic.",
+        "start": 41.222727272727276,
+        "end": 47.01666666666667,
+        "phrases": [
+          {
+            "start": 41.222727272727276,
+            "end": 47.01666666666667
+          }
+        ]
+      },
+      {
+        "text": "Nor have we ruled out the possibility of an entire RH proof there.",
+        "start": 47.53939393939394,
+        "end": 51.64848484848484,
+        "phrases": [
+          {
+            "start": 47.53939393939394,
+            "end": 51.64848484848484
+          }
+        ]
+      },
+      {
+        "text": "Here we are making one useful proof component explicit and examining exactly what it needs.",
+        "start": 52.171212121212115,
+        "end": 57.528787878787874,
+        "phrases": [
+          {
+            "start": 52.171212121212115,
+            "end": 57.528787878787874
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "next",
+    "chapter": "From the bridge to explicit kernels",
+    "start": 1164.4999999999304,
+    "audio_start": 1164.6999999999305,
+    "duration": 49.333375,
+    "sentences": [
+      {
+        "text": "The central idea is now in view.",
+        "start": 0,
+        "end": 2.2545454545454544,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.2545454545454544
+          }
+        ]
+      },
+      {
+        "text": "A long window limits the positive part of the signal where a carefully chosen reading concentrates.",
+        "start": 2.7772727272727273,
+        "end": 8.437878787878788,
+        "phrases": [
+          {
+            "start": 2.7772727272727273,
+            "end": 8.437878787878788
+          }
+        ]
+      },
+      {
+        "text": "The one-sided identity keeps large negative signal values from spoiling that combined upper bound.",
+        "start": 8.960606060606061,
+        "end": 14.9,
+        "phrases": [
+          {
+            "start": 8.960606060606061,
+            "end": 14.9
+          }
+        ]
+      },
+      {
+        "text": "A nearby pole supplies a competing coefficient scale.",
+        "start": 15.422727272727272,
+        "end": 18.84090909090909,
+        "phrases": [
+          {
+            "start": 15.422727272727272,
+            "end": 18.84090909090909
+          }
+        ]
+      },
+      {
+        "text": "Once all the geometric and tail estimates are justified, those scales become incompatible at a sufficiently large order.",
+        "start": 19.363636363636363,
+        "end": 26.73333333333333,
+        "phrases": [
+          {
+            "start": 19.363636363636363,
+            "end": 26.73333333333333
+          }
+        ]
+      },
+      {
+        "text": "The arithmetic challenge is to make that order, the bounds, and the resulting witness construction explicit.",
+        "start": 27.256060606060604,
+        "end": 33.15909090909091,
+        "phrases": [
+          {
+            "start": 27.256060606060604,
+            "end": 33.15909090909091
+          }
+        ]
+      },
+      {
+        "text": "Next we will build the exponentially damped kernels and their finite approximations.",
+        "start": 33.68181818181818,
+        "end": 38.56666666666667,
+        "phrases": [
+          {
+            "start": 33.68181818181818,
+            "end": 38.56666666666667
+          }
+        ]
+      },
+      {
+        "text": "That is how the proof's weighted readings begin to become computations with rational error budgets.",
+        "start": 39.089393939393936,
+        "end": 44.59242424242424,
+        "phrases": [
+          {
+            "start": 39.089393939393936,
+            "end": 44.59242424242424
+          }
+        ]
+      },
+      {
+        "text": "The bridge tells us why those computations are worth constructing.",
+        "start": 45.11515151515151,
+        "end": 48.836363636363636,
+        "phrases": [
+          {
+            "start": 45.11515151515151,
+            "end": 48.836363636363636
+          }
+        ]
+      }
+    ]
+  }
+]

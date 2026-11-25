@@ -1,0 +1,91 @@
+## 00:00:00 — From a weighted reading to rational computations
+
+Part Five explained why the Landau argument takes concentrated weighted readings of the signal. The weights contain powers, factorials, and exponential damping. Those expressions look continuous, but we need finite computations with justified error bounds. This episode builds the scalar kernel weights from exact rational arithmetic. We will first enclose an exponential, then reverse that enclosure to obtain a decaying exponential, and finally assemble a kernel weight. After that, we will distinguish evaluating a finite sum from approximating an integral. The error from each job has to be counted separately. The complex phases will get their own next episode, so we can build these ingredients without rushing. This is Part Six of Landau Windows ACL Two: explicit kernels and error budgets.
+
+## 00:00:53 — Unpack the factorial
+
+The factorial in the kernel is a whole-number construction. For a positive integer, multiply all the positive integers up to that number. One factorial is one… two factorial is two… three factorial is six… and four factorial is twenty-four. Zero factorial is defined to be one. That convention makes the zeroth term of the exponential series equal to one. Factorials grow quickly because each new step multiplies by the next integer. Dividing by them will eventually make successive terms smaller, even when the numerator contains repeated multiplication. We do not need a machine's floating-point exponential operation to begin this construction.
+
+## 00:01:41 — Build one exponential term at a time
+
+The exponential of x has a power-series description. Its term at natural index k is x to the power k divided by k factorial. We will use nonnegative rational x. The term at index zero is one. To get the next term, multiply the current term by x, and divide by the new index. At x equal to one, the terms begin one… one… one half… one sixth… and one twenty-fourth. Every one of these is an exact rational number. The individual terms are not yet the exponential. We will add them, and then bound everything left out.
+
+## 00:02:25 — The actual term function
+
+Here is the project's ACL2 term function. Its inputs are the rational argument and the natural index. At index zero, the function returns one. Otherwise it asks for the preceding term, multiplies by the argument, and divides by the current index. The recursive index decreases, so this is a finite computation. This recurrence produces the same quotient as the power divided by the factorial, without computing those two large expressions separately. For argument one and index three, it returns one sixth. That value has no rounding error. The proof task is to control omitted terms, not to guess how many decimal places this rational number contains.
+
+## 00:03:12 — A partial sum has an explicit stopping index
+
+Now add the terms. At argument one, the successive partial sums are one… two… five halves… and eight thirds. The sum through index three contains four terms, because we started at index zero. The ACL2 sum function returns one in the base case, and otherwise adds the current term to the preceding sum. The stopping index is an ordinary natural number. Asking for a larger index gives a different finite computation. These partial sums approach the exponential of one. A finite partial sum by itself is not the final real value. We need an upper bound as well as this lower sum.
+
+## 00:03:58 — Pay for every omitted term
+
+Take the partial sum through index three. The first omitted term at argument one is one twenty-fourth. From there, every next term is at most half its predecessor. The actual ratios in this example are smaller; using one half gives a convenient conservative bound. The omitted tail is therefore at most one twenty-fourth, plus one forty-eighth, plus one ninety-sixth, and so on. A halving geometric series adds up to twice its first term. The whole omitted tail is at most one twelfth. For a general nonnegative argument x and stopping index n, the condition twice x is less than or equal to n plus two ensures these later ratios are at most one half. The ratio condition is part of the guarantee. We cannot take an arbitrary early stopping point and assume its tail already halves.
+
+## 00:04:53 — Turn the tail bound into an interval
+
+The project's band function packages those two bounds. Its lower endpoint is the finite partial sum. Its upper endpoint adds twice the first omitted term. For argument one and index three, the lower endpoint is eight thirds. Add the tail allowance of one twelfth, and the upper endpoint is eleven quarters. The full interval width is one twelfth. The ACL2 theorem controls every later finite partial sum, not just a few sums that happened to be tested. This is how one finite band can make a statement about arbitrarily long finite computations. The real exponential interpretation will use that same band.
+
+## 00:05:36 — Choose a safe starting index
+
+We also need a way to select a safe index from the input. The construction starts beyond twice the argument. It uses a rational rounding-up operation, returning the least whole number at least the given nonnegative rational. Here ceiling means rounding upward, rather than the upper curve from the Landau theorem. The bounded loop subtracts one at each step and counts how many subtractions are needed. A computed fuel supply keeps the loop finite and is proved large enough for its input. The wrapper supplies that fuel… and the exponential's starting index adds one more to the rounded value of twice x. For argument one, the starting index is three. This is safely inside the region where the tail argument applies.
+
+## 00:06:26 — Turn a width target into extra work
+
+Suppose we want a full width of at most one hundredth. At argument one, the initial width allowance is one twelfth. Halve that allowance repeatedly: one twenty-fourth… one forty-eighth… one ninety-sixth… and one one-hundred-ninety-second. The fourth halving is enough to fall below one hundredth. The implementation shown here keeps the width fixed and doubles the target in its recursive calls. That comparison is equivalent to halving the width against a fixed target. A computed fuel supply bounds the number of recursive calls. The initial-width function supplies the starting tail allowance… and the depth function requests enough halvings for the chosen positive rational tolerance. We have turned an accuracy request into a finite amount of work.
+
+## 00:07:19 — Assemble the requested exponential enclosure
+
+The final exponential index is the safe starting index plus the extra depth. The bounds function evaluates the band at that index. For argument one and a requested width of one tenth, the initial band already suffices. Request one hundredth instead, and the construction chooses index seven. That means it includes terms zero through seven. The exact rational endpoints shown here give a narrower interval. The actual width can be much smaller than the requested width, because the proof used a conservative halving estimate. The general theorem guarantees the requested width for every nonnegative rational argument and every positive rational tolerance. It does not depend on comparing the answer with a decimal calculator.
+
+## 00:08:08 — Finite arithmetic and the real exponential
+
+There are two related statements to keep track of. The arithmetic statement bounds all later partial sums by exact rational endpoints. The real statement says that those endpoints contain the exponential of the input. The power series identifies the real exponential with the limit of its partial sums. Passing a closed inequality to that limit keeps the real value in the same interval. The repository's Lean interpretation proves this connection for the constructed bounds. Tightening the tolerance does not choose a different exponential; the bands remain compatible with the same value. Our pictures may use ordinary numerical curves for illustration. The certificates use rational endpoints and proved inequalities.
+
+## 00:08:57 — Reverse endpoints for exponential decay
+
+The kernel needs exponential decay. For nonnegative x, the exponential of minus x is the reciprocal of the exponential of x. Suppose the positive exponential lies between L and R, with one less than or equal to L. Reciprocals reverse the order. The decaying exponential therefore lies between one divided by R and one divided by L. For the band from eight thirds to eleven quarters, the reversed band is from four elevenths to three eighths. The ACL2 function performs exactly that endpoint reversal. Its endpoints are positive and at most one. With these lower bounds on the original endpoints, taking reciprocals also does not increase the full interval width. The same positive tolerance can control the decaying enclosure.
+
+## 00:09:47 — Restore the kernel's actual scale
+
+We can now return to the kernel from Part Five. At a nonnegative address u, the scalar kernel is u to the power k, times the exponential of minus sigma u, divided by k factorial. We use a natural k and nonnegative rational sigma. The power divided by the factorial is exactly the term function we already built. The remaining factor is our decaying exponential. Unlike the normalized pictures in Part Five, this formula retains the actual factorial normalization. To use a kernel value in a rectangle sum, we also multiply by the nonnegative cell width h. The resulting weight is nonnegative. The signal it will multiply can still have either sign.
+
+## 00:10:35 — Separate the exact factor from the uncertain factor
+
+The weight has a useful decomposition. Its exact rational scale is the cell width times the exponential term at u and index k. The only remaining factor is the exponential of minus sigma u. The scale function computes the exact factor first. For a concrete example, set u to one third, sigma to three, k to two, and the cell width to one half. The term is one eighteenth, and multiplying by the cell width gives a scale of one thirty-sixth. The damping argument sigma u is one. So this entire weight is one thirty-sixth times the exponential of minus one. This example also keeps sigma greater than two, as the signal transform will require later.
+
+## 00:11:21 — Budget the scaled exponential error
+
+Multiplying an interval by a nonnegative exact scale multiplies its full width by that scale. We therefore choose the exponential tolerance after computing the scale. The project's precision is the requested final error divided by one plus the scale. It is positive whenever the requested error is positive. After scaling, the allowed width is at most the final request, since the scale divided by one plus the scale is less than one. The bounds function then obtains a decaying-exponential band and multiplies both endpoints by the exact scale. All three source definitions have now been shown. The general width theorem accounts for the scaling; it does not assume that a primitive tolerance survives multiplication unchanged.
+
+## 00:12:09 — One fully computed kernel weight
+
+Use the same address and parameters, and ask for a full width at most one tenth. The computed weight interval is from one ninety-ninth to one ninety-sixth. These endpoints enclose one thirty-sixth times the exponential of minus one. Subtracting the endpoints gives one divided by three thousand one hundred sixty-eight, much smaller than the permitted tenth. Ask for a hundredth instead, and the construction returns the tighter rational interval displayed below. The endpoints are exact fractions, even when their numerators and denominators become larger. A separate real-interpretation theorem identifies this rational enclosure with the intended factorial-normalized kernel weight. Computing a scalar weight is now a checked task. We still have to account for what happens when many weights are used in an integral approximation.
+
+## 00:13:03 — A weighted sum is not yet an integral
+
+Quadrature means approximating an integral by a finite weighted sum. Start with a simple example: the line f of u equals u on the interval from zero to one. The area under that line is one half. Split the interval into four equal cells, and use the function's value at each left endpoint as the rectangle height. The first rectangle has height zero. The other three heights are one quarter, one half, and three quarters. Multiplying each height by the cell width and adding gives three eighths. That sum is exact, but it differs from the area by one eighth. Exact arithmetic removes rounding from the sum. It does not remove the error from replacing a varying curve by rectangles.
+
+## 00:13:50 — Check the finite rectangle calculation
+
+Here is the ACL2 teaching function for that line example. It takes a starting address, a nonnegative cell width, and a natural cell count. Each step adds the current address times the cell width, advances the address, and decreases the remaining count. With four cells of width one quarter, it returns three eighths. Refine to eight cells of width one eighth, and it returns seven sixteenths. The deficits from one half are one eighth and one sixteenth respectively. The teaching book also proves a closed formula for this finite sum at arbitrary rational starts and steps and natural counts. The integral identification belongs to the real picture; these code results are exact rational equalities. The example shows why a grid error needs its own estimate.
+
+## 00:14:42 — Bound the variation between sample points
+
+A general integrand need not be a straight line or a monotone function. We can instead use a bound on how quickly it changes. If moving a distance d changes the value by at most L times d, then within one cell of width h, the value differs from its sample by at most L h. Multiplying that variation allowance by the cell width gives an area error of at most L h squared for that cell. On a uniform grid across a fixed finite interval, the total bound is L times the interval length times h. Refining the grid makes this allowance smaller. In the line example L is one. Four cells give a conservative bound of one quarter; the actual deficit was one eighth. A valid general bound can be larger than the error observed in an example. The full weighted integrand needs its own justified variation bound.
+
+## 00:15:38 — Allocate error to cell contributions
+
+Finite evaluation also has a budget. Suppose there are N cells, and each computed cell contribution has error at most delta. The total evaluation error is then at most N times delta. This is an error bound for a cell's contribution, after accounting for its weight, rather than an unscaled error on a sampled value. A convenient allocation divides the requested budget by N plus one. With four cells and a total evaluation budget of one hundredth, each cell gets one five-hundredth. Four such allowances add up to four five-hundredths, leaving some slack. The teaching function and its general arithmetic theorem check this allocation. The project's finite Mellin sum uses the same allocation pattern. None of this has yet paid for variation between the cells or for an omitted infinite tail.
+
+## 00:16:33 — An infinite tail needs a bound
+
+The integral in the Landau argument continues indefinitely. A computer must stop at a finite cutoff, and the discarded part needs an explicit bound. For a simple model, integrate the decaying exponential of minus u from a cutoff T to infinity. That tail area is the exponential of minus T. Our decaying-exponential enclosure therefore bounds it using rational endpoints. At cutoff eight, the computed upper endpoint with the displayed tolerance is at most one thousandth. The ACL2 theorem checks that numerical inequality, while the real exponential interpretation supplies its meaning as this model's tail area. The full signal integrand is more complicated. Its tail estimates must include the signal's growth, the kernel power, and the damping rate. A tiny-looking patch in a plot is not a substitute for those bounds.
+
+## 00:17:29 — Keep the three error channels separate
+
+The final ledger has at least three entries: finite evaluation error, mesh error, and tail error. More Taylor terms tighten the primitive enclosures. Smaller cells reduce the variation allowance, when its hypotheses are satisfied. A farther cutoff reduces a suitably bounded tail. These are different controls for different jobs. If three signed error contributions each have absolute value at most one thousandth, their sum has absolute value at most three thousandths. That is less than a final target of one hundredth. This arithmetic implication is checked in ACL2, and it remains conditional on having established the three input bounds. We have not obtained an integral certificate merely by adding numbers to a budget table. Each entry has to be proved for the actual function and parameters being used.
+
+## 00:18:25 — From scalar weights to complex readings
+
+We have replaced the scalar kernel's exponential with finite rational enclosures and a computed precision choice. We have also separated exact finite summation from the errors of sampling and truncation. The repository contains both arithmetic results and real-interpretation theorems for these kernel ingredients. Connecting all components of the Landau argument, including their intended Peano Arithmetic interpretation, still requires the remaining composition work. Next we will add complex phases, build the oscillating sample, and track the product and sum errors. This is why the next episode gets its own time: a complex reading has more structure than a scalar weight. The aim stays the same throughout the series. Every numerical-looking box should become an explicit construction with a justified error budget.

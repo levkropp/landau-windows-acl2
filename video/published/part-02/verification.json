@@ -1,0 +1,32 @@
+{
+  "programs": [],
+  "stream_groups": [],
+  "streams": [
+    {
+      "codec_name": "h264",
+      "codec_type": "video",
+      "width": 1920,
+      "height": 1080,
+      "r_frame_rate": "30/1",
+      "duration": "1006.899349"
+    },
+    {
+      "codec_name": "aac",
+      "codec_type": "audio",
+      "r_frame_rate": "0/0",
+      "duration": "1003.500000"
+    },
+    {
+      "codec_name": "mov_text",
+      "codec_type": "subtitle",
+      "r_frame_rate": "0/0",
+      "duration": "1002.959000"
+    }
+  ],
+  "format": {
+    "duration": "1006.899349"
+  },
+  "full_decode": "passed",
+  "caption_and_audio_bounds": "passed",
+  "file": "film.mp4"
+}

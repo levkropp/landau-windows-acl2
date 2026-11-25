@@ -1,0 +1,20 @@
+00:00:00  Give the search a genuine signal
+00:00:58  Primes and positive powers of primes
+00:02:08  An integer exponent is repeated multiplication
+00:03:05  Check whether the candidate base is prime
+00:04:11  Return the prime base and its exponent
+00:05:33  A natural logarithm from finite rectangles
+00:06:41  Read the rectangle-sum evaluator
+00:07:42  Choose a proved amount of work
+00:09:00  Turn prime-power data into a weight enclosure
+00:10:00  Each weight turns on through a ramp
+00:10:57  Assemble the smoothed prime-power sum
+00:11:59  A larger finite cutoff adds only zeros
+00:12:56  The actual interval sum and its first error bound
+00:14:08  The real sum is continuous, with corners
+00:15:04  Introduce the constant in the centering term
+00:16:19  Enclose gamma using a harmonic sum and a log interval
+00:17:32  Center the sum to define G_z
+00:18:25  Read and run the centered-signal evaluator
+00:19:29  Choose primitive precision from the final width target
+00:20:47  From a finite evaluator to the Landau question

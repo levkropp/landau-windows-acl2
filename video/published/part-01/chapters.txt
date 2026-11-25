@@ -1,0 +1,14 @@
+00:00:00  One claim, three different questions
+00:00:49  What makes a proof step valid?
+00:01:49  Give the symbols a meaning
+00:03:31  What consistency actually asserts
+00:04:20  How set theory supplies a number system
+00:05:34  Why a model gives a consistency proof
+00:06:21  How a proof becomes a number
+00:07:09  Show the digit predicate and encoder definitions
+00:08:59  A statement about every proof code
+00:10:06  Gödel's second incompleteness theorem
+00:11:15  Stronger rules and a smaller dependency budget
+00:12:18  One more use of the model idea
+00:13:42  What this project is trying to reduce
+00:14:43  Next: exact fractions and intervals

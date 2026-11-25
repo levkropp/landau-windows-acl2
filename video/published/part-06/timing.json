@@ -1,0 +1,2590 @@
+[
+  {
+    "id": "opening",
+    "chapter": "From a weighted reading to rational computations",
+    "start": 0.0,
+    "audio_start": 0.2,
+    "duration": 51.928375,
+    "sentences": [
+      {
+        "text": "Part Five explained why the Landau argument takes concentrated weighted readings of the signal.",
+        "start": 0,
+        "end": 5.381818181818182,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.381818181818182
+          }
+        ]
+      },
+      {
+        "text": "The weights contain powers, factorials, and exponential damping.",
+        "start": 5.904545454545454,
+        "end": 9.88030303030303,
+        "phrases": [
+          {
+            "start": 5.904545454545454,
+            "end": 9.88030303030303
+          }
+        ]
+      },
+      {
+        "text": "Those expressions look continuous, but we need finite computations with justified error bounds.",
+        "start": 10.403030303030304,
+        "end": 16.124242424242425,
+        "phrases": [
+          {
+            "start": 10.403030303030304,
+            "end": 16.124242424242425
+          }
+        ]
+      },
+      {
+        "text": "This episode builds the scalar kernel weights from exact rational arithmetic.",
+        "start": 16.646969696969695,
+        "end": 21.28939393939394,
+        "phrases": [
+          {
+            "start": 16.646969696969695,
+            "end": 21.28939393939394
+          }
+        ]
+      },
+      {
+        "text": "We will first enclose an exponential, then reverse that enclosure to obtain a decaying exponential, and finally assemble a kernel weight.",
+        "start": 21.812121212121212,
+        "end": 29.87272727272727,
+        "phrases": [
+          {
+            "start": 21.812121212121212,
+            "end": 29.87272727272727
+          }
+        ]
+      },
+      {
+        "text": "After that, we will distinguish evaluating a finite sum from approximating an integral.",
+        "start": 30.395454545454548,
+        "end": 35.63181818181818,
+        "phrases": [
+          {
+            "start": 30.395454545454548,
+            "end": 35.63181818181818
+          }
+        ]
+      },
+      {
+        "text": "The error from each job has to be counted separately.",
+        "start": 36.154545454545456,
+        "end": 39.28181818181818,
+        "phrases": [
+          {
+            "start": 36.154545454545456,
+            "end": 39.28181818181818
+          }
+        ]
+      },
+      {
+        "text": "The complex phases will get their own next episode, so we can build these ingredients without rushing.",
+        "start": 39.804545454545455,
+        "end": 45.513636363636365,
+        "phrases": [
+          {
+            "start": 39.804545454545455,
+            "end": 45.513636363636365
+          }
+        ]
+      },
+      {
+        "text": "This is Part Six of Landau Windows ACL Two: explicit kernels and error budgets.",
+        "start": 46.03636363636364,
+        "end": 51.43030303030304,
+        "phrases": [
+          {
+            "start": 46.03636363636364,
+            "end": 51.43030303030304
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "factorial",
+    "chapter": "Unpack the factorial",
+    "start": 53.566666666666734,
+    "audio_start": 53.76666666666674,
+    "duration": 46.627583,
+    "sentences": [
+      {
+        "text": "The factorial in the kernel is a whole-number construction.",
+        "start": 0,
+        "end": 3.2969696969696973,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.2969696969696973
+          }
+        ]
+      },
+      {
+        "text": "For a positive integer, multiply all the positive integers up to that number.",
+        "start": 3.81969696969697,
+        "end": 8.728787878787879,
+        "phrases": [
+          {
+            "start": 3.81969696969697,
+            "end": 8.728787878787879
+          }
+        ]
+      },
+      {
+        "text": "One factorial is one\u2026 two factorial is two\u2026 three factorial is six\u2026 and four factorial is twenty-four.",
+        "start": 9.251515151515152,
+        "end": 19.602272727272727,
+        "phrases": [
+          {
+            "start": 9.251515151515152,
+            "end": 10.996969696969696
+          },
+          {
+            "start": 11.849242424242425,
+            "end": 13.570454545454545
+          },
+          {
+            "start": 14.422727272727274,
+            "end": 16.337878787878786
+          },
+          {
+            "start": 17.190151515151513,
+            "end": 19.602272727272727
+          }
+        ]
+      },
+      {
+        "text": "Zero factorial is defined to be one.",
+        "start": 20.125,
+        "end": 22.767424242424244,
+        "phrases": [
+          {
+            "start": 20.125,
+            "end": 22.767424242424244
+          }
+        ]
+      },
+      {
+        "text": "That convention makes the zeroth term of the exponential series equal to one.",
+        "start": 23.290151515151518,
+        "end": 27.690151515151516,
+        "phrases": [
+          {
+            "start": 23.290151515151518,
+            "end": 27.690151515151516
+          }
+        ]
+      },
+      {
+        "text": "Factorials grow quickly because each new step multiplies by the next integer.",
+        "start": 28.212878787878786,
+        "end": 32.964393939393936,
+        "phrases": [
+          {
+            "start": 28.212878787878786,
+            "end": 32.964393939393936
+          }
+        ]
+      },
+      {
+        "text": "Dividing by them will eventually make successive terms smaller, even when the numerator contains repeated multiplication.",
+        "start": 33.48712121212121,
+        "end": 40.33560606060606,
+        "phrases": [
+          {
+            "start": 33.48712121212121,
+            "end": 40.33560606060606
+          }
+        ]
+      },
+      {
+        "text": "We do not need a machine's floating-point exponential operation to begin this construction.",
+        "start": 40.858333333333334,
+        "end": 46.13106060606061,
+        "phrases": [
+          {
+            "start": 40.858333333333334,
+            "end": 46.13106060606061
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "terms",
+    "chapter": "Build one exponential term at a time",
+    "start": 101.83333333333296,
+    "audio_start": 102.03333333333296,
+    "duration": 42.511542,
+    "sentences": [
+      {
+        "text": "The exponential of x has a power-series description.",
+        "start": 0,
+        "end": 3.418181818181818,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.418181818181818
+          }
+        ]
+      },
+      {
+        "text": "Its term at natural index k is x to the power k divided by k factorial.",
+        "start": 3.940909090909091,
+        "end": 9.056060606060607,
+        "phrases": [
+          {
+            "start": 3.940909090909091,
+            "end": 9.056060606060607
+          }
+        ]
+      },
+      {
+        "text": "We will use nonnegative rational x.",
+        "start": 9.57878787878788,
+        "end": 12.08787878787879,
+        "phrases": [
+          {
+            "start": 9.57878787878788,
+            "end": 12.08787878787879
+          }
+        ]
+      },
+      {
+        "text": "The term at index zero is one.",
+        "start": 12.610606060606061,
+        "end": 14.756060606060606,
+        "phrases": [
+          {
+            "start": 12.610606060606061,
+            "end": 14.756060606060606
+          }
+        ]
+      },
+      {
+        "text": "To get the next term, multiply the current term by x, and divide by the new index.",
+        "start": 15.27878787878788,
+        "end": 20.575757575757574,
+        "phrases": [
+          {
+            "start": 15.27878787878788,
+            "end": 20.575757575757574
+          }
+        ]
+      },
+      {
+        "text": "At x equal to one, the terms begin one\u2026 one\u2026 one half\u2026 one sixth\u2026 and one twenty-fourth.",
+        "start": 21.098484848484848,
+        "end": 31.525757575757577,
+        "phrases": [
+          {
+            "start": 21.098484848484848,
+            "end": 23.9469696969697
+          },
+          {
+            "start": 24.799242424242426,
+            "end": 25.405303030303028
+          },
+          {
+            "start": 26.257575757575758,
+            "end": 27.25151515151515
+          },
+          {
+            "start": 28.103787878787877,
+            "end": 29.13409090909091
+          },
+          {
+            "start": 29.986363636363638,
+            "end": 31.525757575757577
+          }
+        ]
+      },
+      {
+        "text": "Every one of these is an exact rational number.",
+        "start": 32.04848484848485,
+        "end": 35.00606060606061,
+        "phrases": [
+          {
+            "start": 32.04848484848485,
+            "end": 35.00606060606061
+          }
+        ]
+      },
+      {
+        "text": "The individual terms are not yet the exponential.",
+        "start": 35.52878787878788,
+        "end": 38.55909090909091,
+        "phrases": [
+          {
+            "start": 35.52878787878788,
+            "end": 38.55909090909091
+          }
+        ]
+      },
+      {
+        "text": "We will add them, and then bound everything left out.",
+        "start": 39.081818181818186,
+        "end": 42.015151515151516,
+        "phrases": [
+          {
+            "start": 39.081818181818186,
+            "end": 42.015151515151516
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "term_code",
+    "chapter": "The actual term function",
+    "start": 145.96666666666576,
+    "audio_start": 146.16666666666575,
+    "duration": 45.042833,
+    "sentences": [
+      {
+        "text": "Here is the project's ACL2 term function.",
+        "start": 0,
+        "end": 2.981818181818182,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.981818181818182
+          }
+        ]
+      },
+      {
+        "text": "Its inputs are the rational argument and the natural index.",
+        "start": 3.5045454545454544,
+        "end": 6.91060606060606,
+        "phrases": [
+          {
+            "start": 3.5045454545454544,
+            "end": 6.91060606060606
+          }
+        ]
+      },
+      {
+        "text": "At index zero, the function returns one.",
+        "start": 7.433333333333334,
+        "end": 10.318181818181818,
+        "phrases": [
+          {
+            "start": 7.433333333333334,
+            "end": 10.318181818181818
+          }
+        ]
+      },
+      {
+        "text": "Otherwise it asks for the preceding term, multiplies by the argument, and divides by the current index.",
+        "start": 10.84090909090909,
+        "end": 16.986363636363638,
+        "phrases": [
+          {
+            "start": 10.84090909090909,
+            "end": 16.986363636363638
+          }
+        ]
+      },
+      {
+        "text": "The recursive index decreases, so this is a finite computation.",
+        "start": 17.509090909090908,
+        "end": 21.581818181818182,
+        "phrases": [
+          {
+            "start": 17.509090909090908,
+            "end": 21.581818181818182
+          }
+        ]
+      },
+      {
+        "text": "This recurrence produces the same quotient as the power divided by the factorial, without computing those two large expressions separately.",
+        "start": 22.104545454545455,
+        "end": 30.06818181818182,
+        "phrases": [
+          {
+            "start": 22.104545454545455,
+            "end": 30.06818181818182
+          }
+        ]
+      },
+      {
+        "text": "For argument one and index three, it returns one sixth.",
+        "start": 30.590909090909093,
+        "end": 34.17878787878788,
+        "phrases": [
+          {
+            "start": 30.590909090909093,
+            "end": 34.17878787878788
+          }
+        ]
+      },
+      {
+        "text": "That value has no rounding error.",
+        "start": 34.70151515151515,
+        "end": 36.943939393939395,
+        "phrases": [
+          {
+            "start": 34.70151515151515,
+            "end": 36.943939393939395
+          }
+        ]
+      },
+      {
+        "text": "The proof task is to control omitted terms, not to guess how many decimal places this rational number contains.",
+        "start": 37.46666666666667,
+        "end": 44.54545454545455,
+        "phrases": [
+          {
+            "start": 37.46666666666667,
+            "end": 44.54545454545455
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "partial_sums",
+    "chapter": "A partial sum has an explicit stopping index",
+    "start": 192.63333333333202,
+    "audio_start": 192.833333333332,
+    "duration": 44.169208,
+    "sentences": [
+      {
+        "text": "Now add the terms.",
+        "start": 0,
+        "end": 1.5393939393939393,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 1.5393939393939393
+          }
+        ]
+      },
+      {
+        "text": "At argument one, the successive partial sums are one\u2026 two\u2026 five halves\u2026 and eight thirds.",
+        "start": 2.062121212121212,
+        "end": 11.043181818181818,
+        "phrases": [
+          {
+            "start": 2.062121212121212,
+            "end": 5.431818181818182
+          },
+          {
+            "start": 6.284090909090909,
+            "end": 6.926515151515152
+          },
+          {
+            "start": 7.778787878787879,
+            "end": 8.906060606060606
+          },
+          {
+            "start": 9.758333333333333,
+            "end": 11.043181818181818
+          }
+        ]
+      },
+      {
+        "text": "The sum through index three contains four terms, because we started at index zero.",
+        "start": 11.565909090909091,
+        "end": 16.547727272727272,
+        "phrases": [
+          {
+            "start": 11.565909090909091,
+            "end": 16.547727272727272
+          }
+        ]
+      },
+      {
+        "text": "The ACL2 sum function returns one in the base case, and otherwise adds the current term to the preceding sum.",
+        "start": 17.070454545454545,
+        "end": 23.95530303030303,
+        "phrases": [
+          {
+            "start": 17.070454545454545,
+            "end": 23.95530303030303
+          }
+        ]
+      },
+      {
+        "text": "The stopping index is an ordinary natural number.",
+        "start": 24.4780303030303,
+        "end": 27.60530303030303,
+        "phrases": [
+          {
+            "start": 24.4780303030303,
+            "end": 27.60530303030303
+          }
+        ]
+      },
+      {
+        "text": "Asking for a larger index gives a different finite computation.",
+        "start": 28.128030303030304,
+        "end": 32.04318181818182,
+        "phrases": [
+          {
+            "start": 28.128030303030304,
+            "end": 32.04318181818182
+          }
+        ]
+      },
+      {
+        "text": "These partial sums approach the exponential of one.",
+        "start": 32.565909090909095,
+        "end": 35.69318181818182,
+        "phrases": [
+          {
+            "start": 32.565909090909095,
+            "end": 35.69318181818182
+          }
+        ]
+      },
+      {
+        "text": "A finite partial sum by itself is not the final real value.",
+        "start": 36.21590909090909,
+        "end": 40.20378787878788,
+        "phrases": [
+          {
+            "start": 36.21590909090909,
+            "end": 40.20378787878788
+          }
+        ]
+      },
+      {
+        "text": "We need an upper bound as well as this lower sum.",
+        "start": 40.72651515151515,
+        "end": 43.6719696969697,
+        "phrases": [
+          {
+            "start": 40.72651515151515,
+            "end": 43.6719696969697
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tail",
+    "chapter": "Pay for every omitted term",
+    "start": 238.43333333333152,
+    "audio_start": 238.6333333333315,
+    "duration": 53.007042,
+    "sentences": [
+      {
+        "text": "Take the partial sum through index three.",
+        "start": 0,
+        "end": 2.4606060606060605,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.4606060606060605
+          }
+        ]
+      },
+      {
+        "text": "The first omitted term at argument one is one twenty-fourth.",
+        "start": 2.9833333333333334,
+        "end": 6.5590909090909095,
+        "phrases": [
+          {
+            "start": 2.9833333333333334,
+            "end": 6.5590909090909095
+          }
+        ]
+      },
+      {
+        "text": "From there, every next term is at most half its predecessor.",
+        "start": 7.081818181818182,
+        "end": 10.77878787878788,
+        "phrases": [
+          {
+            "start": 7.081818181818182,
+            "end": 10.77878787878788
+          }
+        ]
+      },
+      {
+        "text": "The actual ratios in this example are smaller; using one half gives a convenient conservative bound.",
+        "start": 11.301515151515153,
+        "end": 17.943939393939395,
+        "phrases": [
+          {
+            "start": 11.301515151515153,
+            "end": 17.943939393939395
+          }
+        ]
+      },
+      {
+        "text": "The omitted tail is therefore at most one twenty-fourth, plus one forty-eighth, plus one ninety-sixth, and so on.",
+        "start": 18.46666666666667,
+        "end": 25.27878787878788,
+        "phrases": [
+          {
+            "start": 18.46666666666667,
+            "end": 25.27878787878788
+          }
+        ]
+      },
+      {
+        "text": "A halving geometric series adds up to twice its first term.",
+        "start": 25.80151515151515,
+        "end": 29.474242424242426,
+        "phrases": [
+          {
+            "start": 25.80151515151515,
+            "end": 29.474242424242426
+          }
+        ]
+      },
+      {
+        "text": "The whole omitted tail is at most one twelfth.",
+        "start": 29.996969696969696,
+        "end": 32.736363636363635,
+        "phrases": [
+          {
+            "start": 29.996969696969696,
+            "end": 32.736363636363635
+          }
+        ]
+      },
+      {
+        "text": "For a general nonnegative argument x and stopping index n, the condition twice x is less than or equal to n plus two ensures these later ratios are at most one half.",
+        "start": 33.25909090909091,
+        "end": 43.57424242424243,
+        "phrases": [
+          {
+            "start": 33.25909090909091,
+            "end": 43.57424242424243
+          }
+        ]
+      },
+      {
+        "text": "The ratio condition is part of the guarantee.",
+        "start": 44.096969696969694,
+        "end": 46.88484848484849,
+        "phrases": [
+          {
+            "start": 44.096969696969694,
+            "end": 46.88484848484849
+          }
+        ]
+      },
+      {
+        "text": "We cannot take an arbitrary early stopping point and assume its tail already halves.",
+        "start": 47.407575757575756,
+        "end": 52.51060606060606,
+        "phrases": [
+          {
+            "start": 47.407575757575756,
+            "end": 52.51060606060606
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "band",
+    "chapter": "Turn the tail bound into an interval",
+    "start": 293.06666666667087,
+    "audio_start": 293.26666666667086,
+    "duration": 42.023292,
+    "sentences": [
+      {
+        "text": "The project's band function packages those two bounds.",
+        "start": 0,
+        "end": 3.4303030303030306,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.4303030303030306
+          }
+        ]
+      },
+      {
+        "text": "Its lower endpoint is the finite partial sum.",
+        "start": 3.953030303030303,
+        "end": 6.740909090909091,
+        "phrases": [
+          {
+            "start": 3.953030303030303,
+            "end": 6.740909090909091
+          }
+        ]
+      },
+      {
+        "text": "Its upper endpoint adds twice the first omitted term.",
+        "start": 7.263636363636364,
+        "end": 10.524242424242424,
+        "phrases": [
+          {
+            "start": 7.263636363636364,
+            "end": 10.524242424242424
+          }
+        ]
+      },
+      {
+        "text": "For argument one and index three, the lower endpoint is eight thirds.",
+        "start": 11.046969696969697,
+        "end": 15.216666666666667,
+        "phrases": [
+          {
+            "start": 11.046969696969697,
+            "end": 15.216666666666667
+          }
+        ]
+      },
+      {
+        "text": "Add the tail allowance of one twelfth, and the upper endpoint is eleven quarters.",
+        "start": 15.73939393939394,
+        "end": 20.575757575757574,
+        "phrases": [
+          {
+            "start": 15.73939393939394,
+            "end": 20.575757575757574
+          }
+        ]
+      },
+      {
+        "text": "The full interval width is one twelfth.",
+        "start": 21.098484848484848,
+        "end": 23.462121212121215,
+        "phrases": [
+          {
+            "start": 21.098484848484848,
+            "end": 23.462121212121215
+          }
+        ]
+      },
+      {
+        "text": "The ACL2 theorem controls every later finite partial sum, not just a few sums that happened to be tested.",
+        "start": 23.984848484848484,
+        "end": 31.027272727272724,
+        "phrases": [
+          {
+            "start": 23.984848484848484,
+            "end": 31.027272727272724
+          }
+        ]
+      },
+      {
+        "text": "This is how one finite band can make a statement about arbitrarily long finite computations.",
+        "start": 31.55,
+        "end": 37.162121212121214,
+        "phrases": [
+          {
+            "start": 31.55,
+            "end": 37.162121212121214
+          }
+        ]
+      },
+      {
+        "text": "The real exponential interpretation will use that same band.",
+        "start": 37.68484848484849,
+        "end": 41.527272727272724,
+        "phrases": [
+          {
+            "start": 37.68484848484849,
+            "end": 41.527272727272724
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "start",
+    "chapter": "Choose a safe starting index",
+    "start": 336.7333333333435,
+    "audio_start": 336.9333333333435,
+    "duration": 47.749958,
+    "sentences": [
+      {
+        "text": "We also need a way to select a safe index from the input.",
+        "start": 0,
+        "end": 3.515151515151515,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.515151515151515
+          }
+        ]
+      },
+      {
+        "text": "The construction starts beyond twice the argument.",
+        "start": 4.037878787878788,
+        "end": 6.91060606060606,
+        "phrases": [
+          {
+            "start": 4.037878787878788,
+            "end": 6.91060606060606
+          }
+        ]
+      },
+      {
+        "text": "It uses a rational rounding-up operation, returning the least whole number at least the given nonnegative rational.",
+        "start": 7.433333333333334,
+        "end": 14.051515151515153,
+        "phrases": [
+          {
+            "start": 7.433333333333334,
+            "end": 14.051515151515153
+          }
+        ]
+      },
+      {
+        "text": "Here ceiling means rounding upward, rather than the upper curve from the Landau theorem.",
+        "start": 14.574242424242424,
+        "end": 19.568181818181817,
+        "phrases": [
+          {
+            "start": 14.574242424242424,
+            "end": 19.568181818181817
+          }
+        ]
+      },
+      {
+        "text": "The bounded loop subtracts one at each step and counts how many subtractions are needed.",
+        "start": 20.09090909090909,
+        "end": 25.072727272727274,
+        "phrases": [
+          {
+            "start": 20.09090909090909,
+            "end": 25.072727272727274
+          }
+        ]
+      },
+      {
+        "text": "A computed fuel supply keeps the loop finite and is proved large enough for its input.",
+        "start": 25.595454545454547,
+        "end": 30.80757575757576,
+        "phrases": [
+          {
+            "start": 25.595454545454547,
+            "end": 30.80757575757576
+          }
+        ]
+      },
+      {
+        "text": "The wrapper supplies that fuel\u2026 and the exponential's starting index adds one more to the rounded value of twice x.",
+        "start": 31.330303030303032,
+        "end": 39.18863636363636,
+        "phrases": [
+          {
+            "start": 31.330303030303032,
+            "end": 33.31818181818182
+          },
+          {
+            "start": 34.17045454545455,
+            "end": 39.18863636363636
+          }
+        ]
+      },
+      {
+        "text": "For argument one, the starting index is three.",
+        "start": 39.711363636363636,
+        "end": 42.790151515151514,
+        "phrases": [
+          {
+            "start": 39.711363636363636,
+            "end": 42.790151515151514
+          }
+        ]
+      },
+      {
+        "text": "This is safely inside the region where the tail argument applies.",
+        "start": 43.31287878787879,
+        "end": 47.252272727272725,
+        "phrases": [
+          {
+            "start": 43.31287878787879,
+            "end": 47.252272727272725
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "halving",
+    "chapter": "Turn a width target into extra work",
+    "start": 386.1000000000174,
+    "audio_start": 386.3000000000174,
+    "duration": 51.554292,
+    "sentences": [
+      {
+        "text": "Suppose we want a full width of at most one hundredth.",
+        "start": 0,
+        "end": 3.127272727272727,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.127272727272727
+          }
+        ]
+      },
+      {
+        "text": "At argument one, the initial width allowance is one twelfth.",
+        "start": 3.6500000000000004,
+        "end": 7.3954545454545455,
+        "phrases": [
+          {
+            "start": 3.6500000000000004,
+            "end": 7.3954545454545455
+          }
+        ]
+      },
+      {
+        "text": "Halve that allowance repeatedly: one twenty-fourth\u2026 one forty-eighth\u2026 one ninety-sixth\u2026 and one one-hundred-ninety-second.",
+        "start": 7.918181818181818,
+        "end": 18.13560606060606,
+        "phrases": [
+          {
+            "start": 7.918181818181818,
+            "end": 11.00909090909091
+          },
+          {
+            "start": 11.861363636363636,
+            "end": 13.049242424242424
+          },
+          {
+            "start": 13.90151515151515,
+            "end": 15.25909090909091
+          },
+          {
+            "start": 16.111363636363638,
+            "end": 18.13560606060606
+          }
+        ]
+      },
+      {
+        "text": "The fourth halving is enough to fall below one hundredth.",
+        "start": 18.658333333333335,
+        "end": 21.78560606060606,
+        "phrases": [
+          {
+            "start": 18.658333333333335,
+            "end": 21.78560606060606
+          }
+        ]
+      },
+      {
+        "text": "The implementation shown here keeps the width fixed and doubles the target in its recursive calls.",
+        "start": 22.308333333333334,
+        "end": 27.884090909090908,
+        "phrases": [
+          {
+            "start": 22.308333333333334,
+            "end": 27.884090909090908
+          }
+        ]
+      },
+      {
+        "text": "That comparison is equivalent to halving the width against a fixed target.",
+        "start": 28.40681818181818,
+        "end": 32.394696969696966,
+        "phrases": [
+          {
+            "start": 28.40681818181818,
+            "end": 32.394696969696966
+          }
+        ]
+      },
+      {
+        "text": "A computed fuel supply bounds the number of recursive calls.",
+        "start": 32.91742424242424,
+        "end": 36.72348484848485,
+        "phrases": [
+          {
+            "start": 32.91742424242424,
+            "end": 36.72348484848485
+          }
+        ]
+      },
+      {
+        "text": "The initial-width function supplies the starting tail allowance\u2026 and the depth function requests enough halvings for the chosen positive rational tolerance.",
+        "start": 37.24621212121212,
+        "end": 46.765151515151516,
+        "phrases": [
+          {
+            "start": 37.24621212121212,
+            "end": 40.76136363636363
+          },
+          {
+            "start": 41.61363636363636,
+            "end": 46.765151515151516
+          }
+        ]
+      },
+      {
+        "text": "We have turned an accuracy request into a finite amount of work.",
+        "start": 47.28787878787879,
+        "end": 51.057575757575755,
+        "phrases": [
+          {
+            "start": 47.28787878787879,
+            "end": 51.057575757575755
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "precision",
+    "chapter": "Assemble the requested exponential enclosure",
+    "start": 439.3000000000257,
+    "audio_start": 439.5000000000257,
+    "duration": 47.550333,
+    "sentences": [
+      {
+        "text": "The final exponential index is the safe starting index plus the extra depth.",
+        "start": 0,
+        "end": 4.8,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.8
+          }
+        ]
+      },
+      {
+        "text": "The bounds function evaluates the band at that index.",
+        "start": 5.322727272727273,
+        "end": 8.61969696969697,
+        "phrases": [
+          {
+            "start": 5.322727272727273,
+            "end": 8.61969696969697
+          }
+        ]
+      },
+      {
+        "text": "For argument one and a requested width of one tenth, the initial band already suffices.",
+        "start": 9.142424242424243,
+        "end": 14.778787878787877,
+        "phrases": [
+          {
+            "start": 9.142424242424243,
+            "end": 14.778787878787877
+          }
+        ]
+      },
+      {
+        "text": "Request one hundredth instead, and the construction chooses index seven.",
+        "start": 15.301515151515153,
+        "end": 19.68939393939394,
+        "phrases": [
+          {
+            "start": 15.301515151515153,
+            "end": 19.68939393939394
+          }
+        ]
+      },
+      {
+        "text": "That means it includes terms zero through seven.",
+        "start": 20.21212121212121,
+        "end": 23.06060606060606,
+        "phrases": [
+          {
+            "start": 20.21212121212121,
+            "end": 23.06060606060606
+          }
+        ]
+      },
+      {
+        "text": "The exact rational endpoints shown here give a narrower interval.",
+        "start": 23.583333333333332,
+        "end": 27.462121212121215,
+        "phrases": [
+          {
+            "start": 23.583333333333332,
+            "end": 27.462121212121215
+          }
+        ]
+      },
+      {
+        "text": "The actual width can be much smaller than the requested width, because the proof used a conservative halving estimate.",
+        "start": 27.984848484848484,
+        "end": 34.49393939393939,
+        "phrases": [
+          {
+            "start": 27.984848484848484,
+            "end": 34.49393939393939
+          }
+        ]
+      },
+      {
+        "text": "The general theorem guarantees the requested width for every nonnegative rational argument and every positive rational tolerance.",
+        "start": 35.016666666666666,
+        "end": 42.483333333333334,
+        "phrases": [
+          {
+            "start": 35.016666666666666,
+            "end": 42.483333333333334
+          }
+        ]
+      },
+      {
+        "text": "It does not depend on comparing the answer with a decimal calculator.",
+        "start": 43.00606060606061,
+        "end": 47.054545454545455,
+        "phrases": [
+          {
+            "start": 43.00606060606061,
+            "end": 47.054545454545455
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "meaning",
+    "chapter": "Finite arithmetic and the real exponential",
+    "start": 488.5000000000314,
+    "audio_start": 488.70000000003137,
+    "duration": 46.873667,
+    "sentences": [
+      {
+        "text": "There are two related statements to keep track of.",
+        "start": 0,
+        "end": 2.8121212121212125,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.8121212121212125
+          }
+        ]
+      },
+      {
+        "text": "The arithmetic statement bounds all later partial sums by exact rational endpoints.",
+        "start": 3.334848484848485,
+        "end": 8.510606060606062,
+        "phrases": [
+          {
+            "start": 3.334848484848485,
+            "end": 8.510606060606062
+          }
+        ]
+      },
+      {
+        "text": "The real statement says that those endpoints contain the exponential of the input.",
+        "start": 9.033333333333333,
+        "end": 13.554545454545455,
+        "phrases": [
+          {
+            "start": 9.033333333333333,
+            "end": 13.554545454545455
+          }
+        ]
+      },
+      {
+        "text": "The power series identifies the real exponential with the limit of its partial sums.",
+        "start": 14.077272727272726,
+        "end": 19.13181818181818,
+        "phrases": [
+          {
+            "start": 14.077272727272726,
+            "end": 19.13181818181818
+          }
+        ]
+      },
+      {
+        "text": "Passing a closed inequality to that limit keeps the real value in the same interval.",
+        "start": 19.654545454545453,
+        "end": 24.64848484848485,
+        "phrases": [
+          {
+            "start": 19.654545454545453,
+            "end": 24.64848484848485
+          }
+        ]
+      },
+      {
+        "text": "The repository's Lean interpretation proves this connection for the constructed bounds.",
+        "start": 25.171212121212122,
+        "end": 30.28636363636364,
+        "phrases": [
+          {
+            "start": 25.171212121212122,
+            "end": 30.28636363636364
+          }
+        ]
+      },
+      {
+        "text": "Tightening the tolerance does not choose a different exponential; the bands remain compatible with the same value.",
+        "start": 30.80909090909091,
+        "end": 37.52424242424242,
+        "phrases": [
+          {
+            "start": 30.80909090909091,
+            "end": 37.52424242424242
+          }
+        ]
+      },
+      {
+        "text": "Our pictures may use ordinary numerical curves for illustration.",
+        "start": 38.0469696969697,
+        "end": 41.986363636363635,
+        "phrases": [
+          {
+            "start": 38.0469696969697,
+            "end": 41.986363636363635
+          }
+        ]
+      },
+      {
+        "text": "The certificates use rational endpoints and proved inequalities.",
+        "start": 42.50909090909091,
+        "end": 46.37575757575758,
+        "phrases": [
+          {
+            "start": 42.50909090909091,
+            "end": 46.37575757575758
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "reciprocal",
+    "chapter": "Reverse endpoints for exponential decay",
+    "start": 537.0000000000352,
+    "audio_start": 537.2000000000353,
+    "duration": 49.347958,
+    "sentences": [
+      {
+        "text": "The kernel needs exponential decay.",
+        "start": 0,
+        "end": 2.290909090909091,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.290909090909091
+          }
+        ]
+      },
+      {
+        "text": "For nonnegative x, the exponential of minus x is the reciprocal of the exponential of x.",
+        "start": 2.8136363636363635,
+        "end": 8.68030303030303,
+        "phrases": [
+          {
+            "start": 2.8136363636363635,
+            "end": 8.68030303030303
+          }
+        ]
+      },
+      {
+        "text": "Suppose the positive exponential lies between L and R, with one less than or equal to L.",
+        "start": 9.203030303030303,
+        "end": 14.742424242424242,
+        "phrases": [
+          {
+            "start": 9.203030303030303,
+            "end": 14.742424242424242
+          }
+        ]
+      },
+      {
+        "text": "Reciprocals reverse the order.",
+        "start": 15.265151515151516,
+        "end": 17.325757575757574,
+        "phrases": [
+          {
+            "start": 15.265151515151516,
+            "end": 17.325757575757574
+          }
+        ]
+      },
+      {
+        "text": "The decaying exponential therefore lies between one divided by R and one divided by L.",
+        "start": 17.848484848484848,
+        "end": 23.35151515151515,
+        "phrases": [
+          {
+            "start": 17.848484848484848,
+            "end": 23.35151515151515
+          }
+        ]
+      },
+      {
+        "text": "For the band from eight thirds to eleven quarters, the reversed band is from four elevenths to three eighths.",
+        "start": 23.874242424242425,
+        "end": 29.87424242424242,
+        "phrases": [
+          {
+            "start": 23.874242424242425,
+            "end": 29.87424242424242
+          }
+        ]
+      },
+      {
+        "text": "The ACL2 function performs exactly that endpoint reversal.",
+        "start": 30.396969696969695,
+        "end": 34.336363636363636,
+        "phrases": [
+          {
+            "start": 30.396969696969695,
+            "end": 34.336363636363636
+          }
+        ]
+      },
+      {
+        "text": "Its endpoints are positive and at most one.",
+        "start": 34.85909090909091,
+        "end": 37.41666666666667,
+        "phrases": [
+          {
+            "start": 34.85909090909091,
+            "end": 37.41666666666667
+          }
+        ]
+      },
+      {
+        "text": "With these lower bounds on the original endpoints, taking reciprocals also does not increase the full interval width.",
+        "start": 37.93939393939394,
+        "end": 44.593939393939394,
+        "phrases": [
+          {
+            "start": 37.93939393939394,
+            "end": 44.593939393939394
+          }
+        ]
+      },
+      {
+        "text": "The same positive tolerance can control the decaying enclosure.",
+        "start": 45.11666666666667,
+        "end": 48.85,
+        "phrases": [
+          {
+            "start": 45.11666666666667,
+            "end": 48.85
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kernel",
+    "chapter": "Restore the kernel's actual scale",
+    "start": 587.9666666666933,
+    "audio_start": 588.1666666666933,
+    "duration": 45.443458,
+    "sentences": [
+      {
+        "text": "We can now return to the kernel from Part Five.",
+        "start": 0,
+        "end": 2.8121212121212125,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.8121212121212125
+          }
+        ]
+      },
+      {
+        "text": "At a nonnegative address u, the scalar kernel is u to the power k, times the exponential of minus sigma u, divided by k factorial.",
+        "start": 3.334848484848485,
+        "end": 12.037878787878789,
+        "phrases": [
+          {
+            "start": 3.334848484848485,
+            "end": 12.037878787878789
+          }
+        ]
+      },
+      {
+        "text": "We use a natural k and nonnegative rational sigma.",
+        "start": 12.56060606060606,
+        "end": 16.003030303030304,
+        "phrases": [
+          {
+            "start": 12.56060606060606,
+            "end": 16.003030303030304
+          }
+        ]
+      },
+      {
+        "text": "The power divided by the factorial is exactly the term function we already built.",
+        "start": 16.525757575757577,
+        "end": 21.53181818181818,
+        "phrases": [
+          {
+            "start": 16.525757575757577,
+            "end": 21.53181818181818
+          }
+        ]
+      },
+      {
+        "text": "The remaining factor is our decaying exponential.",
+        "start": 22.054545454545455,
+        "end": 24.915151515151518,
+        "phrases": [
+          {
+            "start": 22.054545454545455,
+            "end": 24.915151515151518
+          }
+        ]
+      },
+      {
+        "text": "Unlike the normalized pictures in Part Five, this formula retains the actual factorial normalization.",
+        "start": 25.437878787878788,
+        "end": 31.886363636363633,
+        "phrases": [
+          {
+            "start": 25.437878787878788,
+            "end": 31.886363636363633
+          }
+        ]
+      },
+      {
+        "text": "To use a kernel value in a rectangle sum, we also multiply by the nonnegative cell width h.",
+        "start": 32.40909090909091,
+        "end": 38.554545454545455,
+        "phrases": [
+          {
+            "start": 32.40909090909091,
+            "end": 38.554545454545455
+          }
+        ]
+      },
+      {
+        "text": "The resulting weight is nonnegative.",
+        "start": 39.07727272727273,
+        "end": 41.18636363636364,
+        "phrases": [
+          {
+            "start": 39.07727272727273,
+            "end": 41.18636363636364
+          }
+        ]
+      },
+      {
+        "text": "The signal it will multiply can still have either sign.",
+        "start": 41.70909090909091,
+        "end": 44.945454545454545,
+        "phrases": [
+          {
+            "start": 41.70909090909091,
+            "end": 44.945454545454545
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scale",
+    "chapter": "Separate the exact factor from the uncertain factor",
+    "start": 635.033333333352,
+    "audio_start": 635.233333333352,
+    "duration": 44.411375,
+    "sentences": [
+      {
+        "text": "The weight has a useful decomposition.",
+        "start": 0,
+        "end": 2.3878787878787877,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.3878787878787877
+          }
+        ]
+      },
+      {
+        "text": "Its exact rational scale is the cell width times the exponential term at u and index k.",
+        "start": 2.9106060606060606,
+        "end": 8.45,
+        "phrases": [
+          {
+            "start": 2.9106060606060606,
+            "end": 8.45
+          }
+        ]
+      },
+      {
+        "text": "The only remaining factor is the exponential of minus sigma u.",
+        "start": 8.972727272727273,
+        "end": 12.887878787878787,
+        "phrases": [
+          {
+            "start": 8.972727272727273,
+            "end": 12.887878787878787
+          }
+        ]
+      },
+      {
+        "text": "The scale function computes the exact factor first.",
+        "start": 13.410606060606062,
+        "end": 16.562121212121212,
+        "phrases": [
+          {
+            "start": 13.410606060606062,
+            "end": 16.562121212121212
+          }
+        ]
+      },
+      {
+        "text": "For a concrete example, set u to one third, sigma to three, k to two, and the cell width to one half.",
+        "start": 17.084848484848486,
+        "end": 23.593939393939394,
+        "phrases": [
+          {
+            "start": 17.084848484848486,
+            "end": 23.593939393939394
+          }
+        ]
+      },
+      {
+        "text": "The term is one eighteenth, and multiplying by the cell width gives a scale of one thirty-sixth.",
+        "start": 24.116666666666664,
+        "end": 29.534848484848485,
+        "phrases": [
+          {
+            "start": 24.116666666666664,
+            "end": 29.534848484848485
+          }
+        ]
+      },
+      {
+        "text": "The damping argument sigma u is one.",
+        "start": 30.05757575757576,
+        "end": 32.3969696969697,
+        "phrases": [
+          {
+            "start": 30.05757575757576,
+            "end": 32.3969696969697
+          }
+        ]
+      },
+      {
+        "text": "So this entire weight is one thirty-sixth times the exponential of minus one.",
+        "start": 32.91969696969697,
+        "end": 37.62272727272727,
+        "phrases": [
+          {
+            "start": 32.91969696969697,
+            "end": 37.62272727272727
+          }
+        ]
+      },
+      {
+        "text": "This example also keeps sigma greater than two, as the signal transform will require later.",
+        "start": 38.14545454545454,
+        "end": 43.915151515151514,
+        "phrases": [
+          {
+            "start": 38.14545454545454,
+            "end": 43.915151515151514
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kernel_precision",
+    "chapter": "Budget the scaled exponential error",
+    "start": 681.066666666678,
+    "audio_start": 681.266666666678,
+    "duration": 46.845875,
+    "sentences": [
+      {
+        "text": "Multiplying an interval by a nonnegative exact scale multiplies its full width by that scale.",
+        "start": 0,
+        "end": 5.648484848484848,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.648484848484848
+          }
+        ]
+      },
+      {
+        "text": "We therefore choose the exponential tolerance after computing the scale.",
+        "start": 6.171212121212121,
+        "end": 10.353030303030303,
+        "phrases": [
+          {
+            "start": 6.171212121212121,
+            "end": 10.353030303030303
+          }
+        ]
+      },
+      {
+        "text": "The project's precision is the requested final error divided by one plus the scale.",
+        "start": 10.875757575757575,
+        "end": 16.03939393939394,
+        "phrases": [
+          {
+            "start": 10.875757575757575,
+            "end": 16.03939393939394
+          }
+        ]
+      },
+      {
+        "text": "It is positive whenever the requested error is positive.",
+        "start": 16.562121212121212,
+        "end": 19.846969696969698,
+        "phrases": [
+          {
+            "start": 16.562121212121212,
+            "end": 19.846969696969698
+          }
+        ]
+      },
+      {
+        "text": "After scaling, the allowed width is at most the final request, since the scale divided by one plus the scale is less than one.",
+        "start": 20.36969696969697,
+        "end": 28.018181818181816,
+        "phrases": [
+          {
+            "start": 20.36969696969697,
+            "end": 28.018181818181816
+          }
+        ]
+      },
+      {
+        "text": "The bounds function then obtains a decaying-exponential band and multiplies both endpoints by the exact scale.",
+        "start": 28.54090909090909,
+        "end": 35.06212121212121,
+        "phrases": [
+          {
+            "start": 28.54090909090909,
+            "end": 35.06212121212121
+          }
+        ]
+      },
+      {
+        "text": "All three source definitions have now been shown.",
+        "start": 35.584848484848486,
+        "end": 38.627272727272725,
+        "phrases": [
+          {
+            "start": 35.584848484848486,
+            "end": 38.627272727272725
+          }
+        ]
+      },
+      {
+        "text": "The general width theorem accounts for the scaling; it does not assume that a primitive tolerance survives multiplication unchanged.",
+        "start": 39.15,
+        "end": 46.349999999999994,
+        "phrases": [
+          {
+            "start": 39.15,
+            "end": 46.349999999999994
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "weight_example",
+    "chapter": "One fully computed kernel weight",
+    "start": 729.5333333333376,
+    "audio_start": 729.7333333333377,
+    "duration": 52.207,
+    "sentences": [
+      {
+        "text": "Use the same address and parameters, and ask for a full width at most one tenth.",
+        "start": 0,
+        "end": 4.7272727272727275,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.7272727272727275
+          }
+        ]
+      },
+      {
+        "text": "The computed weight interval is from one ninety-ninth to one ninety-sixth.",
+        "start": 5.25,
+        "end": 9.225757575757575,
+        "phrases": [
+          {
+            "start": 5.25,
+            "end": 9.225757575757575
+          }
+        ]
+      },
+      {
+        "text": "These endpoints enclose one thirty-sixth times the exponential of minus one.",
+        "start": 9.748484848484848,
+        "end": 14.306060606060607,
+        "phrases": [
+          {
+            "start": 9.748484848484848,
+            "end": 14.306060606060607
+          }
+        ]
+      },
+      {
+        "text": "Subtracting the endpoints gives one divided by three thousand one hundred sixty-eight, much smaller than the permitted tenth.",
+        "start": 14.828787878787878,
+        "end": 21.895454545454545,
+        "phrases": [
+          {
+            "start": 14.828787878787878,
+            "end": 21.895454545454545
+          }
+        ]
+      },
+      {
+        "text": "Ask for a hundredth instead, and the construction returns the tighter rational interval displayed below.",
+        "start": 22.41818181818182,
+        "end": 28.35757575757576,
+        "phrases": [
+          {
+            "start": 22.41818181818182,
+            "end": 28.35757575757576
+          }
+        ]
+      },
+      {
+        "text": "The endpoints are exact fractions, even when their numerators and denominators become larger.",
+        "start": 28.88030303030303,
+        "end": 34.39545454545455,
+        "phrases": [
+          {
+            "start": 28.88030303030303,
+            "end": 34.39545454545455
+          }
+        ]
+      },
+      {
+        "text": "A separate real-interpretation theorem identifies this rational enclosure with the intended factorial-normalized kernel weight.",
+        "start": 34.91818181818182,
+        "end": 42.40909090909091,
+        "phrases": [
+          {
+            "start": 34.91818181818182,
+            "end": 42.40909090909091
+          }
+        ]
+      },
+      {
+        "text": "Computing a scalar weight is now a checked task.",
+        "start": 42.93181818181818,
+        "end": 45.85303030303031,
+        "phrases": [
+          {
+            "start": 42.93181818181818,
+            "end": 45.85303030303031
+          }
+        ]
+      },
+      {
+        "text": "We still have to account for what happens when many weights are used in an integral approximation.",
+        "start": 46.37575757575758,
+        "end": 51.709090909090904,
+        "phrases": [
+          {
+            "start": 46.37575757575758,
+            "end": 51.709090909090904
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quadrature",
+    "chapter": "A weighted sum is not yet an integral",
+    "start": 783.3666666666642,
+    "audio_start": 783.5666666666642,
+    "duration": 45.588167,
+    "sentences": [
+      {
+        "text": "Quadrature means approximating an integral by a finite weighted sum.",
+        "start": 0,
+        "end": 4.1454545454545455,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.1454545454545455
+          }
+        ]
+      },
+      {
+        "text": "Start with a simple example: the line f of u equals u on the interval from zero to one.",
+        "start": 4.668181818181818,
+        "end": 10.025757575757575,
+        "phrases": [
+          {
+            "start": 4.668181818181818,
+            "end": 10.025757575757575
+          }
+        ]
+      },
+      {
+        "text": "The area under that line is one half.",
+        "start": 10.548484848484849,
+        "end": 13.093939393939394,
+        "phrases": [
+          {
+            "start": 10.548484848484849,
+            "end": 13.093939393939394
+          }
+        ]
+      },
+      {
+        "text": "Split the interval into four equal cells, and use the function's value at each left endpoint as the rectangle height.",
+        "start": 13.616666666666667,
+        "end": 20.34393939393939,
+        "phrases": [
+          {
+            "start": 13.616666666666667,
+            "end": 20.34393939393939
+          }
+        ]
+      },
+      {
+        "text": "The first rectangle has height zero.",
+        "start": 20.866666666666667,
+        "end": 23.18181818181818,
+        "phrases": [
+          {
+            "start": 20.866666666666667,
+            "end": 23.18181818181818
+          }
+        ]
+      },
+      {
+        "text": "The other three heights are one quarter, one half, and three quarters.",
+        "start": 23.704545454545453,
+        "end": 27.61969696969697,
+        "phrases": [
+          {
+            "start": 23.704545454545453,
+            "end": 27.61969696969697
+          }
+        ]
+      },
+      {
+        "text": "Multiplying each height by the cell width and adding gives three eighths.",
+        "start": 28.142424242424244,
+        "end": 32.154545454545456,
+        "phrases": [
+          {
+            "start": 28.142424242424244,
+            "end": 32.154545454545456
+          }
+        ]
+      },
+      {
+        "text": "That sum is exact, but it differs from the area by one eighth.",
+        "start": 32.67727272727273,
+        "end": 36.56818181818182,
+        "phrases": [
+          {
+            "start": 32.67727272727273,
+            "end": 36.56818181818182
+          }
+        ]
+      },
+      {
+        "text": "Exact arithmetic removes rounding from the sum.",
+        "start": 37.09090909090909,
+        "end": 40.10909090909091,
+        "phrases": [
+          {
+            "start": 37.09090909090909,
+            "end": 40.10909090909091
+          }
+        ]
+      },
+      {
+        "text": "It does not remove the error from replacing a varying curve by rectangles.",
+        "start": 40.63181818181818,
+        "end": 45.092424242424244,
+        "phrases": [
+          {
+            "start": 40.63181818181818,
+            "end": 45.092424242424244
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "grid_code",
+    "chapter": "Check the finite rectangle calculation",
+    "start": 830.5999999999914,
+    "audio_start": 830.7999999999914,
+    "duration": 50.097542,
+    "sentences": [
+      {
+        "text": "Here is the ACL2 teaching function for that line example.",
+        "start": 0,
+        "end": 3.7575757575757573,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.7575757575757573
+          }
+        ]
+      },
+      {
+        "text": "It takes a starting address, a nonnegative cell width, and a natural cell count.",
+        "start": 4.28030303030303,
+        "end": 9.504545454545456,
+        "phrases": [
+          {
+            "start": 4.28030303030303,
+            "end": 9.504545454545456
+          }
+        ]
+      },
+      {
+        "text": "Each step adds the current address times the cell width, advances the address, and decreases the remaining count.",
+        "start": 10.027272727272727,
+        "end": 16.524242424242424,
+        "phrases": [
+          {
+            "start": 10.027272727272727,
+            "end": 16.524242424242424
+          }
+        ]
+      },
+      {
+        "text": "With four cells of width one quarter, it returns three eighths.",
+        "start": 17.046969696969697,
+        "end": 20.756060606060608,
+        "phrases": [
+          {
+            "start": 17.046969696969697,
+            "end": 20.756060606060608
+          }
+        ]
+      },
+      {
+        "text": "Refine to eight cells of width one eighth, and it returns seven sixteenths.",
+        "start": 21.278787878787877,
+        "end": 25.593939393939394,
+        "phrases": [
+          {
+            "start": 21.278787878787877,
+            "end": 25.593939393939394
+          }
+        ]
+      },
+      {
+        "text": "The deficits from one half are one eighth and one sixteenth respectively.",
+        "start": 26.116666666666667,
+        "end": 30.31060606060606,
+        "phrases": [
+          {
+            "start": 26.116666666666667,
+            "end": 30.31060606060606
+          }
+        ]
+      },
+      {
+        "text": "The teaching book also proves a closed formula for this finite sum at arbitrary rational starts and steps and natural counts.",
+        "start": 30.833333333333332,
+        "end": 38.22727272727273,
+        "phrases": [
+          {
+            "start": 30.833333333333332,
+            "end": 38.22727272727273
+          }
+        ]
+      },
+      {
+        "text": "The integral identification belongs to the real picture; these code results are exact rational equalities.",
+        "start": 38.75,
+        "end": 45.6469696969697,
+        "phrases": [
+          {
+            "start": 38.75,
+            "end": 45.6469696969697
+          }
+        ]
+      },
+      {
+        "text": "The example shows why a grid error needs its own estimate.",
+        "start": 46.16969696969697,
+        "end": 49.6,
+        "phrases": [
+          {
+            "start": 46.16969696969697,
+            "end": 49.6
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mesh",
+    "chapter": "Bound the variation between sample points",
+    "start": 882.3333333333184,
+    "audio_start": 882.5333333333184,
+    "duration": 54.630917,
+    "sentences": [
+      {
+        "text": "A general integrand need not be a straight line or a monotone function.",
+        "start": 0,
+        "end": 4.46060606060606,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.46060606060606
+          }
+        ]
+      },
+      {
+        "text": "We can instead use a bound on how quickly it changes.",
+        "start": 4.983333333333333,
+        "end": 8.243939393939394,
+        "phrases": [
+          {
+            "start": 4.983333333333333,
+            "end": 8.243939393939394
+          }
+        ]
+      },
+      {
+        "text": "If moving a distance d changes the value by at most L times d, then within one cell of width h, the value differs from its sample by at most L h.",
+        "start": 8.766666666666667,
+        "end": 18.293939393939393,
+        "phrases": [
+          {
+            "start": 8.766666666666667,
+            "end": 18.293939393939393
+          }
+        ]
+      },
+      {
+        "text": "Multiplying that variation allowance by the cell width gives an area error of at most L h squared for that cell.",
+        "start": 18.816666666666666,
+        "end": 25.495454545454546,
+        "phrases": [
+          {
+            "start": 18.816666666666666,
+            "end": 25.495454545454546
+          }
+        ]
+      },
+      {
+        "text": "On a uniform grid across a fixed finite interval, the total bound is L times the interval length times h.",
+        "start": 26.01818181818182,
+        "end": 32.660606060606064,
+        "phrases": [
+          {
+            "start": 26.01818181818182,
+            "end": 32.660606060606064
+          }
+        ]
+      },
+      {
+        "text": "Refining the grid makes this allowance smaller.",
+        "start": 33.18333333333334,
+        "end": 35.93484848484849,
+        "phrases": [
+          {
+            "start": 33.18333333333334,
+            "end": 35.93484848484849
+          }
+        ]
+      },
+      {
+        "text": "In the line example L is one.",
+        "start": 36.45757575757576,
+        "end": 38.4939393939394,
+        "phrases": [
+          {
+            "start": 36.45757575757576,
+            "end": 38.4939393939394
+          }
+        ]
+      },
+      {
+        "text": "Four cells give a conservative bound of one quarter; the actual deficit was one eighth.",
+        "start": 39.016666666666666,
+        "end": 44.32575757575758,
+        "phrases": [
+          {
+            "start": 39.016666666666666,
+            "end": 44.32575757575758
+          }
+        ]
+      },
+      {
+        "text": "A valid general bound can be larger than the error observed in an example.",
+        "start": 44.84848484848485,
+        "end": 49.43030303030303,
+        "phrases": [
+          {
+            "start": 44.84848484848485,
+            "end": 49.43030303030303
+          }
+        ]
+      },
+      {
+        "text": "The full weighted integrand needs its own justified variation bound.",
+        "start": 49.9530303030303,
+        "end": 54.13484848484848,
+        "phrases": [
+          {
+            "start": 49.9530303030303,
+            "end": 54.13484848484848
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "allocation",
+    "chapter": "Allocate error to cell contributions",
+    "start": 938.599999999976,
+    "audio_start": 938.7999999999761,
+    "duration": 52.935375,
+    "sentences": [
+      {
+        "text": "Finite evaluation also has a budget.",
+        "start": 0,
+        "end": 2.7636363636363637,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.7636363636363637
+          }
+        ]
+      },
+      {
+        "text": "Suppose there are N cells, and each computed cell contribution has error at most delta.",
+        "start": 3.286363636363636,
+        "end": 8.668181818181818,
+        "phrases": [
+          {
+            "start": 3.286363636363636,
+            "end": 8.668181818181818
+          }
+        ]
+      },
+      {
+        "text": "The total evaluation error is then at most N times delta.",
+        "start": 9.19090909090909,
+        "end": 13.057575757575757,
+        "phrases": [
+          {
+            "start": 9.19090909090909,
+            "end": 13.057575757575757
+          }
+        ]
+      },
+      {
+        "text": "This is an error bound for a cell's contribution, after accounting for its weight, rather than an unscaled error on a sampled value.",
+        "start": 13.58030303030303,
+        "end": 21.39848484848485,
+        "phrases": [
+          {
+            "start": 13.58030303030303,
+            "end": 21.39848484848485
+          }
+        ]
+      },
+      {
+        "text": "A convenient allocation divides the requested budget by N plus one.",
+        "start": 21.921212121212122,
+        "end": 26.32121212121212,
+        "phrases": [
+          {
+            "start": 21.921212121212122,
+            "end": 26.32121212121212
+          }
+        ]
+      },
+      {
+        "text": "With four cells and a total evaluation budget of one hundredth, each cell gets one five-hundredth.",
+        "start": 26.843939393939394,
+        "end": 32.60151515151515,
+        "phrases": [
+          {
+            "start": 26.843939393939394,
+            "end": 32.60151515151515
+          }
+        ]
+      },
+      {
+        "text": "Four such allowances add up to four five-hundredths, leaving some slack.",
+        "start": 33.124242424242425,
+        "end": 37.42727272727273,
+        "phrases": [
+          {
+            "start": 33.124242424242425,
+            "end": 37.42727272727273
+          }
+        ]
+      },
+      {
+        "text": "The teaching function and its general arithmetic theorem check this allocation.",
+        "start": 37.95,
+        "end": 42.35,
+        "phrases": [
+          {
+            "start": 37.95,
+            "end": 42.35
+          }
+        ]
+      },
+      {
+        "text": "The project's finite Mellin sum uses the same allocation pattern.",
+        "start": 42.872727272727275,
+        "end": 46.87272727272727,
+        "phrases": [
+          {
+            "start": 42.872727272727275,
+            "end": 46.87272727272727
+          }
+        ]
+      },
+      {
+        "text": "None of this has yet paid for variation between the cells or for an omitted infinite tail.",
+        "start": 47.39545454545454,
+        "end": 52.43787878787879,
+        "phrases": [
+          {
+            "start": 47.39545454545454,
+            "end": 52.43787878787879
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tail_cutoff",
+    "chapter": "An infinite tail needs a bound",
+    "start": 993.1666666666338,
+    "audio_start": 993.3666666666338,
+    "duration": 54.875,
+    "sentences": [
+      {
+        "text": "The integral in the Landau argument continues indefinitely.",
+        "start": 0,
+        "end": 3.539393939393939,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.539393939393939
+          }
+        ]
+      },
+      {
+        "text": "A computer must stop at a finite cutoff, and the discarded part needs an explicit bound.",
+        "start": 4.0621212121212125,
+        "end": 9.431818181818183,
+        "phrases": [
+          {
+            "start": 4.0621212121212125,
+            "end": 9.431818181818183
+          }
+        ]
+      },
+      {
+        "text": "For a simple model, integrate the decaying exponential of minus u from a cutoff T to infinity.",
+        "start": 9.954545454545455,
+        "end": 15.663636363636364,
+        "phrases": [
+          {
+            "start": 9.954545454545455,
+            "end": 15.663636363636364
+          }
+        ]
+      },
+      {
+        "text": "That tail area is the exponential of minus T.",
+        "start": 16.186363636363637,
+        "end": 19.507575757575758,
+        "phrases": [
+          {
+            "start": 16.186363636363637,
+            "end": 19.507575757575758
+          }
+        ]
+      },
+      {
+        "text": "Our decaying-exponential enclosure therefore bounds it using rational endpoints.",
+        "start": 20.030303030303028,
+        "end": 24.709090909090907,
+        "phrases": [
+          {
+            "start": 20.030303030303028,
+            "end": 24.709090909090907
+          }
+        ]
+      },
+      {
+        "text": "At cutoff eight, the computed upper endpoint with the displayed tolerance is at most one thousandth.",
+        "start": 25.231818181818184,
+        "end": 30.856060606060606,
+        "phrases": [
+          {
+            "start": 25.231818181818184,
+            "end": 30.856060606060606
+          }
+        ]
+      },
+      {
+        "text": "The ACL2 theorem checks that numerical inequality, while the real exponential interpretation supplies its meaning as this model's tail area.",
+        "start": 31.37878787878788,
+        "end": 40.10606060606061,
+        "phrases": [
+          {
+            "start": 31.37878787878788,
+            "end": 40.10606060606061
+          }
+        ]
+      },
+      {
+        "text": "The full signal integrand is more complicated.",
+        "start": 40.628787878787875,
+        "end": 43.55,
+        "phrases": [
+          {
+            "start": 40.628787878787875,
+            "end": 43.55
+          }
+        ]
+      },
+      {
+        "text": "Its tail estimates must include the signal's growth, the kernel power, and the damping rate.",
+        "start": 44.07272727272727,
+        "end": 49.63636363636363,
+        "phrases": [
+          {
+            "start": 44.07272727272727,
+            "end": 49.63636363636363
+          }
+        ]
+      },
+      {
+        "text": "A tiny-looking patch in a plot is not a substitute for those bounds.",
+        "start": 50.15909090909091,
+        "end": 54.377272727272725,
+        "phrases": [
+          {
+            "start": 50.15909090909091,
+            "end": 54.377272727272725
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ledger",
+    "chapter": "Keep the three error channels separate",
+    "start": 1049.6666666666238,
+    "audio_start": 1049.8666666666238,
+    "duration": 54.110833,
+    "sentences": [
+      {
+        "text": "The final ledger has at least three entries: finite evaluation error, mesh error, and tail error.",
+        "start": 0,
+        "end": 6.266666666666667,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 6.266666666666667
+          }
+        ]
+      },
+      {
+        "text": "More Taylor terms tighten the primitive enclosures.",
+        "start": 6.789393939393939,
+        "end": 9.856060606060607,
+        "phrases": [
+          {
+            "start": 6.789393939393939,
+            "end": 9.856060606060607
+          }
+        ]
+      },
+      {
+        "text": "Smaller cells reduce the variation allowance, when its hypotheses are satisfied.",
+        "start": 10.378787878787879,
+        "end": 15.772727272727273,
+        "phrases": [
+          {
+            "start": 10.378787878787879,
+            "end": 15.772727272727273
+          }
+        ]
+      },
+      {
+        "text": "A farther cutoff reduces a suitably bounded tail.",
+        "start": 16.295454545454547,
+        "end": 19.665151515151514,
+        "phrases": [
+          {
+            "start": 16.295454545454547,
+            "end": 19.665151515151514
+          }
+        ]
+      },
+      {
+        "text": "These are different controls for different jobs.",
+        "start": 20.187878787878788,
+        "end": 23.01212121212121,
+        "phrases": [
+          {
+            "start": 20.187878787878788,
+            "end": 23.01212121212121
+          }
+        ]
+      },
+      {
+        "text": "If three signed error contributions each have absolute value at most one thousandth, their sum has absolute value at most three thousandths.",
+        "start": 23.534848484848485,
+        "end": 31.753030303030304,
+        "phrases": [
+          {
+            "start": 23.534848484848485,
+            "end": 31.753030303030304
+          }
+        ]
+      },
+      {
+        "text": "That is less than a final target of one hundredth.",
+        "start": 32.275757575757574,
+        "end": 35.124242424242425,
+        "phrases": [
+          {
+            "start": 32.275757575757574,
+            "end": 35.124242424242425
+          }
+        ]
+      },
+      {
+        "text": "This arithmetic implication is checked in ACL2, and it remains conditional on having established the three input bounds.",
+        "start": 35.6469696969697,
+        "end": 43.028787878787874,
+        "phrases": [
+          {
+            "start": 35.6469696969697,
+            "end": 43.028787878787874
+          }
+        ]
+      },
+      {
+        "text": "We have not obtained an integral certificate merely by adding numbers to a budget table.",
+        "start": 43.551515151515154,
+        "end": 48.61818181818182,
+        "phrases": [
+          {
+            "start": 43.551515151515154,
+            "end": 48.61818181818182
+          }
+        ]
+      },
+      {
+        "text": "Each entry has to be proved for the actual function and parameters being used.",
+        "start": 49.14090909090909,
+        "end": 53.61363636363636,
+        "phrases": [
+          {
+            "start": 49.14090909090909,
+            "end": 53.61363636363636
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "next",
+    "chapter": "From scalar weights to complex readings",
+    "start": 1105.3999999999508,
+    "audio_start": 1105.5999999999508,
+    "duration": 51.852792,
+    "sentences": [
+      {
+        "text": "We have replaced the scalar kernel's exponential with finite rational enclosures and a computed precision choice.",
+        "start": 0,
+        "end": 6.484848484848485,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 6.484848484848485
+          }
+        ]
+      },
+      {
+        "text": "We have also separated exact finite summation from the errors of sampling and truncation.",
+        "start": 7.007575757575758,
+        "end": 12.365151515151515,
+        "phrases": [
+          {
+            "start": 7.007575757575758,
+            "end": 12.365151515151515
+          }
+        ]
+      },
+      {
+        "text": "The repository contains both arithmetic results and real-interpretation theorems for these kernel ingredients.",
+        "start": 12.887878787878787,
+        "end": 19.409090909090907,
+        "phrases": [
+          {
+            "start": 12.887878787878787,
+            "end": 19.409090909090907
+          }
+        ]
+      },
+      {
+        "text": "Connecting all components of the Landau argument, including their intended Peano Arithmetic interpretation, still requires the remaining composition work.",
+        "start": 19.93181818181818,
+        "end": 28.853030303030305,
+        "phrases": [
+          {
+            "start": 19.93181818181818,
+            "end": 28.853030303030305
+          }
+        ]
+      },
+      {
+        "text": "Next we will add complex phases, build the oscillating sample, and track the product and sum errors.",
+        "start": 29.375757575757575,
+        "end": 35.64242424242424,
+        "phrases": [
+          {
+            "start": 29.375757575757575,
+            "end": 35.64242424242424
+          }
+        ]
+      },
+      {
+        "text": "This is why the next episode gets its own time: a complex reading has more structure than a scalar weight.",
+        "start": 36.165151515151514,
+        "end": 42.128787878787875,
+        "phrases": [
+          {
+            "start": 36.165151515151514,
+            "end": 42.128787878787875
+          }
+        ]
+      },
+      {
+        "text": "The aim stays the same throughout the series.",
+        "start": 42.65151515151515,
+        "end": 45.306060606060605,
+        "phrases": [
+          {
+            "start": 42.65151515151515,
+            "end": 45.306060606060605
+          }
+        ]
+      },
+      {
+        "text": "Every numerical-looking box should become an explicit construction with a justified error budget.",
+        "start": 45.82878787878788,
+        "end": 51.35606060606061,
+        "phrases": [
+          {
+            "start": 45.82878787878788,
+            "end": 51.35606060606061
+          }
+        ]
+      }
+    ]
+  }
+]

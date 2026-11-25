@@ -1,0 +1,90 @@
+{
+  "title": "Part Zero — a finite proof about infinitely many numbers",
+  "chapters": [
+    {
+      "start": 0.0,
+      "chapter": "A finite proof about infinitely many numbers",
+      "text": "Here is a claim about numbers you will never finish counting. Add the first odd number, and you get one. Add the next, and you get four. Then nine, sixteen, twenty five. The sum of the first n odd numbers is n squared. A computer can check millions of examples. But a proof has to explain why every example works, including the ones we will never compute. How can a finite argument reach infinitely far? This is Part Zero of Landau Windows ACL Two. We are starting with Peano arithmetic: the rules behind whole number reasoning."
+    },
+    {
+      "start": 36.53333333333336,
+      "chapter": "The symbols, one at a time",
+      "text": "A formal system starts with a language. We will introduce its symbols, one at a time. This is zero, the starting number. This is S, the successor symbol. Successor means the next whole number; after zero comes one. This is plus, addition. This is the multiplication sign, times. This is equals, the equality symbol. Letters such as x and y are variable names. This is the symbol for and; both statements hold. This is not; it reverses a statement. For every means all values of the variable. There exists means at least one value. These are our basic arithmetic symbols: zero, successor, addition, and multiplication. Zero is the only basic number constant in this language. We have not introduced separate basic symbols for one, two, or three. Instead, the familiar written numerals are abbreviations for chains of successors. The numbers are the values we are talking about; numerals are their written names. For one, start at zero and take one successor step. For two, take another successor step. For three, take one more. So when we write the numeral three, we mean successor of successor of successor of zero. The short numeral saves space, while the full expression uses only our original symbols. Now we can combine those symbols into expressions."
+    },
+    {
+      "start": 142.56666666666518,
+      "chapter": "Terms turn inputs into a number",
+      "text": "Consider the expression x plus S of y. It is a term, an expression whose value is a number. That description is abstract, so let us choose actual inputs. Let x be two, and let y be one. First substitute those values: two plus S of one. S of one means the next number after one, which is two. The expression has become two plus two, giving four. Now change just x, from two to five. The same term gives five plus two, which is seven. The term did not say true or false; it produced a number for the supplied inputs. If we change the inputs, the output may change. Think of a term as a little arithmetic machine. Next, we will turn a number-producing expression into a claim."
+    },
+    {
+      "start": 200.5666666666647,
+      "chapter": "Formulas and their truth values",
+      "text": "Now take the same term, and ask whether its value equals four. The expression x plus S of y equals four is a formula. A formula makes a claim, and we can evaluate its truth for particular inputs. Use x equal to two, and y equal to one. The term gives four, so four equals four is true. Now use x equal to one, and keep y equal to one. The term gives three, so three equals four is false. Here is a table of truth values for a few assignments. With x equal to three and y equal to zero, the result is true. With both inputs zero, the result is false. The domain is infinite, so this table is a sample, not an exhaustive list of inputs. A false row already refutes the claim that this formula holds for every input. For other formulas, a finite table of true examples would not by itself prove the universal claim. Terms produce values; formulas make claims about those values."
+    },
+    {
+      "start": 271.6999999999985,
+      "chapter": "Less than or equal to",
+      "text": "Let us build the symbol less than or equal to from arithmetic. We read x less than or equal to y as x is less than or equal to y. It means there is a whole number z, such that x plus z equals y. The comparison is shorthand for this existence statement. Try x equal to two, and y equal to five. We can choose z equal to three, because two plus three equals five. So two is less than or equal to five. Equality is included: three is less than or equal to three, using z equal to zero. Now reverse the first example: is five less than or equal to two? We would need a whole number z, such that five plus z equals two. No whole number works; adding a whole number cannot decrease five. That comparison is false. This is why the domain matters: z ranges over whole numbers, not negative integers. We have explained the notation using addition and a quantifier, instead of assuming a new primitive comparison."
+    },
+    {
+      "start": 342.86666666667367,
+      "chapter": "Building addition one step at a time",
+      "text": "The symbols alone do not tell us which statements we may prove. We need starting rules, called axioms, and rules for drawing conclusions. The successor axioms say zero is not a successor, and equal successors come from equal numbers. Addition has two recursive rules. First, x plus zero equals x. Second, x plus the successor of y equals the successor of the quantity x plus y. Let us compute three plus two, slowly. Two is the successor of one. Move that successor outside, leaving three plus one inside. One is the successor of zero, so repeat the same rule. Now use three plus zero equals three. Take two successor steps: four, then five. This is a finite calculation. To prove a statement for every input, we will need induction."
+    },
+    {
+      "start": 405.5333333333474,
+      "chapter": "Building multiplication: one to five groups",
+      "text": "Multiplication also has a recursive definition. First, x times zero equals zero: zero groups contain no objects. The next rule is x times S of y equals x times y plus x. S of y means y plus one, so the next multiplier adds one more group of x. Let us fix x at three, and build groups of three objects. One group gives three: three times one is three times zero, plus three. Two groups give six: take the previous three, and add three. Three groups give nine: take six, and add three. Four groups give twelve: take nine, and add three. Five groups give fifteen: take twelve, and add three. Each step increases the multiplier by one, and adds one entire group of x. That is what x times S of y equals x times y plus x is saying. The rule is a precise way to build multiplication from addition."
+    },
+    {
+      "start": 482.86666666669527,
+      "chapter": "Induction: a start and a repeatable step",
+      "text": "We want a reason that works for every whole number. Start with a concrete claim: zero plus n equals n. Checking zero, one, and two only supplies examples. Induction asks for two things. First, prove the claim when n is zero. Second, take any whole number n, and show that if the claim holds there, it also holds at the next number. Start at zero, and repeat that step: one, two, three, and onward. We do not have to write infinitely many separate calculations. We need a starting case, and one justified step that works at any position. Let us build those two ingredients explicitly."
+    },
+    {
+      "start": 535.9000000000271,
+      "chapter": "A complete small proof",
+      "text": "Let's prove something that looks almost too obvious: zero plus n equals n. Our calculation axiom already tells us that n plus zero equals n. But that has zero on the other side. Until we have proved the relevant facts, we cannot silently swap the inputs. For the base case, zero plus zero equals zero by the addition axiom. For the step, suppose zero plus n equals n. The recursive addition rule says zero plus the successor of n equals the successor of zero plus n. Use the induction hypothesis inside those parentheses. The expression becomes the successor of n, exactly what we needed. Induction now gives the result for every whole number. A short proof has covered an infinite family, and every step has a stated reason."
+    },
+    {
+      "start": 588.7666666666886,
+      "chapter": "Build O(n) and its recurrence, one term at a time",
+      "text": "Let us build our second induction example from the beginning. The odd numbers begin one, three, five, seven, nine. We need a short name for adding the first few. Write O of n for the sum of the first n odd numbers. Here n tells us how many terms to take. O of zero is zero, because we have not added any terms. For O of one, take just one. For O of two, keep that one, and add three. For O of three, keep one plus three, and add five. For O of four, append seven. For O of five, append nine. Every time the count increases by one, we keep the old sum and add one new odd number. Which odd number comes next after n terms? After zero terms, the next odd number is one. After one term it is three; after two terms it is five. Each increase of one in n increases the next odd number by two. Starting from one and taking n steps of two gives one plus two times n, or two n plus one. For example, after three terms, two times three plus one gives seven. Now name the updated total O of n plus one. It contains the old sum O of n, plus that next odd number. That gives our recurrence: O of n plus one equals O of n plus two n plus one. The equation just describes adding one more term. With that bookkeeping in place, we can ask why the totals make squares."
+    },
+    {
+      "start": 705.6666666666646,
+      "chapter": "Connect the recurrence to the square picture",
+      "text": "Now we know how the sum grows: each step adds two n plus one. Our first few totals were one, four, nine, sixteen, twenty five. Those are square numbers; could this happen for every number of terms? Our claim is that O of n, the sum of the first n odd numbers, equals n squared. At zero, O of zero is zero, and zero squared is zero. For the next step, assume O of n equals n squared. The recurrence says the next sum is the old sum, plus two n plus one. Replace that old sum by n squared, using our assumption. Pause at that expression: n squared plus two n plus one. Here is an n by n square. Add a row of n tiles, a column of n tiles, and one corner tile. The added border contains n plus n plus one tiles, which is two n plus one. Together, they form a square of side n plus one. So n squared plus two n plus one equals the quantity n plus one squared. That gives O of n plus one equals the quantity n plus one squared, the next case of our claim. We have proved the starting case and the step; induction now gives the result for every n. The picture used n equal to three to illustrate the general count; the counting argument works for any n. A formal proof would expand the finite sum notation and justify the algebraic identities used here."
+    },
+    {
+      "start": 815.5666666666496,
+      "chapter": "Define video-odd-sum before using its compact name",
+      "text": "We have described the sum mathematically; now write the actual ACL2 function. Keep its meaning in view: O of n is the sum of the first n odd numbers. This popup shows the complete definition from our checked teaching book. Defun introduces video-odd-sum, with one input called n. For the natural-number inputs used here, the zero test asks whether n is zero. If it is, return zero, the sum with no terms. The decrement operation subtracts one from n. The recursive call computes the sum with one fewer term. Then add the nth odd number: two times n minus one. For input four, the recursive call uses three, and the new odd term is seven. So one plus three plus five, plus seven, gives sixteen. Each recursive call reduces the natural input, until it reaches zero. ACL2 checks that this definition terminates before admitting the function. Now fold the definition into its compact function name. Whenever that name appears, it refers to the definition we have just examined."
+    },
+    {
+      "start": 892.199999999974,
+      "chapter": "From the PA claim to a checked ACL2 theorem",
+      "text": "We have now seen two examples of the same induction pattern. Return to our first claim: zero plus n equals n. P of n is a short label for that particular formula. P of zero means zero plus zero equals zero. P of the next number means zero plus the quantity n plus one equals n plus one. In Peano arithmetic, the induction scheme supplies an induction axiom for each chosen formula. The word scheme names that whole family of axioms. Now write our first claim in the language used by this project, ACL2. ACL2 writes the operation first, inside parentheses, so zero plus n becomes plus zero n. To say that this result equals n, wrap that expression in equal. ACL2 works with objects besides whole numbers, so include natp n, meaning n is a whole number. Implies says: if n is a whole number, then the equality holds. Finally, defthm asks ACL2 to prove the statement; we name our teaching theorem video-zero-plus-n. The variable n is understood universally; this theorem covers every natural number. This simple equality can be handled by ACL2 arithmetic simplification. For recursive claims, ACL2 can also use induction patterns justified by terminating function definitions. Our other claim has this ACL2 statement. The function video-odd-sum is our ACL2 name for O of n, the sum of the first n odd numbers. For every natural n, that function value equals n times n. Again, the natural-number hypothesis specifies the domain of the claim. Both displayed teaching theorems have been checked in ACL2. The checker verifies the proof as well as reading the theorem statement."
+    },
+    {
+      "start": 1026.0999999999601,
+      "chapter": "PA and ACL2 notation, side by side",
+      "text": "Before moving on, here are the translation pairs we will keep using. For natural-number values, ACL2 lets us write ordinary numerals directly; the PA successor chain for three corresponds to the ACL2 numeral three. Successor of n becomes plus one n, in parentheses. Addition x plus y is written plus x y. Multiplication x times y is written times x y. To assert an equality, use equal around the expressions being compared. And combines the two equality tests shown here. Not reverses the truth of the equality test. Less than or equal to has the matching ACL2 comparison shown here. Our existence example gets a concrete witness: when x is less than or equal to y, choose z equal to y minus x. Here is the recursive addition identity we used. And here is the multiplication identity, adding one more whole group. The odd-sum recurrence keeps exactly the same old-sum and next-term structure in ACL2. For universal claims, we use theorem statements with explicit natural-number hypotheses, like the ones just shown. Later parts will keep the mathematical notation beside its ACL2 counterpart, and state what the variables mean."
+    },
+    {
+      "start": 1121.9333333332827,
+      "chapter": "More than a calculator",
+      "text": "A language about whole numbers may sound restrictive. But finite objects can be represented by numbers and finite sequences. A fraction can be stored as a numerator and a nonzero denominator. A finite list can be encoded by arithmetic data. A program, and a finite record of its execution, can also be encoded. The representation has to be justified: we must prove that the arithmetic operations preserve the meaning we intend. This is how an arithmetic proof can talk about a calculation without treating arbitrary real numbers as primitive objects. Later, we will use exact rational intervals to enclose quantities that are defined using analysis. An accepted numerical example is useful. A general theorem explaining why every permitted input works is a further obligation."
+    },
+    {
+      "start": 1173.3999999999446,
+      "chapter": "A statement is not yet a proof",
+      "text": "There is one distinction to keep throughout this series. Expressing a statement in arithmetic does not, by itself, prove it in arithmetic. We must actually derive it from the chosen rules. Nor does using a stronger background to describe numbers show that every theorem about numbers needs that background. The intended interpretation here is the ordinary whole numbers. In the next part we will separate the written rules, the proofs made from them, and the mathematical worlds where those rules hold. That will give us the vocabulary to compare Peano arithmetic with stronger foundations, and to understand what a reduction of assumptions really accomplishes."
+    },
+    {
+      "start": 1213.733333333275,
+      "chapter": "The road to the Landau reduction",
+      "text": "From here, we will build toward exact fractions and intervals, verified finite searches, the smoothed prime counting statistic, and the Landau bridge. The destination is a proof of the full reduction in ACL2, with a precise account of its arithmetic strength and its connection to the original mathematics. Every connection in that chain needs its own proof. The later episodes will follow what is actually proved. Part Zero gives us the starting point: a formal language, explicit calculation rules, and induction. With those tools, a finite proof can say something about infinitely many numbers."
+    }
+  ]
+}

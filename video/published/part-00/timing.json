@@ -1,0 +1,3496 @@
+[
+  {
+    "id": "infinity",
+    "chapter": "A finite proof about infinitely many numbers",
+    "start": 0.0,
+    "audio_start": 0.2,
+    "duration": 34.891708,
+    "sentences": [
+      {
+        "text": "Here is a claim about numbers you will never finish counting.",
+        "start": 0,
+        "end": 3.1536231884057973,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.1536231884057973
+          }
+        ]
+      },
+      {
+        "text": "Add the first odd number, and you get one.",
+        "start": 3.544927536231884,
+        "end": 5.956521739130435,
+        "phrases": [
+          {
+            "start": 3.544927536231884,
+            "end": 5.956521739130435
+          }
+        ]
+      },
+      {
+        "text": "Add the next, and you get four.",
+        "start": 6.3478260869565215,
+        "end": 8.318840579710145,
+        "phrases": [
+          {
+            "start": 6.3478260869565215,
+            "end": 8.318840579710145
+          }
+        ]
+      },
+      {
+        "text": "Then nine, sixteen, twenty five.",
+        "start": 8.710144927536232,
+        "end": 10.92463768115942,
+        "phrases": [
+          {
+            "start": 8.710144927536232,
+            "end": 10.92463768115942
+          }
+        ]
+      },
+      {
+        "text": "The sum of the first n odd numbers is n squared.",
+        "start": 11.315942028985505,
+        "end": 14.295652173913043,
+        "phrases": [
+          {
+            "start": 11.315942028985505,
+            "end": 14.295652173913043
+          }
+        ]
+      },
+      {
+        "text": "A computer can check millions of examples.",
+        "start": 14.68695652173913,
+        "end": 17.237681159420287,
+        "phrases": [
+          {
+            "start": 14.68695652173913,
+            "end": 17.237681159420287
+          }
+        ]
+      },
+      {
+        "text": "But a proof has to explain why every example works, including the ones we will never compute.",
+        "start": 17.628985507246377,
+        "end": 22.881159420289855,
+        "phrases": [
+          {
+            "start": 17.628985507246377,
+            "end": 22.881159420289855
+          }
+        ]
+      },
+      {
+        "text": "How can a finite argument reach infinitely far?",
+        "start": 23.27246376811594,
+        "end": 26.031884057971013,
+        "phrases": [
+          {
+            "start": 23.27246376811594,
+            "end": 26.031884057971013
+          }
+        ]
+      },
+      {
+        "text": "This is Part Zero of Landau Windows A C L two.",
+        "start": 26.423188405797102,
+        "end": 29.65797101449275,
+        "phrases": [
+          {
+            "start": 26.423188405797102,
+            "end": 29.65797101449275
+          }
+        ]
+      },
+      {
+        "text": "We are starting with Peano arithmetic: the rules behind whole number reasoning.",
+        "start": 30.049275362318838,
+        "end": 34.52463768115942,
+        "phrases": [
+          {
+            "start": 30.049275362318838,
+            "end": 34.52463768115942
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "symbols",
+    "chapter": "The symbols, one at a time",
+    "start": 36.53333333333336,
+    "audio_start": 36.73333333333336,
+    "duration": 104.390417,
+    "sentences": [
+      {
+        "text": "A formal system starts with a language.",
+        "start": 0,
+        "end": 2.5125925925925925,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.5125925925925925
+          }
+        ]
+      },
+      {
+        "text": "We will introduce its symbols, one at a time.",
+        "start": 2.957037037037037,
+        "end": 6.699259259259259,
+        "phrases": [
+          {
+            "start": 2.957037037037037,
+            "end": 4.900740740740741
+          },
+          {
+            "start": 5.478518518518518,
+            "end": 6.699259259259259
+          }
+        ]
+      },
+      {
+        "text": "This is zero, the starting number.",
+        "start": 7.143703703703704,
+        "end": 10.103703703703705,
+        "phrases": [
+          {
+            "start": 7.143703703703704,
+            "end": 8.26962962962963
+          },
+          {
+            "start": 8.847407407407406,
+            "end": 10.103703703703705
+          }
+        ]
+      },
+      {
+        "text": "This is S, the successor symbol.",
+        "start": 10.54814814814815,
+        "end": 13.555555555555554,
+        "phrases": [
+          {
+            "start": 10.54814814814815,
+            "end": 11.579259259259258
+          },
+          {
+            "start": 12.157037037037036,
+            "end": 13.555555555555554
+          }
+        ]
+      },
+      {
+        "text": "Successor means the next whole number; after zero comes one.",
+        "start": 14,
+        "end": 18.465185185185184,
+        "phrases": [
+          {
+            "start": 14,
+            "end": 16.263703703703705
+          },
+          {
+            "start": 16.84148148148148,
+            "end": 18.465185185185184
+          }
+        ]
+      },
+      {
+        "text": "This is plus, addition.",
+        "start": 18.90962962962963,
+        "end": 21.478518518518516,
+        "phrases": [
+          {
+            "start": 18.90962962962963,
+            "end": 20.035555555555554
+          },
+          {
+            "start": 20.613333333333333,
+            "end": 21.478518518518516
+          }
+        ]
+      },
+      {
+        "text": "This is the multiplication sign, times.",
+        "start": 21.922962962962963,
+        "end": 25.44,
+        "phrases": [
+          {
+            "start": 21.922962962962963,
+            "end": 24.06814814814815
+          },
+          {
+            "start": 24.645925925925926,
+            "end": 25.44
+          }
+        ]
+      },
+      {
+        "text": "This is equals, the equality symbol.",
+        "start": 25.884444444444444,
+        "end": 29.128888888888888,
+        "phrases": [
+          {
+            "start": 25.884444444444444,
+            "end": 27.128888888888888
+          },
+          {
+            "start": 27.706666666666667,
+            "end": 29.128888888888888
+          }
+        ]
+      },
+      {
+        "text": "Letters such as x and y are variable names.",
+        "start": 29.57333333333333,
+        "end": 33.61185185185185,
+        "phrases": [
+          {
+            "start": 29.57333333333333,
+            "end": 31.493333333333332
+          },
+          {
+            "start": 32.07111111111111,
+            "end": 33.61185185185185
+          }
+        ]
+      },
+      {
+        "text": "This is the symbol for and; both statements hold.",
+        "start": 34.056296296296296,
+        "end": 37.79851851851852,
+        "phrases": [
+          {
+            "start": 34.056296296296296,
+            "end": 35.81037037037037
+          },
+          {
+            "start": 36.38814814814815,
+            "end": 37.79851851851852
+          }
+        ]
+      },
+      {
+        "text": "This is not; it reverses a statement.",
+        "start": 38.24296296296296,
+        "end": 41.416296296296295,
+        "phrases": [
+          {
+            "start": 38.24296296296296,
+            "end": 39.27407407407407
+          },
+          {
+            "start": 39.851851851851855,
+            "end": 41.416296296296295
+          }
+        ]
+      },
+      {
+        "text": "For every means all values of the variable.",
+        "start": 41.86074074074074,
+        "end": 45.543703703703706,
+        "phrases": [
+          {
+            "start": 41.86074074074074,
+            "end": 42.749629629629624
+          },
+          {
+            "start": 43.32740740740741,
+            "end": 45.543703703703706
+          }
+        ]
+      },
+      {
+        "text": "There exists means at least one value.",
+        "start": 45.98814814814815,
+        "end": 49.48148148148148,
+        "phrases": [
+          {
+            "start": 45.98814814814815,
+            "end": 47.078518518518514
+          },
+          {
+            "start": 47.6562962962963,
+            "end": 49.48148148148148
+          }
+        ]
+      },
+      {
+        "text": "These are our basic arithmetic symbols: zero, successor, addition, and multiplication.",
+        "start": 49.925925925925924,
+        "end": 56.09777777777778,
+        "phrases": [
+          {
+            "start": 49.925925925925924,
+            "end": 52.3437037037037
+          },
+          {
+            "start": 52.92148148148148,
+            "end": 56.09777777777778
+          }
+        ]
+      },
+      {
+        "text": "Zero is the only basic number constant in this language.",
+        "start": 56.54222222222222,
+        "end": 60.10962962962963,
+        "phrases": [
+          {
+            "start": 56.54222222222222,
+            "end": 60.10962962962963
+          }
+        ]
+      },
+      {
+        "text": "We have not introduced separate basic symbols for one, two, or three.",
+        "start": 60.55407407407407,
+        "end": 64.64296296296295,
+        "phrases": [
+          {
+            "start": 60.55407407407407,
+            "end": 64.64296296296295
+          }
+        ]
+      },
+      {
+        "text": "Instead, the familiar written numerals are abbreviations for chains of successors.",
+        "start": 65.0874074074074,
+        "end": 70.72592592592592,
+        "phrases": [
+          {
+            "start": 65.0874074074074,
+            "end": 65.9762962962963
+          },
+          {
+            "start": 66.55407407407407,
+            "end": 70.72592592592592
+          }
+        ]
+      },
+      {
+        "text": "The numbers are the values we are talking about; numerals are their written names.",
+        "start": 71.17037037037036,
+        "end": 76.31111111111112,
+        "phrases": [
+          {
+            "start": 71.17037037037036,
+            "end": 73.78962962962963
+          },
+          {
+            "start": 74.36740740740741,
+            "end": 76.31111111111112
+          }
+        ]
+      },
+      {
+        "text": "For one, start at zero and take one successor step.",
+        "start": 76.75555555555555,
+        "end": 80.84148148148148,
+        "phrases": [
+          {
+            "start": 76.75555555555555,
+            "end": 78.42666666666666
+          },
+          {
+            "start": 79.00444444444445,
+            "end": 80.84148148148148
+          }
+        ]
+      },
+      {
+        "text": "For two, take another successor step.",
+        "start": 81.28592592592592,
+        "end": 84.51851851851852,
+        "phrases": [
+          {
+            "start": 81.28592592592592,
+            "end": 82.09185185185184
+          },
+          {
+            "start": 82.66962962962963,
+            "end": 84.51851851851852
+          }
+        ]
+      },
+      {
+        "text": "For three, take one more.",
+        "start": 84.96296296296296,
+        "end": 87.50814814814815,
+        "phrases": [
+          {
+            "start": 84.96296296296296,
+            "end": 85.76888888888888
+          },
+          {
+            "start": 86.34666666666666,
+            "end": 87.50814814814815
+          }
+        ]
+      },
+      {
+        "text": "So when we write the numeral three, we mean successor of successor of successor of zero.",
+        "start": 87.95259259259258,
+        "end": 93.91111111111111,
+        "phrases": [
+          {
+            "start": 87.95259259259258,
+            "end": 90.00296296296297
+          },
+          {
+            "start": 90.58074074074074,
+            "end": 93.91111111111111
+          }
+        ]
+      },
+      {
+        "text": "The short numeral saves space, while the full expression uses only our original symbols.",
+        "start": 94.35555555555555,
+        "end": 100.4562962962963,
+        "phrases": [
+          {
+            "start": 94.35555555555555,
+            "end": 96.40592592592591
+          },
+          {
+            "start": 96.9837037037037,
+            "end": 100.4562962962963
+          }
+        ]
+      },
+      {
+        "text": "Now we can combine those symbols into expressions.",
+        "start": 100.90074074074073,
+        "end": 103.97037037037038,
+        "phrases": [
+          {
+            "start": 100.90074074074073,
+            "end": 103.97037037037038
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "terms",
+    "chapter": "Terms turn inputs into a number",
+    "start": 142.56666666666518,
+    "audio_start": 142.76666666666517,
+    "duration": 56.374958,
+    "sentences": [
+      {
+        "text": "Consider the expression x plus S of y.",
+        "start": 0,
+        "end": 3.6592592592592594,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 1.5288888888888887
+          },
+          {
+            "start": 2.1066666666666665,
+            "end": 3.6592592592592594
+          }
+        ]
+      },
+      {
+        "text": "It is a term, an expression whose value is a number.",
+        "start": 4.103703703703704,
+        "end": 8.201481481481482,
+        "phrases": [
+          {
+            "start": 4.103703703703704,
+            "end": 5.265185185185185
+          },
+          {
+            "start": 5.842962962962963,
+            "end": 8.201481481481482
+          }
+        ]
+      },
+      {
+        "text": "That description is abstract, so let us choose actual inputs.",
+        "start": 8.645925925925926,
+        "end": 13.36,
+        "phrases": [
+          {
+            "start": 8.645925925925926,
+            "end": 10.66074074074074
+          },
+          {
+            "start": 11.238518518518518,
+            "end": 13.36
+          }
+        ]
+      },
+      {
+        "text": "Let x be two, and let y be one.",
+        "start": 13.804444444444444,
+        "end": 17.06074074074074,
+        "phrases": [
+          {
+            "start": 13.804444444444444,
+            "end": 15.13185185185185
+          },
+          {
+            "start": 15.70962962962963,
+            "end": 17.06074074074074
+          }
+        ]
+      },
+      {
+        "text": "First substitute those values: two plus S of one.",
+        "start": 17.505185185185184,
+        "end": 21.65037037037037,
+        "phrases": [
+          {
+            "start": 17.505185185185184,
+            "end": 19.685925925925925
+          },
+          {
+            "start": 20.2637037037037,
+            "end": 21.65037037037037
+          }
+        ]
+      },
+      {
+        "text": "S of one means the next number after one, which is two.",
+        "start": 22.094814814814814,
+        "end": 26.287407407407404,
+        "phrases": [
+          {
+            "start": 22.094814814814814,
+            "end": 24.69037037037037
+          },
+          {
+            "start": 25.268148148148146,
+            "end": 26.287407407407404
+          }
+        ]
+      },
+      {
+        "text": "The expression has become two plus two, giving four.",
+        "start": 26.73185185185185,
+        "end": 30.64,
+        "phrases": [
+          {
+            "start": 26.73185185185185,
+            "end": 29.16148148148148
+          },
+          {
+            "start": 29.73925925925926,
+            "end": 30.64
+          }
+        ]
+      },
+      {
+        "text": "Now change just x, from two to five.",
+        "start": 31.084444444444443,
+        "end": 34.471111111111114,
+        "phrases": [
+          {
+            "start": 31.084444444444443,
+            "end": 32.67259259259259
+          },
+          {
+            "start": 33.25037037037037,
+            "end": 34.471111111111114
+          }
+        ]
+      },
+      {
+        "text": "The same term gives five plus two, which is seven.",
+        "start": 34.91555555555556,
+        "end": 38.81185185185185,
+        "phrases": [
+          {
+            "start": 34.91555555555556,
+            "end": 37.19111111111111
+          },
+          {
+            "start": 37.76888888888889,
+            "end": 38.81185185185185
+          }
+        ]
+      },
+      {
+        "text": "The term did not say true or false; it produced a number for the supplied inputs.",
+        "start": 39.25629629629629,
+        "end": 44.70518518518519,
+        "phrases": [
+          {
+            "start": 39.25629629629629,
+            "end": 41.60296296296296
+          },
+          {
+            "start": 42.18074074074074,
+            "end": 44.70518518518519
+          }
+        ]
+      },
+      {
+        "text": "If we change the inputs, the output may change.",
+        "start": 45.14962962962963,
+        "end": 48.72592592592592,
+        "phrases": [
+          {
+            "start": 45.14962962962963,
+            "end": 46.678518518518516
+          },
+          {
+            "start": 47.2562962962963,
+            "end": 48.72592592592592
+          }
+        ]
+      },
+      {
+        "text": "Think of a term as a little arithmetic machine.",
+        "start": 49.170370370370364,
+        "end": 51.88444444444444,
+        "phrases": [
+          {
+            "start": 49.170370370370364,
+            "end": 51.88444444444444
+          }
+        ]
+      },
+      {
+        "text": "Next, we will turn a number-producing expression into a claim.",
+        "start": 52.32888888888888,
+        "end": 55.955555555555556,
+        "phrases": [
+          {
+            "start": 52.32888888888888,
+            "end": 55.955555555555556
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "formulas",
+    "chapter": "Formulas and their truth values",
+    "start": 200.5666666666647,
+    "audio_start": 200.7666666666647,
+    "duration": 69.492292,
+    "sentences": [
+      {
+        "text": "Now take the same term, and ask whether its value equals four.",
+        "start": 0,
+        "end": 4.737777777777778,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 1.6118518518518519
+          },
+          {
+            "start": 2.1896296296296294,
+            "end": 4.737777777777778
+          }
+        ]
+      },
+      {
+        "text": "The expression x plus S of y equals four is a formula.",
+        "start": 5.182222222222221,
+        "end": 8.879999999999999,
+        "phrases": [
+          {
+            "start": 5.182222222222221,
+            "end": 8.879999999999999
+          }
+        ]
+      },
+      {
+        "text": "A formula makes a claim, and we can evaluate its truth for particular inputs.",
+        "start": 9.324444444444444,
+        "end": 14.702222222222222,
+        "phrases": [
+          {
+            "start": 9.324444444444444,
+            "end": 11.01925925925926
+          },
+          {
+            "start": 11.597037037037037,
+            "end": 14.702222222222222
+          }
+        ]
+      },
+      {
+        "text": "Use x equal to two, and y equal to one.",
+        "start": 15.146666666666667,
+        "end": 18.79407407407407,
+        "phrases": [
+          {
+            "start": 15.146666666666667,
+            "end": 16.794074074074075
+          },
+          {
+            "start": 17.37185185185185,
+            "end": 18.79407407407407
+          }
+        ]
+      },
+      {
+        "text": "The term gives four, so four equals four is true.",
+        "start": 19.238518518518518,
+        "end": 23.265185185185185,
+        "phrases": [
+          {
+            "start": 19.238518518518518,
+            "end": 20.577777777777776
+          },
+          {
+            "start": 21.155555555555555,
+            "end": 23.265185185185185
+          }
+        ]
+      },
+      {
+        "text": "Now use x equal to one, and keep y equal to one.",
+        "start": 23.709629629629628,
+        "end": 27.7837037037037,
+        "phrases": [
+          {
+            "start": 23.709629629629628,
+            "end": 25.52296296296296
+          },
+          {
+            "start": 26.10074074074074,
+            "end": 27.7837037037037
+          }
+        ]
+      },
+      {
+        "text": "The term gives three, so three equals four is false.",
+        "start": 28.22814814814815,
+        "end": 32.43259259259259,
+        "phrases": [
+          {
+            "start": 28.22814814814815,
+            "end": 29.650370370370368
+          },
+          {
+            "start": 30.228148148148147,
+            "end": 32.43259259259259
+          }
+        ]
+      },
+      {
+        "text": "Here is a table of truth values for a few assignments.",
+        "start": 32.877037037037034,
+        "end": 36.24296296296296,
+        "phrases": [
+          {
+            "start": 32.877037037037034,
+            "end": 36.24296296296296
+          }
+        ]
+      },
+      {
+        "text": "With x equal to three and y equal to zero, the result is true.",
+        "start": 36.687407407407406,
+        "end": 41.709629629629625,
+        "phrases": [
+          {
+            "start": 36.687407407407406,
+            "end": 39.72148148148148
+          },
+          {
+            "start": 40.29925925925926,
+            "end": 41.709629629629625
+          }
+        ]
+      },
+      {
+        "text": "With both inputs zero, the result is false.",
+        "start": 42.154074074074074,
+        "end": 45.87259259259259,
+        "phrases": [
+          {
+            "start": 42.154074074074074,
+            "end": 43.825185185185184
+          },
+          {
+            "start": 44.40296296296296,
+            "end": 45.87259259259259
+          }
+        ]
+      },
+      {
+        "text": "The domain is infinite, so this table is a sample, not an exhaustive list of inputs.",
+        "start": 46.31703703703703,
+        "end": 52.31111111111111,
+        "phrases": [
+          {
+            "start": 46.31703703703703,
+            "end": 49.61185185185185
+          },
+          {
+            "start": 50.18962962962963,
+            "end": 52.31111111111111
+          }
+        ]
+      },
+      {
+        "text": "A false row already refutes the claim that this formula holds for every input.",
+        "start": 52.75555555555555,
+        "end": 57.37777777777778,
+        "phrases": [
+          {
+            "start": 52.75555555555555,
+            "end": 57.37777777777778
+          }
+        ]
+      },
+      {
+        "text": "For other formulas, a finite table of true examples would not by itself prove the universal claim.",
+        "start": 57.82222222222222,
+        "end": 63.736296296296295,
+        "phrases": [
+          {
+            "start": 57.82222222222222,
+            "end": 63.736296296296295
+          }
+        ]
+      },
+      {
+        "text": "Terms produce values; formulas make claims about those values.",
+        "start": 64.18074074074075,
+        "end": 69.0725925925926,
+        "phrases": [
+          {
+            "start": 64.18074074074075,
+            "end": 65.87555555555555
+          },
+          {
+            "start": 66.45333333333333,
+            "end": 69.0725925925926
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ordering",
+    "chapter": "Less than or equal to",
+    "start": 271.6999999999985,
+    "audio_start": 271.8999999999985,
+    "duration": 69.518417,
+    "sentences": [
+      {
+        "text": "Let us build the symbol less than or equal to from arithmetic.",
+        "start": 0,
+        "end": 3.4844444444444447,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.4844444444444447
+          }
+        ]
+      },
+      {
+        "text": "We read x less than or equal to y as x is less than or equal to y.",
+        "start": 3.928888888888889,
+        "end": 9.460740740740741,
+        "phrases": [
+          {
+            "start": 3.928888888888889,
+            "end": 6.654814814814815
+          },
+          {
+            "start": 7.232592592592592,
+            "end": 9.460740740740741
+          }
+        ]
+      },
+      {
+        "text": "It means there is a whole number z, such that x plus z equals y.",
+        "start": 9.905185185185186,
+        "end": 15.235555555555555,
+        "phrases": [
+          {
+            "start": 9.905185185185186,
+            "end": 12.085925925925924
+          },
+          {
+            "start": 12.663703703703703,
+            "end": 15.235555555555555
+          }
+        ]
+      },
+      {
+        "text": "The comparison is shorthand for this existence statement.",
+        "start": 15.68,
+        "end": 18.82074074074074,
+        "phrases": [
+          {
+            "start": 15.68,
+            "end": 18.82074074074074
+          }
+        ]
+      },
+      {
+        "text": "Try x equal to two, and y equal to five.",
+        "start": 19.26518518518518,
+        "end": 23.031111111111112,
+        "phrases": [
+          {
+            "start": 19.26518518518518,
+            "end": 20.853333333333335
+          },
+          {
+            "start": 21.43111111111111,
+            "end": 23.031111111111112
+          }
+        ]
+      },
+      {
+        "text": "We can choose z equal to three, because two plus three equals five.",
+        "start": 23.475555555555555,
+        "end": 28.426666666666666,
+        "phrases": [
+          {
+            "start": 23.475555555555555,
+            "end": 25.597037037037037
+          },
+          {
+            "start": 26.174814814814813,
+            "end": 28.426666666666666
+          }
+        ]
+      },
+      {
+        "text": "So two is less than or equal to five.",
+        "start": 28.871111111111112,
+        "end": 31.37185185185185,
+        "phrases": [
+          {
+            "start": 28.871111111111112,
+            "end": 31.37185185185185
+          }
+        ]
+      },
+      {
+        "text": "Equality is included: three is less than or equal to three, using z equal to zero.",
+        "start": 31.816296296296297,
+        "end": 37.85777777777778,
+        "phrases": [
+          {
+            "start": 31.816296296296297,
+            "end": 33.404444444444444
+          },
+          {
+            "start": 33.98222222222222,
+            "end": 37.85777777777778
+          }
+        ]
+      },
+      {
+        "text": "Now reverse the first example: is five less than or equal to two?",
+        "start": 38.30222222222222,
+        "end": 43.17037037037037,
+        "phrases": [
+          {
+            "start": 38.30222222222222,
+            "end": 40.38814814814815
+          },
+          {
+            "start": 40.96592592592592,
+            "end": 43.17037037037037
+          }
+        ]
+      },
+      {
+        "text": "We would need a whole number z, such that five plus z equals two.",
+        "start": 43.614814814814814,
+        "end": 48.61333333333334,
+        "phrases": [
+          {
+            "start": 43.614814814814814,
+            "end": 45.54666666666666
+          },
+          {
+            "start": 46.12444444444444,
+            "end": 48.61333333333334
+          }
+        ]
+      },
+      {
+        "text": "No whole number works; adding a whole number cannot decrease five.",
+        "start": 49.05777777777778,
+        "end": 53.89037037037037,
+        "phrases": [
+          {
+            "start": 49.05777777777778,
+            "end": 50.657777777777774
+          },
+          {
+            "start": 51.23555555555556,
+            "end": 53.89037037037037
+          }
+        ]
+      },
+      {
+        "text": "That comparison is false.",
+        "start": 54.33481481481481,
+        "end": 56.12444444444444,
+        "phrases": [
+          {
+            "start": 54.33481481481481,
+            "end": 56.12444444444444
+          }
+        ]
+      },
+      {
+        "text": "This is why the domain matters: z ranges over whole numbers, not negative integers.",
+        "start": 56.568888888888885,
+        "end": 62.361481481481476,
+        "phrases": [
+          {
+            "start": 56.568888888888885,
+            "end": 58.52444444444444
+          },
+          {
+            "start": 59.102222222222224,
+            "end": 62.361481481481476
+          }
+        ]
+      },
+      {
+        "text": "We have explained the notation using addition and a quantifier, instead of assuming a new primitive comparison.",
+        "start": 62.805925925925926,
+        "end": 69.09925925925926,
+        "phrases": [
+          {
+            "start": 62.805925925925926,
+            "end": 69.09925925925926
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "recursion",
+    "chapter": "Building addition one step at a time",
+    "start": 342.86666666667367,
+    "audio_start": 343.06666666667365,
+    "duration": 61.02825,
+    "sentences": [
+      {
+        "text": "The symbols alone do not tell us which statements we may prove.",
+        "start": 0,
+        "end": 3.5030303030303034,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.5030303030303034
+          }
+        ]
+      },
+      {
+        "text": "We need starting rules, called axioms, and rules for drawing conclusions.",
+        "start": 3.9575757575757575,
+        "end": 8.575757575757576,
+        "phrases": [
+          {
+            "start": 3.9575757575757575,
+            "end": 8.575757575757576
+          }
+        ]
+      },
+      {
+        "text": "The successor axioms say zero is not a successor, and equal successors come from equal numbers.",
+        "start": 9.03030303030303,
+        "end": 15.2,
+        "phrases": [
+          {
+            "start": 9.03030303030303,
+            "end": 15.2
+          }
+        ]
+      },
+      {
+        "text": "Addition has two recursive rules.",
+        "start": 15.654545454545454,
+        "end": 17.993939393939396,
+        "phrases": [
+          {
+            "start": 15.654545454545454,
+            "end": 17.993939393939396
+          }
+        ]
+      },
+      {
+        "text": "First, x plus zero equals x.",
+        "start": 18.448484848484846,
+        "end": 21.815151515151516,
+        "phrases": [
+          {
+            "start": 18.448484848484846,
+            "end": 19.187878787878788
+          },
+          {
+            "start": 19.77878787878788,
+            "end": 21.815151515151516
+          }
+        ]
+      },
+      {
+        "text": "Second, x plus the successor of y equals the successor of the quantity x plus y.",
+        "start": 22.269696969696973,
+        "end": 29.524242424242424,
+        "phrases": [
+          {
+            "start": 22.269696969696973,
+            "end": 23.03333333333333
+          },
+          {
+            "start": 23.62424242424242,
+            "end": 26.23030303030303
+          },
+          {
+            "start": 26.821212121212124,
+            "end": 29.524242424242424
+          }
+        ]
+      },
+      {
+        "text": "Let us compute three plus two, slowly.",
+        "start": 29.97878787878788,
+        "end": 33.6,
+        "phrases": [
+          {
+            "start": 29.97878787878788,
+            "end": 32.05151515151515
+          },
+          {
+            "start": 32.64242424242424,
+            "end": 33.6
+          }
+        ]
+      },
+      {
+        "text": "Two is the successor of one.",
+        "start": 34.054545454545455,
+        "end": 35.88484848484848,
+        "phrases": [
+          {
+            "start": 34.054545454545455,
+            "end": 35.88484848484848
+          }
+        ]
+      },
+      {
+        "text": "Move that successor outside, leaving three plus one inside.",
+        "start": 36.339393939393936,
+        "end": 41.015151515151516,
+        "phrases": [
+          {
+            "start": 36.339393939393936,
+            "end": 38.339393939393936
+          },
+          {
+            "start": 38.93030303030304,
+            "end": 41.015151515151516
+          }
+        ]
+      },
+      {
+        "text": "One is the successor of zero, so repeat the same rule.",
+        "start": 41.46969696969697,
+        "end": 45.86666666666667,
+        "phrases": [
+          {
+            "start": 41.46969696969697,
+            "end": 43.49393939393939
+          },
+          {
+            "start": 44.08484848484848,
+            "end": 45.86666666666667
+          }
+        ]
+      },
+      {
+        "text": "Now use three plus zero equals three.",
+        "start": 46.32121212121212,
+        "end": 49.0969696969697,
+        "phrases": [
+          {
+            "start": 46.32121212121212,
+            "end": 49.0969696969697
+          }
+        ]
+      },
+      {
+        "text": "Take two successor steps: four, then five.",
+        "start": 49.551515151515154,
+        "end": 54.2969696969697,
+        "phrases": [
+          {
+            "start": 49.551515151515154,
+            "end": 51.32121212121212
+          },
+          {
+            "start": 51.912121212121214,
+            "end": 52.68787878787879
+          },
+          {
+            "start": 53.27878787878788,
+            "end": 54.2969696969697
+          }
+        ]
+      },
+      {
+        "text": "This is a finite calculation.",
+        "start": 54.75151515151515,
+        "end": 56.81212121212121,
+        "phrases": [
+          {
+            "start": 54.75151515151515,
+            "end": 56.81212121212121
+          }
+        ]
+      },
+      {
+        "text": "To prove a statement for every input, we will need induction.",
+        "start": 57.266666666666666,
+        "end": 60.6,
+        "phrases": [
+          {
+            "start": 57.266666666666666,
+            "end": 60.6
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "multiplication",
+    "chapter": "Building multiplication: one to five groups",
+    "start": 405.5333333333474,
+    "audio_start": 405.7333333333474,
+    "duration": 75.696208,
+    "sentences": [
+      {
+        "text": "Multiplication also has a recursive definition.",
+        "start": 0,
+        "end": 3.2848484848484847,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.2848484848484847
+          }
+        ]
+      },
+      {
+        "text": "First, x times zero equals zero: zero groups contain no objects.",
+        "start": 3.7393939393939393,
+        "end": 9.615151515151515,
+        "phrases": [
+          {
+            "start": 3.7393939393939393,
+            "end": 4.4787878787878785
+          },
+          {
+            "start": 5.069696969696969,
+            "end": 9.615151515151515
+          }
+        ]
+      },
+      {
+        "text": "The next rule is x times S of y equals x times y plus x.",
+        "start": 10.069696969696968,
+        "end": 16.68181818181818,
+        "phrases": [
+          {
+            "start": 10.069696969696968,
+            "end": 11.415151515151516
+          },
+          {
+            "start": 12.006060606060606,
+            "end": 14.103030303030302
+          },
+          {
+            "start": 14.693939393939395,
+            "end": 16.68181818181818
+          }
+        ]
+      },
+      {
+        "text": "S of y means y plus one, so the next multiplier adds one more group of x.",
+        "start": 17.136363636363637,
+        "end": 23.254545454545454,
+        "phrases": [
+          {
+            "start": 17.136363636363637,
+            "end": 19.245454545454546
+          },
+          {
+            "start": 19.836363636363636,
+            "end": 23.254545454545454
+          }
+        ]
+      },
+      {
+        "text": "Let us fix x at three, and build groups of three objects.",
+        "start": 23.70909090909091,
+        "end": 28.348484848484848,
+        "phrases": [
+          {
+            "start": 23.70909090909091,
+            "end": 25.418181818181818
+          },
+          {
+            "start": 26.00909090909091,
+            "end": 28.348484848484848
+          }
+        ]
+      },
+      {
+        "text": "One group gives three: three times one is three times zero, plus three.",
+        "start": 28.803030303030305,
+        "end": 34.94242424242424,
+        "phrases": [
+          {
+            "start": 28.803030303030305,
+            "end": 30.415151515151518
+          },
+          {
+            "start": 31.006060606060608,
+            "end": 33.38181818181818
+          },
+          {
+            "start": 33.972727272727276,
+            "end": 34.94242424242424
+          }
+        ]
+      },
+      {
+        "text": "Two groups give six: take the previous three, and add three.",
+        "start": 35.3969696969697,
+        "end": 40.93030303030303,
+        "phrases": [
+          {
+            "start": 35.3969696969697,
+            "end": 36.93636363636363
+          },
+          {
+            "start": 37.52727272727273,
+            "end": 39.1030303030303
+          },
+          {
+            "start": 39.693939393939395,
+            "end": 40.93030303030303
+          }
+        ]
+      },
+      {
+        "text": "Three groups give nine: take six, and add three.",
+        "start": 41.38484848484848,
+        "end": 46.3,
+        "phrases": [
+          {
+            "start": 41.38484848484848,
+            "end": 42.93636363636364
+          },
+          {
+            "start": 43.52727272727273,
+            "end": 44.472727272727276
+          },
+          {
+            "start": 45.06363636363636,
+            "end": 46.3
+          }
+        ]
+      },
+      {
+        "text": "Four groups give twelve: take nine, and add three.",
+        "start": 46.75454545454545,
+        "end": 51.81515151515151,
+        "phrases": [
+          {
+            "start": 46.75454545454545,
+            "end": 48.43939393939394
+          },
+          {
+            "start": 49.03030303030303,
+            "end": 49.98787878787879
+          },
+          {
+            "start": 50.57878787878788,
+            "end": 51.81515151515151
+          }
+        ]
+      },
+      {
+        "text": "Five groups give fifteen: take twelve, and add three.",
+        "start": 52.269696969696966,
+        "end": 57.62121212121212,
+        "phrases": [
+          {
+            "start": 52.269696969696966,
+            "end": 54.20909090909091
+          },
+          {
+            "start": 54.8,
+            "end": 55.7939393939394
+          },
+          {
+            "start": 56.38484848484849,
+            "end": 57.62121212121212
+          }
+        ]
+      },
+      {
+        "text": "Each step increases the multiplier by one, and adds one entire group of x.",
+        "start": 58.07575757575758,
+        "end": 63.74545454545454,
+        "phrases": [
+          {
+            "start": 58.07575757575758,
+            "end": 60.82727272727273
+          },
+          {
+            "start": 61.41818181818182,
+            "end": 63.74545454545454
+          }
+        ]
+      },
+      {
+        "text": "That is what x times S of y equals x times y plus x is saying.",
+        "start": 64.2,
+        "end": 70.99393939393939,
+        "phrases": [
+          {
+            "start": 64.2,
+            "end": 66.91515151515152
+          },
+          {
+            "start": 67.5060606060606,
+            "end": 69.49393939393939
+          },
+          {
+            "start": 70.08484848484848,
+            "end": 70.99393939393939
+          }
+        ]
+      },
+      {
+        "text": "The rule is a precise way to build multiplication from addition.",
+        "start": 71.44848484848485,
+        "end": 75.26666666666667,
+        "phrases": [
+          {
+            "start": 71.44848484848485,
+            "end": 75.26666666666667
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "induction",
+    "chapter": "Induction: a start and a repeatable step",
+    "start": 482.86666666669527,
+    "audio_start": 483.06666666669526,
+    "duration": 51.400542,
+    "sentences": [
+      {
+        "text": "We want a reason that works for every whole number.",
+        "start": 0,
+        "end": 2.9392592592592592,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.9392592592592592
+          }
+        ]
+      },
+      {
+        "text": "Start with a concrete claim: zero plus n equals n.",
+        "start": 3.3837037037037034,
+        "end": 7.7481481481481485,
+        "phrases": [
+          {
+            "start": 3.3837037037037034,
+            "end": 5.09037037037037
+          },
+          {
+            "start": 5.757037037037036,
+            "end": 7.7481481481481485
+          }
+        ]
+      },
+      {
+        "text": "Checking zero, one, and two only supplies examples.",
+        "start": 8.192592592592591,
+        "end": 14.672592592592594,
+        "phrases": [
+          {
+            "start": 8.192592592592591,
+            "end": 9.306666666666667
+          },
+          {
+            "start": 9.973333333333334,
+            "end": 10.565925925925926
+          },
+          {
+            "start": 11.232592592592592,
+            "end": 12.157037037037036
+          },
+          {
+            "start": 12.823703703703703,
+            "end": 14.672592592592594
+          }
+        ]
+      },
+      {
+        "text": "Induction asks for two things.",
+        "start": 15.117037037037038,
+        "end": 17.155555555555555,
+        "phrases": [
+          {
+            "start": 15.117037037037038,
+            "end": 17.155555555555555
+          }
+        ]
+      },
+      {
+        "text": "First, prove the claim when n is zero.",
+        "start": 17.599999999999998,
+        "end": 20.98074074074074,
+        "phrases": [
+          {
+            "start": 17.599999999999998,
+            "end": 18.32296296296296
+          },
+          {
+            "start": 18.98962962962963,
+            "end": 20.98074074074074
+          }
+        ]
+      },
+      {
+        "text": "Second, take any whole number n, and show that if the claim holds there, it also holds at the next number.",
+        "start": 21.425185185185185,
+        "end": 29.182222222222222,
+        "phrases": [
+          {
+            "start": 21.425185185185185,
+            "end": 23.570370370370373
+          },
+          {
+            "start": 24.237037037037034,
+            "end": 26.417777777777776
+          },
+          {
+            "start": 27.084444444444443,
+            "end": 29.182222222222222
+          }
+        ]
+      },
+      {
+        "text": "Start at zero, and repeat that step: one, two, three, and onward.",
+        "start": 29.62666666666667,
+        "end": 37.76888888888889,
+        "phrases": [
+          {
+            "start": 29.62666666666667,
+            "end": 32.11555555555555
+          },
+          {
+            "start": 32.782222222222224,
+            "end": 33.37481481481481
+          },
+          {
+            "start": 34.04148148148148,
+            "end": 34.669629629629625
+          },
+          {
+            "start": 35.3362962962963,
+            "end": 36.035555555555554
+          },
+          {
+            "start": 36.70222222222222,
+            "end": 37.76888888888889
+          }
+        ]
+      },
+      {
+        "text": "We do not have to write infinitely many separate calculations.",
+        "start": 38.21333333333334,
+        "end": 41.85185185185185,
+        "phrases": [
+          {
+            "start": 38.21333333333334,
+            "end": 41.85185185185185
+          }
+        ]
+      },
+      {
+        "text": "We need a starting case, and one justified step that works at any position.",
+        "start": 42.2962962962963,
+        "end": 47.644444444444446,
+        "phrases": [
+          {
+            "start": 42.2962962962963,
+            "end": 43.8962962962963
+          },
+          {
+            "start": 44.56296296296296,
+            "end": 47.644444444444446
+          }
+        ]
+      },
+      {
+        "text": "Let us build those two ingredients explicitly.",
+        "start": 48.08888888888889,
+        "end": 50.980740740740735,
+        "phrases": [
+          {
+            "start": 48.08888888888889,
+            "end": 50.980740740740735
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "zero_proof",
+    "chapter": "A complete small proof",
+    "start": 535.9000000000271,
+    "audio_start": 536.1000000000272,
+    "duration": 51.226167,
+    "sentences": [
+      {
+        "text": "Let's prove something that looks almost too obvious: zero plus n equals n.",
+        "start": 0,
+        "end": 4.871111111111111,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.871111111111111
+          }
+        ]
+      },
+      {
+        "text": "Our calculation axiom already tells us that n plus zero equals n.",
+        "start": 5.271111111111111,
+        "end": 9.739259259259258,
+        "phrases": [
+          {
+            "start": 5.271111111111111,
+            "end": 9.739259259259258
+          }
+        ]
+      },
+      {
+        "text": "But that has zero on the other side.",
+        "start": 10.13925925925926,
+        "end": 12.331851851851852,
+        "phrases": [
+          {
+            "start": 10.13925925925926,
+            "end": 12.331851851851852
+          }
+        ]
+      },
+      {
+        "text": "Until we have proved the relevant facts, we cannot silently swap the inputs.",
+        "start": 12.73185185185185,
+        "end": 17.27111111111111,
+        "phrases": [
+          {
+            "start": 12.73185185185185,
+            "end": 17.27111111111111
+          }
+        ]
+      },
+      {
+        "text": "For the base case, zero plus zero equals zero by the addition axiom.",
+        "start": 17.67111111111111,
+        "end": 22.174814814814816,
+        "phrases": [
+          {
+            "start": 17.67111111111111,
+            "end": 22.174814814814816
+          }
+        ]
+      },
+      {
+        "text": "For the step, suppose zero plus n equals n.",
+        "start": 22.574814814814815,
+        "end": 25.751111111111108,
+        "phrases": [
+          {
+            "start": 22.574814814814815,
+            "end": 25.751111111111108
+          }
+        ]
+      },
+      {
+        "text": "The recursive addition rule says zero plus the successor of n equals the successor of zero plus n.",
+        "start": 26.151111111111113,
+        "end": 33.8074074074074,
+        "phrases": [
+          {
+            "start": 26.151111111111113,
+            "end": 30.51259259259259
+          },
+          {
+            "start": 31.045925925925925,
+            "end": 33.8074074074074
+          }
+        ]
+      },
+      {
+        "text": "Use the induction hypothesis inside those parentheses.",
+        "start": 34.2074074074074,
+        "end": 37.75111111111111,
+        "phrases": [
+          {
+            "start": 34.2074074074074,
+            "end": 37.75111111111111
+          }
+        ]
+      },
+      {
+        "text": "The expression becomes the successor of n, exactly what we needed.",
+        "start": 38.151111111111106,
+        "end": 42.062222222222225,
+        "phrases": [
+          {
+            "start": 38.151111111111106,
+            "end": 42.062222222222225
+          }
+        ]
+      },
+      {
+        "text": "Induction now gives the result for every whole number.",
+        "start": 42.46222222222222,
+        "end": 45.57925925925925,
+        "phrases": [
+          {
+            "start": 42.46222222222222,
+            "end": 45.57925925925925
+          }
+        ]
+      },
+      {
+        "text": "A short proof has covered an infinite family, and every step has a stated reason.",
+        "start": 45.97925925925926,
+        "end": 50.850370370370364,
+        "phrases": [
+          {
+            "start": 45.97925925925926,
+            "end": 50.850370370370364
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "odd_sums",
+    "chapter": "Build O(n) and its recurrence, one term at a time",
+    "start": 588.7666666666886,
+    "audio_start": 588.9666666666886,
+    "duration": 115.258458,
+    "sentences": [
+      {
+        "text": "Let us build our second induction example from the beginning.",
+        "start": 0,
+        "end": 3.4303030303030306,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.4303030303030306
+          }
+        ]
+      },
+      {
+        "text": "The odd numbers begin one, three, five, seven, nine.",
+        "start": 3.8848484848484848,
+        "end": 11.4,
+        "phrases": [
+          {
+            "start": 3.8848484848484848,
+            "end": 5.6909090909090905
+          },
+          {
+            "start": 6.372727272727272,
+            "end": 7.087878787878787
+          },
+          {
+            "start": 7.7696969696969695,
+            "end": 8.557575757575759
+          },
+          {
+            "start": 9.239393939393938,
+            "end": 9.942424242424241
+          },
+          {
+            "start": 10.624242424242425,
+            "end": 11.4
+          }
+        ]
+      },
+      {
+        "text": "We need a short name for adding the first few.",
+        "start": 11.854545454545455,
+        "end": 14.521212121212121,
+        "phrases": [
+          {
+            "start": 11.854545454545455,
+            "end": 14.521212121212121
+          }
+        ]
+      },
+      {
+        "text": "Write O of n for the sum of the first n odd numbers.",
+        "start": 14.975757575757575,
+        "end": 19.233333333333334,
+        "phrases": [
+          {
+            "start": 14.975757575757575,
+            "end": 16.163636363636364
+          },
+          {
+            "start": 16.845454545454544,
+            "end": 19.233333333333334
+          }
+        ]
+      },
+      {
+        "text": "Here n tells us how many terms to take.",
+        "start": 19.687878787878788,
+        "end": 22.22121212121212,
+        "phrases": [
+          {
+            "start": 19.687878787878788,
+            "end": 22.22121212121212
+          }
+        ]
+      },
+      {
+        "text": "O of zero is zero, because we have not added any terms.",
+        "start": 22.675757575757576,
+        "end": 27.43030303030303,
+        "phrases": [
+          {
+            "start": 22.675757575757576,
+            "end": 24.493939393939392
+          },
+          {
+            "start": 25.175757575757576,
+            "end": 27.43030303030303
+          }
+        ]
+      },
+      {
+        "text": "For O of one, take just one.",
+        "start": 27.884848484848487,
+        "end": 30.796969696969697,
+        "phrases": [
+          {
+            "start": 27.884848484848487,
+            "end": 28.915151515151514
+          },
+          {
+            "start": 29.596969696969694,
+            "end": 30.796969696969697
+          }
+        ]
+      },
+      {
+        "text": "For O of two, keep that one, and add three.",
+        "start": 31.251515151515154,
+        "end": 36.10606060606061,
+        "phrases": [
+          {
+            "start": 31.251515151515154,
+            "end": 32.415151515151514
+          },
+          {
+            "start": 33.096969696969694,
+            "end": 34.18787878787879
+          },
+          {
+            "start": 34.86969696969697,
+            "end": 36.10606060606061
+          }
+        ]
+      },
+      {
+        "text": "For O of three, keep one plus three, and add five.",
+        "start": 36.56060606060606,
+        "end": 41.86363636363637,
+        "phrases": [
+          {
+            "start": 36.56060606060606,
+            "end": 37.82121212121212
+          },
+          {
+            "start": 38.5030303030303,
+            "end": 39.95757575757576
+          },
+          {
+            "start": 40.63939393939394,
+            "end": 41.86363636363637
+          }
+        ]
+      },
+      {
+        "text": "For O of four, append seven.",
+        "start": 42.31818181818182,
+        "end": 45.339393939393936,
+        "phrases": [
+          {
+            "start": 42.31818181818182,
+            "end": 43.445454545454545
+          },
+          {
+            "start": 44.127272727272725,
+            "end": 45.339393939393936
+          }
+        ]
+      },
+      {
+        "text": "For O of five, append nine.",
+        "start": 45.7939393939394,
+        "end": 48.79090909090909,
+        "phrases": [
+          {
+            "start": 45.7939393939394,
+            "end": 46.99393939393939
+          },
+          {
+            "start": 47.67575757575758,
+            "end": 48.79090909090909
+          }
+        ]
+      },
+      {
+        "text": "Every time the count increases by one, we keep the old sum and add one new odd number.",
+        "start": 49.24545454545454,
+        "end": 56.451515151515146,
+        "phrases": [
+          {
+            "start": 49.24545454545454,
+            "end": 51.64545454545455
+          },
+          {
+            "start": 52.32727272727273,
+            "end": 53.81818181818182
+          },
+          {
+            "start": 54.5,
+            "end": 56.451515151515146
+          }
+        ]
+      },
+      {
+        "text": "Which odd number comes next after n terms?",
+        "start": 56.906060606060606,
+        "end": 59.63333333333333,
+        "phrases": [
+          {
+            "start": 56.906060606060606,
+            "end": 59.63333333333333
+          }
+        ]
+      },
+      {
+        "text": "After zero terms, the next odd number is one.",
+        "start": 60.087878787878786,
+        "end": 64.17575757575757,
+        "phrases": [
+          {
+            "start": 60.087878787878786,
+            "end": 61.67575757575758
+          },
+          {
+            "start": 62.35757575757576,
+            "end": 64.17575757575757
+          }
+        ]
+      },
+      {
+        "text": "After one term it is three; after two terms it is five.",
+        "start": 64.63030303030304,
+        "end": 69.22727272727273,
+        "phrases": [
+          {
+            "start": 64.63030303030304,
+            "end": 66.55757575757576
+          },
+          {
+            "start": 67.23939393939393,
+            "end": 69.22727272727273
+          }
+        ]
+      },
+      {
+        "text": "Each increase of one in n increases the next odd number by two.",
+        "start": 69.68181818181819,
+        "end": 74.70303030303029,
+        "phrases": [
+          {
+            "start": 69.68181818181819,
+            "end": 71.46363636363635
+          },
+          {
+            "start": 72.14545454545454,
+            "end": 74.70303030303029
+          }
+        ]
+      },
+      {
+        "text": "Starting from one and taking n steps of two gives one plus two times n, or two n plus one.",
+        "start": 75.15757575757576,
+        "end": 83.0060606060606,
+        "phrases": [
+          {
+            "start": 75.15757575757576,
+            "end": 78.15151515151514
+          },
+          {
+            "start": 78.83333333333333,
+            "end": 80.82121212121211
+          },
+          {
+            "start": 81.5030303030303,
+            "end": 83.0060606060606
+          }
+        ]
+      },
+      {
+        "text": "For example, after three terms, two times three plus one gives seven.",
+        "start": 83.46060606060607,
+        "end": 88.78484848484848,
+        "phrases": [
+          {
+            "start": 83.46060606060607,
+            "end": 85.73939393939393
+          },
+          {
+            "start": 86.42121212121212,
+            "end": 88.78484848484848
+          }
+        ]
+      },
+      {
+        "text": "Now name the updated total O of n plus one.",
+        "start": 89.23939393939393,
+        "end": 93.33939393939394,
+        "phrases": [
+          {
+            "start": 89.23939393939393,
+            "end": 91.1909090909091
+          },
+          {
+            "start": 91.87272727272727,
+            "end": 93.33939393939394
+          }
+        ]
+      },
+      {
+        "text": "It contains the old sum O of n, plus that next odd number.",
+        "start": 93.7939393939394,
+        "end": 98.45151515151515,
+        "phrases": [
+          {
+            "start": 93.7939393939394,
+            "end": 95.96363636363635
+          },
+          {
+            "start": 96.64545454545454,
+            "end": 98.45151515151515
+          }
+        ]
+      },
+      {
+        "text": "That gives our recurrence: O of n plus one equals O of n plus two n plus one.",
+        "start": 98.9060606060606,
+        "end": 105.97878787878788,
+        "phrases": [
+          {
+            "start": 98.9060606060606,
+            "end": 100.50606060606061
+          },
+          {
+            "start": 101.18787878787879,
+            "end": 103.67272727272727
+          },
+          {
+            "start": 104.35454545454544,
+            "end": 105.97878787878788
+          }
+        ]
+      },
+      {
+        "text": "The equation just describes adding one more term.",
+        "start": 106.43333333333334,
+        "end": 109.40303030303029,
+        "phrases": [
+          {
+            "start": 106.43333333333334,
+            "end": 109.40303030303029
+          }
+        ]
+      },
+      {
+        "text": "With that bookkeeping in place, we can ask why the totals make squares.",
+        "start": 109.85757575757576,
+        "end": 114.83030303030304,
+        "phrases": [
+          {
+            "start": 109.85757575757576,
+            "end": 111.65151515151514
+          },
+          {
+            "start": 112.33333333333334,
+            "end": 114.83030303030304
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "odd_proof",
+    "chapter": "Connect the recurrence to the square picture",
+    "start": 705.6666666666646,
+    "audio_start": 705.8666666666646,
+    "duration": 108.258792,
+    "sentences": [
+      {
+        "text": "Now we know how the sum grows: each step adds two n plus one.",
+        "start": 0,
+        "end": 4.996969696969697,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2
+          },
+          {
+            "start": 2.6818181818181817,
+            "end": 4.996969696969697
+          }
+        ]
+      },
+      {
+        "text": "Our first few totals were one, four, nine, sixteen, twenty five.",
+        "start": 5.451515151515151,
+        "end": 13.66969696969697,
+        "phrases": [
+          {
+            "start": 5.451515151515151,
+            "end": 7.427272727272727
+          },
+          {
+            "start": 8.10909090909091,
+            "end": 8.884848484848485
+          },
+          {
+            "start": 9.566666666666666,
+            "end": 10.342424242424242
+          },
+          {
+            "start": 11.024242424242424,
+            "end": 11.993939393939392
+          },
+          {
+            "start": 12.675757575757576,
+            "end": 13.66969696969697
+          }
+        ]
+      },
+      {
+        "text": "Those are square numbers; could this happen for every number of terms?",
+        "start": 14.124242424242425,
+        "end": 18.89090909090909,
+        "phrases": [
+          {
+            "start": 14.124242424242425,
+            "end": 15.772727272727273
+          },
+          {
+            "start": 16.454545454545453,
+            "end": 18.89090909090909
+          }
+        ]
+      },
+      {
+        "text": "Our claim is that O of n, the sum of the first n odd numbers, equals n squared.",
+        "start": 19.345454545454547,
+        "end": 26.32121212121212,
+        "phrases": [
+          {
+            "start": 19.345454545454547,
+            "end": 21.115151515151513
+          },
+          {
+            "start": 21.796969696969697,
+            "end": 24.063636363636363
+          },
+          {
+            "start": 24.745454545454546,
+            "end": 26.32121212121212
+          }
+        ]
+      },
+      {
+        "text": "At zero, O of zero is zero, and zero squared is zero.",
+        "start": 26.775757575757574,
+        "end": 32.987878787878785,
+        "phrases": [
+          {
+            "start": 26.775757575757574,
+            "end": 27.793939393939393
+          },
+          {
+            "start": 28.475757575757576,
+            "end": 30.293939393939393
+          },
+          {
+            "start": 30.975757575757576,
+            "end": 32.987878787878785
+          }
+        ]
+      },
+      {
+        "text": "For the next step, assume O of n equals n squared.",
+        "start": 33.44242424242424,
+        "end": 37.78484848484849,
+        "phrases": [
+          {
+            "start": 33.44242424242424,
+            "end": 34.60606060606061
+          },
+          {
+            "start": 35.28787878787879,
+            "end": 37.78484848484849
+          }
+        ]
+      },
+      {
+        "text": "The recurrence says the next sum is the old sum, plus two n plus one.",
+        "start": 38.23939393939394,
+        "end": 43.345454545454544,
+        "phrases": [
+          {
+            "start": 38.23939393939394,
+            "end": 41.03939393939394
+          },
+          {
+            "start": 41.72121212121212,
+            "end": 43.345454545454544
+          }
+        ]
+      },
+      {
+        "text": "Replace that old sum by n squared, using our assumption.",
+        "start": 43.8,
+        "end": 48.37272727272727,
+        "phrases": [
+          {
+            "start": 43.8,
+            "end": 46.26060606060606
+          },
+          {
+            "start": 46.942424242424245,
+            "end": 48.37272727272727
+          }
+        ]
+      },
+      {
+        "text": "Pause at that expression: n squared plus two n plus one.",
+        "start": 48.82727272727273,
+        "end": 53.54545454545454,
+        "phrases": [
+          {
+            "start": 48.82727272727273,
+            "end": 50.43939393939394
+          },
+          {
+            "start": 51.12121212121212,
+            "end": 53.54545454545454
+          }
+        ]
+      },
+      {
+        "text": "Here is an n by n square.",
+        "start": 54,
+        "end": 56.012121212121215,
+        "phrases": [
+          {
+            "start": 54,
+            "end": 56.012121212121215
+          }
+        ]
+      },
+      {
+        "text": "Add a row of n tiles, a column of n tiles, and one corner tile.",
+        "start": 56.46666666666666,
+        "end": 63.01818181818182,
+        "phrases": [
+          {
+            "start": 56.46666666666666,
+            "end": 58.35757575757576
+          },
+          {
+            "start": 59.03939393939394,
+            "end": 60.78484848484849
+          },
+          {
+            "start": 61.46666666666666,
+            "end": 63.01818181818182
+          }
+        ]
+      },
+      {
+        "text": "The added border contains n plus n plus one tiles, which is two n plus one.",
+        "start": 63.472727272727276,
+        "end": 69.52424242424243,
+        "phrases": [
+          {
+            "start": 63.472727272727276,
+            "end": 67.08484848484848
+          },
+          {
+            "start": 67.76666666666667,
+            "end": 69.52424242424243
+          }
+        ]
+      },
+      {
+        "text": "Together, they form a square of side n plus one.",
+        "start": 69.97878787878788,
+        "end": 73.94545454545455,
+        "phrases": [
+          {
+            "start": 69.97878787878788,
+            "end": 70.6939393939394
+          },
+          {
+            "start": 71.37575757575758,
+            "end": 73.94545454545455
+          }
+        ]
+      },
+      {
+        "text": "So n squared plus two n plus one equals the quantity n plus one squared.",
+        "start": 74.39999999999999,
+        "end": 80.29393939393938,
+        "phrases": [
+          {
+            "start": 74.39999999999999,
+            "end": 76.96969696969697
+          },
+          {
+            "start": 77.65151515151514,
+            "end": 80.29393939393938
+          }
+        ]
+      },
+      {
+        "text": "That gives O of n plus one equals the quantity n plus one squared, the next case of our claim.",
+        "start": 80.74848484848485,
+        "end": 87.28484848484848,
+        "phrases": [
+          {
+            "start": 80.74848484848485,
+            "end": 84.9060606060606
+          },
+          {
+            "start": 85.5878787878788,
+            "end": 87.28484848484848
+          }
+        ]
+      },
+      {
+        "text": "We have proved the starting case and the step; induction now gives the result for every n.",
+        "start": 87.73939393939393,
+        "end": 93.69393939393939,
+        "phrases": [
+          {
+            "start": 87.73939393939393,
+            "end": 90.18787878787879
+          },
+          {
+            "start": 90.86969696969697,
+            "end": 93.69393939393939
+          }
+        ]
+      },
+      {
+        "text": "The picture used n equal to three to illustrate the general count; the counting argument works for any n.",
+        "start": 94.14848484848486,
+        "end": 101.13333333333333,
+        "phrases": [
+          {
+            "start": 94.14848484848486,
+            "end": 98.11212121212121
+          },
+          {
+            "start": 98.79393939393938,
+            "end": 101.13333333333333
+          }
+        ]
+      },
+      {
+        "text": "A formal proof would expand the finite sum notation and justify the algebraic identities used here.",
+        "start": 101.5878787878788,
+        "end": 107.83030303030303,
+        "phrases": [
+          {
+            "start": 101.5878787878788,
+            "end": 107.83030303030303
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "odd_sum_code",
+    "chapter": "Define video-odd-sum before using its compact name",
+    "start": 815.5666666666496,
+    "audio_start": 815.7666666666496,
+    "duration": 74.99575,
+    "sentences": [
+      {
+        "text": "We have described the sum mathematically; now write the actual ACL2 function.",
+        "start": 0,
+        "end": 4.921212121212121,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.921212121212121
+          }
+        ]
+      },
+      {
+        "text": "Keep its meaning in view: O of n is the sum of the first n odd numbers.",
+        "start": 5.375757575757576,
+        "end": 9.763636363636364,
+        "phrases": [
+          {
+            "start": 5.375757575757576,
+            "end": 9.763636363636364
+          }
+        ]
+      },
+      {
+        "text": "This popup shows the complete definition from our checked teaching book.",
+        "start": 10.218181818181819,
+        "end": 14.06060606060606,
+        "phrases": [
+          {
+            "start": 10.218181818181819,
+            "end": 14.06060606060606
+          }
+        ]
+      },
+      {
+        "text": "Defun introduces video-odd-sum, with one input called n.",
+        "start": 14.515151515151516,
+        "end": 19.318181818181817,
+        "phrases": [
+          {
+            "start": 14.515151515151516,
+            "end": 16.87878787878788
+          },
+          {
+            "start": 17.56060606060606,
+            "end": 19.318181818181817
+          }
+        ]
+      },
+      {
+        "text": "For the natural-number inputs used here, the zero test asks whether n is zero.",
+        "start": 19.77272727272727,
+        "end": 25.106060606060606,
+        "phrases": [
+          {
+            "start": 19.77272727272727,
+            "end": 25.106060606060606
+          }
+        ]
+      },
+      {
+        "text": "If it is, return zero, the sum with no terms.",
+        "start": 25.56060606060606,
+        "end": 28.942424242424245,
+        "phrases": [
+          {
+            "start": 25.56060606060606,
+            "end": 28.942424242424245
+          }
+        ]
+      },
+      {
+        "text": "The decrement operation subtracts one from n.",
+        "start": 29.3969696969697,
+        "end": 33.36363636363636,
+        "phrases": [
+          {
+            "start": 29.3969696969697,
+            "end": 31.045454545454547
+          },
+          {
+            "start": 31.72727272727273,
+            "end": 33.36363636363636
+          }
+        ]
+      },
+      {
+        "text": "The recursive call computes the sum with one fewer term.",
+        "start": 33.81818181818182,
+        "end": 37.163636363636364,
+        "phrases": [
+          {
+            "start": 33.81818181818182,
+            "end": 37.163636363636364
+          }
+        ]
+      },
+      {
+        "text": "Then add the nth odd number: two times n minus one.",
+        "start": 37.61818181818182,
+        "end": 41.36363636363636,
+        "phrases": [
+          {
+            "start": 37.61818181818182,
+            "end": 41.36363636363636
+          }
+        ]
+      },
+      {
+        "text": "For input four, the recursive call uses three, and the new odd term is seven.",
+        "start": 41.81818181818181,
+        "end": 48.39393939393939,
+        "phrases": [
+          {
+            "start": 41.81818181818181,
+            "end": 43.054545454545455
+          },
+          {
+            "start": 43.736363636363635,
+            "end": 45.845454545454544
+          },
+          {
+            "start": 46.52727272727273,
+            "end": 48.39393939393939
+          }
+        ]
+      },
+      {
+        "text": "So one plus three plus five, plus seven, gives sixteen.",
+        "start": 48.848484848484844,
+        "end": 54.515151515151516,
+        "phrases": [
+          {
+            "start": 48.848484848484844,
+            "end": 50.98181818181818
+          },
+          {
+            "start": 51.663636363636364,
+            "end": 52.62121212121212
+          },
+          {
+            "start": 53.303030303030305,
+            "end": 54.515151515151516
+          }
+        ]
+      },
+      {
+        "text": "Each recursive call reduces the natural input, until it reaches zero.",
+        "start": 54.96969696969697,
+        "end": 60.70606060606061,
+        "phrases": [
+          {
+            "start": 54.96969696969697,
+            "end": 58.121212121212125
+          },
+          {
+            "start": 58.803030303030305,
+            "end": 60.70606060606061
+          }
+        ]
+      },
+      {
+        "text": "ACL2 checks that this definition terminates before admitting the function.",
+        "start": 61.160606060606064,
+        "end": 65.74242424242424,
+        "phrases": [
+          {
+            "start": 61.160606060606064,
+            "end": 65.74242424242424
+          }
+        ]
+      },
+      {
+        "text": "Now fold the definition into its compact function name.",
+        "start": 66.19696969696969,
+        "end": 69.63939393939394,
+        "phrases": [
+          {
+            "start": 66.19696969696969,
+            "end": 69.63939393939394
+          }
+        ]
+      },
+      {
+        "text": "Whenever that name appears, it refers to the definition we have just examined.",
+        "start": 70.0939393939394,
+        "end": 74.56666666666666,
+        "phrases": [
+          {
+            "start": 70.0939393939394,
+            "end": 74.56666666666666
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "induction_pattern",
+    "chapter": "From the PA claim to a checked ACL2 theorem",
+    "start": 892.199999999974,
+    "audio_start": 892.399999999974,
+    "duration": 132.277333,
+    "sentences": [
+      {
+        "text": "We have now seen two examples of the same induction pattern.",
+        "start": 0,
+        "end": 3.563636363636364,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.563636363636364
+          }
+        ]
+      },
+      {
+        "text": "Return to our first claim: zero plus n equals n.",
+        "start": 4.0181818181818185,
+        "end": 8.469696969696969,
+        "phrases": [
+          {
+            "start": 4.0181818181818185,
+            "end": 5.751515151515152
+          },
+          {
+            "start": 6.433333333333334,
+            "end": 8.469696969696969
+          }
+        ]
+      },
+      {
+        "text": "P of n is a short label for that particular formula.",
+        "start": 8.924242424242424,
+        "end": 13.266666666666667,
+        "phrases": [
+          {
+            "start": 8.924242424242424,
+            "end": 9.857575757575757
+          },
+          {
+            "start": 10.539393939393939,
+            "end": 13.266666666666667
+          }
+        ]
+      },
+      {
+        "text": "P of zero means zero plus zero equals zero.",
+        "start": 13.721212121212123,
+        "end": 18.28181818181818,
+        "phrases": [
+          {
+            "start": 13.721212121212123,
+            "end": 15.224242424242425
+          },
+          {
+            "start": 15.906060606060606,
+            "end": 18.28181818181818
+          }
+        ]
+      },
+      {
+        "text": "P of the next number means zero plus the quantity n plus one equals n plus one.",
+        "start": 18.736363636363635,
+        "end": 24.94545454545455,
+        "phrases": [
+          {
+            "start": 18.736363636363635,
+            "end": 20.6030303030303
+          },
+          {
+            "start": 21.284848484848485,
+            "end": 24.94545454545455
+          }
+        ]
+      },
+      {
+        "text": "In Peano arithmetic, the induction scheme supplies an induction axiom for each chosen formula.",
+        "start": 25.4,
+        "end": 32.08181818181818,
+        "phrases": [
+          {
+            "start": 25.4,
+            "end": 26.93939393939394
+          },
+          {
+            "start": 27.621212121212125,
+            "end": 32.08181818181818
+          }
+        ]
+      },
+      {
+        "text": "The word scheme names that whole family of axioms.",
+        "start": 32.53636363636364,
+        "end": 35.61515151515152,
+        "phrases": [
+          {
+            "start": 32.53636363636364,
+            "end": 35.61515151515152
+          }
+        ]
+      },
+      {
+        "text": "Now write our first claim in the language used by this project, ACL2.",
+        "start": 36.06969696969697,
+        "end": 41.66060606060606,
+        "phrases": [
+          {
+            "start": 36.06969696969697,
+            "end": 39.74242424242424
+          },
+          {
+            "start": 40.42424242424242,
+            "end": 41.66060606060606
+          }
+        ]
+      },
+      {
+        "text": "ACL2 writes the operation first, inside parentheses, so zero plus n becomes plus zero n.",
+        "start": 42.11515151515151,
+        "end": 50.836363636363636,
+        "phrases": [
+          {
+            "start": 42.11515151515151,
+            "end": 44.806060606060605
+          },
+          {
+            "start": 45.487878787878785,
+            "end": 47.196969696969695
+          },
+          {
+            "start": 47.878787878787875,
+            "end": 50.836363636363636
+          }
+        ]
+      },
+      {
+        "text": "To say that this result equals n, wrap that expression in equal.",
+        "start": 51.290909090909096,
+        "end": 56.2030303030303,
+        "phrases": [
+          {
+            "start": 51.290909090909096,
+            "end": 53.50909090909091
+          },
+          {
+            "start": 54.190909090909095,
+            "end": 56.2030303030303
+          }
+        ]
+      },
+      {
+        "text": "ACL2 works with objects besides whole numbers, so include natp n, meaning n is a whole number.",
+        "start": 56.657575757575756,
+        "end": 65.33030303030303,
+        "phrases": [
+          {
+            "start": 56.657575757575756,
+            "end": 60.2939393939394
+          },
+          {
+            "start": 60.97575757575758,
+            "end": 62.7939393939394
+          },
+          {
+            "start": 63.47575757575758,
+            "end": 65.33030303030303
+          }
+        ]
+      },
+      {
+        "text": "Implies says: if n is a whole number, then the equality holds.",
+        "start": 65.78484848484848,
+        "end": 71.82727272727273,
+        "phrases": [
+          {
+            "start": 65.78484848484848,
+            "end": 67.05757575757576
+          },
+          {
+            "start": 67.73939393939393,
+            "end": 69.33939393939394
+          },
+          {
+            "start": 70.02121212121213,
+            "end": 71.82727272727273
+          }
+        ]
+      },
+      {
+        "text": "Finally, defthm asks ACL2 to prove the statement; we name our teaching theorem video-zero-plus-n.",
+        "start": 72.28181818181818,
+        "end": 79.86060606060606,
+        "phrases": [
+          {
+            "start": 72.28181818181818,
+            "end": 76.0878787878788
+          },
+          {
+            "start": 76.76969696969697,
+            "end": 79.86060606060606
+          }
+        ]
+      },
+      {
+        "text": "The variable n is understood universally; this theorem covers every natural number.",
+        "start": 80.31515151515151,
+        "end": 86.39090909090909,
+        "phrases": [
+          {
+            "start": 80.31515151515151,
+            "end": 83.03030303030303
+          },
+          {
+            "start": 83.71212121212122,
+            "end": 86.39090909090909
+          }
+        ]
+      },
+      {
+        "text": "This simple equality can be handled by ACL2 arithmetic simplification.",
+        "start": 86.84545454545456,
+        "end": 91.62121212121212,
+        "phrases": [
+          {
+            "start": 86.84545454545456,
+            "end": 91.62121212121212
+          }
+        ]
+      },
+      {
+        "text": "For recursive claims, ACL2 can also use induction patterns justified by terminating function definitions.",
+        "start": 92.07575757575758,
+        "end": 100.00606060606061,
+        "phrases": [
+          {
+            "start": 92.07575757575758,
+            "end": 93.56666666666666
+          },
+          {
+            "start": 94.24848484848485,
+            "end": 100.00606060606061
+          }
+        ]
+      },
+      {
+        "text": "Our other claim has this ACL2 statement.",
+        "start": 100.46060606060605,
+        "end": 103.38181818181818,
+        "phrases": [
+          {
+            "start": 100.46060606060605,
+            "end": 103.38181818181818
+          }
+        ]
+      },
+      {
+        "text": "The function video-odd-sum is our ACL2 name for O of n, the sum of the first n odd numbers.",
+        "start": 103.83636363636364,
+        "end": 110.77272727272728,
+        "phrases": [
+          {
+            "start": 103.83636363636364,
+            "end": 107.82424242424243
+          },
+          {
+            "start": 108.5060606060606,
+            "end": 110.77272727272728
+          }
+        ]
+      },
+      {
+        "text": "For every natural n, that function value equals n times n.",
+        "start": 111.22727272727272,
+        "end": 116.30909090909091,
+        "phrases": [
+          {
+            "start": 111.22727272727272,
+            "end": 112.87575757575759
+          },
+          {
+            "start": 113.55757575757576,
+            "end": 116.30909090909091
+          }
+        ]
+      },
+      {
+        "text": "Again, the natural-number hypothesis specifies the domain of the claim.",
+        "start": 116.76363636363635,
+        "end": 122.12424242424242,
+        "phrases": [
+          {
+            "start": 116.76363636363635,
+            "end": 117.49090909090908
+          },
+          {
+            "start": 118.17272727272727,
+            "end": 122.12424242424242
+          }
+        ]
+      },
+      {
+        "text": "Both displayed teaching theorems have been checked in ACL2.",
+        "start": 122.57878787878788,
+        "end": 126.31212121212121,
+        "phrases": [
+          {
+            "start": 122.57878787878788,
+            "end": 126.31212121212121
+          }
+        ]
+      },
+      {
+        "text": "The checker verifies the proof as well as reading the theorem statement.",
+        "start": 126.76666666666667,
+        "end": 131.84848484848484,
+        "phrases": [
+          {
+            "start": 126.76666666666667,
+            "end": 128.71818181818182
+          },
+          {
+            "start": 129.4,
+            "end": 131.84848484848484
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "acl2_pairs",
+    "chapter": "PA and ACL2 notation, side by side",
+    "start": 1026.0999999999601,
+    "audio_start": 1026.2999999999602,
+    "duration": 94.20375,
+    "sentences": [
+      {
+        "text": "Before moving on, here are the translation pairs we will keep using.",
+        "start": 0,
+        "end": 4.863636363636364,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 1.2242424242424241
+          },
+          {
+            "start": 1.906060606060606,
+            "end": 4.863636363636364
+          }
+        ]
+      },
+      {
+        "text": "For natural-number values, ACL2 lets us write ordinary numerals directly; the PA successor chain for three corresponds to the ACL2 numeral three.",
+        "start": 5.3181818181818175,
+        "end": 16.8969696969697,
+        "phrases": [
+          {
+            "start": 5.3181818181818175,
+            "end": 10.639393939393939
+          },
+          {
+            "start": 11.321212121212122,
+            "end": 16.8969696969697
+          }
+        ]
+      },
+      {
+        "text": "Successor of n becomes plus one n, in parentheses.",
+        "start": 17.35151515151515,
+        "end": 22.933333333333334,
+        "phrases": [
+          {
+            "start": 17.35151515151515,
+            "end": 19.169696969696968
+          },
+          {
+            "start": 19.85151515151515,
+            "end": 20.906060606060606
+          },
+          {
+            "start": 21.58787878787879,
+            "end": 22.933333333333334
+          }
+        ]
+      },
+      {
+        "text": "Addition x plus y is written plus x y.",
+        "start": 23.387878787878787,
+        "end": 27.57272727272727,
+        "phrases": [
+          {
+            "start": 23.387878787878787,
+            "end": 25.145454545454545
+          },
+          {
+            "start": 25.827272727272728,
+            "end": 27.57272727272727
+          }
+        ]
+      },
+      {
+        "text": "Multiplication x times y is written times x y.",
+        "start": 28.027272727272727,
+        "end": 32.72121212121212,
+        "phrases": [
+          {
+            "start": 28.027272727272727,
+            "end": 30.1969696969697
+          },
+          {
+            "start": 30.87878787878788,
+            "end": 32.72121212121212
+          }
+        ]
+      },
+      {
+        "text": "To assert an equality, use equal around the expressions being compared.",
+        "start": 33.17575757575757,
+        "end": 38.34242424242424,
+        "phrases": [
+          {
+            "start": 33.17575757575757,
+            "end": 34.654545454545456
+          },
+          {
+            "start": 35.336363636363636,
+            "end": 38.34242424242424
+          }
+        ]
+      },
+      {
+        "text": "And combines the two equality tests shown here.",
+        "start": 38.7969696969697,
+        "end": 41.790909090909096,
+        "phrases": [
+          {
+            "start": 38.7969696969697,
+            "end": 41.790909090909096
+          }
+        ]
+      },
+      {
+        "text": "Not reverses the truth of the equality test.",
+        "start": 42.24545454545455,
+        "end": 45.14242424242424,
+        "phrases": [
+          {
+            "start": 42.24545454545455,
+            "end": 45.14242424242424
+          }
+        ]
+      },
+      {
+        "text": "Less than or equal to has the matching ACL2 comparison shown here.",
+        "start": 45.596969696969694,
+        "end": 51.28484848484849,
+        "phrases": [
+          {
+            "start": 45.596969696969694,
+            "end": 47.269696969696966
+          },
+          {
+            "start": 47.95151515151515,
+            "end": 51.28484848484849
+          }
+        ]
+      },
+      {
+        "text": "Our existence example gets a concrete witness: when x is less than or equal to y, choose z equal to y minus x.",
+        "start": 51.73939393939394,
+        "end": 61.04242424242425,
+        "phrases": [
+          {
+            "start": 51.73939393939394,
+            "end": 54.842424242424244
+          },
+          {
+            "start": 55.52424242424242,
+            "end": 57.97272727272727
+          },
+          {
+            "start": 58.654545454545456,
+            "end": 61.04242424242425
+          }
+        ]
+      },
+      {
+        "text": "Here is the recursive addition identity we used.",
+        "start": 61.4969696969697,
+        "end": 64.61212121212121,
+        "phrases": [
+          {
+            "start": 61.4969696969697,
+            "end": 64.61212121212121
+          }
+        ]
+      },
+      {
+        "text": "And here is the multiplication identity, adding one more whole group.",
+        "start": 65.06666666666668,
+        "end": 70.06363636363636,
+        "phrases": [
+          {
+            "start": 65.06666666666668,
+            "end": 67.61212121212121
+          },
+          {
+            "start": 68.2939393939394,
+            "end": 70.06363636363636
+          }
+        ]
+      },
+      {
+        "text": "The odd-sum recurrence keeps exactly the same old-sum and next-term structure in ACL2.",
+        "start": 70.51818181818182,
+        "end": 76.4090909090909,
+        "phrases": [
+          {
+            "start": 70.51818181818182,
+            "end": 76.4090909090909
+          }
+        ]
+      },
+      {
+        "text": "For universal claims, we use theorem statements with explicit natural-number hypotheses, like the ones just shown.",
+        "start": 76.86363636363636,
+        "end": 85.52424242424243,
+        "phrases": [
+          {
+            "start": 76.86363636363636,
+            "end": 78.41515151515152
+          },
+          {
+            "start": 79.0969696969697,
+            "end": 83.23030303030303
+          },
+          {
+            "start": 83.91212121212122,
+            "end": 85.52424242424243
+          }
+        ]
+      },
+      {
+        "text": "Later parts will keep the mathematical notation beside its ACL2 counterpart, and state what the variables mean.",
+        "start": 85.97878787878787,
+        "end": 93.77575757575758,
+        "phrases": [
+          {
+            "start": 85.97878787878787,
+            "end": 90.94848484848485
+          },
+          {
+            "start": 91.63030303030303,
+            "end": 93.77575757575758
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "encoding",
+    "chapter": "More than a calculator",
+    "start": 1121.9333333332827,
+    "audio_start": 1122.1333333332827,
+    "duration": 49.825042,
+    "sentences": [
+      {
+        "text": "A language about whole numbers may sound restrictive.",
+        "start": 0,
+        "end": 2.9913043478260866,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.9913043478260866
+          }
+        ]
+      },
+      {
+        "text": "But finite objects can be represented by numbers and finite sequences.",
+        "start": 3.382608695652174,
+        "end": 7.579710144927536,
+        "phrases": [
+          {
+            "start": 3.382608695652174,
+            "end": 7.579710144927536
+          }
+        ]
+      },
+      {
+        "text": "A fraction can be stored as a numerator and a nonzero denominator.",
+        "start": 7.971014492753622,
+        "end": 12.121739130434781,
+        "phrases": [
+          {
+            "start": 7.971014492753622,
+            "end": 12.121739130434781
+          }
+        ]
+      },
+      {
+        "text": "A finite list can be encoded by arithmetic data.",
+        "start": 12.513043478260869,
+        "end": 15.58550724637681,
+        "phrases": [
+          {
+            "start": 12.513043478260869,
+            "end": 15.58550724637681
+          }
+        ]
+      },
+      {
+        "text": "A program, and a finite record of its execution, can also be encoded.",
+        "start": 15.976811594202898,
+        "end": 20.579710144927535,
+        "phrases": [
+          {
+            "start": 15.976811594202898,
+            "end": 20.579710144927535
+          }
+        ]
+      },
+      {
+        "text": "The representation has to be justified: we must prove that the arithmetic operations preserve the meaning we intend.",
+        "start": 20.97101449275362,
+        "end": 27.53333333333333,
+        "phrases": [
+          {
+            "start": 20.97101449275362,
+            "end": 27.53333333333333
+          }
+        ]
+      },
+      {
+        "text": "This is how an arithmetic proof can talk about a calculation without treating arbitrary real numbers as primitive objects.",
+        "start": 27.924637681159417,
+        "end": 34.67246376811594,
+        "phrases": [
+          {
+            "start": 27.924637681159417,
+            "end": 34.67246376811594
+          }
+        ]
+      },
+      {
+        "text": "Later, we will use exact rational intervals to enclose quantities that are defined using analysis.",
+        "start": 35.06376811594203,
+        "end": 40.98840579710145,
+        "phrases": [
+          {
+            "start": 35.06376811594203,
+            "end": 40.98840579710145
+          }
+        ]
+      },
+      {
+        "text": "An accepted numerical example is useful.",
+        "start": 41.379710144927536,
+        "end": 44.08115942028986,
+        "phrases": [
+          {
+            "start": 41.379710144927536,
+            "end": 44.08115942028986
+          }
+        ]
+      },
+      {
+        "text": "A general theorem explaining why every permitted input works is a further obligation.",
+        "start": 44.472463768115944,
+        "end": 49.457971014492756,
+        "phrases": [
+          {
+            "start": 44.472463768115944,
+            "end": 49.457971014492756
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "statement",
+    "chapter": "A statement is not yet a proof",
+    "start": 1173.3999999999446,
+    "audio_start": 1173.5999999999447,
+    "duration": 38.6915,
+    "sentences": [
+      {
+        "text": "There is one distinction to keep throughout this series.",
+        "start": 0,
+        "end": 2.8521739130434782,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.8521739130434782
+          }
+        ]
+      },
+      {
+        "text": "Expressing a statement in arithmetic does not, by itself, prove it in arithmetic.",
+        "start": 3.243478260869565,
+        "end": 8.27536231884058,
+        "phrases": [
+          {
+            "start": 3.243478260869565,
+            "end": 8.27536231884058
+          }
+        ]
+      },
+      {
+        "text": "We must actually derive it from the chosen rules.",
+        "start": 8.666666666666666,
+        "end": 11.484057971014492,
+        "phrases": [
+          {
+            "start": 8.666666666666666,
+            "end": 11.484057971014492
+          }
+        ]
+      },
+      {
+        "text": "Nor does using a stronger background to describe numbers show that every theorem about numbers needs that background.",
+        "start": 11.875362318840578,
+        "end": 18.12463768115942,
+        "phrases": [
+          {
+            "start": 11.875362318840578,
+            "end": 18.12463768115942
+          }
+        ]
+      },
+      {
+        "text": "The intended interpretation here is the ordinary whole numbers.",
+        "start": 18.515942028985506,
+        "end": 22.21449275362319,
+        "phrases": [
+          {
+            "start": 18.515942028985506,
+            "end": 22.21449275362319
+          }
+        ]
+      },
+      {
+        "text": "In the next part we will separate the written rules, the proofs made from them, and the mathematical worlds where those rules hold.",
+        "start": 22.605797101449276,
+        "end": 29.446376811594202,
+        "phrases": [
+          {
+            "start": 22.605797101449276,
+            "end": 29.446376811594202
+          }
+        ]
+      },
+      {
+        "text": "That will give us the vocabulary to compare Peano arithmetic with stronger foundations, and to understand what a reduction of assumptions really accomplishes.",
+        "start": 29.83768115942029,
+        "end": 38.32463768115942,
+        "phrases": [
+          {
+            "start": 29.83768115942029,
+            "end": 38.32463768115942
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "road",
+    "chapter": "The road to the Landau reduction",
+    "start": 1213.733333333275,
+    "audio_start": 1213.933333333275,
+    "duration": 35.680208,
+    "sentences": [
+      {
+        "text": "From here, we will build toward exact fractions and intervals, verified finite searches, the smoothed prime counting statistic, and the Landau bridge.",
+        "start": 0,
+        "end": 8.498550724637681,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 8.498550724637681
+          }
+        ]
+      },
+      {
+        "text": "The destination is a proof of the full reduction in A C L two, with a precise account of its arithmetic strength and its connection to the original mathematics.",
+        "start": 8.889855072463767,
+        "end": 17.318840579710145,
+        "phrases": [
+          {
+            "start": 8.889855072463767,
+            "end": 17.318840579710145
+          }
+        ]
+      },
+      {
+        "text": "Every connection in that chain needs its own proof.",
+        "start": 17.71014492753623,
+        "end": 20.504347826086956,
+        "phrases": [
+          {
+            "start": 17.71014492753623,
+            "end": 20.504347826086956
+          }
+        ]
+      },
+      {
+        "text": "The later episodes will follow what is actually proved.",
+        "start": 20.895652173913042,
+        "end": 24.060869565217388,
+        "phrases": [
+          {
+            "start": 20.895652173913042,
+            "end": 24.060869565217388
+          }
+        ]
+      },
+      {
+        "text": "Part Zero gives us the starting point: a formal language, explicit calculation rules, and induction.",
+        "start": 24.452173913043477,
+        "end": 30.365217391304345,
+        "phrases": [
+          {
+            "start": 24.452173913043477,
+            "end": 30.365217391304345
+          }
+        ]
+      },
+      {
+        "text": "With those tools, a finite proof can say something about infinitely many numbers.",
+        "start": 30.756521739130434,
+        "end": 35.313043478260866,
+        "phrases": [
+          {
+            "start": 30.756521739130434,
+            "end": 35.313043478260866
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,6 +1,6 @@
 """Build the static lesson book locally or after the recorded proof milestone."""
 from __future__ import annotations
-import argparse,hashlib,html,json,math,re,shutil,subprocess,urllib.request
+import argparse,hashlib,html,json,math,re,shutil,subprocess
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -89,7 +89,7 @@ def load_lessons(episodes,repository):
 
 
 def validate_release(release):
-    fields=['proofReference','interpretationReference','proofCommit','finalOverviewAsset','publicMediaBase']
+    fields=['proofReference','interpretationReference','proofCommit','finalOverviewAsset','publicMediaBase','repositoryMediaBase']
     if release['proofMilestone']!='complete' or any(not release.get(x) for x in fields):raise ValueError('Public release is pending the full proof, interpretation and final overview records. Local preview remains available.')
     if not re.fullmatch(r'[a-f0-9]{40}',release['proofCommit']):raise ValueError('Record the actual proof commit before release.')
 
@@ -105,11 +105,14 @@ def collect_films(episodes,release,is_release):
     for identity,stem,timing,title in settings:
         if is_release:
             if identity!='overview' and next(ep for ep in episodes if ep['id']==identity)['state'] not in ('ready','published'):continue
-            asset=release['finalOverviewAsset'] if identity=='overview' else stem+'.mp4';stem=Path(asset).stem;base=release['publicMediaBase'].rstrip('/')
-            with urllib.request.urlopen(base+'/'+stem+'-web.json',timeout=30) as response:meta=json.load(response)
-            with urllib.request.urlopen(base+'/'+stem+'.vtt',timeout=30) as response:captions=response.read()
+            folder=ROOT/'video/published'/('overview' if identity=='overview' else 'part-'+identity)
+            meta=json.loads((folder/'chapters.json').read_text(encoding='utf8'))
+            captions=(folder/'captions.vtt').read_bytes()
             if not captions.startswith(b'WEBVTT'):raise ValueError('Published captions are missing or invalid.')
-            (DIST/'media'/f'{identity}.vtt').write_bytes(captions);src=base+'/'+asset;poster=base+'/'+stem+'-poster.jpg';duration=None
+            (DIST/'media'/f'{identity}.vtt').write_bytes(captions)
+            shutil.copyfile(folder/'poster.jpg',DIST/'media'/f'{identity}.jpg');poster=f'media/{identity}.jpg'
+            src=release['publicMediaBase'].rstrip('/')+'/'+release['finalOverviewAsset'] if identity=='overview' else release['repositoryMediaBase'].rstrip('/')+'/part-'+identity+'/film.mp4'
+            duration=float(json.loads((folder/'verification.json').read_text(encoding='utf8'))['format']['duration'])
         else:
             timing_path=ROOT/'video/media'/timing
             if not timing_path.exists():continue

@@ -1,0 +1,22 @@
+00:00:00  Why the signal's ceiling matters
+00:00:48  A complex number has two coordinates
+00:01:35  The zeta function and the critical strip
+00:02:29  Why excluding the right side is enough
+00:03:15  A ceiling controls only the upper side
+00:04:10  A window is an entire interval
+00:05:01  Read the quantifiers in their order
+00:05:46  The classical windowed Landau theorem
+00:06:42  Turn the theorem around carefully
+00:07:32  Use logarithmic addresses
+00:08:20  Growth, oscillation, and cancellation
+00:09:11  A transform records weighted readings
+00:10:07  High derivatives focus the reading
+00:11:04  Why large negative values need no floor
+00:12:01  Keep both weighted readings
+00:13:04  The finite cancellation in ACL2
+00:14:04  A nearby pole forces large coefficients
+00:15:10  Incompatible geometric scales
+00:16:06  Compute a sufficient order
+00:17:10  Why ceilings near one half would suffice
+00:18:24  What is being brought into arithmetic
+00:19:24  From the bridge to explicit kernels

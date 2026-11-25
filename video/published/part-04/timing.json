@@ -1,0 +1,2891 @@
+[
+  {
+    "id": "opening",
+    "chapter": "Give the search a genuine signal",
+    "start": 0.0,
+    "audio_start": 0.2,
+    "duration": 57.117125,
+    "sentences": [
+      {
+        "text": "Part Three gave us a finite search and a theorem explaining when it must succeed.",
+        "start": 0,
+        "end": 4.763636363636364,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.763636363636364
+          }
+        ]
+      },
+      {
+        "text": "The search still needs justified intervals at its sample addresses.",
+        "start": 5.286363636363636,
+        "end": 9.298484848484847,
+        "phrases": [
+          {
+            "start": 5.286363636363636,
+            "end": 9.298484848484847
+          }
+        ]
+      },
+      {
+        "text": "Now we start building those inputs from the positive integers.",
+        "start": 9.821212121212122,
+        "end": 13.46969696969697,
+        "phrases": [
+          {
+            "start": 9.821212121212122,
+            "end": 13.46969696969697
+          }
+        ]
+      },
+      {
+        "text": "Primes and their powers will supply weights, and a simple ramp will spread each weight into a contribution to a sum.",
+        "start": 13.992424242424242,
+        "end": 20.707575757575757,
+        "phrases": [
+          {
+            "start": 13.992424242424242,
+            "end": 20.707575757575757
+          }
+        ]
+      },
+      {
+        "text": "We will then center that sum to obtain the statistic used by this repository, G_z.",
+        "start": 21.23030303030303,
+        "end": 26.84242424242424,
+        "phrases": [
+          {
+            "start": 21.23030303030303,
+            "end": 26.84242424242424
+          }
+        ]
+      },
+      {
+        "text": "Every computational component will have an actual ACL2 definition.",
+        "start": 27.365151515151513,
+        "end": 31.837878787878786,
+        "phrases": [
+          {
+            "start": 27.365151515151513,
+            "end": 31.837878787878786
+          }
+        ]
+      },
+      {
+        "text": "The quantities those intervals represent are real mathematical values, so we will keep their interpretation explicit.",
+        "start": 32.36060606060606,
+        "end": 39.42727272727272,
+        "phrases": [
+          {
+            "start": 32.36060606060606,
+            "end": 39.42727272727272
+          }
+        ]
+      },
+      {
+        "text": "This is Part Four of Landau Windows ACL Two: prime powers and a smoothed signal.",
+        "start": 39.949999999999996,
+        "end": 45.41666666666667,
+        "phrases": [
+          {
+            "start": 39.949999999999996,
+            "end": 45.41666666666667
+          }
+        ]
+      },
+      {
+        "text": "The aim is to replace an unexplained numerical box with a finite construction whose accuracy we can justify.",
+        "start": 45.939393939393945,
+        "end": 52.36363636363636,
+        "phrases": [
+          {
+            "start": 45.939393939393945,
+            "end": 52.36363636363636
+          }
+        ]
+      },
+      {
+        "text": "That is another concrete part of the route toward Peano Arithmetic.",
+        "start": 52.88636363636363,
+        "end": 56.61969696969697,
+        "phrases": [
+          {
+            "start": 52.88636363636363,
+            "end": 56.61969696969697
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "powers",
+    "chapter": "Primes and positive powers of primes",
+    "start": 58.76666666666654,
+    "audio_start": 58.96666666666654,
+    "duration": 68.208333,
+    "sentences": [
+      {
+        "text": "A prime is a whole number at least two whose only positive divisors are one and itself.",
+        "start": 0,
+        "end": 5.042424242424242,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.042424242424242
+          }
+        ]
+      },
+      {
+        "text": "A prime power is a prime raised to a positive whole-number exponent.",
+        "start": 5.5651515151515145,
+        "end": 9.686363636363636,
+        "phrases": [
+          {
+            "start": 5.5651515151515145,
+            "end": 9.686363636363636
+          }
+        ]
+      },
+      {
+        "text": "Two, four, eight, and sixteen are powers of the same prime, two.",
+        "start": 10.209090909090909,
+        "end": 14.451515151515151,
+        "phrases": [
+          {
+            "start": 10.209090909090909,
+            "end": 14.451515151515151
+          }
+        ]
+      },
+      {
+        "text": "Thirteen also counts: it is thirteen to the first power.",
+        "start": 14.974242424242425,
+        "end": 18.61060606060606,
+        "phrases": [
+          {
+            "start": 14.974242424242425,
+            "end": 18.61060606060606
+          }
+        ]
+      },
+      {
+        "text": "Six does not count, because its prime factors include both two and three.",
+        "start": 19.133333333333333,
+        "end": 23.8969696969697,
+        "phrases": [
+          {
+            "start": 19.133333333333333,
+            "end": 23.8969696969697
+          }
+        ]
+      },
+      {
+        "text": "One does not count either; the exponent must be positive.",
+        "start": 24.41969696969697,
+        "end": 28.165151515151514,
+        "phrases": [
+          {
+            "start": 24.41969696969697,
+            "end": 28.165151515151514
+          }
+        ]
+      },
+      {
+        "text": "Sixteen gives a useful warning: it is also four squared, but four is not a prime base.",
+        "start": 28.68787878787879,
+        "end": 34.481818181818184,
+        "phrases": [
+          {
+            "start": 28.68787878787879,
+            "end": 34.481818181818184
+          }
+        ]
+      },
+      {
+        "text": "The prime-power description we want is two to the fourth power.",
+        "start": 35.00454545454545,
+        "end": 38.64090909090909,
+        "phrases": [
+          {
+            "start": 35.00454545454545,
+            "end": 38.64090909090909
+          }
+        ]
+      },
+      {
+        "text": "The weight we will attach is called the von Mangoldt function, written with a capital Lambda.",
+        "start": 39.163636363636364,
+        "end": 44.55757575757576,
+        "phrases": [
+          {
+            "start": 39.163636363636364,
+            "end": 44.55757575757576
+          }
+        ]
+      },
+      {
+        "text": "At a prime power, its value is the natural logarithm of the prime base.",
+        "start": 45.080303030303035,
+        "end": 49.528787878787874,
+        "phrases": [
+          {
+            "start": 45.080303030303035,
+            "end": 49.528787878787874
+          }
+        ]
+      },
+      {
+        "text": "At other positive integers, its value is zero.",
+        "start": 50.05151515151515,
+        "end": 53.16666666666667,
+        "phrases": [
+          {
+            "start": 50.05151515151515,
+            "end": 53.16666666666667
+          }
+        ]
+      },
+      {
+        "text": "So every positive power of two receives the weight log two\u2026 not the logarithm of the whole power.",
+        "start": 53.689393939393945,
+        "end": 60.557575757575755,
+        "phrases": [
+          {
+            "start": 53.689393939393945,
+            "end": 57.49545454545454
+          },
+          {
+            "start": 58.29090909090909,
+            "end": 60.557575757575755
+          }
+        ]
+      },
+      {
+        "text": "We will explain the logarithm calculation shortly; first we need a bounded way to recognize the prime powers.",
+        "start": 61.08030303030303,
+        "end": 67.71060606060605,
+        "phrases": [
+          {
+            "start": 61.08030303030303,
+            "end": 67.71060606060605
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "integer_power",
+    "chapter": "An integer exponent is repeated multiplication",
+    "start": 128.5999999999994,
+    "audio_start": 128.7999999999994,
+    "duration": 55.357958,
+    "sentences": [
+      {
+        "text": "Start with the power operation itself.",
+        "start": 0,
+        "end": 2.484848484848485,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.484848484848485
+          }
+        ]
+      },
+      {
+        "text": "Two to the fourth power means multiply four copies of two.",
+        "start": 3.0075757575757573,
+        "end": 6.571212121212121,
+        "phrases": [
+          {
+            "start": 3.0075757575757573,
+            "end": 6.571212121212121
+          }
+        ]
+      },
+      {
+        "text": "Build it one factor at a time: two\u2026 four\u2026 eight\u2026 sixteen.",
+        "start": 7.093939393939394,
+        "end": 14.146969696969697,
+        "phrases": [
+          {
+            "start": 7.093939393939394,
+            "end": 9.409090909090908
+          },
+          {
+            "start": 10.204545454545455,
+            "end": 10.98030303030303
+          },
+          {
+            "start": 11.775757575757575,
+            "end": 12.381818181818183
+          },
+          {
+            "start": 13.177272727272728,
+            "end": 14.146969696969697
+          }
+        ]
+      },
+      {
+        "text": "The zero exponent supplies the initial value one.",
+        "start": 14.669696969696968,
+        "end": 17.82121212121212,
+        "phrases": [
+          {
+            "start": 14.669696969696968,
+            "end": 17.82121212121212
+          }
+        ]
+      },
+      {
+        "text": "Here is the repository's definition of lw-rational-power.",
+        "start": 18.343939393939394,
+        "end": 22.65909090909091,
+        "phrases": [
+          {
+            "start": 18.343939393939394,
+            "end": 22.65909090909091
+          }
+        ]
+      },
+      {
+        "text": "The base may be rational, but the exponent we are using is a natural number.",
+        "start": 23.18181818181818,
+        "end": 27.727272727272727,
+        "phrases": [
+          {
+            "start": 23.18181818181818,
+            "end": 27.727272727272727
+          }
+        ]
+      },
+      {
+        "text": "This function computes repeated multiplication; fractional-exponent root bounds are a later construction.",
+        "start": 28.25,
+        "end": 34.50454545454546,
+        "phrases": [
+          {
+            "start": 28.25,
+            "end": 34.50454545454546
+          }
+        ]
+      },
+      {
+        "text": "The recursive call reduces the exponent by one, then multiplies by the base.",
+        "start": 35.02727272727273,
+        "end": 40.093939393939394,
+        "phrases": [
+          {
+            "start": 35.02727272727273,
+            "end": 40.093939393939394
+          }
+        ]
+      },
+      {
+        "text": "The measure declaration identifies the decreasing natural-number counter.",
+        "start": 40.61666666666667,
+        "end": 44.88333333333333,
+        "phrases": [
+          {
+            "start": 40.61666666666667,
+            "end": 44.88333333333333
+          }
+        ]
+      },
+      {
+        "text": "For our example, the full call returns the integer sixteen.",
+        "start": 45.406060606060606,
+        "end": 49.38181818181818,
+        "phrases": [
+          {
+            "start": 45.406060606060606,
+            "end": 49.38181818181818
+          }
+        ]
+      },
+      {
+        "text": "We can now compare a candidate power with a target number using exact arithmetic.",
+        "start": 49.90454545454545,
+        "end": 54.86212121212121,
+        "phrases": [
+          {
+            "start": 49.90454545454545,
+            "end": 54.86212121212121
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "primality",
+    "chapter": "Check whether the candidate base is prime",
+    "start": 185.59999999999894,
+    "audio_start": 185.79999999999893,
+    "duration": 64.623583,
+    "sentences": [
+      {
+        "text": "Next check the proposed base.",
+        "start": 0,
+        "end": 1.9515151515151516,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 1.9515151515151516
+          }
+        ]
+      },
+      {
+        "text": "A trial divisor divides a number exactly when the remainder is zero.",
+        "start": 2.474242424242424,
+        "end": 6.922727272727272,
+        "phrases": [
+          {
+            "start": 2.474242424242424,
+            "end": 6.922727272727272
+          }
+        ]
+      },
+      {
+        "text": "The mod operation gives that remainder; we already used it in the clock example.",
+        "start": 7.445454545454545,
+        "end": 12.621212121212121,
+        "phrases": [
+          {
+            "start": 7.445454545454545,
+            "end": 12.621212121212121
+          }
+        ]
+      },
+      {
+        "text": "For example, two divides sixteen with remainder zero, so sixteen is not prime.",
+        "start": 13.143939393939394,
+        "end": 18.598484848484848,
+        "phrases": [
+          {
+            "start": 13.143939393939394,
+            "end": 18.598484848484848
+          }
+        ]
+      },
+      {
+        "text": "The function lw-no-divisor tries divisors from a supplied bound down to two.",
+        "start": 19.12121212121212,
+        "end": 24.32121212121212,
+        "phrases": [
+          {
+            "start": 19.12121212121212,
+            "end": 24.32121212121212
+          }
+        ]
+      },
+      {
+        "text": "Its conjunction stops successfully only when none of those trials divides the number.",
+        "start": 24.843939393939394,
+        "end": 29.765151515151512,
+        "phrases": [
+          {
+            "start": 24.843939393939394,
+            "end": 29.765151515151512
+          }
+        ]
+      },
+      {
+        "text": "Here is the complete definition, including its decreasing counter.",
+        "start": 30.287878787878785,
+        "end": 34.14242424242424,
+        "phrases": [
+          {
+            "start": 30.287878787878785,
+            "end": 34.14242424242424
+          }
+        ]
+      },
+      {
+        "text": "Now lw-primep first requires an integer at least two, and checks all smaller candidates from one less than the number.",
+        "start": 34.665151515151514,
+        "end": 42.42272727272727,
+        "phrases": [
+          {
+            "start": 34.665151515151514,
+            "end": 42.42272727272727
+          }
+        ]
+      },
+      {
+        "text": "For two, there are no trials at least two left to check.",
+        "start": 42.945454545454545,
+        "end": 46.32727272727273,
+        "phrases": [
+          {
+            "start": 42.945454545454545,
+            "end": 46.32727272727273
+          }
+        ]
+      },
+      {
+        "text": "For thirteen, none of the trials from twelve down to two divides it.",
+        "start": 46.85,
+        "end": 50.69242424242424,
+        "phrases": [
+          {
+            "start": 46.85,
+            "end": 50.69242424242424
+          }
+        ]
+      },
+      {
+        "text": "The project proves that this test rules out every proper divisor, so it recognizes the ordinary mathematical notion of prime.",
+        "start": 51.21515151515151,
+        "end": 58.9,
+        "phrases": [
+          {
+            "start": 51.21515151515151,
+            "end": 58.9
+          }
+        ]
+      },
+      {
+        "text": "This is a simple finite test; its role here is to be explicit and justified.",
+        "start": 59.42272727272727,
+        "end": 64.12575757575758,
+        "phrases": [
+          {
+            "start": 59.42272727272727,
+            "end": 64.12575757575758
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "power_search",
+    "chapter": "Return the prime base and its exponent",
+    "start": 251.86666666666505,
+    "audio_start": 252.06666666666504,
+    "duration": 80.177833,
+    "sentences": [
+      {
+        "text": "Suppose the target is sixteen.",
+        "start": 0,
+        "end": 2.1090909090909093,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.1090909090909093
+          }
+        ]
+      },
+      {
+        "text": "For a fixed base, lw-power-exponent tries positive exponents down from a supplied limit.",
+        "start": 2.631818181818182,
+        "end": 8.510606060606062,
+        "phrases": [
+          {
+            "start": 2.631818181818182,
+            "end": 8.510606060606062
+          }
+        ]
+      },
+      {
+        "text": "It compares the computed power with the target and returns the matching exponent, or nil.",
+        "start": 9.033333333333333,
+        "end": 14.039393939393939,
+        "phrases": [
+          {
+            "start": 9.033333333333333,
+            "end": 14.039393939393939
+          }
+        ]
+      },
+      {
+        "text": "The project proves that any returned exponent really gives the target, and that a match within the bound will be found.",
+        "start": 14.562121212121212,
+        "end": 21.14393939393939,
+        "phrases": [
+          {
+            "start": 14.562121212121212,
+            "end": 21.14393939393939
+          }
+        ]
+      },
+      {
+        "text": "Now read the complete definition of lw-prime-power-search.",
+        "start": 21.666666666666668,
+        "end": 25.73939393939394,
+        "phrases": [
+          {
+            "start": 21.666666666666668,
+            "end": 25.73939393939394
+          }
+        ]
+      },
+      {
+        "text": "It tries candidate bases in descending order, beginning from its input bound.",
+        "start": 26.26212121212121,
+        "end": 31.074242424242424,
+        "phrases": [
+          {
+            "start": 26.26212121212121,
+            "end": 31.074242424242424
+          }
+        ]
+      },
+      {
+        "text": "At each candidate, it first checks primality\u2026 then looks for an exponent.",
+        "start": 31.596969696969698,
+        "end": 37.156060606060606,
+        "phrases": [
+          {
+            "start": 31.596969696969698,
+            "end": 34.57878787878788
+          },
+          {
+            "start": 35.374242424242425,
+            "end": 37.156060606060606
+          }
+        ]
+      },
+      {
+        "text": "If a match exists, it returns the pair consisting of the prime base and the exponent.",
+        "start": 37.67878787878788,
+        "end": 42.87878787878788,
+        "phrases": [
+          {
+            "start": 37.67878787878788,
+            "end": 42.87878787878788
+          }
+        ]
+      },
+      {
+        "text": "Otherwise it decreases the base candidate and continues.",
+        "start": 43.401515151515156,
+        "end": 46.831818181818186,
+        "phrases": [
+          {
+            "start": 43.401515151515156,
+            "end": 46.831818181818186
+          }
+        ]
+      },
+      {
+        "text": "Why can the bounds be finite?",
+        "start": 47.35454545454545,
+        "end": 49.28181818181818,
+        "phrases": [
+          {
+            "start": 47.35454545454545,
+            "end": 49.28181818181818
+          }
+        ]
+      },
+      {
+        "text": "For a prime base and a positive exponent, both the base and the exponent are at most the resulting prime power.",
+        "start": 49.804545454545455,
+        "end": 56.10757575757576,
+        "phrases": [
+          {
+            "start": 49.804545454545455,
+            "end": 56.10757575757576
+          }
+        ]
+      },
+      {
+        "text": "The project proves those bounds and uses them in its completeness theorem.",
+        "start": 56.630303030303025,
+        "end": 60.763636363636365,
+        "phrases": [
+          {
+            "start": 56.630303030303025,
+            "end": 60.763636363636365
+          }
+        ]
+      },
+      {
+        "text": "The short wrapper lw-prime-power-data starts both bounded searches from the target number.",
+        "start": 61.28636363636364,
+        "end": 66.9590909090909,
+        "phrases": [
+          {
+            "start": 61.28636363636364,
+            "end": 66.9590909090909
+          }
+        ]
+      },
+      {
+        "text": "Sixteen returns the pair two and four\u2026 thirteen returns thirteen and one\u2026 and six returns nil.",
+        "start": 67.48181818181818,
+        "end": 75.5939393939394,
+        "phrases": [
+          {
+            "start": 67.48181818181818,
+            "end": 70.12424242424242
+          },
+          {
+            "start": 70.91969696969697,
+            "end": 73.11363636363637
+          },
+          {
+            "start": 73.90909090909092,
+            "end": 75.5939393939394
+          }
+        ]
+      },
+      {
+        "text": "That is enough information to choose the right logarithmic weight.",
+        "start": 76.11666666666666,
+        "end": 79.68030303030304,
+        "phrases": [
+          {
+            "start": 76.11666666666666,
+            "end": 79.68030303030304
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "log_area",
+    "chapter": "A natural logarithm from finite rectangles",
+    "start": 333.66666666667265,
+    "audio_start": 333.86666666667264,
+    "duration": 65.966208,
+    "sentences": [
+      {
+        "text": "The logarithm in this construction is the natural logarithm.",
+        "start": 0,
+        "end": 3.515151515151515,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.515151515151515
+          }
+        ]
+      },
+      {
+        "text": "For an input at least one, it is the area under the curve one over t, from one to the input.",
+        "start": 4.037878787878788,
+        "end": 9.443939393939393,
+        "phrases": [
+          {
+            "start": 4.037878787878788,
+            "end": 9.443939393939393
+          }
+        ]
+      },
+      {
+        "text": "Use input two as a small example.",
+        "start": 9.966666666666667,
+        "end": 12.524242424242424,
+        "phrases": [
+          {
+            "start": 9.966666666666667,
+            "end": 12.524242424242424
+          }
+        ]
+      },
+      {
+        "text": "Split the interval from one to two into four equal pieces, each of width one quarter.",
+        "start": 13.046969696969697,
+        "end": 18.016666666666666,
+        "phrases": [
+          {
+            "start": 13.046969696969697,
+            "end": 18.016666666666666
+          }
+        ]
+      },
+      {
+        "text": "The curve decreases, so a rectangle using the right endpoint lies below the area on its piece.",
+        "start": 18.53939393939394,
+        "end": 24.272727272727273,
+        "phrases": [
+          {
+            "start": 18.53939393939394,
+            "end": 24.272727272727273
+          }
+        ]
+      },
+      {
+        "text": "A rectangle using the left endpoint lies above it.",
+        "start": 24.795454545454547,
+        "end": 27.922727272727272,
+        "phrases": [
+          {
+            "start": 24.795454545454547,
+            "end": 27.922727272727272
+          }
+        ]
+      },
+      {
+        "text": "Add the four smaller rectangles to obtain a lower bound\u2026 and the four larger rectangles to obtain an upper bound.",
+        "start": 28.445454545454545,
+        "end": 36.28333333333333,
+        "phrases": [
+          {
+            "start": 28.445454545454545,
+            "end": 32.00909090909091
+          },
+          {
+            "start": 32.804545454545455,
+            "end": 36.28333333333333
+          }
+        ]
+      },
+      {
+        "text": "Those rectangle areas are rational numbers.",
+        "start": 36.806060606060605,
+        "end": 39.78787878787879,
+        "phrases": [
+          {
+            "start": 36.806060606060605,
+            "end": 39.78787878787879
+          }
+        ]
+      },
+      {
+        "text": "The lower sum is five hundred and thirty-three over eight hundred and forty.",
+        "start": 40.31060606060606,
+        "end": 44.46818181818182,
+        "phrases": [
+          {
+            "start": 40.31060606060606,
+            "end": 44.46818181818182
+          }
+        ]
+      },
+      {
+        "text": "The upper sum is three hundred and nineteen over four hundred and twenty.",
+        "start": 44.99090909090909,
+        "end": 48.89393939393939,
+        "phrases": [
+          {
+            "start": 44.99090909090909,
+            "end": 48.89393939393939
+          }
+        ]
+      },
+      {
+        "text": "The true log of two lies between them.",
+        "start": 49.416666666666664,
+        "end": 51.840909090909086,
+        "phrases": [
+          {
+            "start": 49.416666666666664,
+            "end": 51.840909090909086
+          }
+        ]
+      },
+      {
+        "text": "Finer partitions give a way to control the gap between the bounds.",
+        "start": 52.36363636363636,
+        "end": 56.266666666666666,
+        "phrases": [
+          {
+            "start": 52.36363636363636,
+            "end": 56.266666666666666
+          }
+        ]
+      },
+      {
+        "text": "The area interpretation is a mathematical theorem; the arithmetic calculation consists of the finite rational sums we are about to define.",
+        "start": 56.78939393939394,
+        "end": 65.46818181818182,
+        "phrases": [
+          {
+            "start": 56.78939393939394,
+            "end": 65.46818181818182
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rectangles",
+    "chapter": "Read the rectangle-sum evaluator",
+    "start": 401.26666666667927,
+    "audio_start": 401.46666666667926,
+    "duration": 59.253125,
+    "sentences": [
+      {
+        "text": "Here is lw-log-rectangles.",
+        "start": 0,
+        "end": 2.4606060606060605,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.4606060606060605
+          }
+        ]
+      },
+      {
+        "text": "Its inputs are the current starting point, the width of one piece, and the number of pieces remaining.",
+        "start": 2.9833333333333334,
+        "end": 8.74090909090909,
+        "phrases": [
+          {
+            "start": 2.9833333333333334,
+            "end": 8.74090909090909
+          }
+        ]
+      },
+      {
+        "text": "The empty sum is the exact interval from zero to zero.",
+        "start": 9.263636363636362,
+        "end": 12.754545454545454,
+        "phrases": [
+          {
+            "start": 9.263636363636362,
+            "end": 12.754545454545454
+          }
+        ]
+      },
+      {
+        "text": "For one piece, the lower area is step divided by the quantity start plus step.",
+        "start": 13.277272727272726,
+        "end": 18.671212121212122,
+        "phrases": [
+          {
+            "start": 13.277272727272726,
+            "end": 18.671212121212122
+          }
+        ]
+      },
+      {
+        "text": "The upper area is step divided by start.",
+        "start": 19.193939393939395,
+        "end": 22.054545454545455,
+        "phrases": [
+          {
+            "start": 19.193939393939395,
+            "end": 22.054545454545455
+          }
+        ]
+      },
+      {
+        "text": "Cons stores those two endpoints in the order we learned in Part Two.",
+        "start": 22.577272727272724,
+        "end": 26.540909090909093,
+        "phrases": [
+          {
+            "start": 22.577272727272724,
+            "end": 26.540909090909093
+          }
+        ]
+      },
+      {
+        "text": "The recursive call moves the starting point one step to the right and uses one fewer piece.",
+        "start": 27.063636363636363,
+        "end": 32.32424242424243,
+        "phrases": [
+          {
+            "start": 27.063636363636363,
+            "end": 32.32424242424243
+          }
+        ]
+      },
+      {
+        "text": "Interval addition combines this piece with the remaining pieces.",
+        "start": 32.8469696969697,
+        "end": 36.471212121212126,
+        "phrases": [
+          {
+            "start": 32.8469696969697,
+            "end": 36.471212121212126
+          }
+        ]
+      },
+      {
+        "text": "The code therefore implements the rectangle picture directly.",
+        "start": 36.9939393939394,
+        "end": 40.38787878787879,
+        "phrases": [
+          {
+            "start": 36.9939393939394,
+            "end": 40.38787878787879
+          }
+        ]
+      },
+      {
+        "text": "For starting point one, step one quarter, and four pieces, the checked result is exactly the rational interval we just displayed.",
+        "start": 40.910606060606064,
+        "end": 48.32878787878788,
+        "phrases": [
+          {
+            "start": 40.910606060606064,
+            "end": 48.32878787878788
+          }
+        ]
+      },
+      {
+        "text": "The project also proves formulas and bounds for the interval's full width.",
+        "start": 48.85151515151515,
+        "end": 53.04545454545455,
+        "phrases": [
+          {
+            "start": 48.85151515151515,
+            "end": 53.04545454545455
+          }
+        ]
+      },
+      {
+        "text": "We still need a rule that chooses a sufficient number of pieces for a requested precision.",
+        "start": 53.56818181818182,
+        "end": 58.75606060606061,
+        "phrases": [
+          {
+            "start": 53.56818181818182,
+            "end": 58.75606060606061
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "log_precision",
+    "chapter": "Choose a proved amount of work",
+    "start": 462.16666666668476,
+    "audio_start": 462.36666666668475,
+    "duration": 76.4525,
+    "sentences": [
+      {
+        "text": "Let epsilon be a positive rational bound on the requested interval width.",
+        "start": 0,
+        "end": 4.327272727272727,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.327272727272727
+          }
+        ]
+      },
+      {
+        "text": "We want the piece width to be no larger than epsilon.",
+        "start": 4.85,
+        "end": 7.940909090909091,
+        "phrases": [
+          {
+            "start": 4.85,
+            "end": 7.940909090909091
+          }
+        ]
+      },
+      {
+        "text": "The helper lw-precision-fuel uses the numerator of the width and the denominator of epsilon to produce a safe natural-number work bound.",
+        "start": 8.463636363636365,
+        "end": 16.984848484848484,
+        "phrases": [
+          {
+            "start": 8.463636363636365,
+            "end": 16.984848484848484
+          }
+        ]
+      },
+      {
+        "text": "Numerator and denominator refer to the reduced fractions.",
+        "start": 17.507575757575758,
+        "end": 21.107575757575756,
+        "phrases": [
+          {
+            "start": 17.507575757575758,
+            "end": 21.107575757575756
+          }
+        ]
+      },
+      {
+        "text": "This is a deliberately conservative choice.",
+        "start": 21.63030303030303,
+        "end": 24.248484848484846,
+        "phrases": [
+          {
+            "start": 21.63030303030303,
+            "end": 24.248484848484846
+          }
+        ]
+      },
+      {
+        "text": "The function lw-log-count adds one, ensuring that the rectangle count is positive.",
+        "start": 24.77121212121212,
+        "end": 30.213636363636365,
+        "phrases": [
+          {
+            "start": 24.77121212121212,
+            "end": 30.213636363636365
+          }
+        ]
+      },
+      {
+        "text": "For input two and epsilon one quarter, the fuel is four\u2026 and the count is five.",
+        "start": 30.736363636363635,
+        "end": 36.598484848484844,
+        "phrases": [
+          {
+            "start": 30.736363636363635,
+            "end": 34.38484848484848
+          },
+          {
+            "start": 35.18030303030303,
+            "end": 36.598484848484844
+          }
+        ]
+      },
+      {
+        "text": "Now read lw-log-bounds.",
+        "start": 37.12121212121212,
+        "end": 39.55757575757576,
+        "phrases": [
+          {
+            "start": 37.12121212121212,
+            "end": 39.55757575757576
+          }
+        ]
+      },
+      {
+        "text": "Its let-star bindings first compute the count, then compute the step using that count.",
+        "start": 40.08030303030303,
+        "end": 45.09848484848485,
+        "phrases": [
+          {
+            "start": 40.08030303030303,
+            "end": 45.09848484848485
+          }
+        ]
+      },
+      {
+        "text": "The step is the input minus one, divided by the count.",
+        "start": 45.621212121212125,
+        "end": 48.809090909090905,
+        "phrases": [
+          {
+            "start": 45.621212121212125,
+            "end": 48.809090909090905
+          }
+        ]
+      },
+      {
+        "text": "The final call sums the rectangles starting at one.",
+        "start": 49.33181818181818,
+        "end": 52.374242424242425,
+        "phrases": [
+          {
+            "start": 49.33181818181818,
+            "end": 52.374242424242425
+          }
+        ]
+      },
+      {
+        "text": "The project proves that the returned interval is valid and has width at most epsilon.",
+        "start": 52.8969696969697,
+        "end": 57.81818181818182,
+        "phrases": [
+          {
+            "start": 52.8969696969697,
+            "end": 57.81818181818182
+          }
+        ]
+      },
+      {
+        "text": "For epsilon one, the actual output at two is the interval from seven twelfths to five sixths.",
+        "start": 58.34090909090909,
+        "end": 64.35303030303031,
+        "phrases": [
+          {
+            "start": 58.34090909090909,
+            "end": 64.35303030303031
+          }
+        ]
+      },
+      {
+        "text": "For epsilon one quarter, the automatic count gives the narrower interval shown.",
+        "start": 64.87575757575758,
+        "end": 69.46969696969697,
+        "phrases": [
+          {
+            "start": 64.87575757575758,
+            "end": 69.46969696969697
+          }
+        ]
+      },
+      {
+        "text": "The four-rectangle picture introduced the idea; this function supplies the proved automatic choice.",
+        "start": 69.99242424242425,
+        "end": 75.95606060606062,
+        "phrases": [
+          {
+            "start": 69.99242424242425,
+            "end": 75.95606060606062
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mangoldt",
+    "chapter": "Turn prime-power data into a weight enclosure",
+    "start": 540.266666666687,
+    "audio_start": 540.466666666687,
+    "duration": 59.034208,
+    "sentences": [
+      {
+        "text": "We can now define the von Mangoldt evaluator without leaving its logarithm unexplained.",
+        "start": 0,
+        "end": 4.909090909090909,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.909090909090909
+          }
+        ]
+      },
+      {
+        "text": "Read lw-mangoldt-bounds.",
+        "start": 5.431818181818182,
+        "end": 7.698484848484848,
+        "phrases": [
+          {
+            "start": 5.431818181818182,
+            "end": 7.698484848484848
+          }
+        ]
+      },
+      {
+        "text": "It asks for prime-power data.",
+        "start": 8.22121212121212,
+        "end": 10.293939393939395,
+        "phrases": [
+          {
+            "start": 8.22121212121212,
+            "end": 10.293939393939395
+          }
+        ]
+      },
+      {
+        "text": "If the search returns a pair, car selects the prime base and lw-log-bounds encloses its natural logarithm.",
+        "start": 10.816666666666666,
+        "end": 17.82272727272727,
+        "phrases": [
+          {
+            "start": 10.816666666666666,
+            "end": 17.82272727272727
+          }
+        ]
+      },
+      {
+        "text": "If the search returns nil, the weight interval is exactly zero.",
+        "start": 18.345454545454544,
+        "end": 22.636363636363637,
+        "phrases": [
+          {
+            "start": 18.345454545454544,
+            "end": 22.636363636363637
+          }
+        ]
+      },
+      {
+        "text": "For sixteen, the base is two, so epsilon one gives the same interval as log two: seven twelfths to five sixths.",
+        "start": 23.159090909090907,
+        "end": 30.31060606060606,
+        "phrases": [
+          {
+            "start": 23.159090909090907,
+            "end": 30.31060606060606
+          }
+        ]
+      },
+      {
+        "text": "For six, the output is the exact pair zero and zero.",
+        "start": 30.833333333333332,
+        "end": 34.43333333333333,
+        "phrases": [
+          {
+            "start": 30.833333333333332,
+            "end": 34.43333333333333
+          }
+        ]
+      },
+      {
+        "text": "The exponent tells us that the input is a prime power, but it does not multiply the logarithmic weight.",
+        "start": 34.9560606060606,
+        "end": 40.99242424242424,
+        "phrases": [
+          {
+            "start": 34.9560606060606,
+            "end": 40.99242424242424
+          }
+        ]
+      },
+      {
+        "text": "Look at two, four, eight, and sixteen: all receive log two.",
+        "start": 41.515151515151516,
+        "end": 45.86666666666667,
+        "phrases": [
+          {
+            "start": 41.515151515151516,
+            "end": 45.86666666666667
+          }
+        ]
+      },
+      {
+        "text": "The project proves the arithmetic width guarantee and separately identifies the represented real weight with the standard von Mangoldt function.",
+        "start": 46.38939393939394,
+        "end": 54.31666666666667,
+        "phrases": [
+          {
+            "start": 46.38939393939394,
+            "end": 54.31666666666667
+          }
+        ]
+      },
+      {
+        "text": "We have a finite, justified source for the weights in our sum.",
+        "start": 54.83939393939394,
+        "end": 58.53636363636364,
+        "phrases": [
+          {
+            "start": 54.83939393939394,
+            "end": 58.53636363636364
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ramps",
+    "chapter": "Each weight turns on through a ramp",
+    "start": 600.9333333333453,
+    "audio_start": 601.1333333333454,
+    "duration": 55.353958,
+    "sentences": [
+      {
+        "text": "Now fix a positive integer n and let x move along the horizontal axis.",
+        "start": 0,
+        "end": 4.884848484848485,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.884848484848485
+          }
+        ]
+      },
+      {
+        "text": "The coefficient for that index is the larger of zero and x divided by n minus one.",
+        "start": 5.407575757575757,
+        "end": 10.753030303030304,
+        "phrases": [
+          {
+            "start": 5.407575757575757,
+            "end": 10.753030303030304
+          }
+        ]
+      },
+      {
+        "text": "Before x reaches n, the coefficient is zero.",
+        "start": 11.275757575757575,
+        "end": 14.33030303030303,
+        "phrases": [
+          {
+            "start": 11.275757575757575,
+            "end": 14.33030303030303
+          }
+        ]
+      },
+      {
+        "text": "At x equal to n, it is still zero.",
+        "start": 14.853030303030302,
+        "end": 17.73787878787879,
+        "phrases": [
+          {
+            "start": 14.853030303030302,
+            "end": 17.73787878787879
+          }
+        ]
+      },
+      {
+        "text": "After that point, it grows linearly.",
+        "start": 18.26060606060606,
+        "end": 20.915151515151518,
+        "phrases": [
+          {
+            "start": 18.26060606060606,
+            "end": 20.915151515151518
+          }
+        ]
+      },
+      {
+        "text": "Here is the complete one-line definition of lw-ramp.",
+        "start": 21.437878787878788,
+        "end": 25.1469696969697,
+        "phrases": [
+          {
+            "start": 21.437878787878788,
+            "end": 25.1469696969697
+          }
+        ]
+      },
+      {
+        "text": "For n equal to four, move x from three and a half\u2026 to four\u2026 and then to four and a half.",
+        "start": 25.669696969696968,
+        "end": 33.127272727272725,
+        "phrases": [
+          {
+            "start": 25.669696969696968,
+            "end": 29.075757575757574
+          },
+          {
+            "start": 29.87121212121212,
+            "end": 30.53787878787879
+          },
+          {
+            "start": 31.333333333333336,
+            "end": 33.127272727272725
+          }
+        ]
+      },
+      {
+        "text": "The corresponding coefficients are zero\u2026 zero\u2026 and one eighth.",
+        "start": 33.65,
+        "end": 39.5439393939394,
+        "phrases": [
+          {
+            "start": 33.65,
+            "end": 36.11060606060606
+          },
+          {
+            "start": 36.906060606060606,
+            "end": 37.669696969696965
+          },
+          {
+            "start": 38.46515151515152,
+            "end": 39.5439393939394
+          }
+        ]
+      },
+      {
+        "text": "The maximum operation is what keeps the contribution turned off before its starting point.",
+        "start": 40.06666666666667,
+        "end": 45.27878787878788,
+        "phrases": [
+          {
+            "start": 40.06666666666667,
+            "end": 45.27878787878788
+          }
+        ]
+      },
+      {
+        "text": "We multiply this ramp by the von Mangoldt weight at n.",
+        "start": 45.80151515151515,
+        "end": 49.15909090909091,
+        "phrases": [
+          {
+            "start": 45.80151515151515,
+            "end": 49.15909090909091
+          }
+        ]
+      },
+      {
+        "text": "The prime-power pattern supplies the weight, and the ramp supplies the dependence on x.",
+        "start": 49.68181818181818,
+        "end": 54.85757575757576,
+        "phrases": [
+          {
+            "start": 49.68181818181818,
+            "end": 54.85757575757576
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "smoothed",
+    "chapter": "Assemble the smoothed prime-power sum",
+    "start": 657.9333333333379,
+    "audio_start": 658.133333333338,
+    "duration": 59.714792,
+    "sentences": [
+      {
+        "text": "Add those weighted ramps over the positive integers up to x.",
+        "start": 0,
+        "end": 3.6,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.6
+          }
+        ]
+      },
+      {
+        "text": "The repository calls the resulting smoothed sum S_z.",
+        "start": 4.122727272727273,
+        "end": 8.025757575757575,
+        "phrases": [
+          {
+            "start": 4.122727272727273,
+            "end": 8.025757575757575
+          }
+        ]
+      },
+      {
+        "text": "The upper limit is the floor of x, the largest whole number not exceeding x.",
+        "start": 8.548484848484849,
+        "end": 13.190909090909091,
+        "phrases": [
+          {
+            "start": 8.548484848484849,
+            "end": 13.190909090909091
+          }
+        ]
+      },
+      {
+        "text": "For x equal to nine halves, the floor is four.",
+        "start": 13.713636363636363,
+        "end": 16.756060606060604,
+        "phrases": [
+          {
+            "start": 13.713636363636363,
+            "end": 16.756060606060604
+          }
+        ]
+      },
+      {
+        "text": "The term at one is zero because the von Mangoldt weight at one is zero.",
+        "start": 17.278787878787877,
+        "end": 21.472727272727273,
+        "phrases": [
+          {
+            "start": 17.278787878787877,
+            "end": 21.472727272727273
+          }
+        ]
+      },
+      {
+        "text": "At two, the ramp coefficient is five quarters and the weight is log two.",
+        "start": 21.995454545454546,
+        "end": 26.419696969696968,
+        "phrases": [
+          {
+            "start": 21.995454545454546,
+            "end": 26.419696969696968
+          }
+        ]
+      },
+      {
+        "text": "At three, the coefficient is one half and the weight is log three.",
+        "start": 26.94242424242424,
+        "end": 31.075757575757578,
+        "phrases": [
+          {
+            "start": 26.94242424242424,
+            "end": 31.075757575757578
+          }
+        ]
+      },
+      {
+        "text": "At four, the coefficient is one eighth and the weight is log two again.",
+        "start": 31.59848484848485,
+        "end": 35.73181818181818,
+        "phrases": [
+          {
+            "start": 31.59848484848485,
+            "end": 35.73181818181818
+          }
+        ]
+      },
+      {
+        "text": "Combine the two copies of log two: their coefficients add to eleven eighths.",
+        "start": 36.25454545454546,
+        "end": 40.82424242424243,
+        "phrases": [
+          {
+            "start": 36.25454545454546,
+            "end": 40.82424242424243
+          }
+        ]
+      },
+      {
+        "text": "So the whole sum at nine halves is eleven eighths times log two, plus one half times log three.",
+        "start": 41.3469696969697,
+        "end": 47.29848484848485,
+        "phrases": [
+          {
+            "start": 41.3469696969697,
+            "end": 47.29848484848485
+          }
+        ]
+      },
+      {
+        "text": "This is a finite weighted sum, built from the classifications and coefficients already explained.",
+        "start": 47.82121212121212,
+        "end": 53.590909090909086,
+        "phrases": [
+          {
+            "start": 47.82121212121212,
+            "end": 53.590909090909086
+          }
+        ]
+      },
+      {
+        "text": "We will now arrange the executable calculation so its cutoff is also explicit.",
+        "start": 54.11363636363636,
+        "end": 59.21666666666667,
+        "phrases": [
+          {
+            "start": 54.11363636363636,
+            "end": 59.21666666666667
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "padding",
+    "chapter": "A larger finite cutoff adds only zeros",
+    "start": 719.266666666663,
+    "audio_start": 719.4666666666631,
+    "duration": 55.239833,
+    "sentences": [
+      {
+        "text": "The actual evaluator uses a convenient rational-arithmetic cutoff.",
+        "start": 0,
+        "end": 4.133333333333333,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.133333333333333
+          }
+        ]
+      },
+      {
+        "text": "For a rational x at least one, its positive numerator is at least x, because the denominator is a positive integer.",
+        "start": 4.656060606060606,
+        "end": 11.674242424242424,
+        "phrases": [
+          {
+            "start": 4.656060606060606,
+            "end": 11.674242424242424
+          }
+        ]
+      },
+      {
+        "text": "Here is lw-signal-count: take that numerator's absolute value and keep the result natural.",
+        "start": 12.196969696969695,
+        "end": 18.439393939393938,
+        "phrases": [
+          {
+            "start": 12.196969696969695,
+            "end": 18.439393939393938
+          }
+        ]
+      },
+      {
+        "text": "For nine halves, the chosen count is nine.",
+        "start": 18.962121212121215,
+        "end": 21.62878787878788,
+        "phrases": [
+          {
+            "start": 18.962121212121215,
+            "end": 21.62878787878788
+          }
+        ]
+      },
+      {
+        "text": "That is larger than the floor four, so the loop includes extra indices.",
+        "start": 22.15151515151515,
+        "end": 26.53939393939394,
+        "phrases": [
+          {
+            "start": 22.15151515151515,
+            "end": 26.53939393939394
+          }
+        ]
+      },
+      {
+        "text": "But every index at least x has ramp coefficient zero.",
+        "start": 27.062121212121212,
+        "end": 30.553030303030305,
+        "phrases": [
+          {
+            "start": 27.062121212121212,
+            "end": 30.553030303030305
+          }
+        ]
+      },
+      {
+        "text": "In particular, indices five through nine add nothing to our example.",
+        "start": 31.075757575757578,
+        "end": 35.13636363636364,
+        "phrases": [
+          {
+            "start": 31.075757575757578,
+            "end": 35.13636363636364
+          }
+        ]
+      },
+      {
+        "text": "The teaching book proves the zero-padding fact under its domain hypotheses.",
+        "start": 35.65909090909091,
+        "end": 40.31363636363636,
+        "phrases": [
+          {
+            "start": 35.65909090909091,
+            "end": 40.31363636363636
+          }
+        ]
+      },
+      {
+        "text": "This lets us use a simple finite counter while preserving the intended sum.",
+        "start": 40.836363636363636,
+        "end": 45.224242424242426,
+        "phrases": [
+          {
+            "start": 40.836363636363636,
+            "end": 45.224242424242426
+          }
+        ]
+      },
+      {
+        "text": "A cutoff that failed to cover all active terms would need a different justification.",
+        "start": 45.7469696969697,
+        "end": 50.559090909090905,
+        "phrases": [
+          {
+            "start": 45.7469696969697,
+            "end": 50.559090909090905
+          }
+        ]
+      },
+      {
+        "text": "Here the numerator bound supplies the coverage guarantee we need.",
+        "start": 51.08181818181818,
+        "end": 54.74242424242424,
+        "phrases": [
+          {
+            "start": 51.08181818181818,
+            "end": 54.74242424242424
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sum_code",
+    "chapter": "The actual interval sum and its first error bound",
+    "start": 776.1333333333229,
+    "audio_start": 776.3333333333229,
+    "duration": 70.6375,
+    "sentences": [
+      {
+        "text": "Read lw-smoothed-sum-bounds.",
+        "start": 0,
+        "end": 2.496969696969697,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.496969696969697
+          }
+        ]
+      },
+      {
+        "text": "The inputs are x, the chosen count, and the precision requested from each weight evaluator.",
+        "start": 3.0196969696969695,
+        "end": 8.304545454545455,
+        "phrases": [
+          {
+            "start": 3.0196969696969695,
+            "end": 8.304545454545455
+          }
+        ]
+      },
+      {
+        "text": "At count zero, the sum is the exact interval zero.",
+        "start": 8.827272727272726,
+        "end": 12.281818181818181,
+        "phrases": [
+          {
+            "start": 8.827272727272726,
+            "end": 12.281818181818181
+          }
+        ]
+      },
+      {
+        "text": "At a positive count, compute the ramp, enclose the corresponding weight, and scale that interval by the ramp.",
+        "start": 12.804545454545455,
+        "end": 19.362121212121213,
+        "phrases": [
+          {
+            "start": 12.804545454545455,
+            "end": 19.362121212121213
+          }
+        ]
+      },
+      {
+        "text": "Then add the recursive sum over the smaller indices.",
+        "start": 19.884848484848483,
+        "end": 23.206060606060607,
+        "phrases": [
+          {
+            "start": 19.884848484848483,
+            "end": 23.206060606060607
+          }
+        ]
+      },
+      {
+        "text": "All interval operations in this definition were justified in Part Two.",
+        "start": 23.72878787878788,
+        "end": 28.165151515151514,
+        "phrases": [
+          {
+            "start": 23.72878787878788,
+            "end": 28.165151515151514
+          }
+        ]
+      },
+      {
+        "text": "For our padded count nine and primitive epsilon one, the returned interval is displayed with its exact rational endpoints.",
+        "start": 28.68787878787879,
+        "end": 35.93636363636364,
+        "phrases": [
+          {
+            "start": 28.68787878787879,
+            "end": 35.93636363636364
+          }
+        ]
+      },
+      {
+        "text": "The teaching book checks that it equals the interval obtained from eleven eighths times the log-two interval, plus one half times the log-three interval.",
+        "start": 36.45909090909091,
+        "end": 44.907575757575756,
+        "phrases": [
+          {
+            "start": 36.45909090909091,
+            "end": 44.907575757575756
+          }
+        ]
+      },
+      {
+        "text": "How do the errors accumulate?",
+        "start": 45.43030303030303,
+        "end": 47.24848484848484,
+        "phrases": [
+          {
+            "start": 45.43030303030303,
+            "end": 47.24848484848484
+          }
+        ]
+      },
+      {
+        "text": "Every ramp is nonnegative and at most x on the domain we use.",
+        "start": 47.771212121212116,
+        "end": 51.79545454545455,
+        "phrases": [
+          {
+            "start": 47.771212121212116,
+            "end": 51.79545454545455
+          }
+        ]
+      },
+      {
+        "text": "If each weight interval has width at most epsilon, each scaled term has width at most x times epsilon.",
+        "start": 52.31818181818182,
+        "end": 58.512121212121215,
+        "phrases": [
+          {
+            "start": 52.31818181818182,
+            "end": 58.512121212121215
+          }
+        ]
+      },
+      {
+        "text": "With at most count terms, the full sum has width at most count times x times epsilon.",
+        "start": 59.03484848484848,
+        "end": 64.6590909090909,
+        "phrases": [
+          {
+            "start": 59.03484848484848,
+            "end": 64.6590909090909
+          }
+        ]
+      },
+      {
+        "text": "This bound is conservative, but it works uniformly and gives us an explicit budget.",
+        "start": 65.18181818181819,
+        "end": 70.13939393939394,
+        "phrases": [
+          {
+            "start": 65.18181818181819,
+            "end": 70.13939393939394
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "continuity",
+    "chapter": "The real sum is continuous, with corners",
+    "start": 848.399999999981,
+    "audio_start": 848.599999999981,
+    "duration": 54.462458,
+    "sentences": [
+      {
+        "text": "The ramp picture also explains why this smoothing is useful.",
+        "start": 0,
+        "end": 3.6969696969696972,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.6969696969696972
+          }
+        ]
+      },
+      {
+        "text": "A step contribution would jump when a new prime power entered the sum.",
+        "start": 4.21969696969697,
+        "end": 8.316666666666666,
+        "phrases": [
+          {
+            "start": 4.21969696969697,
+            "end": 8.316666666666666
+          }
+        ]
+      },
+      {
+        "text": "A ramp contribution begins with value zero and then grows.",
+        "start": 8.83939393939394,
+        "end": 12.996969696969696,
+        "phrases": [
+          {
+            "start": 8.83939393939394,
+            "end": 12.996969696969696
+          }
+        ]
+      },
+      {
+        "text": "Move x across four.",
+        "start": 13.51969696969697,
+        "end": 15.143939393939393,
+        "phrases": [
+          {
+            "start": 13.51969696969697,
+            "end": 15.143939393939393
+          }
+        ]
+      },
+      {
+        "text": "The new contribution from four joins at zero, so it does not create a jump in the sum.",
+        "start": 15.666666666666668,
+        "end": 20.87878787878788,
+        "phrases": [
+          {
+            "start": 15.666666666666668,
+            "end": 20.87878787878788
+          }
+        ]
+      },
+      {
+        "text": "It can create a corner, where the slope changes.",
+        "start": 21.40151515151515,
+        "end": 24.46818181818182,
+        "phrases": [
+          {
+            "start": 21.40151515151515,
+            "end": 24.46818181818182
+          }
+        ]
+      },
+      {
+        "text": "On any fixed bounded range, choose one finite cutoff that covers the entire range.",
+        "start": 24.990909090909092,
+        "end": 30.44545454545455,
+        "phrases": [
+          {
+            "start": 24.990909090909092,
+            "end": 30.44545454545455
+          }
+        ]
+      },
+      {
+        "text": "The real sum is then a fixed finite sum of continuous ramps with fixed weights.",
+        "start": 30.968181818181815,
+        "end": 35.513636363636365,
+        "phrases": [
+          {
+            "start": 30.968181818181815,
+            "end": 35.513636363636365
+          }
+        ]
+      },
+      {
+        "text": "That explains its continuity on that range.",
+        "start": 36.03636363636364,
+        "end": 38.812121212121205,
+        "phrases": [
+          {
+            "start": 36.03636363636364,
+            "end": 38.812121212121205
+          }
+        ]
+      },
+      {
+        "text": "The graph is a visualization of the real sum; certified numerical samples still come from the rational interval evaluator.",
+        "start": 39.334848484848486,
+        "end": 46.77727272727273,
+        "phrases": [
+          {
+            "start": 39.334848484848486,
+            "end": 46.77727272727273
+          }
+        ]
+      },
+      {
+        "text": "The repository supplies explicit interpretation and continuity proofs for the classical statistic used later.",
+        "start": 47.300000000000004,
+        "end": 53.96666666666667,
+        "phrases": [
+          {
+            "start": 47.300000000000004,
+            "end": 53.96666666666667
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gamma",
+    "chapter": "Introduce the constant in the centering term",
+    "start": 904.4999999999745,
+    "audio_start": 904.6999999999746,
+    "duration": 73.670333,
+    "sentences": [
+      {
+        "text": "To center the sum, we need one more constant: Euler's constant, written gamma.",
+        "start": 0,
+        "end": 5.13939393939394,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.13939393939394
+          }
+        ]
+      },
+      {
+        "text": "It is defined by the limiting difference between a harmonic sum and the natural logarithm.",
+        "start": 5.662121212121212,
+        "end": 10.80151515151515,
+        "phrases": [
+          {
+            "start": 5.662121212121212,
+            "end": 10.80151515151515
+          }
+        ]
+      },
+      {
+        "text": "The harmonic sum at a positive whole number is one, plus one half, plus one third, and so on up to its reciprocal.",
+        "start": 11.324242424242424,
+        "end": 18.463636363636365,
+        "phrases": [
+          {
+            "start": 11.324242424242424,
+            "end": 18.463636363636365
+          }
+        ]
+      },
+      {
+        "text": "Here is lw-harmonic, the exact rational recursion for that finite sum.",
+        "start": 18.986363636363635,
+        "end": 24.12575757575758,
+        "phrases": [
+          {
+            "start": 18.986363636363635,
+            "end": 24.12575757575758
+          }
+        ]
+      },
+      {
+        "text": "Build its first values: one\u2026 three halves\u2026 eleven sixths\u2026 and twenty-five twelfths.",
+        "start": 24.64848484848485,
+        "end": 33.10757575757576,
+        "phrases": [
+          {
+            "start": 24.64848484848485,
+            "end": 26.6
+          },
+          {
+            "start": 27.395454545454545,
+            "end": 28.486363636363638
+          },
+          {
+            "start": 29.28181818181818,
+            "end": 30.63939393939394
+          },
+          {
+            "start": 31.434848484848484,
+            "end": 33.10757575757576
+          }
+        ]
+      },
+      {
+        "text": "Subtracting log of the count gives a sequence approaching gamma, whose familiar decimal begins zero point five seven seven.",
+        "start": 33.630303030303025,
+        "end": 40.75757575757576,
+        "phrases": [
+          {
+            "start": 33.630303030303025,
+            "end": 40.75757575757576
+          }
+        ]
+      },
+      {
+        "text": "We use a finite inequality to turn that limiting definition into usable bounds.",
+        "start": 41.28030303030303,
+        "end": 46.1530303030303,
+        "phrases": [
+          {
+            "start": 41.28030303030303,
+            "end": 46.1530303030303
+          }
+        ]
+      },
+      {
+        "text": "For a positive count, gamma lies between the harmonic sum minus log of the count minus its reciprocal\u2026 and the harmonic sum minus log of the count.",
+        "start": 46.67575757575757,
+        "end": 56.31969696969696,
+        "phrases": [
+          {
+            "start": 46.67575757575757,
+            "end": 52.93030303030303
+          },
+          {
+            "start": 53.72575757575758,
+            "end": 56.31969696969696
+          }
+        ]
+      },
+      {
+        "text": "The gap in this ideal interval is one over the count.",
+        "start": 56.84242424242424,
+        "end": 59.872727272727275,
+        "phrases": [
+          {
+            "start": 56.84242424242424,
+            "end": 59.872727272727275
+          }
+        ]
+      },
+      {
+        "text": "The logarithm itself has a rational enclosure, so we must propagate that uncertainty too.",
+        "start": 60.39545454545455,
+        "end": 65.88636363636363,
+        "phrases": [
+          {
+            "start": 60.39545454545455,
+            "end": 65.88636363636363
+          }
+        ]
+      },
+      {
+        "text": "We are enclosing a real constant with rational endpoints, rather than asserting that the constant is one of those endpoints.",
+        "start": 66.4090909090909,
+        "end": 73.17272727272727,
+        "phrases": [
+          {
+            "start": 66.4090909090909,
+            "end": 73.17272727272727
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gamma_code",
+    "chapter": "Enclose gamma using a harmonic sum and a log interval",
+    "start": 979.7999999999647,
+    "audio_start": 979.9999999999648,
+    "duration": 71.011667,
+    "sentences": [
+      {
+        "text": "Read lw-euler-from-log.",
+        "start": 0,
+        "end": 2.303030303030303,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.303030303030303
+          }
+        ]
+      },
+      {
+        "text": "For the lower endpoint, subtract the upper logarithm bound and the reciprocal of the count from the harmonic sum.",
+        "start": 2.8257575757575757,
+        "end": 9.165151515151514,
+        "phrases": [
+          {
+            "start": 2.8257575757575757,
+            "end": 9.165151515151514
+          }
+        ]
+      },
+      {
+        "text": "For the upper endpoint, subtract the lower logarithm bound.",
+        "start": 9.68787878787879,
+        "end": 13.384848484848485,
+        "phrases": [
+          {
+            "start": 9.68787878787879,
+            "end": 13.384848484848485
+          }
+        ]
+      },
+      {
+        "text": "This is the crossed-endpoint subtraction rule from Part Two.",
+        "start": 13.907575757575758,
+        "end": 17.446969696969695,
+        "phrases": [
+          {
+            "start": 13.907575757575758,
+            "end": 17.446969696969695
+          }
+        ]
+      },
+      {
+        "text": "The resulting width is the logarithm interval's width, plus one over the count.",
+        "start": 17.96969696969697,
+        "end": 22.369696969696967,
+        "phrases": [
+          {
+            "start": 17.96969696969697,
+            "end": 22.369696969696967
+          }
+        ]
+      },
+      {
+        "text": "To make that total at most epsilon, the evaluator budgets at most half of epsilon for each part.",
+        "start": 22.89242424242424,
+        "end": 29.001515151515154,
+        "phrases": [
+          {
+            "start": 22.89242424242424,
+            "end": 29.001515151515154
+          }
+        ]
+      },
+      {
+        "text": "The helper lw-euler-count chooses one plus the safe work bound for width two and epsilon.",
+        "start": 29.524242424242424,
+        "end": 35.31818181818181,
+        "phrases": [
+          {
+            "start": 29.524242424242424,
+            "end": 35.31818181818181
+          }
+        ]
+      },
+      {
+        "text": "The project proves that its reciprocal is at most epsilon divided by two.",
+        "start": 35.840909090909086,
+        "end": 40.51969696969697,
+        "phrases": [
+          {
+            "start": 35.840909090909086,
+            "end": 40.51969696969697
+          }
+        ]
+      },
+      {
+        "text": "Finally, lw-euler-bounds calls the logarithm evaluator at half epsilon and combines the results.",
+        "start": 41.04242424242425,
+        "end": 47.61212121212121,
+        "phrases": [
+          {
+            "start": 41.04242424242425,
+            "end": 47.61212121212121
+          }
+        ]
+      },
+      {
+        "text": "Every ingredient is now an explicit finite rational computation.",
+        "start": 48.13484848484848,
+        "end": 52.401515151515156,
+        "phrases": [
+          {
+            "start": 48.13484848484848,
+            "end": 52.401515151515156
+          }
+        ]
+      },
+      {
+        "text": "The arithmetic book proves validity and the width bound.",
+        "start": 52.92424242424242,
+        "end": 56.160606060606064,
+        "phrases": [
+          {
+            "start": 52.92424242424242,
+            "end": 56.160606060606064
+          }
+        ]
+      },
+      {
+        "text": "The real-interpretation theorem connects those endpoints to Euler's constant using the classical harmonic-logarithm inequality.",
+        "start": 56.68333333333333,
+        "end": 64.17424242424242,
+        "phrases": [
+          {
+            "start": 56.68333333333333,
+            "end": 64.17424242424242
+          }
+        ]
+      },
+      {
+        "text": "That distinction between a computation and its meaning is the same one we kept in the earlier episodes.",
+        "start": 64.69696969696969,
+        "end": 70.51515151515152,
+        "phrases": [
+          {
+            "start": 64.69696969696969,
+            "end": 70.51515151515152
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "centered",
+    "chapter": "Center the sum to define G_z",
+    "start": 1052.4333333332888,
+    "audio_start": 1052.6333333332889,
+    "duration": 51.282333,
+    "sentences": [
+      {
+        "text": "We can now read the complete definition of G_z.",
+        "start": 0,
+        "end": 3.357575757575758,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.357575757575758
+          }
+        ]
+      },
+      {
+        "text": "Begin with the smoothed sum S_z.",
+        "start": 3.8803030303030304,
+        "end": 6.437878787878788,
+        "phrases": [
+          {
+            "start": 3.8803030303030304,
+            "end": 6.437878787878788
+          }
+        ]
+      },
+      {
+        "text": "Subtract x times the natural logarithm of x.",
+        "start": 6.960606060606061,
+        "end": 10.209090909090909,
+        "phrases": [
+          {
+            "start": 6.960606060606061,
+            "end": 10.209090909090909
+          }
+        ]
+      },
+      {
+        "text": "Then add x times one plus gamma.",
+        "start": 10.731818181818182,
+        "end": 13.228787878787879,
+        "phrases": [
+          {
+            "start": 10.731818181818182,
+            "end": 13.228787878787879
+          }
+        ]
+      },
+      {
+        "text": "This is the exact normalization used by the repository's formal statement.",
+        "start": 13.75151515151515,
+        "end": 18.236363636363635,
+        "phrases": [
+          {
+            "start": 13.75151515151515,
+            "end": 18.236363636363635
+          }
+        ]
+      },
+      {
+        "text": "The normalization subtracts x times log x\u2026 minus x times the quantity one plus gamma.",
+        "start": 18.759090909090908,
+        "end": 25.542424242424243,
+        "phrases": [
+          {
+            "start": 18.759090909090908,
+            "end": 21.85
+          },
+          {
+            "start": 22.645454545454545,
+            "end": 25.542424242424243
+          }
+        ]
+      },
+      {
+        "text": "Subtracting that main term leaves the centered gap G_z.",
+        "start": 26.065151515151516,
+        "end": 30.259090909090908,
+        "phrases": [
+          {
+            "start": 26.065151515151516,
+            "end": 30.259090909090908
+          }
+        ]
+      },
+      {
+        "text": "The later Landau argument connects the growth of this gap with zeta zeros.",
+        "start": 30.78181818181818,
+        "end": 35.36363636363637,
+        "phrases": [
+          {
+            "start": 30.78181818181818,
+            "end": 35.36363636363637
+          }
+        ]
+      },
+      {
+        "text": "Here our task is to construct its interval faithfully and keep track of the error.",
+        "start": 35.88636363636363,
+        "end": 40.43181818181818,
+        "phrases": [
+          {
+            "start": 35.88636363636363,
+            "end": 40.43181818181818
+          }
+        ]
+      },
+      {
+        "text": "We already have the smoothed-sum bounds, logarithm bounds, and gamma bounds.",
+        "start": 40.95454545454545,
+        "end": 45.52424242424242,
+        "phrases": [
+          {
+            "start": 40.95454545454545,
+            "end": 45.52424242424242
+          }
+        ]
+      },
+      {
+        "text": "Addition, subtraction, and rational scaling put those ingredients together.",
+        "start": 46.0469696969697,
+        "end": 50.78636363636364,
+        "phrases": [
+          {
+            "start": 46.0469696969697,
+            "end": 50.78636363636364
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gz_code",
+    "chapter": "Read and run the centered-signal evaluator",
+    "start": 1105.3333333332826,
+    "audio_start": 1105.5333333332826,
+    "duration": 62.863083,
+    "sentences": [
+      {
+        "text": "Here is lw-gz-bounds-raw.",
+        "start": 0,
+        "end": 2.678787878787879,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 2.678787878787879
+          }
+        ]
+      },
+      {
+        "text": "The first part subtracts the interval for x times log x from the smoothed-sum interval.",
+        "start": 3.2015151515151516,
+        "end": 8.292424242424243,
+        "phrases": [
+          {
+            "start": 3.2015151515151516,
+            "end": 8.292424242424243
+          }
+        ]
+      },
+      {
+        "text": "The second part adds the interval for x times one plus gamma.",
+        "start": 8.815151515151515,
+        "end": 12.621212121212121,
+        "phrases": [
+          {
+            "start": 8.815151515151515,
+            "end": 12.621212121212121
+          }
+        ]
+      },
+      {
+        "text": "The count must cover x, and the primitive tolerance is positive.",
+        "start": 13.143939393939394,
+        "end": 16.889393939393937,
+        "phrases": [
+          {
+            "start": 13.143939393939394,
+            "end": 16.889393939393937
+          }
+        ]
+      },
+      {
+        "text": "The interpretation theorem identifies the resulting interval with the actual G_z value under those domain conditions.",
+        "start": 17.41212121212121,
+        "end": 24.76969696969697,
+        "phrases": [
+          {
+            "start": 17.41212121212121,
+            "end": 24.76969696969697
+          }
+        ]
+      },
+      {
+        "text": "Let us run a small, deliberately coarse example: x equals two, count equals two, and primitive epsilon equals one.",
+        "start": 25.29242424242424,
+        "end": 33.06212121212121,
+        "phrases": [
+          {
+            "start": 25.29242424242424,
+            "end": 33.06212121212121
+          }
+        ]
+      },
+      {
+        "text": "At x equal to two, the smoothed prime-power sum is zero, because the new ramp at two is still zero.",
+        "start": 33.584848484848486,
+        "end": 39.75454545454546,
+        "phrases": [
+          {
+            "start": 33.584848484848486,
+            "end": 39.75454545454546
+          }
+        ]
+      },
+      {
+        "text": "The remaining logarithm and gamma calculations give the exact rational endpoints shown.",
+        "start": 40.27727272727273,
+        "end": 45.42878787878788,
+        "phrases": [
+          {
+            "start": 40.27727272727273,
+            "end": 45.42878787878788
+          }
+        ]
+      },
+      {
+        "text": "The lower endpoint is positive; that is checked as a theorem in the teaching book.",
+        "start": 45.95151515151515,
+        "end": 50.484848484848484,
+        "phrases": [
+          {
+            "start": 45.95151515151515,
+            "end": 50.484848484848484
+          }
+        ]
+      },
+      {
+        "text": "This is one certified sample of the statistic.",
+        "start": 51.00757575757575,
+        "end": 53.97727272727273,
+        "phrases": [
+          {
+            "start": 51.00757575757575,
+            "end": 53.97727272727273
+          }
+        ]
+      },
+      {
+        "text": "The window argument will require the corresponding evaluator guarantees across its whole range, together with its mathematical hypotheses.",
+        "start": 54.5,
+        "end": 62.36666666666667,
+        "phrases": [
+          {
+            "start": 54.5,
+            "end": 62.36666666666667
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "budget",
+    "chapter": "Choose primitive precision from the final width target",
+    "start": 1169.833333333274,
+    "audio_start": 1170.033333333274,
+    "duration": 76.092958,
+    "sentences": [
+      {
+        "text": "We still need control of the complete interval's width.",
+        "start": 0,
+        "end": 3.0545454545454547,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.0545454545454547
+          }
+        ]
+      },
+      {
+        "text": "The one-line helper lw-interval-width records upper endpoint minus lower endpoint.",
+        "start": 3.5772727272727276,
+        "end": 8.946969696969697,
+        "phrases": [
+          {
+            "start": 3.5772727272727276,
+            "end": 8.946969696969697
+          }
+        ]
+      },
+      {
+        "text": "The sum contributes at most count times x times epsilon.",
+        "start": 9.46969696969697,
+        "end": 13.106060606060606,
+        "phrases": [
+          {
+            "start": 9.46969696969697,
+            "end": 13.106060606060606
+          }
+        ]
+      },
+      {
+        "text": "The scaled logarithm contributes at most x times epsilon\u2026 and the gamma correction contributes at most another x times epsilon.",
+        "start": 13.628787878787879,
+        "end": 22.375757575757575,
+        "phrases": [
+          {
+            "start": 13.628787878787879,
+            "end": 17.386363636363637
+          },
+          {
+            "start": 18.181818181818183,
+            "end": 22.375757575757575
+          }
+        ]
+      },
+      {
+        "text": "So the total width is at most count plus two, multiplied by x and epsilon.",
+        "start": 22.89848484848485,
+        "end": 27.734848484848484,
+        "phrases": [
+          {
+            "start": 22.89848484848485,
+            "end": 27.734848484848484
+          }
+        ]
+      },
+      {
+        "text": "The project proves that general bound.",
+        "start": 28.257575757575758,
+        "end": 30.645454545454545,
+        "phrases": [
+          {
+            "start": 28.257575757575758,
+            "end": 30.645454545454545
+          }
+        ]
+      },
+      {
+        "text": "For x equal to nine halves and count nine, the multiplying factor is ninety-nine halves.",
+        "start": 31.168181818181818,
+        "end": 36.525757575757574,
+        "phrases": [
+          {
+            "start": 31.168181818181818,
+            "end": 36.525757575757574
+          }
+        ]
+      },
+      {
+        "text": "Suppose we want final width at most one quarter.",
+        "start": 37.04848484848485,
+        "end": 39.98181818181818,
+        "phrases": [
+          {
+            "start": 37.04848484848485,
+            "end": 39.98181818181818
+          }
+        ]
+      },
+      {
+        "text": "Divide the target by one plus that factor to choose epsilon one over two hundred and two\u2026 giving width at most ninety-nine over four hundred and four, below one quarter.",
+        "start": 40.50454545454545,
+        "end": 51.06969696969697,
+        "phrases": [
+          {
+            "start": 40.50454545454545,
+            "end": 45.910606060606064
+          },
+          {
+            "start": 46.70606060606061,
+            "end": 51.06969696969697
+          }
+        ]
+      },
+      {
+        "text": "The teaching theorem on screen establishes the desired width from the general guarantee.",
+        "start": 51.592424242424244,
+        "end": 56.74393939393939,
+        "phrases": [
+          {
+            "start": 51.592424242424244,
+            "end": 56.74393939393939
+          }
+        ]
+      },
+      {
+        "text": "We do not need to display the potentially large endpoint fractions to prove that this requested precision is sufficient.",
+        "start": 57.266666666666666,
+        "end": 64.03030303030303,
+        "phrases": [
+          {
+            "start": 57.266666666666666,
+            "end": 64.03030303030303
+          }
+        ]
+      },
+      {
+        "text": "The result is a family-level accuracy guarantee, beyond the single coarse run we just watched.",
+        "start": 64.5530303030303,
+        "end": 70.22575757575758,
+        "phrases": [
+          {
+            "start": 64.5530303030303,
+            "end": 70.22575757575758
+          }
+        ]
+      },
+      {
+        "text": "This is how the error budget in Part Three can be supplied by an actual evaluator.",
+        "start": 70.74848484848485,
+        "end": 75.5969696969697,
+        "phrases": [
+          {
+            "start": 70.74848484848485,
+            "end": 75.5969696969697
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "next",
+    "chapter": "From a finite evaluator to the Landau question",
+    "start": 1247.566666666597,
+    "audio_start": 1247.766666666597,
+    "duration": 63.663042,
+    "sentences": [
+      {
+        "text": "We began with positive integers and recognized primes and prime powers.",
+        "start": 0,
+        "end": 4.4363636363636365,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.4363636363636365
+          }
+        ]
+      },
+      {
+        "text": "The prime base chose a logarithmic weight.",
+        "start": 4.959090909090909,
+        "end": 7.371212121212121,
+        "phrases": [
+          {
+            "start": 4.959090909090909,
+            "end": 7.371212121212121
+          }
+        ]
+      },
+      {
+        "text": "Rational rectangle sums enclosed that weight, and ramps assembled the finite smoothed sum.",
+        "start": 7.893939393939394,
+        "end": 13.53030303030303,
+        "phrases": [
+          {
+            "start": 7.893939393939394,
+            "end": 13.53030303030303
+          }
+        ]
+      },
+      {
+        "text": "Harmonic and logarithm bounds enclosed gamma, and the centering formula produced G_z.",
+        "start": 14.053030303030303,
+        "end": 19.725757575757576,
+        "phrases": [
+          {
+            "start": 14.053030303030303,
+            "end": 19.725757575757576
+          }
+        ]
+      },
+      {
+        "text": "The project carries both arithmetic width guarantees and explicit theorems identifying the represented real quantities.",
+        "start": 20.248484848484846,
+        "end": 27.206060606060607,
+        "phrases": [
+          {
+            "start": 20.248484848484846,
+            "end": 27.206060606060607
+          }
+        ]
+      },
+      {
+        "text": "Those are the ingredients that turn the earlier search into a search over this particular signal.",
+        "start": 27.72878787878788,
+        "end": 32.86818181818182,
+        "phrases": [
+          {
+            "start": 27.72878787878788,
+            "end": 32.86818181818182
+          }
+        ]
+      },
+      {
+        "text": "We have focused on the statistic itself; fractional-power ceiling evaluation and further transport bounds have their own constructions.",
+        "start": 33.39090909090909,
+        "end": 41.31818181818182,
+        "phrases": [
+          {
+            "start": 33.39090909090909,
+            "end": 41.31818181818182
+          }
+        ]
+      },
+      {
+        "text": "Next we return to the Landau question: why can a one-sided bound on recurring windows exclude zeros in a forbidden region?",
+        "start": 41.84090909090909,
+        "end": 49.39242424242424,
+        "phrases": [
+          {
+            "start": 41.84090909090909,
+            "end": 49.39242424242424
+          }
+        ]
+      },
+      {
+        "text": "The evaluator now has a defined job in that argument, rather than appearing as a mysterious numerical oracle.",
+        "start": 49.915151515151514,
+        "end": 56.52121212121212,
+        "phrases": [
+          {
+            "start": 49.915151515151514,
+            "end": 56.52121212121212
+          }
+        ]
+      },
+      {
+        "text": "The full reduction keeps the analytic hypotheses and the arithmetic interpretation attached to that job.",
+        "start": 57.0439393939394,
+        "end": 63.165151515151514,
+        "phrases": [
+          {
+            "start": 57.0439393939394,
+            "end": 63.165151515151514
+          }
+        ]
+      }
+    ]
+  }
+]

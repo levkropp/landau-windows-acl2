@@ -1,0 +1,26 @@
+00:00:00  The completed arithmetic reduction
+00:00:58  Read the input and output contract
+00:01:51  A rational region with a reserved margin
+00:02:44  A zero encoded by arbitrarily fine probes
+00:03:37  Choose the request before the probe
+00:04:23  The evaluator targets an entire normalized zeta
+00:05:10  Interpret a fixed finite approximation before taking limits
+00:06:02  Prove the clearances instead of requesting them
+00:06:52  Generate checked contour charts
+00:07:43  Scan from an empty real circle
+00:08:29  Multiple and clustered zeros use the same interface
+00:09:18  The paired data are now returned by a constructor
+00:10:04  Connect native values to the actual Mellin coefficients
+00:10:56  The extra real coefficient is still there
+00:11:44  Uniform bounds close the precision loop
+00:12:41  Compute the window threshold from the prepared pair
+00:13:30  Read the final ACL2 theorem
+00:14:29  Run the actual finite search, then decode its address
+00:15:22  A positive lower endpoint has mathematical meaning
+00:16:16  From every fine probe to one certified violation
+00:17:07  Encode the finite data by natural numbers
+00:18:01  A direct proof in Peano Arithmetic
+00:19:03  What the completion audit checked
+00:19:57  Connect the arithmetic zero and witness to the classical theorem
+00:20:58  State the completed result at its real scope
+00:22:01  Read, reproduce and extend the result

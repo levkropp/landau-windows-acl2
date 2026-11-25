@@ -1,0 +1,491 @@
+1
+00:00:00,200 --> 00:00:03,991
+A proof of the Riemann hypothesis has recently been checked in Lean.
+
+2
+00:00:04,252 --> 00:00:07,383
+Independent programs have accepted the formal proof.
+
+3
+00:00:07,643 --> 00:00:11,887
+It concerns one of the most famous questions about the pattern of
+prime numbers.
+
+4
+00:00:12,148 --> 00:00:14,165
+That is a remarkable development.
+
+5
+00:00:14,426 --> 00:00:16,154
+But it leaves another question.
+
+6
+00:00:16,414 --> 00:00:20,635
+How much mathematical machinery does this particular argument really
+need?
+
+7
+00:00:20,896 --> 00:00:27,481
+To explain what Landau Windows ACL Two is trying to do, we need to
+look at the foundations underneath a proof.
+
+8
+00:00:29,367 --> 00:00:31,050
+Start with the whole numbers.
+
+9
+00:00:31,316 --> 00:00:34,030
+Zero, one, two, three, and so on.
+
+10
+00:00:34,297 --> 00:00:38,362
+Peano arithmetic is a precise system of rules about those numbers.
+
+11
+00:00:38,629 --> 00:00:43,346
+It tells us how the next number works, and how addition and
+multiplication behave.
+
+12
+00:00:43,613 --> 00:00:45,438
+It also gives us induction.
+
+13
+00:00:45,704 --> 00:00:47,684
+Imagine a row of dominoes.
+
+14
+00:00:47,950 --> 00:00:53,746
+Establish the first case, then show that whenever one case holds,
+the next one holds too.
+
+15
+00:00:54,013 --> 00:00:58,042
+Together, those two steps prove the property for every whole number.
+
+16
+00:00:58,309 --> 00:01:00,999
+We never have to check the numbers one at a time.
+
+17
+00:01:01,266 --> 00:01:06,267
+Arithmetic can also encode finite lists, fractions, and the steps of
+a calculation.
+
+18
+00:01:06,534 --> 00:01:10,884
+So this small starting point can express a surprising amount of
+mathematics.
+
+19
+00:01:12,767 --> 00:01:15,149
+Now give ourselves a larger framework.
+
+20
+00:01:15,416 --> 00:01:19,125
+ZFC is a standard collection of rules for set theory.
+
+21
+00:01:19,392 --> 00:01:22,319
+A set is a collection of mathematical objects.
+
+22
+00:01:22,586 --> 00:01:29,152
+The rules let us build new sets, work with infinite sets, and
+develop a great deal of ordinary mathematics.
+
+23
+00:01:29,419 --> 00:01:32,061
+Even the whole numbers can be built out of sets.
+
+24
+00:01:32,328 --> 00:01:38,183
+We can start with the empty set, then build a sequence representing
+zero, one, two, and so on.
+
+25
+00:01:38,450 --> 00:01:43,356
+Inside this framework we can also construct functions, real numbers,
+and spaces.
+
+26
+00:01:43,623 --> 00:01:47,510
+That is one reason ZFC is stronger than Peano arithmetic.
+
+27
+00:01:47,777 --> 00:01:51,890
+It can describe and justify much more than the arithmetic rules
+alone.
+
+28
+00:01:53,767 --> 00:01:55,983
+Why does the strength of the rules matter?
+
+29
+00:01:56,250 --> 00:01:58,940
+First, we need a word: consistency.
+
+30
+00:01:59,207 --> 00:02:03,924
+A consistent system never proves a contradiction, such as zero
+equals one.
+
+31
+00:02:04,190 --> 00:02:07,035
+Checking a particular proof is a finite task.
+
+32
+00:02:07,301 --> 00:02:12,528
+But saying that no proof of a contradiction exists is a statement
+about every possible proof.
+
+33
+00:02:12,795 --> 00:02:14,999
+There is a remarkable connection here.
+
+34
+00:02:15,266 --> 00:02:18,656
+A finite proof can itself be encoded as a whole number.
+
+35
+00:02:18,922 --> 00:02:21,802
+That lets arithmetic make statements about proofs.
+
+36
+00:02:22,069 --> 00:02:26,762
+In nineteen thirty one, Gödel established his second incompleteness
+theorem.
+
+37
+00:02:27,029 --> 00:02:35,444
+Under its usual conditions, a consistent system with mechanically
+specified rules and enough arithmetic cannot prove its own formal
+consistency.
+
+38
+00:02:35,710 --> 00:02:39,005
+This applies to Peano arithmetic, and to ZFC.
+
+39
+00:02:39,272 --> 00:02:47,497
+So a system can check individual arguments without being able to
+establish, from its own rules, that those rules will never produce a
+contradiction.
+
+40
+00:02:49,367 --> 00:02:53,728
+A stronger system can sometimes provide that justification for a
+weaker one.
+
+41
+00:02:53,995 --> 00:02:57,147
+Here is how ZFC does it for Peano arithmetic.
+
+42
+00:02:57,414 --> 00:03:04,383
+It constructs the whole numbers, together with addition and
+multiplication, and checks that they satisfy the arithmetic axioms.
+
+43
+00:03:04,650 --> 00:03:09,355
+This is called building a model: a mathematical world where the
+rules hold.
+
+44
+00:03:09,621 --> 00:03:12,632
+Valid proof steps preserve truth in that world.
+
+45
+00:03:12,899 --> 00:03:17,011
+So an arithmetic proof cannot lead from those rules to a
+contradiction.
+
+46
+00:03:17,278 --> 00:03:22,587
+That gives a proof of the consistency of Peano arithmetic, carried
+out inside ZFC.
+
+47
+00:03:22,854 --> 00:03:25,805
+The justification depends on the stronger framework.
+
+48
+00:03:26,072 --> 00:03:31,026
+When ZFC asks about its own consistency, Gödel's limit still
+applies.
+
+49
+00:03:32,900 --> 00:03:35,519
+Now repeat that idea one level higher.
+
+50
+00:03:35,786 --> 00:03:38,358
+Not all infinities have the same size.
+
+51
+00:03:38,624 --> 00:03:44,076
+An inaccessible cardinal is a special size of infinity with a useful
+feature for our story.
+
+52
+00:03:44,343 --> 00:03:49,878
+If one exists, the sets below it form a mathematical world
+satisfying ZFC.
+
+53
+00:03:50,144 --> 00:03:55,442
+So assuming such a cardinal exists gives us a way to prove that ZFC
+is consistent.
+
+54
+00:03:55,709 --> 00:03:57,475
+But we just met the obstacle.
+
+55
+00:03:57,741 --> 00:04:02,020
+If ZFC is consistent, it cannot prove its own consistency.
+
+56
+00:04:02,287 --> 00:04:06,601
+Therefore it cannot prove that an inaccessible cardinal exists,
+either.
+
+57
+00:04:06,867 --> 00:04:11,976
+If it could, the model we just described would supply the forbidden
+consistency proof.
+
+58
+00:04:12,242 --> 00:04:17,576
+Accepting an inaccessible cardinal is therefore an additional
+assumption beyond ZFC.
+
+59
+00:04:17,842 --> 00:04:22,808
+This is why reducing the assumptions behind a theorem is a
+meaningful mathematical goal.
+
+60
+00:04:23,075 --> 00:04:28,254
+We want to understand exactly how much of this larger framework the
+argument actually needs.
+
+61
+00:04:30,133 --> 00:04:33,724
+A proof of the Riemann hypothesis has now been checked in Lean.
+
+62
+00:04:33,991 --> 00:04:40,759
+The usual set theoretic models of Lean's universe hierarchy use ZFC
+together with inaccessible cardinals.
+
+63
+00:04:41,025 --> 00:04:45,991
+Yet the Riemann hypothesis itself can be stated entirely in terms of
+whole numbers.
+
+64
+00:04:46,258 --> 00:04:51,105
+The larger proof draws on substantial mathematics developed in that
+stronger setting.
+
+65
+00:04:51,372 --> 00:04:55,627
+We have focused on one essential part: the classical Landau bridge.
+
+66
+00:04:55,893 --> 00:05:02,921
+This encoded windowed ceiling reduction has now been proved in Peano
+Arithmetic and certified in vanilla ACL2.
+
+67
+00:05:03,188 --> 00:05:10,299
+The direct arithmetic proof establishes this Landau conversion with
+fewer foundational assumptions than Lean's ambient framework.
+
+68
+00:05:10,566 --> 00:05:13,730
+This is the result of Landau Windows ACL Two.
+
+69
+00:05:15,600 --> 00:05:20,425
+To see which piece we are studying, return to the picture from the
+original video.
+
+70
+00:05:20,704 --> 00:05:26,546
+The dots are zeros of the zeta function, and the Riemann hypothesis
+puts them on the central line.
+
+71
+00:05:26,825 --> 00:05:28,561
+There is a mirror symmetry.
+
+72
+00:05:28,840 --> 00:05:32,040
+An off-centre dot on the left would have a partner on the right.
+
+73
+00:05:32,319 --> 00:05:34,887
+So ruling out dots on the right is enough.
+
+74
+00:05:36,767 --> 00:05:41,341
+Now watch the gap: the difference between a weighted prime count and
+its prediction.
+
+75
+00:05:41,608 --> 00:05:47,060
+If a zero sits too far to the right, it contributes an oscillation
+that grows too quickly.
+
+76
+00:05:47,327 --> 00:05:49,673
+That extra wave rises and falls.
+
+77
+00:05:49,940 --> 00:05:53,069
+Eventually it would drive the gap above the allowed level.
+
+78
+00:05:53,336 --> 00:05:57,294
+Now suppose we could prove an upper bound that the gap never
+crosses.
+
+79
+00:05:57,561 --> 00:06:00,227
+Then that troublesome zero could not be there.
+
+80
+00:06:00,494 --> 00:06:04,749
+We only used a ceiling; a matching lower bound was unnecessary.
+
+81
+00:06:05,016 --> 00:06:07,836
+Landau's theorem makes that reasoning rigorous.
+
+82
+00:06:08,103 --> 00:06:11,753
+In the larger proof, another argument supplies the ceiling.
+
+83
+00:06:12,020 --> 00:06:17,709
+This connection between a one sided bound and a zero free region is
+the bridge we want to extract.
+
+84
+00:06:19,600 --> 00:06:21,768
+Here is the piece we have extracted.
+
+85
+00:06:22,029 --> 00:06:27,258
+Landau takes a bound on the prime counting error and converts it
+into a statement about zeros.
+
+86
+00:06:27,519 --> 00:06:34,452
+We have proved the encoded ceiling conversion in Peano Arithmetic
+and certified the corresponding development in ACL2.
+
+87
+00:06:34,713 --> 00:06:37,925
+The input ceiling still has to be established separately.
+
+88
+00:06:38,186 --> 00:06:45,096
+The theorem computes a window threshold and returns a certified
+rational violation under its stated zero hypotheses.
+
+89
+00:06:46,967 --> 00:06:52,099
+Our version only gets the ceiling on recurring stretches of the
+number line, called windows.
+
+90
+00:06:52,365 --> 00:06:58,019
+A zero in the forbidden region must eventually force a violation in
+sufficiently large windows.
+
+91
+00:06:58,285 --> 00:07:03,927
+The effective theorem should compute where that violation happens,
+and certify it with exact bounds.
+
+92
+00:07:04,193 --> 00:07:10,487
+So the goal includes both finding a witness and proving that the
+search succeeds under the intended hypotheses.
+
+93
+00:07:12,367 --> 00:07:18,268
+We used ACL2, a proof system based on a computational logic for
+applicative Common Lisp.
+
+94
+00:07:18,529 --> 00:07:20,929
+Common Lisp is its programming language.
+
+95
+00:07:21,190 --> 00:07:24,900
+The foundational issue is the logical rules used by this proof.
+
+96
+00:07:25,161 --> 00:07:31,943
+Our calculations use finite lists, exact fractions, and recursive
+functions whose properties are proved by induction.
+
+97
+00:07:32,204 --> 00:07:36,170
+The corresponding development is certified in vanilla ACL2.
+
+98
+00:07:36,430 --> 00:07:43,943
+A direct manuscript proof derives the encoded theorem in first-order
+Peano Arithmetic, including its threshold and rational witness.
+
+99
+00:07:44,204 --> 00:07:50,941
+The manuscript supplies the mathematical proof, while the ACL2
+certificates record the machine-checked development.
+
+100
+00:07:52,800 --> 00:07:56,046
+That is what Landau Windows ACL Two has accomplished.
+
+101
+00:07:56,307 --> 00:08:06,441
+The encoded ceiling reduction now has a direct Peano Arithmetic
+proof, a computed threshold, a certified rational witness, and its
+connection to the original Landau theorem.
+
+102
+00:08:06,701 --> 00:08:11,177
+This encoded windowed Landau ceiling reduction is proved in Peano
+Arithmetic.
+
+103
+00:08:11,438 --> 00:08:13,177
+Landau was our starting point.
+
+104
+00:08:13,438 --> 00:08:18,006
+Other parts of the larger argument may also be reducible to Peano
+arithmetic.
+
+105
+00:08:18,267 --> 00:08:23,588
+Whether a full arithmetic proof of the Riemann hypothesis can be
+found remains a separate question.
+
+106
+00:08:23,849 --> 00:08:26,829
+This project does not settle those wider questions.
+
+107
+00:08:27,090 --> 00:08:32,643
+Here we have completed one essential conversion, with its hypotheses
+and interpretation written down.
+
+108
+00:08:32,904 --> 00:08:35,328
+The same result, with fewer assumptions.

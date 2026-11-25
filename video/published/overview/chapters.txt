@@ -1,0 +1,13 @@
+00:00:00  A proof checked in Lean
+00:00:29  Peano arithmetic: rules about whole numbers
+00:01:12  ZFC: a larger mathematical framework
+00:01:53  Godel's second incompleteness theorem
+00:02:49  How ZFC proves PA consistent
+00:03:32  An assumption beyond ZFC
+00:04:29  What does this proof actually need?
+00:05:15  The three-step picture
+00:05:36  The Landau bridge
+00:06:19  The part we are extracting
+00:06:46  A finite witness inside a window
+00:07:12  ACL2: computation and induction
+00:07:52  landau-windows-acl2

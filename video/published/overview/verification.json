@@ -1,0 +1,32 @@
+{
+  "programs": [],
+  "stream_groups": [],
+  "streams": [
+    {
+      "codec_name": "h264",
+      "codec_type": "video",
+      "width": 1920,
+      "height": 1080,
+      "r_frame_rate": "30/1",
+      "duration": "518.532682"
+    },
+    {
+      "codec_name": "aac",
+      "codec_type": "audio",
+      "r_frame_rate": "0/0",
+      "duration": "515.700000"
+    },
+    {
+      "codec_name": "mov_text",
+      "codec_type": "subtitle",
+      "r_frame_rate": "0/0",
+      "duration": "515.328000"
+    }
+  ],
+  "format": {
+    "duration": "518.532682"
+  },
+  "full_decode": "passed",
+  "caption_and_audio_bounds": "passed",
+  "file": "https://github.com/levkropp/landau-windows-acl2/releases/download/v1.0.0/landau-windows-acl2-overview-05.mp4"
+}

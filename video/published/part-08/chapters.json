@@ -1,0 +1,135 @@
+{
+  "title": "Part Eight — Poles, zero covers and the contradiction",
+  "chapters": [
+    {
+      "start": 0.0,
+      "chapter": "From finite readings to a contradiction",
+      "text": "Part Seven assembled a rational oscillating sample and a finite sum with a proved error budget. Those computations are tools for comparing two descriptions of the same weighted reading. One description comes from a ceiling on the original signal. The other comes from a pole associated with a hypothetical zero. To make the second description usable, we need to isolate a pole and control everything around it. This episode follows that chain through finite geometry, coefficient bounds, and the conditional contradiction already formalized in the repository. The pictures use deliberately small illustrative examples; they are not certificates for actual zeros of the zeta function. This is Part Eight of Landau Windows ACL Two: poles, zero covers, and the contradiction."
+    },
+    {
+      "start": 51.466666666666626,
+      "chapter": "What a pole contributes",
+      "text": "Begin with the function one divided by one minus x. As x approaches one from the left, the denominator approaches zero and the output grows without bound. On the complex plane, the corresponding expression has a pole at one. A simple pole is a reciprocal singularity: near its location, a nonzero constant divided by the displacement supplies the singular part. What remains after subtracting that part is regular nearby. Regular means analytic here: it admits a convergent power-series description in a neighborhood. We will not calculate a complex integral from this drawing. We will use the pole's algebraic fingerprint in the coefficients of a power series."
+    },
+    {
+      "start": 97.66666666666615,
+      "chapter": "A finite identity before an infinite series",
+      "text": "The familiar geometric series can be introduced without taking an infinite sum. At x equal to one half, the first three terms are one… one half… and one quarter. They add to seven quarters. The remaining correction is one quarter, so the total is exactly two. More generally, multiplying a finite geometric prefix by one minus x cancels the interior terms and leaves one minus the next power. Dividing by one minus x gives the displayed finite identity, whenever x is not one. The teaching function computes the prefix by adding one and multiplying the shorter prefix by x. For absolute x less than one, the correction tends to zero; that final limiting statement is the analytic interpretation of these finite identities."
+    },
+    {
+      "start": 149.7333333333323,
+      "chapter": "A pole leaves a coefficient fingerprint",
+      "text": "Move the pole to an offset from the expansion center. Write its contribution as a constant divided by the offset minus z. Factor out the offset and apply the same geometric identity. The coefficient of the j-th power of z is the constant divided by the offset to the power j plus one. For constant one and offset two, the first coefficients are one half… one quarter… and one eighth. The coefficient at index five is one sixty-fourth. These coefficients get smaller, but a farther pole's coefficients can get smaller faster. That relative rate will matter more than whether an individual sequence grows or shrinks."
+    },
+    {
+      "start": 194.633333333332,
+      "chapter": "Exact reciprocal and coefficient code",
+      "text": "A complex reciprocal still has an exact rational representation. For a pair x and y, conjugation reverses the sign of y, and the squared magnitude is x squared plus y squared. Divide the conjugate by that squared magnitude to obtain the reciprocal, provided the original point is nonzero. For the point two plus i, this gives two fifths minus one fifth times i. The actual pole-coefficient function multiplies the residue parameter by the reciprocal offset raised to the requested power plus one. The multiplication and finite-power operations are the ones introduced in Part Seven. The displayed definition is executable rational code, while its use as a Taylor coefficient has the stated nonzero-offset and analytic hypotheses. The usual nfix convention appears again in the index; our stated domain uses a natural number."
+    },
+    {
+      "start": 251.9333333333316,
+      "chapter": "Move the center to break a distance tie",
+      "text": "Now consider three rational points, all strictly to the left of the vertical line through real coordinate two. They are illustrative pole locations, not actual zeta zeros. At height zero, the upper and lower points are equally far from our center. The squared distance to either is two. A nearest-point argument with a strict gap cannot simply ignore that tie. Move the center upward along the vertical line, and one of those points becomes closer. The distance calculation uses only differences of rational coordinates and their squares. We will choose the height by a finite construction, rather than saying to pick a generic point."
+    },
+    {
+      "start": 295.5000000000019,
+      "chapter": "Only finitely many heights need avoiding",
+      "text": "Compare the squared distances to two fixed points. The height-squared terms cancel, leaving a linear equation in the center height. If the two imaginary coordinates differ, at most one height makes the distances equal. The code computes that candidate using a numerator and a denominator. In our three-point example, the distinct forbidden heights are minus one, zero, and one. If two distinct points have the same imaginary coordinate, their horizontal distances differ because both points lie strictly to the left of the center line. So that case cannot create a distance tie at any height. The code's zero-denominator branch returns a harmless extra candidate; avoiding extra heights does not hurt the construction."
+    },
+    {
+      "start": 343.133333333341,
+      "chapter": "Choose a rational height explicitly",
+      "text": "Start with the interval from minus one to one, and process the forbidden list in order. The first midpoint is zero; minus one lies on its lower side, so keep the upper half. The next midpoint is one half; zero lies on its lower side, so keep the upper half again. The next midpoint is three quarters; one lies on its upper side, so keep the lower half. We are left with the interval from one half to three quarters. Every processed forbidden value is outside its open interior. Choose its midpoint… five eighths. The interval still has positive width after finitely many halvings, so this gives a rational height inside the original interval and different from every forbidden height. The source shows both the interval recursion and the final midpoint wrapper."
+    },
+    {
+      "start": 396.36666666668026,
+      "chapter": "Find the nearest point at that height",
+      "text": "At height five eighths, compute the three squared distances. They are seventy-three sixty-fourths… two hundred thirty-three sixty-fourths… and two hundred eighty-one sixty-fourths. The upper point is now strictly nearest. The nearest-point function recursively compares the first candidate with the winner from the rest of the list. It uses squared distances, so no square-root approximation is needed for the comparison. The finite comparison theorem establishes that the returned point minimizes distance. The avoided-height argument strengthens this to a strict inequality for every different point. A repeated copy of the selected point is the same location, so it is not treated as a separate competitor."
+    },
+    {
+      "start": 444.7333333333522,
+      "chapter": "Put a circle inside the strict gap",
+      "text": "Take the selected squared distance and the next different point's squared distance. Also impose a rational upper cap, if the surrounding argument requires one. Average the selected distance with the smaller of that cap and the next distance. In this example the resulting squared radius is one hundred fifty-three sixty-fourths. It is strictly above seventy-three sixty-fourths and strictly below two hundred thirty-three sixty-fourths. The circle therefore contains the selected location and excludes the others. The code first removes every equal copy of the selected point, then computes this midpoint. The drawing uses the square root only to display the circle; the certificate stores its squared radius. This construction requires a nonempty finite point list, the left-of-center condition, and a cap strictly above the selected squared distance."
+    },
+    {
+      "start": 501.40000000002414,
+      "chapter": "A rational point is not an actual zero",
+      "text": "An actual zero of the zeta function need not have rational coordinates. A rational marker drawn near it is therefore not enough. Instead, represent uncertainty by a box with rational horizontal and vertical bounds. The four entries are the real lower endpoint, real upper endpoint, imaginary lower endpoint, and imaginary upper endpoint. The box predicate checks that both intervals are well formed. The containment predicate checks a rational point against those intervals. For actual complex points, the Lean interpretation theorem supplies the corresponding real meaning. From now on, the circle must include the whole selected box and exclude every competing box, rather than merely separating their centers."
+    },
+    {
+      "start": 549.1333333333556,
+      "chapter": "Square an interval carefully",
+      "text": "The distance from a center to a box is computed with interval arithmetic. There is one detail worth slowing down for: squaring an interval that crosses zero. For the interval from minus two to three, squaring the endpoints gives four and nine. But zero is also inside the original interval, and its square is zero. So the correct squared interval is from zero to nine. If an interval stays on one side of zero, the smaller endpoint square supplies the lower bound. The larger endpoint square supplies the upper bound in either case. The actual square-interval definition makes exactly that distinction."
+    },
+    {
+      "start": 590.700000000017,
+      "chapter": "Bound every distance inside a box",
+      "text": "Subtract the box's real interval from the center's real coordinate, and do the same for the imaginary coordinate. Square those two interval differences, then add the resulting intervals. The result encloses every squared distance from the center to a point in the box. We now use a separate box example with center two plus i. The selected box is a small rectangle around three fifths plus i, and the competing box is around its reflection below the real axis. The exact bounds certify that every selected-box squared distance is less than two, while every competing-box squared distance is greater than five. These are conservative summaries of the exact rational intervals shown in the code example. A squared radius of three therefore has room on both sides."
+    },
+    {
+      "start": 642.2333333333439,
+      "chapter": "Check the entire boxes against the circle",
+      "text": "The outside-boxes recursion checks that each box's lower squared-distance bound is strictly greater than the stored squared radius. The circle checker also requires a positive rational squared radius and a valid selected box. It checks that the selected box's upper squared-distance bound is strictly smaller than that radius value. Together these comparisons imply that every point in the selected box is inside, and every point in the other boxes is outside. In the worked example, the short summary is two… less than three… less than five. The word radius in the ACL2 parameter name refers to the squared radius in this checker. Keeping that distinction explicit avoids taking a square root or comparing quantities with different meanings."
+    },
+    {
+      "start": 694.0333333333381,
+      "chapter": "What a complete zero cover must add",
+      "text": "The checker has established a geometric statement about the supplied boxes. It has not proved that every relevant zero occurs in those boxes. To isolate an actual zero, we also need a complete cover of the relevant zero set and a proof that the selected box contains only the selected zero point. That point may have multiplicity greater than one; uniqueness of location is not simplicity. A missing box could hide another zero inside the circle. A selected box containing two distinct zeros would also defeat the intended conclusion. The Lean circle-isolation theorem carries these coverage and uniqueness hypotheses explicitly. Generating and refining suitable complete covers, including clusters, remains a separate obligation in the full reduction."
+    },
+    {
+      "start": 745.233333333334,
+      "chapter": "From a zero to its pole coefficient",
+      "text": "Why does a zero produce a pole in the transform at all? Near a zero of multiplicity m, the logarithmic derivative has principal part m divided by s minus the zero. The normalized transform introduces the factor displayed on screen. The resulting coefficient in the repository's reciprocal-pole convention is minus m divided by rho times rho minus one. The source computes that value with rational complex arithmetic when supplied rational model data. For the illustrative input one half plus i, multiplicities one and two give four fifths and eight fifths. This input is not being asserted to be a zeta zero. Multiplicity scales the contribution at one location; it does not create several distinct locations that the geometry must separate."
+    },
+    {
+      "start": 796.899999999994,
+      "chapter": "Nearer poles dominate relatively",
+      "text": "Return to a deliberately simple model with two poles. Take one divided by two minus z, then subtract three divided by three minus z. At index zero, the second contribution is larger and the coefficient is negative. So nearest does not mean dominant at every small index. Multiply the coefficient at index j by two to the power j plus one. The selected contribution becomes one, while the competing contribution becomes three times two thirds to that same power. At index five, the normalized coefficient is one hundred seventy-nine over two hundred forty-three, which is greater than one half. The farther contribution has become too small to cancel the selected one. The teaching function uses the actual pole-coefficient constructor for both terms."
+    },
+    {
+      "start": 849.6999999999862,
+      "chapter": "Control the regular part as well",
+      "text": "A real pole model also has a regular part, not just the listed reciprocal terms. If that regular part is analytic on a sufficiently large disk and bounded by a constant on its boundary, Cauchy's coefficient estimate bounds its j-th coefficient by that constant divided by the radius to the power j. After normalization by the selected distance, the important factor is the distance divided by that larger radius. It is strictly less than one. The code stores a regular polynomial in a unit-disk variable and rescales its coefficients by the physical radius to the power minus j. The finite arithmetic development obtains coefficient caps from checked polynomial boundary data with a proved extraction allowance. Sampling a few points of an arbitrary analytic function would not establish a bound everywhere between them. The polynomial representation and the quantitative extraction theorem are essential parts of that step."
+    },
+    {
+      "start": 911.4666666666456,
+      "chapter": "Construct a finite pole-model polynomial",
+      "text": "The actual model coefficient adds three pieces: the selected pole, the other listed poles, and the rescaled regular coefficient. The first source card shows that sum. The model-polynomial constructor then builds a finite list of those coefficients, advancing the index on each recursive call. The list is a constructed object, not an assumed agreement with the Mellin computation. For fixed rational model inputs, its entries can be computed exactly. The analytic work must still justify that these inputs describe the transform we care about. Keeping construction and interpretation separate lets the proof checker verify the finite algebra without silently accepting a missing analytic identity."
+    },
+    {
+      "start": 959.0666666666405,
+      "chapter": "Compare the model with the actual computation",
+      "text": "The boundary-comparison function first constructs the polynomial attached to the actual improper Mellin evaluator. It constructs a pole-model polynomial of the matching degree, then forms their coefficientwise difference. The second page checks that difference on the prescribed rational boundary orbit. The computed sample count and extraction bounds turn an accepted check into a bound on the selected coefficient difference. This is a certificate to be verified, not a claim that every proposed model will pass. The numerical improper-polynomial theorem currently uses a disk wholly inside the region where the real part is greater than two. Taking a longer cutoff does not itself provide meromorphic continuation beyond that region. Connecting suitable analytic models to these comparisons is one of the remaining mathematical jobs."
+    },
+    {
+      "start": 1013.4333333333019,
+      "chapter": "Keep the plain real reading",
+      "text": "Part Five's one-sided inequality contained an extra plain real reading alongside the magnitude of the oscillating reading. We cannot erase it when we combine the estimates. The repository controls that height-zero reading with its own checked model. Its bound contains a pole-family mass over a clearance power, a regular-part cap over a contour-radius power, and explicit comparison errors. The displayed function assembles those terms. A bound on the absolute value of the real reading also bounds how negative it can be. That supplies the additional term needed to turn the failed-search inequality into an upper cap for the oscillating reading. This is why two compatible models are needed: one at the selected height and one at height zero."
+    },
+    {
+      "start": 1063.2333333332954,
+      "chapter": "Choose indices and precision without a loop",
+      "text": "We now have several small terms to pay for: competing poles, regular coefficients, the window upper bound, the real anchor, and comparison errors. Strict distance-to-radius gaps make the geometric ratios smaller than one. The project's geometric threshold machinery computes a sufficiently large natural index for the prescribed fractions of the budget. The source shown here combines those requirements for the window, anchor, and regular terms. After the index fixes the scale, the model-error precision is one divided by one hundred twenty-eight times one plus that scale. Multiplying that tolerance by the scale still gives a small controlled contribution. The order matters: caps and clearances must be justified uniformly before they are used to select an index and a precision. If the required cap secretly grows when the requested precision changes, that circular dependency has not been solved by writing down a threshold."
+    },
+    {
+      "start": 1124.133333333288,
+      "chapter": "Make the incompatible bounds visible",
+      "text": "The final arithmetic pattern is simple once all those estimates are available. A selected pole gives a lower bound after subtracting the allowed cancellation and comparison errors. Search failure gives an upper bound for that same normalized reading, using the separate real-anchor estimate. If the lower bound is strictly larger than the upper bound, no value can satisfy both. The teaching theorem on screen states this elementary ordered-arithmetic obstruction. The actual project theorem obtains its bounds from the checked models and computed budgets, rather than inserting the numbers in our illustration. In that conditional setting, assuming the window search failed leads to a contradiction. Therefore the finite search must succeed."
+    },
+    {
+      "start": 1172.2333333332804,
+      "chapter": "The conclusion is an actual search address",
+      "text": "Success is more informative than an abstract statement that some violation exists. The conditional witness theorem returns the result of the repository's actual finite window search. From that result it computes a rational address inside the intended window. The address is at least the window start, and its square is at most the cube of that start. That squared comparison expresses the upper endpoint without computing an irrational square root. The returned signal interval has a strictly positive lower endpoint. Its interpretation therefore certifies that the signal exceeds the proposed ceiling at that address. Every accepted model, coverage statement, and parameter condition remains attached to the route that produced this conclusion."
+    },
+    {
+      "start": 1220.0999999999428,
+      "chapter": "What is proved and what remains",
+      "text": "We have followed the conditional chain from finite geometry to a returned arithmetic witness. The geometry algorithms and box checker are certified constructions. The model comparison and coefficient-budget theorems are certified implications with explicit premises. What remains for the full Landau reduction is to supply suitable analytic models and complete zero covers for the general mathematical situation. Their caps must remain compatible as precision changes, and the final encoded statement still needs its intended Peano Arithmetic interpretation. These are substantial proof obligations, not missing labels on an otherwise finished theorem. Exposing the finite chain is valuable because it identifies exactly which work is already arithmetic and exactly where further demotion is needed. This episode does not announce a completed proof of the Riemann Hypothesis in Peano Arithmetic."
+    },
+    {
+      "start": 1278.8999999999387,
+      "chapter": "The final milestone stays evidence-based",
+      "text": "The next milestone is the completed reduction, with its hypotheses supplied and its arithmetic meaning audited. We will make that final episode when the proof evidence supports it. For now, the result is a concrete route: checked local geometry… constructed coefficient models… verified comparisons… and a conditional finite witness. Each step can be inspected independently and connected through stated hypotheses. That is how Landau Windows ACL Two turns a large foundational question into smaller, reviewable mathematical tasks."
+    }
+  ]
+}

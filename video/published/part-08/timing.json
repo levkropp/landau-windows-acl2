@@ -1,0 +1,2550 @@
+[
+  {
+    "id": "opening",
+    "chapter": "From finite readings to a contradiction",
+    "start": 0.0,
+    "audio_start": 0.2,
+    "duration": 49.817583,
+    "sentences": [
+      {
+        "text": "Part Seven assembled a rational oscillating sample and a finite sum with a proved error budget.",
+        "start": 0,
+        "end": 5.684848484848485,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.684848484848485
+          }
+        ]
+      },
+      {
+        "text": "Those computations are tools for comparing two descriptions of the same weighted reading.",
+        "start": 6.207575757575757,
+        "end": 11.201515151515151,
+        "phrases": [
+          {
+            "start": 6.207575757575757,
+            "end": 11.201515151515151
+          }
+        ]
+      },
+      {
+        "text": "One description comes from a ceiling on the original signal.",
+        "start": 11.724242424242425,
+        "end": 15.203030303030301,
+        "phrases": [
+          {
+            "start": 11.724242424242425,
+            "end": 15.203030303030301
+          }
+        ]
+      },
+      {
+        "text": "The other comes from a pole associated with a hypothetical zero.",
+        "start": 15.725757575757576,
+        "end": 19.543939393939397,
+        "phrases": [
+          {
+            "start": 15.725757575757576,
+            "end": 19.543939393939397
+          }
+        ]
+      },
+      {
+        "text": "To make the second description usable, we need to isolate a pole and control everything around it.",
+        "start": 20.066666666666666,
+        "end": 26.054545454545455,
+        "phrases": [
+          {
+            "start": 20.066666666666666,
+            "end": 26.054545454545455
+          }
+        ]
+      },
+      {
+        "text": "This episode follows that chain through finite geometry, coefficient bounds, and the conditional contradiction already formalized in the repository.",
+        "start": 26.577272727272728,
+        "end": 35.195454545454545,
+        "phrases": [
+          {
+            "start": 26.577272727272728,
+            "end": 35.195454545454545
+          }
+        ]
+      },
+      {
+        "text": "The pictures use deliberately small illustrative examples; they are not certificates for actual zeros of the zeta function.",
+        "start": 35.71818181818182,
+        "end": 43.0030303030303,
+        "phrases": [
+          {
+            "start": 35.71818181818182,
+            "end": 43.0030303030303
+          }
+        ]
+      },
+      {
+        "text": "This is Part Eight of Landau Windows ACL Two: poles, zero covers, and the contradiction.",
+        "start": 43.525757575757574,
+        "end": 49.31969696969697,
+        "phrases": [
+          {
+            "start": 43.525757575757574,
+            "end": 49.31969696969697
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "poles",
+    "chapter": "What a pole contributes",
+    "start": 51.466666666666626,
+    "audio_start": 51.66666666666663,
+    "duration": 44.579833,
+    "sentences": [
+      {
+        "text": "Begin with the function one divided by one minus x.",
+        "start": 0,
+        "end": 3.4424242424242424,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.4424242424242424
+          }
+        ]
+      },
+      {
+        "text": "As x approaches one from the left, the denominator approaches zero and the output grows without bound.",
+        "start": 3.965151515151515,
+        "end": 10.377272727272727,
+        "phrases": [
+          {
+            "start": 3.965151515151515,
+            "end": 10.377272727272727
+          }
+        ]
+      },
+      {
+        "text": "On the complex plane, the corresponding expression has a pole at one.",
+        "start": 10.9,
+        "end": 14.996969696969696,
+        "phrases": [
+          {
+            "start": 10.9,
+            "end": 14.996969696969696
+          }
+        ]
+      },
+      {
+        "text": "A simple pole is a reciprocal singularity: near its location, a nonzero constant divided by the displacement supplies the singular part.",
+        "start": 15.51969696969697,
+        "end": 24.21060606060606,
+        "phrases": [
+          {
+            "start": 15.51969696969697,
+            "end": 24.21060606060606
+          }
+        ]
+      },
+      {
+        "text": "What remains after subtracting that part is regular nearby.",
+        "start": 24.733333333333334,
+        "end": 28.406060606060606,
+        "phrases": [
+          {
+            "start": 24.733333333333334,
+            "end": 28.406060606060606
+          }
+        ]
+      },
+      {
+        "text": "Regular means analytic here: it admits a convergent power-series description in a neighborhood.",
+        "start": 28.92878787878788,
+        "end": 34.625757575757575,
+        "phrases": [
+          {
+            "start": 28.92878787878788,
+            "end": 34.625757575757575
+          }
+        ]
+      },
+      {
+        "text": "We will not calculate a complex integral from this drawing.",
+        "start": 35.14848484848485,
+        "end": 38.74848484848485,
+        "phrases": [
+          {
+            "start": 35.14848484848485,
+            "end": 38.74848484848485
+          }
+        ]
+      },
+      {
+        "text": "We will use the pole's algebraic fingerprint in the coefficients of a power series.",
+        "start": 39.27121212121212,
+        "end": 44.083333333333336,
+        "phrases": [
+          {
+            "start": 39.27121212121212,
+            "end": 44.083333333333336
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "geometric",
+    "chapter": "A finite identity before an infinite series",
+    "start": 97.66666666666615,
+    "audio_start": 97.86666666666615,
+    "duration": 50.4425,
+    "sentences": [
+      {
+        "text": "The familiar geometric series can be introduced without taking an infinite sum.",
+        "start": 0,
+        "end": 4.448484848484848,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.448484848484848
+          }
+        ]
+      },
+      {
+        "text": "At x equal to one half, the first three terms are one\u2026 one half\u2026 and one quarter.",
+        "start": 4.971212121212121,
+        "end": 12.554545454545455,
+        "phrases": [
+          {
+            "start": 4.971212121212121,
+            "end": 8.656060606060606
+          },
+          {
+            "start": 9.508333333333333,
+            "end": 10.502272727272729
+          },
+          {
+            "start": 11.354545454545455,
+            "end": 12.554545454545455
+          }
+        ]
+      },
+      {
+        "text": "They add to seven quarters.",
+        "start": 13.077272727272726,
+        "end": 14.883333333333333,
+        "phrases": [
+          {
+            "start": 13.077272727272726,
+            "end": 14.883333333333333
+          }
+        ]
+      },
+      {
+        "text": "The remaining correction is one quarter, so the total is exactly two.",
+        "start": 15.406060606060606,
+        "end": 19.563636363636366,
+        "phrases": [
+          {
+            "start": 15.406060606060606,
+            "end": 19.563636363636366
+          }
+        ]
+      },
+      {
+        "text": "More generally, multiplying a finite geometric prefix by one minus x cancels the interior terms and leaves one minus the next power.",
+        "start": 20.086363636363636,
+        "end": 28.365151515151513,
+        "phrases": [
+          {
+            "start": 20.086363636363636,
+            "end": 28.365151515151513
+          }
+        ]
+      },
+      {
+        "text": "Dividing by one minus x gives the displayed finite identity, whenever x is not one.",
+        "start": 28.887878787878787,
+        "end": 34.13636363636363,
+        "phrases": [
+          {
+            "start": 28.887878787878787,
+            "end": 34.13636363636363
+          }
+        ]
+      },
+      {
+        "text": "The teaching function computes the prefix by adding one and multiplying the shorter prefix by x.",
+        "start": 34.65909090909091,
+        "end": 40.42878787878788,
+        "phrases": [
+          {
+            "start": 34.65909090909091,
+            "end": 40.42878787878788
+          }
+        ]
+      },
+      {
+        "text": "For absolute x less than one, the correction tends to zero; that final limiting statement is the analytic interpretation of these finite identities.",
+        "start": 40.95151515151515,
+        "end": 49.945454545454545,
+        "phrases": [
+          {
+            "start": 40.95151515151515,
+            "end": 49.945454545454545
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coefficients",
+    "chapter": "A pole leaves a coefficient fingerprint",
+    "start": 149.7333333333323,
+    "audio_start": 149.93333333333229,
+    "duration": 43.254458,
+    "sentences": [
+      {
+        "text": "Move the pole to an offset from the expansion center.",
+        "start": 0,
+        "end": 3.1151515151515152,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.1151515151515152
+          }
+        ]
+      },
+      {
+        "text": "Write its contribution as a constant divided by the offset minus z.",
+        "start": 3.6378787878787877,
+        "end": 8.134848484848485,
+        "phrases": [
+          {
+            "start": 3.6378787878787877,
+            "end": 8.134848484848485
+          }
+        ]
+      },
+      {
+        "text": "Factor out the offset and apply the same geometric identity.",
+        "start": 8.657575757575758,
+        "end": 12.293939393939395,
+        "phrases": [
+          {
+            "start": 8.657575757575758,
+            "end": 12.293939393939395
+          }
+        ]
+      },
+      {
+        "text": "The coefficient of the j-th power of z is the constant divided by the offset to the power j plus one.",
+        "start": 12.816666666666666,
+        "end": 19.083333333333332,
+        "phrases": [
+          {
+            "start": 12.816666666666666,
+            "end": 19.083333333333332
+          }
+        ]
+      },
+      {
+        "text": "For constant one and offset two, the first coefficients are one half\u2026 one quarter\u2026 and one eighth.",
+        "start": 19.606060606060606,
+        "end": 27.686363636363637,
+        "phrases": [
+          {
+            "start": 19.606060606060606,
+            "end": 23.824242424242424
+          },
+          {
+            "start": 24.67651515151515,
+            "end": 25.75530303030303
+          },
+          {
+            "start": 26.607575757575756,
+            "end": 27.686363636363637
+          }
+        ]
+      },
+      {
+        "text": "The coefficient at index five is one sixty-fourth.",
+        "start": 28.20909090909091,
+        "end": 31.421212121212122,
+        "phrases": [
+          {
+            "start": 28.20909090909091,
+            "end": 31.421212121212122
+          }
+        ]
+      },
+      {
+        "text": "These coefficients get smaller, but a farther pole's coefficients can get smaller faster.",
+        "start": 31.943939393939395,
+        "end": 37.20454545454545,
+        "phrases": [
+          {
+            "start": 31.943939393939395,
+            "end": 37.20454545454545
+          }
+        ]
+      },
+      {
+        "text": "That relative rate will matter more than whether an individual sequence grows or shrinks.",
+        "start": 37.727272727272734,
+        "end": 42.75757575757576,
+        "phrases": [
+          {
+            "start": 37.727272727272734,
+            "end": 42.75757575757576
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "reciprocal",
+    "chapter": "Exact reciprocal and coefficient code",
+    "start": 194.633333333332,
+    "audio_start": 194.83333333333198,
+    "duration": 55.657833,
+    "sentences": [
+      {
+        "text": "A complex reciprocal still has an exact rational representation.",
+        "start": 0,
+        "end": 4.3999999999999995,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.3999999999999995
+          }
+        ]
+      },
+      {
+        "text": "For a pair x and y, conjugation reverses the sign of y, and the squared magnitude is x squared plus y squared.",
+        "start": 4.922727272727273,
+        "end": 12.45,
+        "phrases": [
+          {
+            "start": 4.922727272727273,
+            "end": 12.45
+          }
+        ]
+      },
+      {
+        "text": "Divide the conjugate by that squared magnitude to obtain the reciprocal, provided the original point is nonzero.",
+        "start": 12.972727272727273,
+        "end": 19.796969696969697,
+        "phrases": [
+          {
+            "start": 12.972727272727273,
+            "end": 19.796969696969697
+          }
+        ]
+      },
+      {
+        "text": "For the point two plus i, this gives two fifths minus one fifth times i.",
+        "start": 20.31969696969697,
+        "end": 25.03484848484848,
+        "phrases": [
+          {
+            "start": 20.31969696969697,
+            "end": 25.03484848484848
+          }
+        ]
+      },
+      {
+        "text": "The actual pole-coefficient function multiplies the residue parameter by the reciprocal offset raised to the requested power plus one.",
+        "start": 25.557575757575755,
+        "end": 33.157575757575756,
+        "phrases": [
+          {
+            "start": 25.557575757575755,
+            "end": 33.157575757575756
+          }
+        ]
+      },
+      {
+        "text": "The multiplication and finite-power operations are the ones introduced in Part Seven.",
+        "start": 33.68030303030303,
+        "end": 38.83181818181818,
+        "phrases": [
+          {
+            "start": 33.68030303030303,
+            "end": 38.83181818181818
+          }
+        ]
+      },
+      {
+        "text": "The displayed definition is executable rational code, while its use as a Taylor coefficient has the stated nonzero-offset and analytic hypotheses.",
+        "start": 39.35454545454545,
+        "end": 48.590909090909086,
+        "phrases": [
+          {
+            "start": 39.35454545454545,
+            "end": 48.590909090909086
+          }
+        ]
+      },
+      {
+        "text": "The usual nfix convention appears again in the index; our stated domain uses a natural number.",
+        "start": 49.11363636363636,
+        "end": 55.162121212121214,
+        "phrases": [
+          {
+            "start": 49.11363636363636,
+            "end": 55.162121212121214
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "center",
+    "chapter": "Move the center to break a distance tie",
+    "start": 251.9333333333316,
+    "audio_start": 252.1333333333316,
+    "duration": 41.926417,
+    "sentences": [
+      {
+        "text": "Now consider three rational points, all strictly to the left of the vertical line through real coordinate two.",
+        "start": 0,
+        "end": 6.266666666666667,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 6.266666666666667
+          }
+        ]
+      },
+      {
+        "text": "They are illustrative pole locations, not actual zeta zeros.",
+        "start": 6.789393939393939,
+        "end": 11.14090909090909,
+        "phrases": [
+          {
+            "start": 6.789393939393939,
+            "end": 11.14090909090909
+          }
+        ]
+      },
+      {
+        "text": "At height zero, the upper and lower points are equally far from our center.",
+        "start": 11.663636363636362,
+        "end": 16.245454545454546,
+        "phrases": [
+          {
+            "start": 11.663636363636362,
+            "end": 16.245454545454546
+          }
+        ]
+      },
+      {
+        "text": "The squared distance to either is two.",
+        "start": 16.76818181818182,
+        "end": 19.095454545454544,
+        "phrases": [
+          {
+            "start": 16.76818181818182,
+            "end": 19.095454545454544
+          }
+        ]
+      },
+      {
+        "text": "A nearest-point argument with a strict gap cannot simply ignore that tie.",
+        "start": 19.618181818181817,
+        "end": 24.03030303030303,
+        "phrases": [
+          {
+            "start": 19.618181818181817,
+            "end": 24.03030303030303
+          }
+        ]
+      },
+      {
+        "text": "Move the center upward along the vertical line, and one of those points becomes closer.",
+        "start": 24.5530303030303,
+        "end": 29.692424242424245,
+        "phrases": [
+          {
+            "start": 24.5530303030303,
+            "end": 29.692424242424245
+          }
+        ]
+      },
+      {
+        "text": "The distance calculation uses only differences of rational coordinates and their squares.",
+        "start": 30.215151515151515,
+        "end": 35.47575757575758,
+        "phrases": [
+          {
+            "start": 30.215151515151515,
+            "end": 35.47575757575758
+          }
+        ]
+      },
+      {
+        "text": "We will choose the height by a finite construction, rather than saying to pick a generic point.",
+        "start": 35.99848484848485,
+        "end": 41.42878787878787,
+        "phrases": [
+          {
+            "start": 35.99848484848485,
+            "end": 41.42878787878787
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ties",
+    "chapter": "Only finitely many heights need avoiding",
+    "start": 295.5000000000019,
+    "audio_start": 295.70000000000186,
+    "duration": 45.999375,
+    "sentences": [
+      {
+        "text": "Compare the squared distances to two fixed points.",
+        "start": 0,
+        "end": 3.0545454545454547,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.0545454545454547
+          }
+        ]
+      },
+      {
+        "text": "The height-squared terms cancel, leaving a linear equation in the center height.",
+        "start": 3.5772727272727276,
+        "end": 7.965151515151515,
+        "phrases": [
+          {
+            "start": 3.5772727272727276,
+            "end": 7.965151515151515
+          }
+        ]
+      },
+      {
+        "text": "If the two imaginary coordinates differ, at most one height makes the distances equal.",
+        "start": 8.487878787878788,
+        "end": 13.833333333333334,
+        "phrases": [
+          {
+            "start": 8.487878787878788,
+            "end": 13.833333333333334
+          }
+        ]
+      },
+      {
+        "text": "The code computes that candidate using a numerator and a denominator.",
+        "start": 14.356060606060606,
+        "end": 18.453030303030303,
+        "phrases": [
+          {
+            "start": 14.356060606060606,
+            "end": 18.453030303030303
+          }
+        ]
+      },
+      {
+        "text": "In our three-point example, the distinct forbidden heights are minus one, zero, and one.",
+        "start": 18.975757575757576,
+        "end": 24.187878787878788,
+        "phrases": [
+          {
+            "start": 18.975757575757576,
+            "end": 24.187878787878788
+          }
+        ]
+      },
+      {
+        "text": "If two distinct points have the same imaginary coordinate, their horizontal distances differ because both points lie strictly to the left of the center line.",
+        "start": 24.71060606060606,
+        "end": 33.68030303030303,
+        "phrases": [
+          {
+            "start": 24.71060606060606,
+            "end": 33.68030303030303
+          }
+        ]
+      },
+      {
+        "text": "So that case cannot create a distance tie at any height.",
+        "start": 34.2030303030303,
+        "end": 37.584848484848486,
+        "phrases": [
+          {
+            "start": 34.2030303030303,
+            "end": 37.584848484848486
+          }
+        ]
+      },
+      {
+        "text": "The code's zero-denominator branch returns a harmless extra candidate; avoiding extra heights does not hurt the construction.",
+        "start": 38.10757575757576,
+        "end": 45.50151515151515,
+        "phrases": [
+          {
+            "start": 38.10757575757576,
+            "end": 45.50151515151515
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "avoid",
+    "chapter": "Choose a rational height explicitly",
+    "start": 343.133333333341,
+    "audio_start": 343.333333333341,
+    "duration": 51.592083,
+    "sentences": [
+      {
+        "text": "Start with the interval from minus one to one, and process the forbidden list in order.",
+        "start": 0,
+        "end": 4.909090909090909,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.909090909090909
+          }
+        ]
+      },
+      {
+        "text": "The first midpoint is zero; minus one lies on its lower side, so keep the upper half.",
+        "start": 5.431818181818182,
+        "end": 11.31060606060606,
+        "phrases": [
+          {
+            "start": 5.431818181818182,
+            "end": 11.31060606060606
+          }
+        ]
+      },
+      {
+        "text": "The next midpoint is one half; zero lies on its lower side, so keep the upper half again.",
+        "start": 11.833333333333334,
+        "end": 17.966666666666665,
+        "phrases": [
+          {
+            "start": 11.833333333333334,
+            "end": 17.966666666666665
+          }
+        ]
+      },
+      {
+        "text": "The next midpoint is three quarters; one lies on its upper side, so keep the lower half.",
+        "start": 18.48939393939394,
+        "end": 24.028787878787877,
+        "phrases": [
+          {
+            "start": 18.48939393939394,
+            "end": 24.028787878787877
+          }
+        ]
+      },
+      {
+        "text": "We are left with the interval from one half to three quarters.",
+        "start": 24.55151515151515,
+        "end": 27.933333333333334,
+        "phrases": [
+          {
+            "start": 24.55151515151515,
+            "end": 27.933333333333334
+          }
+        ]
+      },
+      {
+        "text": "Every processed forbidden value is outside its open interior.",
+        "start": 28.456060606060607,
+        "end": 32.49242424242424,
+        "phrases": [
+          {
+            "start": 28.456060606060607,
+            "end": 32.49242424242424
+          }
+        ]
+      },
+      {
+        "text": "Choose its midpoint\u2026 five eighths.",
+        "start": 33.015151515151516,
+        "end": 36.34015151515151,
+        "phrases": [
+          {
+            "start": 33.015151515151516,
+            "end": 34.36060606060606
+          },
+          {
+            "start": 35.212878787878786,
+            "end": 36.34015151515151
+          }
+        ]
+      },
+      {
+        "text": "The interval still has positive width after finitely many halvings, so this gives a rational height inside the original interval and different from every forbidden height.",
+        "start": 36.862878787878785,
+        "end": 46.23257575757575,
+        "phrases": [
+          {
+            "start": 36.862878787878785,
+            "end": 46.23257575757575
+          }
+        ]
+      },
+      {
+        "text": "The source shows both the interval recursion and the final midpoint wrapper.",
+        "start": 46.75530303030303,
+        "end": 51.09469696969697,
+        "phrases": [
+          {
+            "start": 46.75530303030303,
+            "end": 51.09469696969697
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nearest",
+    "chapter": "Find the nearest point at that height",
+    "start": 396.36666666668026,
+    "audio_start": 396.56666666668025,
+    "duration": 46.746292,
+    "sentences": [
+      {
+        "text": "At height five eighths, compute the three squared distances.",
+        "start": 0,
+        "end": 3.539393939393939,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.539393939393939
+          }
+        ]
+      },
+      {
+        "text": "They are seventy-three sixty-fourths\u2026 two hundred thirty-three sixty-fourths\u2026 and two hundred eighty-one sixty-fourths.",
+        "start": 4.0621212121212125,
+        "end": 12.85757575757576,
+        "phrases": [
+          {
+            "start": 4.0621212121212125,
+            "end": 6.365151515151515
+          },
+          {
+            "start": 7.217424242424243,
+            "end": 9.568939393939395
+          },
+          {
+            "start": 10.421212121212122,
+            "end": 12.85757575757576
+          }
+        ]
+      },
+      {
+        "text": "The upper point is now strictly nearest.",
+        "start": 13.38030303030303,
+        "end": 15.889393939393939,
+        "phrases": [
+          {
+            "start": 13.38030303030303,
+            "end": 15.889393939393939
+          }
+        ]
+      },
+      {
+        "text": "The nearest-point function recursively compares the first candidate with the winner from the rest of the list.",
+        "start": 16.41212121212121,
+        "end": 22,
+        "phrases": [
+          {
+            "start": 16.41212121212121,
+            "end": 22
+          }
+        ]
+      },
+      {
+        "text": "It uses squared distances, so no square-root approximation is needed for the comparison.",
+        "start": 22.522727272727273,
+        "end": 28.062121212121212,
+        "phrases": [
+          {
+            "start": 22.522727272727273,
+            "end": 28.062121212121212
+          }
+        ]
+      },
+      {
+        "text": "The finite comparison theorem establishes that the returned point minimizes distance.",
+        "start": 28.584848484848486,
+        "end": 33.68787878787879,
+        "phrases": [
+          {
+            "start": 28.584848484848486,
+            "end": 33.68787878787879
+          }
+        ]
+      },
+      {
+        "text": "The avoided-height argument strengthens this to a strict inequality for every different point.",
+        "start": 34.21060606060606,
+        "end": 39.43484848484848,
+        "phrases": [
+          {
+            "start": 34.21060606060606,
+            "end": 39.43484848484848
+          }
+        ]
+      },
+      {
+        "text": "A repeated copy of the selected point is the same location, so it is not treated as a separate competitor.",
+        "start": 39.95757575757576,
+        "end": 46.24848484848485,
+        "phrases": [
+          {
+            "start": 39.95757575757576,
+            "end": 46.24848484848485
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "isolation",
+    "chapter": "Put a circle inside the strict gap",
+    "start": 444.7333333333522,
+    "audio_start": 444.9333333333522,
+    "duration": 55.043458,
+    "sentences": [
+      {
+        "text": "Take the selected squared distance and the next different point's squared distance.",
+        "start": 0,
+        "end": 4.509090909090909,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.509090909090909
+          }
+        ]
+      },
+      {
+        "text": "Also impose a rational upper cap, if the surrounding argument requires one.",
+        "start": 5.031818181818181,
+        "end": 9.92878787878788,
+        "phrases": [
+          {
+            "start": 5.031818181818181,
+            "end": 9.92878787878788
+          }
+        ]
+      },
+      {
+        "text": "Average the selected distance with the smaller of that cap and the next distance.",
+        "start": 10.451515151515151,
+        "end": 15.118181818181819,
+        "phrases": [
+          {
+            "start": 10.451515151515151,
+            "end": 15.118181818181819
+          }
+        ]
+      },
+      {
+        "text": "In this example the resulting squared radius is one hundred fifty-three sixty-fourths.",
+        "start": 15.64090909090909,
+        "end": 20.87727272727273,
+        "phrases": [
+          {
+            "start": 15.64090909090909,
+            "end": 20.87727272727273
+          }
+        ]
+      },
+      {
+        "text": "It is strictly above seventy-three sixty-fourths and strictly below two hundred thirty-three sixty-fourths.",
+        "start": 21.400000000000002,
+        "end": 27.64242424242424,
+        "phrases": [
+          {
+            "start": 21.400000000000002,
+            "end": 27.64242424242424
+          }
+        ]
+      },
+      {
+        "text": "The circle therefore contains the selected location and excludes the others.",
+        "start": 28.165151515151514,
+        "end": 32.50454545454545,
+        "phrases": [
+          {
+            "start": 28.165151515151514,
+            "end": 32.50454545454545
+          }
+        ]
+      },
+      {
+        "text": "The code first removes every equal copy of the selected point, then computes this midpoint.",
+        "start": 33.027272727272724,
+        "end": 38.554545454545455,
+        "phrases": [
+          {
+            "start": 33.027272727272724,
+            "end": 38.554545454545455
+          }
+        ]
+      },
+      {
+        "text": "The drawing uses the square root only to display the circle; the certificate stores its squared radius.",
+        "start": 39.07727272727273,
+        "end": 45.477272727272734,
+        "phrases": [
+          {
+            "start": 39.07727272727273,
+            "end": 45.477272727272734
+          }
+        ]
+      },
+      {
+        "text": "This construction requires a nonempty finite point list, the left-of-center condition, and a cap strictly above the selected squared distance.",
+        "start": 45.99999999999999,
+        "end": 54.54545454545455,
+        "phrases": [
+          {
+            "start": 45.99999999999999,
+            "end": 54.54545454545455
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "boxes",
+    "chapter": "A rational point is not an actual zero",
+    "start": 501.40000000002414,
+    "audio_start": 501.6000000000241,
+    "duration": 46.094917,
+    "sentences": [
+      {
+        "text": "An actual zero of the zeta function need not have rational coordinates.",
+        "start": 0,
+        "end": 4.206060606060606,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.206060606060606
+          }
+        ]
+      },
+      {
+        "text": "A rational marker drawn near it is therefore not enough.",
+        "start": 4.7287878787878785,
+        "end": 8.001515151515152,
+        "phrases": [
+          {
+            "start": 4.7287878787878785,
+            "end": 8.001515151515152
+          }
+        ]
+      },
+      {
+        "text": "Instead, represent uncertainty by a box with rational horizontal and vertical bounds.",
+        "start": 8.524242424242424,
+        "end": 14.063636363636363,
+        "phrases": [
+          {
+            "start": 8.524242424242424,
+            "end": 14.063636363636363
+          }
+        ]
+      },
+      {
+        "text": "The four entries are the real lower endpoint, real upper endpoint, imaginary lower endpoint, and imaginary upper endpoint.",
+        "start": 14.586363636363636,
+        "end": 22.040909090909093,
+        "phrases": [
+          {
+            "start": 14.586363636363636,
+            "end": 22.040909090909093
+          }
+        ]
+      },
+      {
+        "text": "The box predicate checks that both intervals are well formed.",
+        "start": 22.563636363636366,
+        "end": 26.13939393939394,
+        "phrases": [
+          {
+            "start": 22.563636363636366,
+            "end": 26.13939393939394
+          }
+        ]
+      },
+      {
+        "text": "The containment predicate checks a rational point against those intervals.",
+        "start": 26.662121212121214,
+        "end": 30.662121212121214,
+        "phrases": [
+          {
+            "start": 26.662121212121214,
+            "end": 30.662121212121214
+          }
+        ]
+      },
+      {
+        "text": "For actual complex points, the Lean interpretation theorem supplies the corresponding real meaning.",
+        "start": 31.184848484848487,
+        "end": 37.18484848484849,
+        "phrases": [
+          {
+            "start": 31.184848484848487,
+            "end": 37.18484848484849
+          }
+        ]
+      },
+      {
+        "text": "From now on, the circle must include the whole selected box and exclude every competing box, rather than merely separating their centers.",
+        "start": 37.70757575757576,
+        "end": 45.598484848484844,
+        "phrases": [
+          {
+            "start": 37.70757575757576,
+            "end": 45.598484848484844
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "square",
+    "chapter": "Square an interval carefully",
+    "start": 549.1333333333556,
+    "audio_start": 549.3333333333557,
+    "duration": 39.949667,
+    "sentences": [
+      {
+        "text": "The distance from a center to a box is computed with interval arithmetic.",
+        "start": 0,
+        "end": 4.218181818181819,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.218181818181819
+          }
+        ]
+      },
+      {
+        "text": "There is one detail worth slowing down for: squaring an interval that crosses zero.",
+        "start": 4.74090909090909,
+        "end": 10.062121212121212,
+        "phrases": [
+          {
+            "start": 4.74090909090909,
+            "end": 10.062121212121212
+          }
+        ]
+      },
+      {
+        "text": "For the interval from minus two to three, squaring the endpoints gives four and nine.",
+        "start": 10.584848484848486,
+        "end": 15.251515151515152,
+        "phrases": [
+          {
+            "start": 10.584848484848486,
+            "end": 15.251515151515152
+          }
+        ]
+      },
+      {
+        "text": "But zero is also inside the original interval, and its square is zero.",
+        "start": 15.774242424242425,
+        "end": 20.404545454545453,
+        "phrases": [
+          {
+            "start": 15.774242424242425,
+            "end": 20.404545454545453
+          }
+        ]
+      },
+      {
+        "text": "So the correct squared interval is from zero to nine.",
+        "start": 20.927272727272726,
+        "end": 24.151515151515152,
+        "phrases": [
+          {
+            "start": 20.927272727272726,
+            "end": 24.151515151515152
+          }
+        ]
+      },
+      {
+        "text": "If an interval stays on one side of zero, the smaller endpoint square supplies the lower bound.",
+        "start": 24.674242424242426,
+        "end": 30.35909090909091,
+        "phrases": [
+          {
+            "start": 24.674242424242426,
+            "end": 30.35909090909091
+          }
+        ]
+      },
+      {
+        "text": "The larger endpoint square supplies the upper bound in either case.",
+        "start": 30.88181818181818,
+        "end": 34.89393939393939,
+        "phrases": [
+          {
+            "start": 30.88181818181818,
+            "end": 34.89393939393939
+          }
+        ]
+      },
+      {
+        "text": "The actual square-interval definition makes exactly that distinction.",
+        "start": 35.416666666666664,
+        "end": 39.4530303030303,
+        "phrases": [
+          {
+            "start": 35.416666666666664,
+            "end": 39.4530303030303
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "box_distance",
+    "chapter": "Bound every distance inside a box",
+    "start": 590.700000000017,
+    "audio_start": 590.900000000017,
+    "duration": 49.889292,
+    "sentences": [
+      {
+        "text": "Subtract the box's real interval from the center's real coordinate, and do the same for the imaginary coordinate.",
+        "start": 0,
+        "end": 6.666666666666666,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 6.666666666666666
+          }
+        ]
+      },
+      {
+        "text": "Square those two interval differences, then add the resulting intervals.",
+        "start": 7.1893939393939394,
+        "end": 11.553030303030303,
+        "phrases": [
+          {
+            "start": 7.1893939393939394,
+            "end": 11.553030303030303
+          }
+        ]
+      },
+      {
+        "text": "The result encloses every squared distance from the center to a point in the box.",
+        "start": 12.075757575757576,
+        "end": 16.778787878787877,
+        "phrases": [
+          {
+            "start": 12.075757575757576,
+            "end": 16.778787878787877
+          }
+        ]
+      },
+      {
+        "text": "We now use a separate box example with center two plus i.",
+        "start": 17.30151515151515,
+        "end": 21.131818181818183,
+        "phrases": [
+          {
+            "start": 17.30151515151515,
+            "end": 21.131818181818183
+          }
+        ]
+      },
+      {
+        "text": "The selected box is a small rectangle around three fifths plus i, and the competing box is around its reflection below the real axis.",
+        "start": 21.654545454545456,
+        "end": 30.07878787878788,
+        "phrases": [
+          {
+            "start": 21.654545454545456,
+            "end": 30.07878787878788
+          }
+        ]
+      },
+      {
+        "text": "The exact bounds certify that every selected-box squared distance is less than two, while every competing-box squared distance is greater than five.",
+        "start": 30.60151515151515,
+        "end": 39.268181818181816,
+        "phrases": [
+          {
+            "start": 30.60151515151515,
+            "end": 39.268181818181816
+          }
+        ]
+      },
+      {
+        "text": "These are conservative summaries of the exact rational intervals shown in the code example.",
+        "start": 39.79090909090909,
+        "end": 44.95454545454546,
+        "phrases": [
+          {
+            "start": 39.79090909090909,
+            "end": 44.95454545454546
+          }
+        ]
+      },
+      {
+        "text": "A squared radius of three therefore has room on both sides.",
+        "start": 45.477272727272734,
+        "end": 49.39242424242424,
+        "phrases": [
+          {
+            "start": 45.477272727272734,
+            "end": 49.39242424242424
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "circle",
+    "chapter": "Check the entire boxes against the circle",
+    "start": 642.2333333333439,
+    "audio_start": 642.433333333344,
+    "duration": 50.17325,
+    "sentences": [
+      {
+        "text": "The outside-boxes recursion checks that each box's lower squared-distance bound is strictly greater than the stored squared radius.",
+        "start": 0,
+        "end": 7.636363636363636,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 7.636363636363636
+          }
+        ]
+      },
+      {
+        "text": "The circle checker also requires a positive rational squared radius and a valid selected box.",
+        "start": 8.159090909090908,
+        "end": 14.268181818181818,
+        "phrases": [
+          {
+            "start": 8.159090909090908,
+            "end": 14.268181818181818
+          }
+        ]
+      },
+      {
+        "text": "It checks that the selected box's upper squared-distance bound is strictly smaller than that radius value.",
+        "start": 14.790909090909091,
+        "end": 21.02121212121212,
+        "phrases": [
+          {
+            "start": 14.790909090909091,
+            "end": 21.02121212121212
+          }
+        ]
+      },
+      {
+        "text": "Together these comparisons imply that every point in the selected box is inside, and every point in the other boxes is outside.",
+        "start": 21.543939393939393,
+        "end": 28.99848484848485,
+        "phrases": [
+          {
+            "start": 21.543939393939393,
+            "end": 28.99848484848485
+          }
+        ]
+      },
+      {
+        "text": "In the worked example, the short summary is two\u2026 less than three\u2026 less than five.",
+        "start": 29.52121212121212,
+        "end": 36.88636363636364,
+        "phrases": [
+          {
+            "start": 29.52121212121212,
+            "end": 32.74545454545454
+          },
+          {
+            "start": 33.59772727272727,
+            "end": 34.79772727272727
+          },
+          {
+            "start": 35.65,
+            "end": 36.88636363636364
+          }
+        ]
+      },
+      {
+        "text": "The word radius in the ACL2 parameter name refers to the squared radius in this checker.",
+        "start": 37.409090909090914,
+        "end": 43.03333333333333,
+        "phrases": [
+          {
+            "start": 37.409090909090914,
+            "end": 43.03333333333333
+          }
+        ]
+      },
+      {
+        "text": "Keeping that distinction explicit avoids taking a square root or comparing quantities with different meanings.",
+        "start": 43.556060606060605,
+        "end": 49.67727272727273,
+        "phrases": [
+          {
+            "start": 43.556060606060605,
+            "end": 49.67727272727273
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cover",
+    "chapter": "What a complete zero cover must add",
+    "start": 694.0333333333381,
+    "audio_start": 694.2333333333381,
+    "duration": 49.562875,
+    "sentences": [
+      {
+        "text": "The checker has established a geometric statement about the supplied boxes.",
+        "start": 0,
+        "end": 4.363636363636363,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.363636363636363
+          }
+        ]
+      },
+      {
+        "text": "It has not proved that every relevant zero occurs in those boxes.",
+        "start": 4.886363636363636,
+        "end": 8.946969696969697,
+        "phrases": [
+          {
+            "start": 4.886363636363636,
+            "end": 8.946969696969697
+          }
+        ]
+      },
+      {
+        "text": "To isolate an actual zero, we also need a complete cover of the relevant zero set and a proof that the selected box contains only the selected zero point.",
+        "start": 9.46969696969697,
+        "end": 18.83939393939394,
+        "phrases": [
+          {
+            "start": 9.46969696969697,
+            "end": 18.83939393939394
+          }
+        ]
+      },
+      {
+        "text": "That point may have multiplicity greater than one; uniqueness of location is not simplicity.",
+        "start": 19.362121212121213,
+        "end": 25.05909090909091,
+        "phrases": [
+          {
+            "start": 19.362121212121213,
+            "end": 25.05909090909091
+          }
+        ]
+      },
+      {
+        "text": "A missing box could hide another zero inside the circle.",
+        "start": 25.581818181818182,
+        "end": 29.19393939393939,
+        "phrases": [
+          {
+            "start": 25.581818181818182,
+            "end": 29.19393939393939
+          }
+        ]
+      },
+      {
+        "text": "A selected box containing two distinct zeros would also defeat the intended conclusion.",
+        "start": 29.716666666666665,
+        "end": 35.13484848484848,
+        "phrases": [
+          {
+            "start": 29.716666666666665,
+            "end": 35.13484848484848
+          }
+        ]
+      },
+      {
+        "text": "The Lean circle-isolation theorem carries these coverage and uniqueness hypotheses explicitly.",
+        "start": 35.657575757575756,
+        "end": 41.306060606060605,
+        "phrases": [
+          {
+            "start": 35.657575757575756,
+            "end": 41.306060606060605
+          }
+        ]
+      },
+      {
+        "text": "Generating and refining suitable complete covers, including clusters, remains a separate obligation in the full reduction.",
+        "start": 41.82878787878788,
+        "end": 49.06515151515151,
+        "phrases": [
+          {
+            "start": 41.82878787878788,
+            "end": 49.06515151515151
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "multiplicity",
+    "chapter": "From a zero to its pole coefficient",
+    "start": 745.233333333334,
+    "audio_start": 745.4333333333341,
+    "duration": 50.035208,
+    "sentences": [
+      {
+        "text": "Why does a zero produce a pole in the transform at all?",
+        "start": 0,
+        "end": 3.4303030303030306,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.4303030303030306
+          }
+        ]
+      },
+      {
+        "text": "Near a zero of multiplicity m, the logarithmic derivative has principal part m divided by s minus the zero.",
+        "start": 3.953030303030303,
+        "end": 11.25,
+        "phrases": [
+          {
+            "start": 3.953030303030303,
+            "end": 11.25
+          }
+        ]
+      },
+      {
+        "text": "The normalized transform introduces the factor displayed on screen.",
+        "start": 11.772727272727272,
+        "end": 15.893939393939393,
+        "phrases": [
+          {
+            "start": 11.772727272727272,
+            "end": 15.893939393939393
+          }
+        ]
+      },
+      {
+        "text": "The resulting coefficient in the repository's reciprocal-pole convention is minus m divided by rho times rho minus one.",
+        "start": 16.416666666666668,
+        "end": 23.75,
+        "phrases": [
+          {
+            "start": 16.416666666666668,
+            "end": 23.75
+          }
+        ]
+      },
+      {
+        "text": "The source computes that value with rational complex arithmetic when supplied rational model data.",
+        "start": 24.272727272727273,
+        "end": 30.115151515151517,
+        "phrases": [
+          {
+            "start": 24.272727272727273,
+            "end": 30.115151515151517
+          }
+        ]
+      },
+      {
+        "text": "For the illustrative input one half plus i, multiplicities one and two give four fifths and eight fifths.",
+        "start": 30.637878787878787,
+        "end": 36.940909090909095,
+        "phrases": [
+          {
+            "start": 30.637878787878787,
+            "end": 36.940909090909095
+          }
+        ]
+      },
+      {
+        "text": "This input is not being asserted to be a zeta zero.",
+        "start": 37.46363636363637,
+        "end": 40.71212121212121,
+        "phrases": [
+          {
+            "start": 37.46363636363637,
+            "end": 40.71212121212121
+          }
+        ]
+      },
+      {
+        "text": "Multiplicity scales the contribution at one location; it does not create several distinct locations that the geometry must separate.",
+        "start": 41.234848484848484,
+        "end": 49.53787878787879,
+        "phrases": [
+          {
+            "start": 41.234848484848484,
+            "end": 49.53787878787879
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dominance",
+    "chapter": "Nearer poles dominate relatively",
+    "start": 796.899999999994,
+    "audio_start": 797.099999999994,
+    "duration": 51.164208,
+    "sentences": [
+      {
+        "text": "Return to a deliberately simple model with two poles.",
+        "start": 0,
+        "end": 3.393939393939394,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 3.393939393939394
+          }
+        ]
+      },
+      {
+        "text": "Take one divided by two minus z, then subtract three divided by three minus z.",
+        "start": 3.916666666666667,
+        "end": 9.565151515151515,
+        "phrases": [
+          {
+            "start": 3.916666666666667,
+            "end": 9.565151515151515
+          }
+        ]
+      },
+      {
+        "text": "At index zero, the second contribution is larger and the coefficient is negative.",
+        "start": 10.087878787878788,
+        "end": 15.118181818181819,
+        "phrases": [
+          {
+            "start": 10.087878787878788,
+            "end": 15.118181818181819
+          }
+        ]
+      },
+      {
+        "text": "So nearest does not mean dominant at every small index.",
+        "start": 15.64090909090909,
+        "end": 19.277272727272727,
+        "phrases": [
+          {
+            "start": 15.64090909090909,
+            "end": 19.277272727272727
+          }
+        ]
+      },
+      {
+        "text": "Multiply the coefficient at index j by two to the power j plus one.",
+        "start": 19.8,
+        "end": 24.43030303030303,
+        "phrases": [
+          {
+            "start": 19.8,
+            "end": 24.43030303030303
+          }
+        ]
+      },
+      {
+        "text": "The selected contribution becomes one, while the competing contribution becomes three times two thirds to that same power.",
+        "start": 24.953030303030303,
+        "end": 32.371212121212125,
+        "phrases": [
+          {
+            "start": 24.953030303030303,
+            "end": 32.371212121212125
+          }
+        ]
+      },
+      {
+        "text": "At index five, the normalized coefficient is one hundred seventy-nine over two hundred forty-three, which is greater than one half.",
+        "start": 32.89393939393939,
+        "end": 40.42121212121212,
+        "phrases": [
+          {
+            "start": 32.89393939393939,
+            "end": 40.42121212121212
+          }
+        ]
+      },
+      {
+        "text": "The farther contribution has become too small to cancel the selected one.",
+        "start": 40.943939393939395,
+        "end": 45.343939393939394,
+        "phrases": [
+          {
+            "start": 40.943939393939395,
+            "end": 45.343939393939394
+          }
+        ]
+      },
+      {
+        "text": "The teaching function uses the actual pole-coefficient constructor for both terms.",
+        "start": 45.86666666666667,
+        "end": 50.666666666666664,
+        "phrases": [
+          {
+            "start": 45.86666666666667,
+            "end": 50.666666666666664
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "regular",
+    "chapter": "Control the regular part as well",
+    "start": 849.6999999999862,
+    "audio_start": 849.8999999999862,
+    "duration": 60.131417,
+    "sentences": [
+      {
+        "text": "A real pole model also has a regular part, not just the listed reciprocal terms.",
+        "start": 0,
+        "end": 5.709090909090909,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.709090909090909
+          }
+        ]
+      },
+      {
+        "text": "If that regular part is analytic on a sufficiently large disk and bounded by a constant on its boundary, Cauchy's coefficient estimate bounds its j-th coefficient by that constant divided by the radius to the power j.",
+        "start": 6.2318181818181815,
+        "end": 19.334848484848486,
+        "phrases": [
+          {
+            "start": 6.2318181818181815,
+            "end": 19.334848484848486
+          }
+        ]
+      },
+      {
+        "text": "After normalization by the selected distance, the important factor is the distance divided by that larger radius.",
+        "start": 19.85757575757576,
+        "end": 27.106060606060606,
+        "phrases": [
+          {
+            "start": 19.85757575757576,
+            "end": 27.106060606060606
+          }
+        ]
+      },
+      {
+        "text": "It is strictly less than one.",
+        "start": 27.62878787878788,
+        "end": 29.4469696969697,
+        "phrases": [
+          {
+            "start": 27.62878787878788,
+            "end": 29.4469696969697
+          }
+        ]
+      },
+      {
+        "text": "The code stores a regular polynomial in a unit-disk variable and rescales its coefficients by the physical radius to the power minus j.",
+        "start": 29.969696969696972,
+        "end": 38.2969696969697,
+        "phrases": [
+          {
+            "start": 29.969696969696972,
+            "end": 38.2969696969697
+          }
+        ]
+      },
+      {
+        "text": "The finite arithmetic development obtains coefficient caps from checked polynomial boundary data with a proved extraction allowance.",
+        "start": 38.81969696969697,
+        "end": 46.35909090909091,
+        "phrases": [
+          {
+            "start": 38.81969696969697,
+            "end": 46.35909090909091
+          }
+        ]
+      },
+      {
+        "text": "Sampling a few points of an arbitrary analytic function would not establish a bound everywhere between them.",
+        "start": 46.88181818181818,
+        "end": 53.196969696969695,
+        "phrases": [
+          {
+            "start": 46.88181818181818,
+            "end": 53.196969696969695
+          }
+        ]
+      },
+      {
+        "text": "The polynomial representation and the quantitative extraction theorem are essential parts of that step.",
+        "start": 53.71969696969697,
+        "end": 59.63484848484849,
+        "phrases": [
+          {
+            "start": 53.71969696969697,
+            "end": 59.63484848484849
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "model",
+    "chapter": "Construct a finite pole-model polynomial",
+    "start": 911.4666666666456,
+    "audio_start": 911.6666666666456,
+    "duration": 45.960917,
+    "sentences": [
+      {
+        "text": "The actual model coefficient adds three pieces: the selected pole, the other listed poles, and the rescaled regular coefficient.",
+        "start": 0,
+        "end": 8.303030303030303,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 8.303030303030303
+          }
+        ]
+      },
+      {
+        "text": "The first source card shows that sum.",
+        "start": 8.825757575757576,
+        "end": 11.274242424242424,
+        "phrases": [
+          {
+            "start": 8.825757575757576,
+            "end": 11.274242424242424
+          }
+        ]
+      },
+      {
+        "text": "The model-polynomial constructor then builds a finite list of those coefficients, advancing the index on each recursive call.",
+        "start": 11.796969696969697,
+        "end": 19.287878787878785,
+        "phrases": [
+          {
+            "start": 11.796969696969697,
+            "end": 19.287878787878785
+          }
+        ]
+      },
+      {
+        "text": "The list is a constructed object, not an assumed agreement with the Mellin computation.",
+        "start": 19.810606060606062,
+        "end": 24.937878787878788,
+        "phrases": [
+          {
+            "start": 19.810606060606062,
+            "end": 24.937878787878788
+          }
+        ]
+      },
+      {
+        "text": "For fixed rational model inputs, its entries can be computed exactly.",
+        "start": 25.46060606060606,
+        "end": 30.030303030303028,
+        "phrases": [
+          {
+            "start": 25.46060606060606,
+            "end": 30.030303030303028
+          }
+        ]
+      },
+      {
+        "text": "The analytic work must still justify that these inputs describe the transform we care about.",
+        "start": 30.553030303030305,
+        "end": 35.99545454545454,
+        "phrases": [
+          {
+            "start": 30.553030303030305,
+            "end": 35.99545454545454
+          }
+        ]
+      },
+      {
+        "text": "Keeping construction and interpretation separate lets the proof checker verify the finite algebra without silently accepting a missing analytic identity.",
+        "start": 36.51818181818182,
+        "end": 45.46363636363637,
+        "phrases": [
+          {
+            "start": 36.51818181818182,
+            "end": 45.46363636363637
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "comparison",
+    "chapter": "Compare the model with the actual computation",
+    "start": 959.0666666666405,
+    "audio_start": 959.2666666666405,
+    "duration": 52.739,
+    "sentences": [
+      {
+        "text": "The boundary-comparison function first constructs the polynomial attached to the actual improper Mellin evaluator.",
+        "start": 0,
+        "end": 6.703030303030302,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 6.703030303030302
+          }
+        ]
+      },
+      {
+        "text": "It constructs a pole-model polynomial of the matching degree, then forms their coefficientwise difference.",
+        "start": 7.225757575757576,
+        "end": 13.383333333333333,
+        "phrases": [
+          {
+            "start": 7.225757575757576,
+            "end": 13.383333333333333
+          }
+        ]
+      },
+      {
+        "text": "The second page checks that difference on the prescribed rational boundary orbit.",
+        "start": 13.906060606060606,
+        "end": 18.403030303030302,
+        "phrases": [
+          {
+            "start": 13.906060606060606,
+            "end": 18.403030303030302
+          }
+        ]
+      },
+      {
+        "text": "The computed sample count and extraction bounds turn an accepted check into a bound on the selected coefficient difference.",
+        "start": 18.925757575757576,
+        "end": 25.713636363636365,
+        "phrases": [
+          {
+            "start": 18.925757575757576,
+            "end": 25.713636363636365
+          }
+        ]
+      },
+      {
+        "text": "This is a certificate to be verified, not a claim that every proposed model will pass.",
+        "start": 26.236363636363638,
+        "end": 31.73939393939394,
+        "phrases": [
+          {
+            "start": 26.236363636363638,
+            "end": 31.73939393939394
+          }
+        ]
+      },
+      {
+        "text": "The numerical improper-polynomial theorem currently uses a disk wholly inside the region where the real part is greater than two.",
+        "start": 32.262121212121215,
+        "end": 39.81363636363636,
+        "phrases": [
+          {
+            "start": 32.262121212121215,
+            "end": 39.81363636363636
+          }
+        ]
+      },
+      {
+        "text": "Taking a longer cutoff does not itself provide meromorphic continuation beyond that region.",
+        "start": 40.336363636363636,
+        "end": 45.79090909090909,
+        "phrases": [
+          {
+            "start": 40.336363636363636,
+            "end": 45.79090909090909
+          }
+        ]
+      },
+      {
+        "text": "Connecting suitable analytic models to these comparisons is one of the remaining mathematical jobs.",
+        "start": 46.31363636363636,
+        "end": 52.24090909090909,
+        "phrases": [
+          {
+            "start": 46.31363636363636,
+            "end": 52.24090909090909
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "anchor",
+    "chapter": "Keep the plain real reading",
+    "start": 1013.4333333333019,
+    "audio_start": 1013.633333333302,
+    "duration": 48.16725,
+    "sentences": [
+      {
+        "text": "Part Five's one-sided inequality contained an extra plain real reading alongside the magnitude of the oscillating reading.",
+        "start": 0,
+        "end": 7.333333333333333,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 7.333333333333333
+          }
+        ]
+      },
+      {
+        "text": "We cannot erase it when we combine the estimates.",
+        "start": 7.8560606060606055,
+        "end": 10.704545454545455,
+        "phrases": [
+          {
+            "start": 7.8560606060606055,
+            "end": 10.704545454545455
+          }
+        ]
+      },
+      {
+        "text": "The repository controls that height-zero reading with its own checked model.",
+        "start": 11.227272727272728,
+        "end": 15.603030303030302,
+        "phrases": [
+          {
+            "start": 11.227272727272728,
+            "end": 15.603030303030302
+          }
+        ]
+      },
+      {
+        "text": "Its bound contains a pole-family mass over a clearance power, a regular-part cap over a contour-radius power, and explicit comparison errors.",
+        "start": 16.125757575757575,
+        "end": 25.11969696969697,
+        "phrases": [
+          {
+            "start": 16.125757575757575,
+            "end": 25.11969696969697
+          }
+        ]
+      },
+      {
+        "text": "The displayed function assembles those terms.",
+        "start": 25.642424242424244,
+        "end": 28.284848484848485,
+        "phrases": [
+          {
+            "start": 25.642424242424244,
+            "end": 28.284848484848485
+          }
+        ]
+      },
+      {
+        "text": "A bound on the absolute value of the real reading also bounds how negative it can be.",
+        "start": 28.807575757575755,
+        "end": 33.93484848484848,
+        "phrases": [
+          {
+            "start": 28.807575757575755,
+            "end": 33.93484848484848
+          }
+        ]
+      },
+      {
+        "text": "That supplies the additional term needed to turn the failed-search inequality into an upper cap for the oscillating reading.",
+        "start": 34.45757575757576,
+        "end": 41.306060606060605,
+        "phrases": [
+          {
+            "start": 34.45757575757576,
+            "end": 41.306060606060605
+          }
+        ]
+      },
+      {
+        "text": "This is why two compatible models are needed: one at the selected height and one at height zero.",
+        "start": 41.82878787878788,
+        "end": 47.671212121212115,
+        "phrases": [
+          {
+            "start": 41.82878787878788,
+            "end": 47.671212121212115
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "budget",
+    "chapter": "Choose indices and precision without a loop",
+    "start": 1063.2333333332954,
+    "audio_start": 1063.4333333332954,
+    "duration": 59.258458,
+    "sentences": [
+      {
+        "text": "We now have several small terms to pay for: competing poles, regular coefficients, the window upper bound, the real anchor, and comparison errors.",
+        "start": 0,
+        "end": 9.090909090909092,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 9.090909090909092
+          }
+        ]
+      },
+      {
+        "text": "Strict distance-to-radius gaps make the geometric ratios smaller than one.",
+        "start": 9.613636363636365,
+        "end": 14.17121212121212,
+        "phrases": [
+          {
+            "start": 9.613636363636365,
+            "end": 14.17121212121212
+          }
+        ]
+      },
+      {
+        "text": "The project's geometric threshold machinery computes a sufficiently large natural index for the prescribed fractions of the budget.",
+        "start": 14.693939393939395,
+        "end": 22.245454545454546,
+        "phrases": [
+          {
+            "start": 14.693939393939395,
+            "end": 22.245454545454546
+          }
+        ]
+      },
+      {
+        "text": "The source shown here combines those requirements for the window, anchor, and regular terms.",
+        "start": 22.76818181818182,
+        "end": 28.016666666666666,
+        "phrases": [
+          {
+            "start": 22.76818181818182,
+            "end": 28.016666666666666
+          }
+        ]
+      },
+      {
+        "text": "After the index fixes the scale, the model-error precision is one divided by one hundred twenty-eight times one plus that scale.",
+        "start": 28.539393939393943,
+        "end": 36.18787878787879,
+        "phrases": [
+          {
+            "start": 28.539393939393943,
+            "end": 36.18787878787879
+          }
+        ]
+      },
+      {
+        "text": "Multiplying that tolerance by the scale still gives a small controlled contribution.",
+        "start": 36.710606060606054,
+        "end": 41.7530303030303,
+        "phrases": [
+          {
+            "start": 36.710606060606054,
+            "end": 41.7530303030303
+          }
+        ]
+      },
+      {
+        "text": "The order matters: caps and clearances must be justified uniformly before they are used to select an index and a precision.",
+        "start": 42.275757575757574,
+        "end": 49.41515151515152,
+        "phrases": [
+          {
+            "start": 42.275757575757574,
+            "end": 49.41515151515152
+          }
+        ]
+      },
+      {
+        "text": "If the required cap secretly grows when the requested precision changes, that circular dependency has not been solved by writing down a threshold.",
+        "start": 49.93787878787879,
+        "end": 58.762121212121215,
+        "phrases": [
+          {
+            "start": 49.93787878787879,
+            "end": 58.762121212121215
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "contradiction",
+    "chapter": "Make the incompatible bounds visible",
+    "start": 1124.133333333288,
+    "audio_start": 1124.333333333288,
+    "duration": 46.458458,
+    "sentences": [
+      {
+        "text": "The final arithmetic pattern is simple once all those estimates are available.",
+        "start": 0,
+        "end": 4.557575757575758,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.557575757575758
+          }
+        ]
+      },
+      {
+        "text": "A selected pole gives a lower bound after subtracting the allowed cancellation and comparison errors.",
+        "start": 5.08030303030303,
+        "end": 11.237878787878788,
+        "phrases": [
+          {
+            "start": 5.08030303030303,
+            "end": 11.237878787878788
+          }
+        ]
+      },
+      {
+        "text": "Search failure gives an upper bound for that same normalized reading, using the separate real-anchor estimate.",
+        "start": 11.760606060606062,
+        "end": 17.796969696969697,
+        "phrases": [
+          {
+            "start": 11.760606060606062,
+            "end": 17.796969696969697
+          }
+        ]
+      },
+      {
+        "text": "If the lower bound is strictly larger than the upper bound, no value can satisfy both.",
+        "start": 18.31969696969697,
+        "end": 23.592424242424244,
+        "phrases": [
+          {
+            "start": 18.31969696969697,
+            "end": 23.592424242424244
+          }
+        ]
+      },
+      {
+        "text": "The teaching theorem on screen states this elementary ordered-arithmetic obstruction.",
+        "start": 24.115151515151517,
+        "end": 28.78181818181818,
+        "phrases": [
+          {
+            "start": 24.115151515151517,
+            "end": 28.78181818181818
+          }
+        ]
+      },
+      {
+        "text": "The actual project theorem obtains its bounds from the checked models and computed budgets, rather than inserting the numbers in our illustration.",
+        "start": 29.304545454545455,
+        "end": 37.304545454545455,
+        "phrases": [
+          {
+            "start": 29.304545454545455,
+            "end": 37.304545454545455
+          }
+        ]
+      },
+      {
+        "text": "In that conditional setting, assuming the window search failed leads to a contradiction.",
+        "start": 37.82727272727272,
+        "end": 42.881818181818176,
+        "phrases": [
+          {
+            "start": 37.82727272727272,
+            "end": 42.881818181818176
+          }
+        ]
+      },
+      {
+        "text": "Therefore the finite search must succeed.",
+        "start": 43.40454545454545,
+        "end": 45.96212121212121,
+        "phrases": [
+          {
+            "start": 43.40454545454545,
+            "end": 45.96212121212121
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "witness",
+    "chapter": "The conclusion is an actual search address",
+    "start": 1172.2333333332804,
+    "audio_start": 1172.4333333332804,
+    "duration": 46.240875,
+    "sentences": [
+      {
+        "text": "Success is more informative than an abstract statement that some violation exists.",
+        "start": 0,
+        "end": 4.8969696969696965,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 4.8969696969696965
+          }
+        ]
+      },
+      {
+        "text": "The conditional witness theorem returns the result of the repository's actual finite window search.",
+        "start": 5.419696969696969,
+        "end": 11.25,
+        "phrases": [
+          {
+            "start": 5.419696969696969,
+            "end": 11.25
+          }
+        ]
+      },
+      {
+        "text": "From that result it computes a rational address inside the intended window.",
+        "start": 11.772727272727272,
+        "end": 16.16060606060606,
+        "phrases": [
+          {
+            "start": 11.772727272727272,
+            "end": 16.16060606060606
+          }
+        ]
+      },
+      {
+        "text": "The address is at least the window start, and its square is at most the cube of that start.",
+        "start": 16.683333333333334,
+        "end": 21.653030303030302,
+        "phrases": [
+          {
+            "start": 16.683333333333334,
+            "end": 21.653030303030302
+          }
+        ]
+      },
+      {
+        "text": "That squared comparison expresses the upper endpoint without computing an irrational square root.",
+        "start": 22.175757575757576,
+        "end": 27.56969696969697,
+        "phrases": [
+          {
+            "start": 22.175757575757576,
+            "end": 27.56969696969697
+          }
+        ]
+      },
+      {
+        "text": "The returned signal interval has a strictly positive lower endpoint.",
+        "start": 28.092424242424244,
+        "end": 32.11666666666667,
+        "phrases": [
+          {
+            "start": 28.092424242424244,
+            "end": 32.11666666666667
+          }
+        ]
+      },
+      {
+        "text": "Its interpretation therefore certifies that the signal exceeds the proposed ceiling at that address.",
+        "start": 32.63939393939394,
+        "end": 38.31212121212121,
+        "phrases": [
+          {
+            "start": 32.63939393939394,
+            "end": 38.31212121212121
+          }
+        ]
+      },
+      {
+        "text": "Every accepted model, coverage statement, and parameter condition remains attached to the route that produced this conclusion.",
+        "start": 38.834848484848486,
+        "end": 45.74393939393939,
+        "phrases": [
+          {
+            "start": 38.834848484848486,
+            "end": 45.74393939393939
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scope",
+    "chapter": "What is proved and what remains",
+    "start": 1220.0999999999428,
+    "audio_start": 1220.2999999999429,
+    "duration": 57.16225,
+    "sentences": [
+      {
+        "text": "We have followed the conditional chain from finite geometry to a returned arithmetic witness.",
+        "start": 0,
+        "end": 5.248484848484849,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 5.248484848484849
+          }
+        ]
+      },
+      {
+        "text": "The geometry algorithms and box checker are certified constructions.",
+        "start": 5.7712121212121215,
+        "end": 10.037878787878789,
+        "phrases": [
+          {
+            "start": 5.7712121212121215,
+            "end": 10.037878787878789
+          }
+        ]
+      },
+      {
+        "text": "The model comparison and coefficient-budget theorems are certified implications with explicit premises.",
+        "start": 10.56060606060606,
+        "end": 16.778787878787877,
+        "phrases": [
+          {
+            "start": 10.56060606060606,
+            "end": 16.778787878787877
+          }
+        ]
+      },
+      {
+        "text": "What remains for the full Landau reduction is to supply suitable analytic models and complete zero covers for the general mathematical situation.",
+        "start": 17.30151515151515,
+        "end": 25.91969696969697,
+        "phrases": [
+          {
+            "start": 17.30151515151515,
+            "end": 25.91969696969697
+          }
+        ]
+      },
+      {
+        "text": "Their caps must remain compatible as precision changes, and the final encoded statement still needs its intended Peano Arithmetic interpretation.",
+        "start": 26.44242424242424,
+        "end": 35.278787878787874,
+        "phrases": [
+          {
+            "start": 26.44242424242424,
+            "end": 35.278787878787874
+          }
+        ]
+      },
+      {
+        "text": "These are substantial proof obligations, not missing labels on an otherwise finished theorem.",
+        "start": 35.80151515151515,
+        "end": 41.52272727272727,
+        "phrases": [
+          {
+            "start": 35.80151515151515,
+            "end": 41.52272727272727
+          }
+        ]
+      },
+      {
+        "text": "Exposing the finite chain is valuable because it identifies exactly which work is already arithmetic and exactly where further demotion is needed.",
+        "start": 42.04545454545455,
+        "end": 50.59090909090909,
+        "phrases": [
+          {
+            "start": 42.04545454545455,
+            "end": 50.59090909090909
+          }
+        ]
+      },
+      {
+        "text": "This episode does not announce a completed proof of the Riemann Hypothesis in Peano Arithmetic.",
+        "start": 51.11363636363636,
+        "end": 56.665151515151514,
+        "phrases": [
+          {
+            "start": 51.11363636363636,
+            "end": 56.665151515151514
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "next",
+    "chapter": "The final milestone stays evidence-based",
+    "start": 1278.8999999999387,
+    "audio_start": 1279.0999999999387,
+    "duration": 38.161958,
+    "sentences": [
+      {
+        "text": "The next milestone is the completed reduction, with its hypotheses supplied and its arithmetic meaning audited.",
+        "start": 0,
+        "end": 6.327272727272727,
+        "phrases": [
+          {
+            "start": 0,
+            "end": 6.327272727272727
+          }
+        ]
+      },
+      {
+        "text": "We will make that final episode when the proof evidence supports it.",
+        "start": 6.85,
+        "end": 10.643939393939394,
+        "phrases": [
+          {
+            "start": 6.85,
+            "end": 10.643939393939394
+          }
+        ]
+      },
+      {
+        "text": "For now, the result is a concrete route: checked local geometry\u2026 constructed coefficient models\u2026 verified comparisons\u2026 and a conditional finite witness.",
+        "start": 11.166666666666666,
+        "end": 24.171969696969697,
+        "phrases": [
+          {
+            "start": 11.166666666666666,
+            "end": 15.566666666666666
+          },
+          {
+            "start": 16.418939393939393,
+            "end": 18.491666666666667
+          },
+          {
+            "start": 19.343939393939394,
+            "end": 21.174242424242422
+          },
+          {
+            "start": 22.026515151515152,
+            "end": 24.171969696969697
+          }
+        ]
+      },
+      {
+        "text": "Each step can be inspected independently and connected through stated hypotheses.",
+        "start": 24.694696969696967,
+        "end": 29.482575757575756,
+        "phrases": [
+          {
+            "start": 24.694696969696967,
+            "end": 29.482575757575756
+          }
+        ]
+      },
+      {
+        "text": "That is how Landau Windows ACL Two turns a large foundational question into smaller, reviewable mathematical tasks.",
+        "start": 30.005303030303033,
+        "end": 37.66590909090909,
+        "phrases": [
+          {
+            "start": 30.005303030303033,
+            "end": 37.66590909090909
+          }
+        ]
+      }
+    ]
+  }
+]
