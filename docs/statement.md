@@ -50,20 +50,14 @@ def ZetaLandauEps : Prop :=
 (There is also a smoothed variant `ZetaLandauBar` with `Gzbar x = ∫₁² u · Gz(x/u) du`. See the archive.)
 
 
-**Status (2026-11-22): both statements are proved in our Lean soft layer**
-(`lean/LandauWindows/Soft/ZetaLandau.lean`). The `s0 = 1` (ceiling)
-direction is unconditional (the windowed lemma it rests on is discharged);
-the `s0 = -1` (mirror, floor) direction is `landau_window` applied to the
-negated statistic, which requires - and receives, as a named hypothesis in
-the hypothesis-injection discipline - exactly one classical input,
-`ZetaNoRealStripZeros`: zeta has no real zeros in the open strip
-(classically, zeta < 0 on (0,1)). This is the same fact the classical
-proof above uses (its `H` is holomorphic on real `s > theta` because zeta
-has no real zeros in (0,1)); it is not a technicality - a real zero would
-contribute a *positive* growing term to `Gz` and be invisible to a floor
-bound, which is precisely what the residue-sign clause of the `PoleData`
-machinery detects. Mathlib at our pin does not yet carry this sign lemma;
-its discharge plan is recorded in `lean/README.md`.## 2. The windowed version (the statement the architecture actually needs)
+**Status (2026-11-22): both statements are proved unconditionally in the Lean
+soft layer** (`lean/LandauWindows/Soft/ZetaLandau.lean`). The floor direction
+applies `landau_window` to the negated statistic. Its real nonvanishing input
+is discharged in `Soft/ZetaReal.lean` by proving zeta < 0 on (0,1) through
+fractional-part integral continuation. A real zero would contribute a positive
+growing term to `Gz`, invisible to a floor, so this sign fact is substantive.
+
+## 2. The windowed version (the statement the architecture actually needs)
 
 **Source:** Rubinstein's draft (Nov 21, 2026), Lemma "the same, on intervals"; also present in Alpöge's Lean (`Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/`, and the ζ-facing machinery in `src/Formalism/`).
 
@@ -79,7 +73,7 @@ This is the *contract* our explicit version must honor: it must accept exactly t
 
 ## 3. Target T1: the explicit windowed certificate theorem
 
-**Status (2026-11-21): proved in explicit form in [`classical/paper.tex`](../classical/paper.tex) (Theorem 6.2 there), with the certificate algorithm specified in [`classical/certificates.md`](../classical/certificates.md).** The draft logical shape below is realized as stated, with these Phase 1 refinements: the certificate is a tuple `(θ, C, β₁, β₂, γ₁, γ₂, h)` — rectangle *plus slab half-width* — with explicit validity conditions (V1)–(V5) and one upstream-certified statement (S1): the slab `{Re s > 1/2, γ₁−h < Im s < γ₂+h}` contains exactly one zero of ζ (counted with multiplicity), lying in `R`; the margin is the explicit function `Q(j) = 3λ^(j+1)/(16·M₁·M₂) − 52.5` with `λ = (252−θ)/d̄`; and the address is found by a terminating grid search that verifies the violation itself. The draft's `Y₀(θ, R)` became `Y₀(θ, R, C, h)`, explicit in the paper's Definition 6.1. The original draft shape, for the record:
+**Status (2026-11-24): explicit single-zero draft, compiled; mathematical review remains open.** [`classical/paper.tex`](../classical/paper.tex), Theorem 6.2, and [`classical/certificates.md`](../classical/certificates.md) give a conditional certificate formulation. Its tuple is `(θ, C, β₁, β₂, γ₁, γ₂, h)` — a rectangle plus slab half-width — with validity conditions (V1)–(V5) and an upstream-certified statement (S1): the slab `{Re s > 1/2, γ₁−h < Im s < γ₂+h}` contains exactly one zero of ζ, counted with multiplicity, lying in `R`. This is stronger than the isolation-rectangle input (a) below, so it does not establish the full draft T1 on all its stated inputs. The paper specifies `Q(j) = 3λ^(j+1)/(16·M₁·M₂) − 52.5`, with `λ = (252−θ)/d̄`, and a terminating grid search that verifies a returned violation. Its threshold is `Y₀(θ, R, C, h)`, defined in Definition 6.1. General cluster handling and the arithmetic interpretation remain required; see the [proof-obligation ledger](reduction-status.md). The original draft target is:
 
 > **T1 (draft).** There are explicit constants and explicit computable functions such that the following holds. Let `1/2 ≤ θ < 1`. Suppose:
 >
@@ -101,7 +95,15 @@ Design notes:
 - The isolation rectangle (a) is deliberately an *input*, not something we produce: zero-finding belongs to interval-arithmetic practitioners; we consume their output. This follows the hypothesis-injection discipline that has precedent in recent Lean explicit number theory.
 - The `Y^{3/2}` window length is the architecture's; variants (e.g. `Y^2`, which appears in the L-function side of the archive) should be treated in the same framework, with the dependence on the window exponent tracked explicitly.
 
-Phase 1 notes on the design notes: the poly-time search bound is realized (paper Proposition 6.5: the grid has at most `4·Y^{3/2−θ}·(L_G(Y^{3/2}) + C + 1/2)` points, each evaluation polynomial); the window-exponent dependence is symbolic (paper Remark 3.4); and one honest limitation emerged — the certificate isolates a *single* zero, so two off-line zeros within ≈34 in height cannot be handled per-zero by the present argument, and the unconditional derivation of the windowed Landau lemma from T1 carries a non-clustering hypothesis (paper §8.1).
+The paper's Proposition 6.5 gives an ideal real-grid size bound and a draft
+complexity claim; the current ACL2 log/Euler evaluators do not claim time
+polynomial in precision bit length. The window exponent is symbolic (paper
+Remark 3.4). The fixed slab isolates a single simple zero, so off-line zeros
+within about 34 in height cannot be handled individually by that argument.
+The ACL2 theorem uses arbitrary-precision rational probes in a compact disk.
+It constructs the needed contours without a single-zero slab assumption and
+gives a certified rational witness on each sufficiently large window.
+[Arithmetic and classical interpretation](acl2-interpretation.md)
 
 ## 4. Target T1-L (DRAFT): L-functions / GRH-for-Dirichlet
 
@@ -123,6 +125,11 @@ with one-sided criteria for `Gz − Gχ` in `OCStep` / `OCStepUpper` (same file)
 |----|------|-------------------|
 | T1 | The theorem of §3, proved classically with explicit constants | `classical/` (paper) |
 | T2 | T1 formalized in Lean: (i) a *soft layer* — ordinary mathlib-style, for correctness; (ii) an *effective shadow* — choice-free, explicit witnesses, rational interval arithmetic, by construction interpretable in PA | `lean/` |
-| T3 | The contrapositive as a finite certificate checker | `acl2/` |
+| T3 | The arithmetic windowed Landau theorem: checker soundness, guaranteed witness search, and the connection to the analytic statement | `acl2/` |
 
-The certificate checker (T3) consumes: isolation-rectangle data, ceiling constants, window endpoints; and checks the violation at the computed address by finite arithmetic. Its trusted core is intended to be checkable by ACL2, whose logic (quantifier-free, total computable functions, induction up to ~ε₀) is weak — which is the point.
+T3 consumes isolation-rectangle data, ceiling constants, and window endpoints.
+Its finite checker verifies a violation at a computed address. The full target
+also proves that the search succeeds on the stated inputs and documents the
+arithmetic interpretation of the windowed Landau theorem. A checker by itself
+does not accomplish the roughly PA-strength reduction. See
+[foundational obligations](foundations.md#what-the-acl2-milestone-must-include).

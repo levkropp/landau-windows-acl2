@@ -1,5 +1,5 @@
 /-
-T1, soft layer (statement only — not proved here yet).
+T1, soft layer: the existence statement, proved as `t1Soft` below.
 
 The explicit windowed Landau certificate theorem, in the logical shape
 fixed by ../docs/statement.md §3, mirroring ../classical/paper.tex:
@@ -145,7 +145,7 @@ def ZetaIsolated (R : IsolationRect) (h : ℝ) : Prop :=
 
 /-! ### The theorem statement -/
 
-/-- **T1, soft form (statement; not proved in this file).** If the
+/-- **T1, soft form (proved as `t1Soft` below).** If the
 certificate data are valid (paper Definition 5.1) and the certified
 statement (S1) holds, then there is a threshold beyond which every
 window `[Y, Y ^ (3/2)]` contains an address `x` at which the claimed

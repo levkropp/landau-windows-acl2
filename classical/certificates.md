@@ -6,8 +6,18 @@ input/output formats. It is the mathematical interface consumed by the
 ACL2 checker (target T3, Phase 4): the transcript format below is what
 ACL2 will re-verify with pure rational arithmetic.
 
-Status: matches paper.tex of 2026-11-21. When the paper changes, this
-file changes with it.
+Status: working draft of the paper's algorithm. The verified implementation
+uses the conservative rational replacements described below.
+
+**Implementation review (2026-11-22):** this remains ideal mathematical
+pseudocode. The spacing, window endpoint, and precision formulas below
+are generally real, even for rational input. Rational addresses and
+budgets require justified rounding before this is an executable certificate
+algorithm. ACL2 now certifies a conservative rational window construction,
+precision bound, and mesh/search theorem; Lean proves their real-window
+interpretation. The actual `Gz` evaluator and window search are now connected
+with a proved total precision budget. Integration with the analytic
+bounds remains open. See [the arithmetic contract](../docs/arithmetic-contract.md).
 
 ---
 

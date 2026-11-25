@@ -8,7 +8,7 @@ Statements drafted (`docs/statement.md`), prior art surveyed (`docs/prior-art.md
 
 ## Phase 1 — The explicit windowed Landau theorem (classical paper)
 
-**Status (2026-11-21): core delivered and compiled; phase in progress.** `classical/paper.tex` is drafted in full — the explicit windowed Landau certificate theorem T1 (Theorem 6.2 there) with every constant rational and listed in its Constant Registry — and the certificate algorithm is specified in `classical/certificates.md`. The first compile pass is done (MiKTeX 25.12; `paper.pdf`, 27 pages, no errors). Pending: the `numerics/` sanity checks, and (optionally, Phase 1.5) the cluster refinement of paper §8.1.
+**Status (2026-11-22): drafted and compiled; mathematical review in progress.** `classical/paper.tex` gives the explicit single-zero certificate theorem T1 (Theorem 6.2), and `classical/certificates.md` specifies its algorithm. The compiled PDF has 28 pages. The single-zero slab restriction does not establish the full windowed theorem. General cluster handling is required, along with verification of the analytic bounds and their arithmetic implementation. See the [proof-obligation ledger](reduction-status.md).
 
 Deliverable: a paper in `classical/` proving T1 (see `docs/statement.md` §3) with fully computable constants and a certificate algorithm.
 
@@ -33,9 +33,9 @@ Plan of the argument (to be refined):
 - This **discharges the analytic hypothesis `ZetaPoleData` unconditionally**, giving:
   - `zeta_landau_windowed_unconditional` - **Rubinstein's windowed Landau lemma for zeta, with no hypotheses at all**;
   - `LandauWindows.t1Soft : T1Soft` - **T1 proved in the soft layer** (pure logic from the unconditional lemma: a certified zero with `Re > theta` forces every sufficiently large window to contain a ceiling violation).
-- **The mirror (`s0 = -1`) direction is done modulo one named input**: `zeta_landau : Formalism.ZetaLandau` (BOTH signs) and `zeta_landau_eps : Formalism.ZetaLandauEps` are proved. The route is NOT the functional equation (the FE reflects zeros; the statement is about the same half-plane) but the negation: a floor on `Gz` is a ceiling on `-Gz`, and `PoleData` passes to the negated statistic (`poleData_neg`) exactly when the zero set has no real points - which for zeta is the single named classical input `ZetaNoRealStripZeros` (no real strip zeros; classically zeta < 0 on (0,1) - the same fact the classical proof uses). Its discharge plan (extend the Loeffler-Tao fractional-part identity by the identity theorem) is recorded in `lean/README.md`.
+- **The mirror (`s0 = -1`) direction is done unconditionally**: `zeta_landau : Formalism.ZetaLandau` (BOTH signs) and `zeta_landau_eps : Formalism.ZetaLandauEps` are proved with no analytic input arguments. A floor on `Gz` is a ceiling on `-Gz`, and `PoleData` passes to the negated statistic (`poleData_neg`) when the zero set has no real points. `Soft/ZetaReal.lean` proves zeta < 0 on (0,1), discharging `ZetaNoRealStripZeros`: the fractional-part integral is analytic for `Re s > 0` by mathlib's Mellin theorem, Abel summation identifies it for `Re s > 1`, and the identity theorem continues the pole-removed identity over the connected right half-plane. The proof is documented in `lean/README.md`.
 
-`lake build` clean (zero errors, zero sorries); the build-enforced axiom audit (`LandauWindows/Axioms.lean`) shows every theorem in the chain depends on exactly `[propext, Classical.choice, Quot.sound]`. Pending: the `ZetaNoRealStripZeros` discharge (one afternoon-sized file), T1's effective content (explicit constants of paper Definition 6.1 + computed address - `Shadow/`), the L-function (T1-L) instantiation via the same lifted family machinery with non-trivial characters (where the mirror direction additionally needs the Siegel-zero-safe input).
+`lake build` succeeds with zero errors and zero sorries; lifted-file linter warnings remain. The soft audit covers the analytic Landau theorems and the real meanings of the arithmetic evaluators. The separate 13-theorem shadow audit rejects choice and extra axioms. Phase 4 and the [proof ledger](reduction-status.md) track the ACL2 reduction; the [arithmetic contract](arithmetic-contract.md) gives its exact bounds. L-function instantiation remains pending, including real zeros in its floor direction.
 Deliverable: a Lean project in `lean/`, building against mathlib, containing:
 
 1. **Soft layer** (correctness first): `ZetaLandau`, the windowed version, and T1 proven in ordinary mathlib style (reals, `Classical.choice` allowed internally).
@@ -51,19 +51,32 @@ Discipline borrowed from neighbors: hypothesis-injection (zero-isolation rectang
 
 ## Phase 3 — Reverse-math placement
 
-Deliverable: a `docs/` note situating the effective shadow: expected somewhere in RCA₀–PA (the window conversion should be elementary; the transcendence of the zero-isolation is an *input*, which is what keeps this low). This is a genuinely new datapoint for the reverse mathematics of analytic number theory.
+Deliverable: a precise arithmetic interpretation of the completed ACL2 theorem, tracking the coding of analytic objects and every external input. Roughly PA strength is the target; termination and a Lean axiom audit alone do not establish that placement. Any comparison with second-order subsystems must also account for the equivalence between the encoded and analytic statements.
 
 **Success criterion:** a precise theorem or a precise plan for one.
 
-## Phase 4 — ACL2 certificate checker
+## Phase 4 — ACL2 arithmetic Landau theorem
 
-Deliverable: an ACL2 project in `acl2/` verifying the finite core:
+**Certified (2026-11-25).** `lw-euler-window-encoded-zero-reduction`
+computes the threshold from the rational zero region and ceiling data.
+An encoded zero supplies a rational probe at the computed precision.
+On every rational window above threshold, the search returns a rational
+address with a positive lower enclosure of the violation.
+[Main theorem](../acl2/euler-window-encoded-zero.lisp)
 
-- definitions: Λ-sums over bounded ranges as terminating functions on rationals (scaled integers), interval comparisons, the certificate data structures;
-- theorem: for all valid certificate data, the check at the computed address succeeds — an ACL2-shaped universally-quantified statement about terminating functions;
-- if limits sneak back in anywhere, ACL2(r) (nonstandard analysis extension) is the fallback home, but the target is vanilla ACL2.
+The proof selects compatible contours by scanning real radius bands.
+Native real-axis and right-half-plane clearance give a strict radial
+gap. A positive real count supplies a small probe which is moved to a
+modulated contour using that gap. If the final real circle stays empty,
+the original probe supplies the modulated count. The checked circle
+pair gives the effective window result.
+[Proof ledger](reduction-status.md)
 
-**Success criterion:** `acl2` certifies the checker with no `skip-proof`s and no nonstandard extensions, and the checker, run on a synthetic certificate, terminates.
+The classical comparison identifies the native Euler limit with
+`riemannZeta₁` and interprets the rational signal enclosures. It also
+extends the result to real window starts. The natural-induction coding
+explains the roughly PA-strength reading.
+[Arithmetic and classical interpretation](acl2-interpretation.md)
 
 ## Non-goals
 

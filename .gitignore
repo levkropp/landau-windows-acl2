@@ -19,6 +19,18 @@ build/
 # Python / numerics
 __pycache__/
 .venv/
+.tools/
+video/media/
+video/audio/
+video/__pycache__/
+site/dist/
+
+# ACL2 build products
+*.cert
+*.fasl
+*.port
+*.acl2x
+*.o
 
 # OS
 .DS_Store

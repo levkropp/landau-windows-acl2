@@ -4,10 +4,17 @@ This folder holds the classical paper: **Landau's ceiling step on windows, with 
 
 Contents:
 
-- `paper.tex` — the paper (drafted 2026-11-21): the effective windowed Landau certificate theorem T1 (Theorem 6.2), matching the target statements in `docs/statement.md` §3. Every constant is rational and listed in the paper's Constant Registry (§9).
-- `paper.pdf` — the compiled paper: 27 pages, built with MiKTeX 25.12 (`winget install MiKTeX.MiKTeX`; `pdflatex` ×3 in this folder). The compile is clean: no errors, no undefined references or citations; a handful of sub-3mm overfull boxes remain (cosmetic, listed in the build log if you rebuild).
+- `paper.tex` — the paper (drafted 2026-11-21): the effective windowed Landau certificate theorem T1 (Theorem 6.2), matching the target statements in `docs/statement.md` §3. The absolute constants are listed in the Constant Registry (§9); derived quantities involve computable real expressions that still need certified rational enclosures in the implementation.
+- `paper.pdf` — the compiled paper: 28 pages, built with MiKTeX 25.12 (`pdflatex` in this folder). The cluster discussion now distinguishes the draft's fixed-slab restriction from the remaining effective zero-cover obligations.
 - `certificates.md` — the certificate algorithm: input/output formats, pseudocode, termination and complexity; the transcript format is the interface for the eventual ACL2 checker (T3).
 - `numerics/` — planned: sanity-check computations of the constants on synthetic data (see `certificates.md` §6).
+
+The paper records the original single-zero construction. The certified
+ACL2 theorem uses arbitrary-precision probes in a compact disk and
+constructs the compatible contours for the returned-address certificate.
+Its rational mesh, signal enclosures and window thresholds are recorded
+with the classical comparison.
+[ACL2 interpretation](../docs/acl2-interpretation.md)
 
 ## Outline of the argument
 

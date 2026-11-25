@@ -2,10 +2,10 @@
 % Phase 1 deliverable of the landau-windows project (see ../README.md, ../docs/).
 % Compiles with plain LaTeX + AMS classes; no exotic packages.
 %
-% STATUS (honest): complete draft, compiles cleanly (MiKTeX 25.12, pdflatex
-% x3: 27 pages, no errors, no undefined references; a few sub-3mm overfull
-% boxes remain).  Every constant is rational and listed in the Constant
-% Registry (Section 9).  The quoted standard estimates (Inputs 5.2--5.4:
+% STATUS: working single-zero certificate draft; the full arithmetic
+% Landau reduction is not yet proved. Absolute constants are listed in
+% the Constant Registry (Section 9); derived real quantities need certified
+% rational enclosures. The quoted standard estimates (Inputs 5.2--5.4:
 % low zero data; local zero count; the zeta'/zeta partial-fraction bound)
 % are cited with deliberately conservative constants and are flagged for
 % tightening / self-containment during the effective-shadow work.
@@ -15,6 +15,7 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{longtable}
 \usepackage[colorlinks=true,linkcolor=blue]{hyperref}
 
 \newtheorem{theorem}{Theorem}[section]
@@ -51,23 +52,27 @@
 \date{November 21, 2026. Working draft (Phase 1).}
 
 \begin{abstract}
-We prove an explicit, completely effective form of the ``windowed Landau
-theorem'': if the smoothed prime-power counting error $G(x)$ satisfies
+This draft develops an explicit single-zero certificate version of the
+``windowed Landau theorem'': if the smoothed prime-power counting error $G(x)$ satisfies
 the one-sided bound $G(x) \le C x^{\theta}$ on a single long window
 $[Y, Y^{3/2}]$, then a certified zero of the Riemann zeta function with
-real part $>\theta$ cannot exist. In the contrapositive direction, from a zero-isolation
+real part $>\theta$ satisfying the fixed-slab isolation conditions cannot
+exist. Those conditions restrict clusters and multiplicities; removing
+that restriction is required for the full arithmetic reduction. In the
+contrapositive direction, from a zero-isolation
 certificate and the ceiling data we compute an explicit \emph{address}
 $x \in [Y, Y^{3/2}]$ at which the ceiling is violated, together with an
 explicit margin; the verification at $x$ is a finite sum over prime powers
-checked by rational interval arithmetic. Every constant in the proof is a
-rational number, explicitly displayed, and every existence statement is
-replaced by a terminating search. The non-effective statement we
+checked by rational interval arithmetic. The displayed absolute constants
+are rational; derived real quantities require certified enclosures.
+The non-effective statement we
 effectivize is due to Rubinstein (2026), building on Landau (1905) and the
 P\'olya--Ingham high-derivative method; our contribution is the
 explicitness, the certificate formulation, and the computable address. This
 is the classical layer (target T1) of a program whose ultimate aim is an
-ACL2-strength (approximately primitive-recursive-arithmetic) proof of this
-step.
+ACL2 proof of this step with a documented interpretation in weak arithmetic,
+targeting approximately Peano-arithmetic strength. The finite evaluators,
+analytic estimates and final composition are still being verified.
 \end{abstract}
 
 \maketitle
@@ -98,11 +103,11 @@ available only on recurring windows $[Y, Y^{3/2}]$;
 \end{enumerate}
 
 This repo is occupied with step 2, and specifically with the fact that
-although the windowed form of step 2 exists in the literature as a
-one-page non-effective argument \cite{Rub26} (Part~II, \S1), it has never
-been written down with explicit constants, formalized in any proof
-assistant, or placed on a primitive-recursive track. The present paper does
-the first of these three, classically.
+the windowed form of step 2 has a one-page non-effective argument
+\cite{Rub26} (Part~II, \S1). The present draft studies explicit certificate
+data and constants for a restricted single-zero version. The repository
+separately proves the classical windowed statement in Lean and is developing
+the full arithmetic reduction in ACL2.
 
 To state what ``the ceiling'' is, let $\Lam$ denote the von Mangoldt
 function and define, following the Alp\"oge development's conventions
@@ -1474,16 +1479,21 @@ certificate --- a genuine restriction relative to the classical
 statement (Lemma~\ref{lem:rubinstein}), whose existential choice of the
 evaluation point (``choose $t$ so that $z = \Sig + it$ has a unique
 nearest pole'') absorbs clusters automatically.
-\item The classical trick is however \emph{inherently non-effective}:
-the nearest-pole distances are unknowable a priori, and effectivizing
-them would require explicit zero-separation data that no finite
-computation provides. Our position is that the certificate-level
-statement is the honest effective form: it is exactly what a
-finite checker (T3) can consume, and it converts every
-\emph{isolatable} rogue zero into a named ceiling violation.
+\item The classical nearest-pole choice has not been effectivized by
+the fixed-slab argument above. This is a limitation of the present
+certificate, not an impossibility of finite separation data: a complete
+certified finite cover can carry explicit separation information.
+The repository now verifies rational tie-avoiding heights, nearest-point
+selection, and isolating circles for finite rational point data in ACL2.
+A box-circle checker has a Lean interpretation for actual complex zeros,
+conditional on a complete cover and uniqueness in the selected box.
+Generating and refining suitable covers for arbitrary zeros, and
+deriving the required analytic estimates from them, remain proof
+obligations. Until those are discharged, the single-zero certificate
+does not establish the full windowed Landau reduction in arithmetic.
 \end{itemize}
 
-Two routes extend the reach, both deferred:
+Two further routes may extend the reach; neither is established here:
 
 \begin{enumerate}
 \item \emph{Phase-averaging.} With several poles $\rho_1, \ldots,
@@ -1623,12 +1633,12 @@ bound for a transcendental quantity, used only through certified
 rational intervals). Irrational constants ($e$, $\log$, $\pi$,
 $\Euler$) appear in the proof only inside such intervals.
 
-\begin{center}
-\footnotesize
-\begin{tabular}{@{}lp{0.44\linewidth}p{0.25\linewidth}@{}}
+{\footnotesize
+\begin{longtable}{@{}p{0.23\linewidth}p{0.39\linewidth}p{0.30\linewidth}@{}}
 \hline
 \textbf{Symbol} & \textbf{Value / definition} & \textbf{Role}\\
 \hline
+\endhead
 $\Sig$ & $252$ & abscissa of evaluation; least value with
 $(\Sig-\theta)/(\Sig-2) \le e^{c}$ for all $\theta \in (0,1)$\\
 $c$ & $0.008$ & tail decay; pays for the $(\Sig-2) \to
@@ -1665,23 +1675,23 @@ $3/2$ & window exponent & architecture constant;
 see Remark~\ref{rem:exponent} for the symbolic variant\\
 $251.5$ & $\Sig - \tfrac12$ & distance from $z$ to any on-or-left
 of-line zero\\
-$\dbar, M_1, M_2, D_R$ & \S\ref{sec:derived} & certificate geometry\\
-$r_z, \varepsilon_z, W_0, W_1, W_1'$ & \S\ref{sec:derived} & the two
+$\dbar, M_1,$ $M_2, D_R$ & \S\ref{sec:derived} & certificate geometry\\
+$r_z, \varepsilon_z,$ $W_0, W_1, W_1'$ & \S\ref{sec:derived} & the two
 Cauchy circles and their clearances\\
 $B_z, B', M_z, M'$ & Definition~\ref{def:Mz} & circle sup-bounds\\
-$j_1, j_2, J_0, J_*, U_0, Y_0$ & Definition~\ref{def:thresholds} &
+$j_1, j_2, J_0,$ $J_*, U_0, Y_0$ & Definition~\ref{def:thresholds} &
 thresholds; $Q(j) \ge C+1$ for $j \ge J_*$\\
 $Q(j)$ & $3\lambda^{j+1}/(16M_1M_2) - 52.5$ & the margin function;
 $m = Q(j) - C \ge 1$\\
 $52.5$ & $C_1/2$ & additive constant in $Q$\\
 $L_G(x)$ & $\tfrac12(\log x)^2 + 2\log x + 1.6$ & Lipschitz constant
 of $G$ (Lemma~\ref{lem:G-size}(2))\\
-$L_h, \delta_{\mathrm{grid}}, N_{\mathrm{grid}}$ &
+$L_h, \delta_{\mathrm{grid}},$ $N_{\mathrm{grid}}$ &
 Prop.~\ref{prop:search}; also the precision
 $w$ and the error constant $E_0$ & the grid search and its precision\\
 \hline
-\end{tabular}
-\end{center}
+\end{longtable}
+}
 
 \appendix
 

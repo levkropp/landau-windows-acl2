@@ -30,10 +30,10 @@ narration). -/
 def Gz (x : ℝ) : ℝ := Sz x - x * Real.log x + (1 + Real.eulerMascheroniConstant) * x
 
 /-- Landau's one-sided criterion, in the archive's form (both signs;
-existential constants).  The `s₀ = 1` disjunct is the ceiling direction
-proved windowed in `LandauWindows.Soft.ZetaWindowed`; the `s₀ = -1`
-(mirror) direction needs the functional-equation reflection and is
-deferred. -/
+existential constants). Both signs are proved in
+`LandauWindows.Soft.ZetaLandau`: the floor direction applies the windowed
+theorem to the negated statistic, using the proved absence of real strip
+zeros. -/
 def ZetaLandau : Prop :=
   ∀ s₀ : ℝ, (s₀ = 1 ∨ s₀ = -1) → ∀ θ : ℝ, 0 < θ → θ < 1 →
   (∃ C x₀ : ℝ, ∀ x : ℝ, x₀ ≤ x → s₀ * Gz x ≤ C * x ^ θ) →

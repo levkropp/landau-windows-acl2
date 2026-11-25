@@ -1,10 +1,10 @@
 /-
 OURS (not lifted): the mirror (`s₀ = -1`, "floor") direction of the
 archive's `Formalism.ZetaLandau`, and with it the full classical
-one-sided Landau theorem for ζ (and its ε-relaxed variant) — reduced to
-ONE named classical input.
+one-sided Landau theorem for ζ (and its ε-relaxed variant), with every
+analytic input discharged.
 
-Why an input is needed.  The lifted windowed machinery runs on
+Why real nonvanishing matters.  The lifted windowed machinery runs on
 ceilings: `Deduction.landau_window` concludes from `g u ≤ C e^{θu}` on
 recurring windows.  A floor on `Gz` is a ceiling on `-Gz`, so the
 mirror direction is `landau_window` applied to the NEGATED statistic.
@@ -16,20 +16,17 @@ points.  For ζ this is classical — the paper, §8.1: "zeros ... (since
 ζ(σ) < 0 on 0 < σ < 1) are non-real" — and it is not a technicality: a
 real zero would contribute a POSITIVE growing term to `Gz` and be
 invisible to a floor bound, which is exactly what the residue-sign
-clause detects.  Mathlib at our pin does not yet have the sign lemma
-(it has the Laurent data at 1, the functional equation, nonvanishing
-at `1 ≤ re`, and the Loeffler–Tao fractional-part identity for
-`s > 1`; extending that identity to `(0, 1)` is a real-analytic
-continuation argument — the discharge plan is recorded in
-`lean/README.md`).  In the hypothesis-injection discipline we name it:
+clause detects. `Soft/ZetaReal.lean` proves the sign lemma by continuing
+the fractional-part integral identity to `Re s > 0`. We retain the name
+of the formerly injected hypothesis:
 
   `ZetaNoRealStripZeros`
 
-and prove `Formalism.ZetaLandau` and `Formalism.ZetaLandauEps` from it
-with no other analytic inputs.
+and discharge it as `zetaNoRealStripZeros`, so `Formalism.ZetaLandau`
+and `Formalism.ZetaLandauEps` now hold unconditionally.
 
 Contents:
-  * `ZetaNoRealStripZeros` — the named classical input;
+  * `ZetaNoRealStripZeros`, `zetaNoRealStripZeros` — the input and its proof;
   * `poleData_neg` — `PoleData` passes to the negated statistic when
     the zero set has no real points;
   * `zeta_landau_windowed_floor` — the windowed mirror lemma;
@@ -39,6 +36,7 @@ Contents:
 -/
 import LandauWindows.Soft.ZetaWindowed
 import LandauWindows.Soft.ZetaPoleData
+import LandauWindows.Soft.ZetaReal
 import LandauWindows.Statement
 
 open Complex MeasureTheory Set Filter Topology Formalism Deduction
@@ -47,14 +45,19 @@ noncomputable section
 
 namespace LandauWindows
 
-/-! ### The single classical input -/
+/-! ### The discharged real nonvanishing input -/
 
 /-- ζ has no real zeros in the open strip `0 < x < 1` (classically
 equivalent to: ζ is strictly negative there).  This is the only
 classical input the mirror direction needs beyond the lifted windowed
-machinery; see the file header. -/
+machinery; it is discharged below. -/
 def ZetaNoRealStripZeros : Prop :=
   ∀ x : ℝ, 0 < x → x < 1 → riemannZeta x ≠ 0
+
+/-- The real nonvanishing input, proved from the fractional-part integral identity. -/
+theorem zetaNoRealStripZeros : ZetaNoRealStripZeros := by
+  intro x hx hx1
+  exact riemannZeta_ne_zero_of_mem_Ioo hx hx1
 
 /-- From the input: the strip zero set contains no real points. -/
 lemma noRealStripZeros_of_im_ne_zero (h : ZetaNoRealStripZeros) :
@@ -108,18 +111,18 @@ direction** (soft layer): if there are arbitrarily large `Y` with
 `Gz x ≥ -C x ^ θ` throughout the window `[Y, Y ^ (3/2)]`, then ζ has
 no zero with real part `> θ`.  The analytic content is the `PoleData`
 bundle for the negated statistic (`poleData_neg` over the discharged
-`zetaPoleData`), which needs the named classical input
-`ZetaNoRealStripZeros`; everything else is the lifted abstract
+`zetaPoleData`), using the discharged real nonvanishing input
+`zetaNoRealStripZeros`; everything else is the lifted abstract
 `Deduction.landau_window` plus the same elementary bridges as the
 ceiling direction. -/
-theorem zeta_landau_windowed_floor (hNZ : ZetaNoRealStripZeros) {θ : ℝ}
+theorem zeta_landau_windowed_floor {θ : ℝ}
     (hθ : 0 < θ) (hθ1 : θ < 1) {C : ℝ} (hC : 0 < C)
     (hfloor : ∀ Y₀ : ℝ, ∃ Y : ℝ, Y₀ ≤ Y ∧ 1 ≤ Y ∧
       ∀ x ∈ Icc Y (Y ^ ((3 : ℝ) / 2)), -Gz x ≤ C * x ^ θ) :
     ∀ s : ℂ, θ < s.re → riemannZeta s ≠ 0 := by
   obtain ⟨Φ, hΦ⟩ := zetaPoleData
   have hΦ' : PoleData (fun u => -gz u) (fun s => -Φ s) zetaStripZeros :=
-    poleData_neg hΦ (noRealStripZeros_of_im_ne_zero hNZ)
+    poleData_neg hΦ (noRealStripZeros_of_im_ne_zero zetaNoRealStripZeros)
   -- the floor, as a ceiling on the negated statistic in the log variable
   have huFloor : ∀ U₀ : ℝ, ∃ U : ℝ, U₀ ≤ U ∧
       ∀ u ∈ Icc U ((1 + (1 / 2 : ℝ)) * U), -gz u ≤ C * Real.exp (θ * u) := by
@@ -184,10 +187,9 @@ theorem windowed_of_eventual {s₀ C x₀ θ : ℝ}
 /-- **The full one-sided Landau theorem for ζ** (the archive's
 `Formalism.ZetaLandau`): for EITHER sign `s₀ ∈ {1, -1}`, an eventual
 one-sided bound `s₀ · Gz x ≤ C x ^ θ` excludes zeros with real part
-`> θ`.  The ceiling (`s₀ = 1`) direction is unconditional (the windowed
-lemma is discharged); the floor (`s₀ = -1`, mirror) direction needs the
-named classical input `ZetaNoRealStripZeros`. -/
-theorem zeta_landau (hNZ : ZetaNoRealStripZeros) : ZetaLandau := by
+`> θ`. Both the ceiling (`s₀ = 1`) and floor (`s₀ = -1`, mirror)
+directions are unconditional. -/
+theorem zeta_landau : ZetaLandau := by
   intro s₀ hs₀ θ hθ hθ1 ⟨C, x₀, hbound⟩ s hs
   have hw := windowed_of_eventual (s₀ := s₀) (C := C) (x₀ := x₀) (θ := θ) hbound
   have hC : 0 < |C| + 1 := by positivity
@@ -195,13 +197,13 @@ theorem zeta_landau (hNZ : ZetaNoRealStripZeros) : ZetaLandau := by
   · exact zeta_landau_windowed_unconditional hθ hθ1 hC (fun Y₀ => by
       obtain ⟨Y, hY₀, hY1, hYx⟩ := hw Y₀
       exact ⟨Y, hY₀, hY1, fun x hx => by simpa using hYx x hx⟩) s hs
-  · exact zeta_landau_windowed_floor hNZ hθ hθ1 hC (fun Y₀ => by
+  · exact zeta_landau_windowed_floor hθ hθ1 hC (fun Y₀ => by
       obtain ⟨Y, hY₀, hY1, hYx⟩ := hw Y₀
       exact ⟨Y, hY₀, hY1, fun x hx => by simpa using hYx x hx⟩) s hs
 
 /-- **The ε-relaxed variant** (the archive's `Formalism.ZetaLandauEps`),
 from `zeta_landau` by instantiating at `θ + ε` for a suitable `ε > 0`. -/
-theorem zeta_landau_eps (hNZ : ZetaNoRealStripZeros) : ZetaLandauEps := by
+theorem zeta_landau_eps : ZetaLandauEps := by
   intro s₀ hs₀ θ hθ hθ1 hallε s hs
   by_cases h1 : 1 ≤ s.re
   · exact riemannZeta_ne_zero_of_one_le_re h1
@@ -209,7 +211,7 @@ theorem zeta_landau_eps (hNZ : ZetaNoRealStripZeros) : ZetaLandauEps := by
     have hε : 0 < (s.re - θ) / 2 := by positivity
     have hθε : θ + (s.re - θ) / 2 < s.re := by linarith
     obtain ⟨C, x₀, hbound⟩ := hallε ((s.re - θ) / 2) hε
-    exact zeta_landau hNZ s₀ hs₀ (θ + (s.re - θ) / 2) (by linarith)
+    exact zeta_landau s₀ hs₀ (θ + (s.re - θ) / 2) (by linarith)
       (by linarith) ⟨C, x₀, hbound⟩ s hθε
 
 end LandauWindows
