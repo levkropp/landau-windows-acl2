@@ -1,0 +1,27 @@
+<p class="lead">An oscillating reading combines a real signal, a scalar weight and a complex phase. Rational pairs let us compute an approximate phase exactly while proving that the approximation is close enough.</p>
+
+<h2 id="pairs">A pair can store complex coordinates</h2>
+<p>Represent <span class="math">x+iy</span> by <code>(x . y)</code>. Addition is coordinatewise; multiplication is <span class="math">(x,y)(u,v)=(xu−yv,xv+yu)</span>. A disk bound uses <span class="math">x²+y²≤r²</span>, not two separate coordinate bounds.</p>
+<p>The pair shape also appears in intervals and cells. Its meaning depends on the construction: endpoints, complex coordinates and an address/weight pair are different mathematical objects.</p>
+
+<h2 id="rotation">Preserve length without a trigonometric oracle</h2>
+<div class="equation">R(t) = ((4−t²)/(4+t²), 4t/(4+t²))<br>Pₙ(t) = R(t/N)<sup>N</sup>.</div>
+<p>The denominator is positive. The identity <span class="math">(4−t²)²+(4t)²=(4+t²)²</span> proves that <span class="math">R(t)</span> has length one. It approximates the desired angle; it is not generally <span class="math">exp(it)</span>.</p>
+{{source:acl2/phase-bounds.lisp:defun:lw-phase-rotation}}
+{{source:acl2/phase-bounds.lisp:defun:lw-phase-grid}}
+{{demo:phase}}
+<p>For positive natural <span class="math">N</span> and <span class="math">|t|≤N</span>, the real bridge proves distance at most <span class="math">2t²/N</span> from <span class="math">Pₙ(t)</span> to <span class="math">exp(it)</span>. At <span class="math">t=1,N=2</span>, the exact point is <span class="math">(161/289,240/289)</span>. Unit length and a correct angle are separate properties.</p>
+
+<h2 id="sample">Multiply three approximations</h2>
+<p>At log address <span class="math">u</span>, the signal is <span class="math">Gz(exp(u))</span> and the phase is <span class="math">exp(−iHu)</span>. The log-signal constructor handles the non-rational exponential input by a nearby rational point and a proved transport allowance.</p>
+<p>Let <span class="math">M</span> cap the computed signal magnitude and <span class="math">K</span> cap both kernel weights. Changing one factor at a time gives the sample-distance allowance</p>
+<div class="equation">K δsignal + M δweight + MK δphase.</div>
+<p>Choose coarse caps first, then tolerances. One component tolerance is <span class="math">ε/[3(1+factor)]</span>; the signal tolerance is also capped at one. Since the scalar approximations are lower endpoints, their errors use full interval widths.</p>
+
+<h2 id="finite-sum">Budget the actual finite sum</h2>
+<p>A cell is an address paired with a nonnegative weight. The sampler multiplies signal, weight and phase; the finite-sum recursion adds those computed points. Assigning each of <span class="math">N</span> weighted samples error <span class="math">ε/(N+1)</span> gives a total evaluation allowance below <span class="math">ε</span>.</p>
+<p>The cell-list predicate does not prove mesh coverage. Real interpretation, mesh error and an omitted infinite tail still need their own arguments.</p>
+
+<h2 id="exercise">Do not spend the phase allowance twice</h2>
+<div class="exercise"><p>With illustrative caps <span class="math">M=2,K=3</span> and requested sample error <span class="math">1/10</span>, verify the component tolerances <span class="math">1/120,1/90,1/210</span>. Which factor amplifies each?</p><details><summary>Show the calculation</summary><p>The factors are three, two and six. The amplified total is <span class="math">3/120+2/90+6/210=191/2520&lt;1/10</span>. These are illustrative caps, not values asserted at a particular signal address.</p></details></div>
+<p class="further">See <a href="https://github.com/levkropp/landau-windows-acl2/blob/main/video/SOURCES-part07.md">the source and scope notes</a> for the full sample checker and its domain. The plotted target is illustrative; the rational point is computed exactly.</p>

@@ -1,0 +1,27 @@
+<p class="lead">A checker follows rules applied to symbols. A model gives those symbols a meaning. Understanding the difference lets us ask which assumptions a proof really needs.</p>
+
+<h2 id="proofs">Proofs are finite sequences of justified steps</h2>
+<p>A proof line can be an axiom, a previously proved result, or a consequence of earlier lines under an allowed rule. Modus ponens is an example: from <span class="math">P</span> and <span class="math">P⇒Q</span>, infer <span class="math">Q</span>. A formal checker checks the justification, rather than deciding whether a diagram looks persuasive.</p>
+<p>Recursive code has obligations too. A definition must be admitted under the logic's rules; a theorem about the resulting function needs its own proof. A terminating program that searches a list does not automatically find a successful entry.</p>
+
+<h2 id="models">A proposed meaning can fail an axiom</h2>
+<p>Try to interpret zero and successor using a clock with three positions. Let zero mean position zero, and let successor advance one position around the clock. Then the successor of two is zero.</p>
+<p>Peano Arithmetic says that no successor equals zero. The clock fails that axiom. It is a useful counterexample to a proposed interpretation, not a finite model of Peano Arithmetic.</p>
+{{demo:clock}}
+{{source:video/teaching-part01.lisp:defun:video-clock-next}}
+<p class="note"><code>nfix</code> leaves a natural number unchanged and returns zero for anything else. <code>mod</code> is the remainder operation. The source function uses a three-position clock; other clock sizes in the demo are teaching variations.</p>
+
+<h2 id="consistency">What a consistency argument says</h2>
+<p>With a fixed encoding of proofs, a formal consistency sentence says that no natural number encodes a proof of a contradiction. Finite objects can be coded by numbers, but a toy digit encoder is not a complete proof checker.</p>
+<p>Gödel's second incompleteness theorem applies to consistent, effectively axiomatized theories with enough arithmetic, using the usual formal consistency sentence and provability conditions. Such a theory cannot prove that sentence about itself. Those hypotheses matter; “nothing can prove its own consistency” is too broad.</p>
+<p>ZFC can construct the natural numbers, verify the axioms of Peano Arithmetic in that structure, and formalize the soundness argument. In that setting it proves the consistency of Peano Arithmetic. This is an argument carried out in the stronger background, not an escape from having a background.</p>
+
+<h2 id="foundations">Separate the theorem from its foundations</h2>
+<p>Peano Arithmetic studies natural numbers with first-order induction. ZFC studies sets and supports much broader constructions. A statement can be expressible in arithmetic even when a known route to it uses real analysis and set-theoretic constructions. Expressibility alone guarantees neither a proof nor independence in a chosen theory.</p>
+<p>Lean uses dependent type theory with universes. Standard classical developments use principles such as choice, propositional extensionality and quotient soundness. Set-theoretic models of universe hierarchies involve additional foundational assumptions; this is different from finding an axiom literally named “inaccessible cardinal” in every Lean proof. An axiom audit and an interpretation of the ambient type theory answer related but different questions.</p>
+<p>ACL2 is based on Applicative <strong>Common Lisp</strong> and a logic suited to recursive functions and induction. Its exact rational data and finite lists make it useful for this project. Calling an ACL2 development a Peano Arithmetic proof still requires the intended translation and strength analysis; the software name alone does not supply that interpretation.</p>
+
+<h2 id="why-reduce">Why reduce the assumptions?</h2>
+<p>A proof in a justified weaker foundation can need fewer assumptions to trust. Here “stronger proof” means a result supported by less foundational machinery; it does not reverse the technical ordering of theories by strength. The aim is to expose finite arithmetic constructions inside a classical argument and then justify their interpretation.</p>
+<div class="exercise"><p>A program checks every number up to one million and finds no code of a contradiction. Has it proved the theory consistent?</p><details><summary>Show the reasoning</summary><p>No. It has checked a finite range. A consistency statement rules out every finite proof code, with no fixed upper bound. A general argument would have to cover all of them.</p></details></div>
+<p class="further">Sources: <a href="https://web.mit.edu/24.242/www/2ndIncompleteness.pdf">MIT notes on the second incompleteness theorem</a>, <a href="https://timothychow.net/consistent.pdf">Timothy Chow on consistency of arithmetic</a>, <a href="https://lean-lang.org/doc/reference/latest/Axioms/">Lean's axiom reference</a>, and the <a href="https://www.cs.utexas.edu/~moore/acl2/v6-2/QUANTIFIER-TUTORIAL.html">ACL2 quantifier tutorial</a>. These are background explanations, not consistency theorems proved by this site's teaching book.</p>

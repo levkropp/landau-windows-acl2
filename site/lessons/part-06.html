@@ -1,0 +1,24 @@
+<p class="lead">A weighted reading contains powers, factorials and exponential decay. The scalar factors can be enclosed by exact rational calculations whose precision is chosen from the final error budget.</p>
+
+<h2 id="series">Build an exponential band</h2>
+<p>For <span class="math">x≥0</span>, write <span class="math">Tₖ(x)=xᵏ/k!</span>. The recurrence <span class="math">T₀=1</span>, <span class="math">Tₖ₊₁=Tₖ·x/(k+1)</span> computes each term without a fresh power or factorial calculation. Let <span class="math">Sₙ</span> include indices zero through <span class="math">n</span>.</p>
+<p>If <span class="math">2x≤n+2</span>, each ratio after the first omitted term is at most one half. The omitted positive tail is therefore at most twice that first omitted term. This gives the band <span class="math">[Sₙ,Sₙ+2Tₙ₊₁]</span>.</p>
+{{source:acl2/exp-bounds.lisp:defun:lw-exp-band}}
+{{demo:exponential}}
+<p>At <span class="math">x=1,n=3</span>, the sum is <span class="math">8/3</span>, the next term is <span class="math">1/24</span>, and the band is <span class="math">[8/3,11/4]</span> with full width <span class="math">1/12</span>. The tail condition is a premise, not a decoration.</p>
+
+<h2 id="reciprocals">Turn growth into decay</h2>
+<p>For positive endpoints, reciprocation reverses order: if <span class="math">L≤exp(x)≤U</span>, then <span class="math">1/U≤exp(−x)≤1/L</span>. The example above gives <span class="math">[4/11,3/8]</span>.</p>
+<p>The real exponential interpretation is supplied by a theorem. The finite band arithmetic by itself says what the endpoints and their widths are, not which analytic object they enclose.</p>
+
+<h2 id="kernel">Assemble a scalar kernel weight</h2>
+<p>The weight used in a reading has the form <span class="math">h·uᵏ·exp(−σu)/k!</span>. Here <span class="math">h</span> is a nonnegative cell weight, <span class="math">u</span> a nonnegative address, <span class="math">k</span> a natural order and <span class="math">σ</span> a nonnegative damping rate.</p>
+<p>The exact rational scale is <span class="math">h·Tₖ(u)</span>. Requesting primitive decay width <span class="math">ε/(1+scale)</span> ensures that scaling costs at most the intended final allowance. A large scale must be paid for by tighter primitive precision.</p>
+
+<h2 id="three-errors">Keep three error channels separate</h2>
+<p><strong>Evaluation error</strong> comes from enclosing the values actually sampled. <strong>Mesh error</strong> comes from replacing the integrand on a bounded region by a finite weighted grid. <strong>Tail error</strong> comes from omitting the infinite remainder.</p>
+<p>Making the value bands very narrow does not repair a coarse mesh or a missing tail estimate. A proof of a finite sum is not automatically a proof about an improper integral.</p>
+
+<h2 id="exercise">Check the first omitted term</h2>
+<div class="exercise"><p>At <span class="math">x=1,n=3</span>, why is the added allowance <span class="math">1/12</span> rather than <span class="math">1/24</span>? What breaks if the ratio condition is not established?</p><details><summary>Show the reasoning</summary><p>The first omitted term is <span class="math">1/24</span>, but there are further omitted terms. A geometric majorant with ratio one half bounds their total by <span class="math">2·(1/24)=1/12</span>. Without the ratio condition, that geometric tail argument has not been justified.</p></details></div>
+<p class="further">The <a href="https://github.com/levkropp/landau-windows-acl2/blob/main/video/SOURCES-part06.md">source notes</a> give the exact kernel examples and separate the teaching tail <span class="math">exp(−u)</span> from the full signal's tail bound.</p>

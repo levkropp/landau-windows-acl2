@@ -24,6 +24,7 @@ video/media/
 video/audio/
 video/__pycache__/
 site/dist/
+/media/
 
 # ACL2 build products
 *.cert

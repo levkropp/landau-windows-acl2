@@ -1,0 +1,86 @@
+{
+  "title": "From arithmetic to the Landau bridge",
+  "audience": "Undergraduate discrete mathematics; curious, visual explanations with explicit proof steps.",
+  "episodes": [
+    {
+      "id": "00",
+      "title": "A finite proof about infinitely many numbers",
+      "topics": "PA's language, recursive arithmetic and the induction scheme",
+      "state": "ready",
+      "asset": "landau-windows-acl2-part-00-r6.mp4",
+      "timing": "timing-part00-r6.json"
+    },
+    {
+      "id": "01",
+      "title": "Proofs, models and stronger foundations",
+      "topics": "Proof steps, models, consistency, Gödel and foundational dependencies",
+      "state": "ready",
+      "asset": "landau-windows-acl2-part-01-r3.mp4",
+      "timing": "timing-part01-r3.json"
+    },
+    {
+      "id": "02",
+      "title": "Exact arithmetic with imperfect information",
+      "topics": "Rational intervals, enclosure soundness and error budgets",
+      "state": "ready",
+      "asset": "landau-windows-acl2-part-02.mp4",
+      "timing": "timing-part02.json"
+    },
+    {
+      "id": "03",
+      "title": "A finite search that must succeed",
+      "topics": "Meshes, coverage, transport and explicit witnesses",
+      "state": "ready",
+      "asset": "landau-windows-acl2-part-03.mp4",
+      "timing": "timing-part03.json"
+    },
+    {
+      "id": "04",
+      "title": "From prime powers to a smoothed signal",
+      "topics": "Prime powers, logarithm bounds, weighted ramps and Gz",
+      "state": "ready",
+      "asset": "landau-windows-acl2-part-04.mp4",
+      "timing": "timing-part04.json"
+    },
+    {
+      "id": "05",
+      "title": "Why a ceiling controls zeros",
+      "topics": "Recurring windows, the one-sided identity, transform poles and computed orders",
+      "state": "ready",
+      "asset": "landau-windows-acl2-part-05.mp4",
+      "timing": "timing-part05.json"
+    },
+    {
+      "id": "06",
+      "title": "Explicit kernels and error budgets",
+      "topics": "Exponential bands, scalar kernel weights, finite grids and separate error channels",
+      "state": "ready",
+      "asset": "landau-windows-acl2-part-06.mp4",
+      "timing": "timing-part06.json"
+    },
+    {
+      "id": "07",
+      "title": "Complex phases and oscillating samples",
+      "topics": "Rational rotations, complex products and evaluated Mellin sums",
+      "state": "ready",
+      "asset": "landau-windows-acl2-part-07.mp4",
+      "timing": "timing-part07.json"
+    },
+    {
+      "id": "08",
+      "title": "Poles, zero covers and the contradiction",
+      "topics": "Isolation, coefficient bounds, checked models and a conditional witness",
+      "state": "ready",
+      "asset": "landau-windows-acl2-part-08.mp4",
+      "timing": "timing-part08.json"
+    },
+    {
+      "id": "09",
+      "title": "The completed ACL2 reduction",
+      "topics": "The final theorem, generated contours, direct Peano Arithmetic proof and ACL2 certification",
+      "state": "ready",
+      "asset": "landau-windows-acl2-part-09.mp4",
+      "timing": "timing-part09.json"
+    }
+  ]
+}

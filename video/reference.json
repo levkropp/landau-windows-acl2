@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/harttraveller/riemann",
+  "revision": "3221da1c0c5b450dedfcd7923e829aca7089408b",
+  "files": {
+    "base.py": "ce439e84dfad659fb225a32d5542a486fd726def4b4fabf7e70bbce59212e40a",
+    "s3_plan.py": "37fe30290866b885e90652987dd7af0e15bed1498e15b8e5a42288130009d133",
+    "parts.py": "319036a98d0dd5592146beba71aa38474b3060ea02da6b3bc99886483f7a2dd4",
+    "data.py": "2a2d76396a4c131199b502d881885e911a04c9391b1893e347285bcbb302a957",
+    "narration.py": "3f28db8e83809e761ab330a108749a86cbb016f626838b113eca2d6c9e701892",
+    "zeros.json": "3ecb77ad011d698a2f5a6a5da46869f9510ece50c3a1e6f12f46c34d52bc6906"
+  }
+}

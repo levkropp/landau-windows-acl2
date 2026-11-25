@@ -1,0 +1,28 @@
+<p class="lead">A proof can be a finite object even when its conclusion concerns infinitely many numbers. Induction is the first example we need: a base case and one reusable step can cover every natural number.</p>
+
+<h2 id="language">Start with a language</h2>
+<p>In the usual first-order language of Peano Arithmetic, the arithmetic symbols are zero, successor, addition, multiplication and equality. Variables and the logical symbols let us form statements. A variable ranges over natural numbers, including zero.</p>
+<p>Write <span class="math">S(x)</span> for the successor of <span class="math">x</span>. The familiar numeral <span class="math">3</span> abbreviates <span class="math">S(S(S(0)))</span>. This is a fact about the notation: the objects we intend to describe are still numbers. We have chosen a small language for naming them.</p>
+<p>A <strong>term</strong> names a number. For example, <span class="math">x + S(y)</span> is a term; at <span class="math">x=2, y=3</span> it names six. A <strong>formula</strong> makes a claim, such as <span class="math">x + S(y) = 6</span>. Its truth can depend on the values assigned to its variables.</p>
+
+<h2 id="recursive-arithmetic">Arithmetic by recursive rules</h2>
+<div class="equation" aria-label="x plus zero equals x; x plus successor y equals successor of x plus y">x + 0 = x<br>x + S(y) = S(x + y)</div>
+<p>The first rule handles zero. The second removes one successor from the right input and places it around the result. Multiplication has the parallel rules <span class="math">x·0=0</span> and <span class="math">x·S(y)=x·y+x</span>. Three copies of a number become four copies by adding one more copy.</p>
+<p>Order can be defined using addition: <span class="math">x≤y</span> means there is a natural number <span class="math">z</span> such that <span class="math">x+z=y</span>. For <span class="math">3≤7</span>, the witness is four. This definition explains the words “less than or equal to.”</p>
+
+<h2 id="odd-sums">Build a square from odd layers</h2>
+<p>Let <span class="math">O(n)</span> mean the sum of the first <span class="math">n</span> positive odd numbers. The empty sum is zero. Adding the next odd number gives</p>
+<div class="equation">O(0)=0<br>O(n+1)=O(n)+2n+1.</div>
+<p>The square picture explains why that recurrence is useful. Extending an <span class="math">n×n</span> square to an <span class="math">(n+1)×(n+1)</span> square adds a border of <span class="math">2n+1</span> cells.</p>
+{{demo:odd-squares}}
+
+<h2 id="induction">Now state the induction argument</h2>
+<p>The claim is <span class="math">O(n)=n²</span>, where <span class="math">O(n)</span> is the sum just defined. At zero, both sides are zero. Suppose <span class="math">O(n)=n²</span>. The recurrence gives <span class="math">O(n+1)=n²+2n+1=(n+1)²</span>. Induction turns those two arguments into the statement for every natural number.</p>
+<p>Only now do we need the placeholder letter <span class="math">P</span>: “if <span class="math">P(0)</span> and every <span class="math">P(n)</span> implies <span class="math">P(S(n))</span>, then every <span class="math">P(n)</span>.” In first-order Peano Arithmetic this is an <em>axiom scheme</em>: each formula supplies an instance. It is not a variable ranging over arbitrary sets.</p>
+{{source:video/teaching-examples.lisp:defun:video-odd-sum}}
+{{source:video/teaching-examples.lisp:defthm:video-odd-sum-square}}
+<p>The ACL2 statement has an explicit <code>natp</code> hypothesis. The <code>zp</code> branch supplies the zero case on that domain. This is the teaching counterpart of the argument, not a claim that the browser has run ACL2.</p>
+
+<h2 id="exercise">Try the step yourself</h2>
+<div class="exercise"><p>Assume the first five odd numbers sum to 25. Find the sixth odd number and use the recurrence to obtain the next square. Then explain why checking the first six cases alone would not establish the general theorem.</p><details><summary>Show the reasoning</summary><p>The next odd number is <span class="math">2·5+1=11</span>, so <span class="math">25+11=36=6²</span>. The induction step works for an arbitrary natural number; a finite list of successful checks does not supply that general implication.</p></details></div>
+<p class="further">Continue with Part One to separate a formal proof from an interpretation of its symbols. The <a href="https://github.com/levkropp/landau-windows-acl2/blob/main/video/teaching-examples.lisp">complete teaching book</a> contains the arithmetic counterparts used in the film.</p>

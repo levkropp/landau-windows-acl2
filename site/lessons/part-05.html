@@ -1,0 +1,24 @@
+<p class="lead">The classical windowed Landau theorem links a ceiling on a smoothed prime-counting signal to the exclusion of zeros in a region. It is a bridge theorem with a ceiling hypothesis, not a proof that the required ceiling exists.</p>
+
+<h2 id="windows">Keep the quantifiers in order</h2>
+<p>Fix a constant <span class="math">C&gt;0</span> and an exponent <span class="math">0&lt;θ&lt;1</span>. Suppose there are arbitrarily large starting points <span class="math">Y</span> for which the ceiling <span class="math">Gz(x)≤C xᶿ</span> holds throughout <span class="math">[Y,Y<sup>3/2</sup>]</span>.</p>
+<p>“Arbitrarily large” means that every lower bound on the start is eventually exceeded by such a window. The same <span class="math">C</span> and <span class="math">θ</span> are fixed before those windows are chosen. Letting the constant change independently at each point would be a different and much weaker assumption.</p>
+
+<h2 id="contrapositive">Imagine a forbidden zero</h2>
+<p>The useful contrapositive begins with a zero whose real part exceeds <span class="math">θ</span>. The transform of the signal has a related pole. A sufficiently isolated pole forces a contribution that conflicts with the upper estimate obtained from a successful ceiling window.</p>
+<p>That outline hides real work: isolation, multiplicity, coefficient bounds, tails and the passage from an analytic reading to an actual finite computation. The later parts open those steps rather than treating the outline as an executable proof.</p>
+
+<h2 id="one-sided">Why a one-sided estimate can be useful</h2>
+<p>A ceiling controls positive excursions of the signal. Large negative values need not violate it. The cancellation identity <span class="math">|v|+v=2 max(v,0)</span> explains how a one-sided estimate can still control a suitable combined reading.</p>
+<p>For unit weights and real phases <span class="math">(+1,−1,+1)</span>, a three-value instance is</p>
+<div class="equation">|x−y+z| + (x+y+z) ≤ 2(max(x,0)+max(y,0)+max(z,0)).</div>
+{{demo:one-sided}}
+<p>At <span class="math">(−3,2,−1)</span> the combined reading is four. Making the first entry minus ten still gives four, even though the oscillating magnitude alone becomes thirteen. The extra plain reading is essential.</p>
+
+<h2 id="orders">Replace “eventually” by a computed threshold</h2>
+<p>Competing geometric scales lead to inequalities involving a base larger than one raised to an integer power. The arithmetic development computes conservative natural thresholds using rational inequalities. That computation is separate from supplying the analytic hypotheses that make those scales relevant to the actual transform.</p>
+<p>A theorem asserting that a threshold works is stronger than a picture of one large example. It quantifies over the stated range of indices and parameters. The classical ceiling-to-zero-free theorem remains distinct from the effective certificate theorem.</p>
+
+<h2 id="exercise">Find the term you cannot erase</h2>
+<div class="exercise"><p>Use <span class="math">x=−10,y=2,z=−1</span>. Calculate the oscillating magnitude, the plain reading and the positive-part budget. Would the displayed estimate still hold if you removed the plain reading?</p><details><summary>Show the calculation</summary><p>The oscillating value is minus thirteen, its magnitude is thirteen, the plain reading is minus nine, and the positive-part budget is four. The combined reading is <span class="math">13−9=4</span>. The claim <span class="math">13≤4</span> would be false.</p></details></div>
+<p class="further">The <a href="https://github.com/levkropp/landau-windows-acl2/blob/main/video/SOURCES-part05.md">source notes</a> identify the classical theorem and the restricted real teaching example. The project proves the complex, nonnegative-weight inequality in <a href="https://github.com/levkropp/landau-windows-acl2/blob/main/acl2/mellin-sums.lisp">mellin-sums.lisp</a>.</p>

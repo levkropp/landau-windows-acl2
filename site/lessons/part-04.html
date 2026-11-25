@@ -1,0 +1,25 @@
+<p class="lead">The Landau signal is built from arithmetic information about prime powers, combined with analytic weights. We first expose the finite arithmetic that determines which terms contribute.</p>
+
+<h2 id="prime-powers">Recognize the terms before taking logarithms</h2>
+<p>A prime power is <span class="math">pᵏ</span>, where <span class="math">p</span> is prime and <span class="math">k≥1</span>. Primes themselves are included. Eight is <span class="math">2³</span>; nine is <span class="math">3²</span>; twelve has two different prime factors and is not a prime power.</p>
+<p>The von Mangoldt function is <span class="math">Λ(n)=log p</span> at a prime power <span class="math">n=pᵏ</span>, and zero otherwise. The logarithm is taken only after the arithmetic question has been answered.</p>
+{{demo:prime-powers}}
+{{source:acl2/prime-powers.lisp:defun:lw-prime-power-data}}
+<p>The wrapper calls a finite search. Its soundness theorem says that returned data describe a genuine prime power; completeness says that a prime power in the stated domain is found. Those claims come from proofs about the search, rather than the wrapper's small size.</p>
+
+<h2 id="logarithms">Give the non-rational terms rational bounds</h2>
+<p>Knowing that a contribution is <span class="math">log 2</span> does not provide an exact rational value for it. The evaluator constructs rational logarithm bands with a requested positive width. Arithmetic interval propagation then combines them with the other terms.</p>
+<p>There are two statements to connect: a finite algorithm returns a rational interval of controlled width, and the real logarithm lies inside it. The arithmetic book and the real interpretation theorem provide those different pieces.</p>
+
+<h2 id="smoothing">Why add weights and a centering correction?</h2>
+<p>A raw prime-counting statistic changes abruptly at individual prime powers. Smoothing distributes those contributions through weights, producing the signal used by the classical Landau argument. Subtracting the main trend centers the remaining fluctuation.</p>
+<p>That centering introduces further constants and analytic expressions, including Euler's constant. Their enclosures are part of the error budget. Omitting a constant because it looks small would change the signal and could change the inequality to be certified.</p>
+<p>The complete signal constructor is larger than this prime-power demo. The film follows the actual weighted sums and centering definitions; the demo isolates the arithmetic gate that decides which terms receive logarithmic contributions.</p>
+
+<h2 id="certificate">What a positive certificate must mean</h2>
+<p>Ultimately the search examines an enclosure of the signal minus a proposed ceiling. If its lower endpoint is positive, and the enclosure interpretation is established, the actual signal exceeds that ceiling at the returned address.</p>
+<p>This needs both the exact input conventions and the evaluator's real meaning. A calculation about a simplified teaching signal cannot be silently substituted for the project's <span class="math">Gz</span>.</p>
+
+<h2 id="exercise">Test the prime-power gate</h2>
+<div class="exercise"><p>Determine <span class="math">Λ(16)</span>, <span class="math">Λ(18)</span> and <span class="math">Λ(25)</span> without approximating a logarithm. Why is <span class="math">Λ(16)</span> not <span class="math">log 16</span>?</p><details><summary>Show the reasoning</summary><p>Sixteen is <span class="math">2⁴</span>, so its contribution is <span class="math">log 2</span>. Eighteen has distinct prime factors two and three, so its contribution is zero. Twenty-five is <span class="math">5²</span>, giving <span class="math">log 5</span>. The definition uses the prime base, not the entire prime power.</p></details></div>
+<p class="further">See the <a href="https://github.com/levkropp/landau-windows-acl2/blob/main/video/SOURCES-part04.md">Part Four source notes</a>, <a href="https://github.com/levkropp/landau-windows-acl2/blob/main/acl2/signal-bounds.lisp">signal evaluator</a> and <a href="https://github.com/levkropp/landau-windows-acl2/blob/main/lean/LandauWindows/Soft/SignalBounds.lean">real interpretation</a> for the complete construction.</p>

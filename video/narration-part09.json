@@ -1,0 +1,241 @@
+{
+  "title": "Part Nine — The completed ACL2 reduction",
+  "version": "Completed edition 01",
+  "voice": "M2",
+  "segments": [
+    {
+      "id": "opening",
+      "chapter": "The completed arithmetic reduction",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The encoded windowed Landau ceiling reduction is now proved in first-order Peano Arithmetic and certified in vanilla ACL2. It computes a threshold, proves that the bounded search succeeds, and returns a rational address with a strictly positive lower signal bound. This is the completed arithmetic theorem that the earlier lessons were building toward. Part Eight stopped at a conditional chain whose model and geometry data still had to be supplied. The new construction supplies those data from the encoded zero region and its small-value probe. We will follow what changed, read the final theorem, and explain the direct Peano Arithmetic proof given in the manuscript. The manuscript derives the arithmetic theorem by ordinary induction on coded finite computations and supplies its connection to the classical zeta statement. This is Part Nine of Landau Windows ACL Two: the completed reduction.",
+      "spoken_text": "The encoded windowed Landau ceiling reduction is now proved in first-order Peano Arithmetic and certified in vanilla A C L two. It computes a threshold, proves that the bounded search succeeds, and returns a rational address with a strictly positive lower signal bound. This is the completed arithmetic theorem that the earlier lessons were building toward. Part Eight stopped at a conditional chain whose model and geometry data still had to be supplied. The new construction supplies those data from the encoded zero region and its small-value probe. We will follow what changed, read the final theorem, and explain the direct Peano Arithmetic proof given in the manuscript. The manuscript derives the arithmetic theorem by ordinary induction on coded finite computations and supplies its connection to the classical zeta statement. This is Part Nine of Landau Windows ACL Two: the completed reduction."
+    },
+    {
+      "id": "contract",
+      "chapter": "Read the input and output contract",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The theorem begins with a proposed ceiling: a nonnegative rational constant times x to a rational exponent. The exponent is a fraction between zero and one, with one excluded for the nonempty region we use. It also takes a rational region describing where a forbidden zero would be, and a sufficiently accurate rational small-value probe in that region. From the region and ceiling data it computes a threshold for the window start. Every rational start above that threshold leads to a successful search and a returned violation. The theorem does not assume that the desired ceiling has already been disproved by an externally supplied witness. It proves that its own finite search finds the address. And it does not prove the separate ceiling hypothesis used by an entire Riemann Hypothesis argument.",
+      "spoken_text": "The theorem begins with a proposed ceiling: a nonnegative rational constant times ex to a rational exponent. The exponent is a fraction between zero and one, with one excluded for the nonempty region we use. It also takes a rational region describing where a forbidden zero would be, and a sufficiently accurate rational small-value probe in that region. From the region and ceiling data it computes a threshold for the window start. Every rational start above that threshold leads to a successful search and a returned violation. The theorem does not assume that the desired ceiling has already been disproved by an externally supplied witness. It proves that its own finite search finds the address. And it does not prove the separate ceiling hypothesis used by an entire Riemann Hypothesis argument."
+    },
+    {
+      "id": "region",
+      "chapter": "A rational region with a reserved margin",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The construction places the disk center at real coordinate two hundred fifty-two and a rational seed height. A rational outer cap lies strictly between two hundred fifty-one and two hundred fifty-two minus the ceiling exponent. Reserve a positive rational slack and use the smaller radius: cap minus slack. These are conservative constants in a quantitative construction, not new kinds of infinity. The smaller disk stays strictly in the positive half-plane, where the native Euler evaluator is defined. For a hypothetical zero whose real part exceeds the exponent, an appropriate cap and a small slack place that zero inside a suitable region. The center height can be chosen rationally, with the margin absorbing its approximation. The actual theorem keeps these parameter restrictions explicit.",
+      "spoken_text": "The construction places the disk center at real coordinate two hundred fifty-two and a rational seed height. A rational outer cap lies strictly between two hundred fifty-one and two hundred fifty-two minus the ceiling exponent. Reserve a positive rational slack and use the smaller radius: cap minus slack. These are conservative constants in a quantitative construction, not new kinds of infinity. The smaller disk stays strictly in the positive half-plane, where the native Euler evaluator is defined. For a hypothetical zero whose real part exceeds the exponent, an appropriate cap and a small slack place that zero inside a suitable region. The center height can be chosen rationally, with the margin absorbing its approximation. The actual theorem keeps these parameter restrictions explicit."
+    },
+    {
+      "id": "encoded",
+      "chapter": "A zero encoded by arbitrarily fine probes",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "An actual complex zero need not have rational coordinates. The arithmetic statement therefore uses rational probes with arbitrarily small residuals in one fixed compact disk. For every positive rational error request... there is a rational offset... whose native Euler sample has magnitude at most that request. The offset may change when the request changes. This is an arithmetic statement about codes and finite computations; it does not require storing an irrational point exactly. The displayed predicate checks membership in the disk and the small native value. A single accidental small sample at a coarse request is not the entire encoded-zero condition. The full condition gives probes at whatever finer request the construction eventually needs.",
+      "spoken_text": "An actual complex zero need not have rational coordinates. The arithmetic statement therefore uses rational probes with arbitrarily small residuals in one fixed compact disk. For every positive rational error request... there is a rational offset... whose native Euler sample has magnitude at most that request. The offset may change when the request changes. This is an arithmetic statement about codes and finite computations; it does not require storing an irrational point exactly. The displayed predicate checks membership in the disk and the small native value. A single accidental small sample at a coarse request is not the entire encoded-zero condition. The full condition gives probes at whatever finer request the construction eventually needs."
+    },
+    {
+      "id": "requests",
+      "chapter": "Choose the request before the probe",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "Quantifier order is one of the important changes since the conditional version. First fix the region and ceiling parameters. The construction chooses its geometry, a positive sample request, and a window threshold from those data. Only then do we use the encoded-zero hypothesis to obtain a probe at the required accuracy. The threshold does not depend on that probe's rational coordinates. This prevents the selection from chasing a moving target as the probe becomes more accurate. The final theorem only needs one probe at an error no larger than one quarter of the computed request. The universal encoded-zero condition supplies that particular finite witness.",
+      "spoken_text": "Quantifier order is one of the important changes since the conditional version. First fix the region and ceiling parameters. The construction chooses its geometry, a positive sample request, and a window threshold from those data. Only then do we use the encoded-zero hypothesis to obtain a probe at the required accuracy. The threshold does not depend on that probe'ess rational coordinates. This prevents the selection from chasing a moving target as the probe becomes more accurate. The final theorem only needs one probe at an error no larger than one quarter of the computed request. The universal encoded-zero condition supplies that particular finite witness."
+    },
+    {
+      "id": "euler",
+      "chapter": "The evaluator targets an entire normalized zeta",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The native continuation evaluator is built from rational finite sums with computed cutoffs and internal precisions. Its intended complex value is Z of s, equal to s minus one times zeta of s away from one. At one, Z has value one. That normalization removes the zeta pole at one and gives an entire function. So zeros of Z in our region are zeros of zeta; the normalization point does not introduce a spurious zero. The actual wrapper chooses the cutoff and primitive error, then evaluates a finite dyadic Euler prefix. The arithmetic bounds compare its values at different requests. The classical interpretation identifies the value it approximates.",
+      "spoken_text": "The native continuation evaluator is built from rational finite sums with computed cutoffs and internal precisions. Its intended complex value is zed of ess, equal to ess minus one times zeta of ess away from one. At one, zed has value one. That normalization removes the zeta pole at one and gives an entire function. So zeros of zed in our region are zeros of zeta; the normalization point does not introduce a spurious zero. The actual wrapper chooses the cutoff and primitive error, then evaluates a finite dyadic Euler prefix. The arithmetic bounds compare its values at different requests. The classical interpretation identifies the value it approximates."
+    },
+    {
+      "id": "fixed",
+      "chapter": "Interpret a fixed finite approximation before taking limits",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The interpretation does not begin by declaring the evaluator to be zeta. Fix a finite cutoff and compare the native computation with a finite Dirichlet sum plus an Euler correction. The correction compensates for the omitted leading tail. The certified fixed-truncation estimate separates the native request, a cutoff term that decreases with the dyadic level, and primitive rounding error. First let the primitive error shrink while the cutoff stays fixed. A fractional-part identity then identifies the limit of those finite corrected sums as the normalized zeta value. Finally let the cutoff increase. The result is an error bound of one quarter of the native request. The manuscript proves the finite arithmetic bounds and establishes this zeta comparison in its final section.",
+      "spoken_text": "The interpretation does not begin by declaring the evaluator to be zeta. Fix a finite cutoff and compare the native computation with a finite Dirichlet sum plus an Euler correction. The correction compensates for the omitted leading tail. The certified fixed-truncation estimate separates the native request, a cutoff term that decreases with the dyadic level, and primitive rounding error. First let the primitive error shrink while the cutoff stays fixed. A fractional-part identity then identifies the limit of those finite corrected sums as the normalized zeta value. Finally let the cutoff increase. The result is an error bound of one quarter of the native request. The manuscript proves the finite arithmetic bounds and establishes this zeta comparison in its final section."
+    },
+    {
+      "id": "clearances",
+      "chapter": "Prove the clearances instead of requesting them",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The contour construction needs regions where the native Euler value stays away from zero. On the real axis, the proof pairs alternating Dirichlet terms, controls the Euler correction, and obtains a positive lower bound. A quantitative neighborhood argument extends that clearance to a narrow strip. Strictly to the right of one, finite Mobius weights produce an approximate inverse with a positive lower bound. These are arithmetic constructions with finite truncation and rounding budgets. They replace the earlier need to supply those clearances as separate geometric promises. The size of every safe region and the precision needed there are part of the computed data. None of this says that a picture of a zero-free region is itself a certificate.",
+      "spoken_text": "The contour construction needs regions where the native Euler value stays away from zero. On the real axis, the proof pairs alternating Dirichlet terms, controls the Euler correction, and obtains a positive lower bound. A quantitative neighborhood argument extends that clearance to a narrow strip. Strictly to the right of one, finite Moebius weights produce an approximate inverse with a positive lower bound. These are arithmetic constructions with finite truncation and rounding budgets. They replace the earlier need to supply those clearances as separate geometric promises. The size of every safe region and the precision needed there are part of the computed data. None of this says that a picture of a zero-free region is itself a certificate."
+    },
+    {
+      "id": "circles",
+      "chapter": "Generate checked contour charts",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The proof constructs finite polynomial approximations and rational contour charts with explicit lower value bounds. A chart is a collection of local checks whose quantitative radii cover the required contour. The lower bounds must remain compatible when factorization and approximation precision are refined. The new construction derives a uniform floor from its fixed coarse data. That avoids choosing an index from a cap that secretly depends on the index's later precision request. The circles carry finite integer counts, rather than a demand to name an exact analytic zero. Accepted charts and count comparisons can therefore be manipulated by rational arithmetic. The pictures here illustrate the interfaces; the computed objects in the proof are much larger.",
+      "spoken_text": "The proof constructs finite polynomial approximations and rational contour charts with explicit lower value bounds. A chart is a collection of local checks whose quantitative radii cover the required contour. The lower bounds must remain compatible when factorization and approximation precision are refined. The new construction derives a uniform floor from its fixed coarse data. That avoids choosing an index from a cap that secretly depends on the index'ess later precision request. The circles carry finite integer counts, rather than a demand to name an exact analytic zero. Accepted charts and count comparisons can therefore be manipulated by rational arithmetic. The pictures here illustrate the interfaces; the computed objects in the proof are much larger."
+    },
+    {
+      "id": "scan",
+      "chapter": "Scan from an empty real circle",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "Begin with a certified empty circle centered on the real axis. Scan a finite sequence of real-centered circles toward the desired outer cap. There are two outcomes. If the scan reaches an outer empty circle, the original small probe supplies the positive modulated count. If it encounters a positive count, use the first positive successor of the preceding empty circle. A computed interior probe from that positive circle supplies the modulation height. The real-axis and right-half-plane clearances leave enough radial room for the required nesting. Both cases produce the same checked pair interface: an empty real circle and a compatible modulated circle with positive count.",
+      "spoken_text": "Begin with a certified empty circle centered on the real axis. Scan a finite sequence of real-centered circles toward the desired outer cap. There are two outcomes. If the scan reaches an outer empty circle, the original small probe supplies the positive modulated count. If it encounters a positive count, use the first positive successor of the preceding empty circle. A computed interior probe from that positive circle supplies the modulation height. The real-axis and right-half-plane clearances leave enough radial room for the required nesting. Both cases produce the same checked pair interface: an empty real circle and a compatible modulated circle with positive count."
+    },
+    {
+      "id": "clusters",
+      "chapter": "Multiple and clustered zeros use the same interface",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The earlier isolated-pole picture made one point look special. The completed reduction does not assume that every hypothetical zero is simple or separated from its neighbors. It uses small values and finite counts. Positive count gives a sufficiently accurate interior probe; a small enough probe prevents the relevant count from being zero. Several zeros at one location or several nearby distinct locations enter through that same interface. The construction still proves its own clearances and contour validity. What disappears is the requirement to provide an exact isolated zero in advance. This is why the cluster work was a mathematical part of the reduction, rather than a cosmetic addition to the diagram.",
+      "spoken_text": "The earlier isolated-pole picture made one point look special. The completed reduction does not assume that every hypothetical zero is simple or separated from its neighbors. It uses small values and finite counts. Positive count gives a sufficiently accurate interior probe; a small enough probe prevents the relevant count from being zero. Several zeros at one location or several nearby distinct locations enter through that same interface. The construction still proves its own clearances and contour validity. What disappears is the requirement to provide an exact isolated zero in advance. This is why the cluster work was a mathematical part of the reduction, rather than a cosmetic addition to the diagram."
+    },
+    {
+      "id": "generated",
+      "chapter": "The paired data are now returned by a constructor",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The source card shows the constructor that packages the circle data. It first obtains the real-circle scan result. If a positive successor was found, it computes a modulation height from that result; otherwise it keeps the seed height. It builds the modulated cover and selects the positive sample request appropriate to the case. The returned list records the chosen height, both covers, an interior real radius, and the request. The short request wrapper extracts the last of those fields. This is the data previously supplied to the conditional theorem, now generated by the arithmetic construction. Its validity theorems connect the returned fields to the checks needed by the coefficient argument.",
+      "spoken_text": "The source card shows the constructor that packages the circle data. It first obtains the real-circle scan result. If a positive successor was found, it computes a modulation height from that result; otherwise it keeps the seed height. It builds the modulated cover and selects the positive sample request appropriate to the case. The returned list records the chosen height, both covers, an interior real radius, and the request. The short request wrapper extracts the last of those fields. This is the data previously supplied to the conditional theorem, now generated by the arithmetic construction. Its validity theorems connect the returned fields to the checks needed by the coefficient argument."
+    },
+    {
+      "id": "coefficients",
+      "chapter": "Connect native values to the actual Mellin coefficients",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "Part Seven computed oscillating Mellin samples and their finite sums. The completed proof connects the actual improper evaluator to the native Euler coefficient family, rather than accepting an unrelated analytic model. The coefficients are taken in the shifted variable s minus z. That orientation accounts for the reciprocal-pole coefficient convention used in Part Eight. The comparison keeps independent precision requests on both computations and proves an explicit disk allowance for their difference. A common refinement lets the proof make that allowance as small as needed. The zero data, contour data, and coefficients now refer to compatible constructions in the same arithmetic chain. This is the connection needed before a coefficient contradiction can say anything about the real window search.",
+      "spoken_text": "Part Seven computed oscillating Mellin samples and their finite sums. The completed proof connects the actual improper evaluator to the native Euler coefficient family, rather than accepting an unrelated analytic model. The coefficients are taken in the shifted variable ess minus zee. That orientation accounts for the reciprocal-pole coefficient convention used in Part Eight. The comparison keeps independent precision requests on both computations and proves an explicit disk allowance for their difference. A common refinement lets the proof make that allowance as small as needed. The zero data, contour data, and coefficients now refer to compatible constructions in the same arithmetic chain. This is the connection needed before a coefficient contradiction can say anything about the real window search."
+    },
+    {
+      "id": "anchor",
+      "chapter": "The extra real coefficient is still there",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The completed proof also retains the plain height-zero reading from the one-sided inequality. Failure of the window search bounds the magnitude of an oscillating coefficient plus that real coefficient. The coefficient at height zero can be negative, so dropping it would change the statement. The empty real-circle construction supplies the separate control needed for it. The selected-height and real-height models are generated together so their normalizations and radii are compatible. After adding the anchor allowance, search failure gives the required upper cap. The large-index coefficient argument supplies the conflicting lower information. The conclusion depends on that combined estimate, just as the small three-value example did.",
+      "spoken_text": "The completed proof also retains the plain height-zero reading from the one-sided inequality. Failure of the window search bounds the magnitude of an oscillating coefficient plus that real coefficient. The coefficient at height zero can be negative, so dropping it would change the statement. The empty real-circle construction supplies the separate control needed for it. The selected-height and real-height models are generated together so their normalizations and radii are compatible. After adding the anchor allowance, search failure gives the required upper cap. The large-index coefficient argument supplies the conflicting lower information. The conclusion depends on that combined estimate, just as the small three-value example did."
+    },
+    {
+      "id": "budgets",
+      "chapter": "Uniform bounds close the precision loop",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "There are several error channels: finite evaluation, contour approximation, coefficient comparison, and geometric remainder terms. The proof assigns explicit rational portions of the final budget to them. More accurate factor data can change the lists and their degree, so a cap chosen from an arbitrary later approximation would risk a circular dependency. The completed construction instead derives the needed uniform caps and clearances from fixed coarse data. Then it chooses an index large enough for the geometric terms and requests the required finer precision. This order lets the same proof work at every subsequent refinement. The theorem is about the whole prescribed parameter range, not a successful numerical experiment at one convenient input. The thresholds are conservative; the result promises a certified witness, not a practical running time.",
+      "spoken_text": "There are several error channels: finite evaluation, contour approximation, coefficient comparison, and geometric remainder terms. The proof assigns explicit rational portions of the final budget to them. More accurate factor data can change the lists and their degree, so a cap chosen from an arbitrary later approximation would risk a circular dependency. The completed construction instead derives the needed uniform caps and clearances from fixed coarse data. Then it chooses an index large enough for the geometric terms and requests the required finer precision. This order lets the same proof work at every subsequent refinement. The theorem is about the whole prescribed parameter range, not a successful numerical experiment at one convenient input. The thresholds are conservative; the result promises a certified witness, not a practical running time."
+    },
+    {
+      "id": "threshold",
+      "chapter": "Compute the window threshold from the prepared pair",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The threshold wrapper first calls the paired-circle constructor. It reads the chosen height, the modulated cover, the empty cover, and the reserved real radius from the returned data. It then calls the proved pair-threshold routine with those fields and the ceiling parameters. The small-value request and the window threshold use the same prepared region data. The source makes their independence from the later offset visible: the offset is not an input to either wrapper. The validity theorems prove that the request is positive and the threshold is a positive integer. At this point the infinite-looking Landau argument has supplied the finite bounds needed to run the window search. We can now read the final theorem as an input-and-output contract.",
+      "spoken_text": "The threshold wrapper first calls the paired-circle constructor. It reads the chosen height, the modulated cover, the empty cover, and the reserved real radius from the returned data. It then calls the proved pair-threshold routine with those fields and the ceiling parameters. The small-value request and the window threshold use the same prepared region data. The source makes their independence from the later offset visible: the offset is not an input to either wrapper. The validity theorems prove that the request is positive and the threshold is a positive integer. At this point the infinite-looking Landau argument has supplied the finite bounds needed to run the window search. We can now read the final theorem as an input-and-output contract."
+    },
+    {
+      "id": "theorem",
+      "chapter": "Read the final ACL2 theorem",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The first source page lists the rational region, slack, ceiling, exponent, and window-start hypotheses. It also requires a passing approximate-zero predicate at a request at most one quarter of the prepared request. The conclusion runs the actual bounded window search and computes its address. It says the search result exists, the address is rational, and the address satisfies the two window inequalities. It also says that the returned lower signal endpoint is strictly positive and that the interval is exactly the one produced by the signal evaluator. The final page contains the proof's use of the preceding reduction and probe-admission theorems. These proof hints direct ACL2 toward already checked results; they are not extra assumptions added to the theorem. The complete source form is shown across the numbered cards. The name of this result is the encoded-zero reduction.",
+      "spoken_text": "The first source page lists the rational region, slack, ceiling, exponent, and window-start hypotheses. It also requires a passing approximate-zero predicate at a request at most one quarter of the prepared request. The conclusion runs the actual bounded window search and computes its address. It says the search result exists, the address is rational, and the address satisfies the two window inequalities. It also says that the returned lower signal endpoint is strictly positive and that the interval is exactly the one produced by the signal evaluator. The final page contains the proof'ess use of the preceding reduction and probe-admission theorems. These proof hints direct A C L two toward already checked results; they are not extra assumptions added to the theorem. The complete source form is shown across the numbered cards. The name of this result is the encoded-zero reduction."
+    },
+    {
+      "id": "address",
+      "chapter": "Run the actual finite search, then decode its address",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The theorem uses the same finite search built earlier in the series. The search wrapper chooses the constructed grid and evaluates the centered signal minus the proposed ceiling. The address wrapper converts a returned sample index into a rational point on that grid. For a window beginning at Y, the conclusion gives Y less than or equal to x and x squared less than or equal to Y cubed. Because the quantities are nonnegative, this places x in the window from Y to Y to the power three halves. The squared comparison is an exact rational test; no rounded square root defines the endpoint. For illustration, a window beginning at four ends at eight, and the rational address six lies inside it. Those small numbers illustrate the conclusion's geometry, not an execution of the enormous final threshold.",
+      "spoken_text": "The theorem uses the same finite search built earlier in the series. The search wrapper chooses the constructed grid and evaluates the centered signal minus the proposed ceiling. The address wrapper converts a returned sample index into a rational point on that grid. For a window beginning at why, the conclusion gives why less than or equal to ex and ex squared less than or equal to why cubed. Because the quantities are nonnegative, this places ex in the window from why to why to the power three halves. The squared comparison is an exact rational test; no rounded square root defines the endpoint. For illustration, a window beginning at four ends at eight, and the rational address six lies inside it. Those small numbers illustrate the conclusion'ess geometry, not an execution of the enormous final threshold."
+    },
+    {
+      "id": "positive",
+      "chapter": "A positive lower endpoint has mathematical meaning",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The returned interval encloses Gz of x minus the ceiling constant times x to the chosen exponent. The prime-power classifier, logarithm bands, Euler-constant bands, and rational-power bands provide the components of that enclosure. The interval operations preserve their real meanings through finite addition, scaling and subtraction. So a strictly positive lower endpoint proves a strict ceiling violation at the returned address. It is stronger than a positive floating-point estimate with no error allowance. If the lower endpoint were one eighth in an illustrative enclosure, the true difference would be at least one eighth. The theorem computes the actual endpoint; the film is not substituting that illustrative value. The interpretation document spells out the original smoothed prime statistic that the evaluator encloses.",
+      "spoken_text": "The returned interval encloses G zee of ex minus the ceiling constant times ex to the chosen exponent. The prime-power classifier, logarithm bands, Euler-constant bands, and rational-power bands provide the components of that enclosure. The interval operations preserve their real meanings through finite addition, scaling and subtraction. So a strictly positive lower endpoint proves a strict ceiling violation at the returned address. It is stronger than a positive floating-point estimate with no error allowance. If the lower endpoint were one eighth in an illustrative enclosure, the true difference would be at least one eighth. The theorem computes the actual endpoint; the film is not substituting that illustrative value. The interpretation document spells out the original smoothed prime statistic that the evaluator encloses."
+    },
+    {
+      "id": "quantifiers",
+      "chapter": "From every fine probe to one certified violation",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "Return to the encoded-zero condition: every positive rational request has a suitable rational probe in the fixed region. The arithmetic construction proves that one particular positive request is sufficient. Instantiate the encoded-zero condition at one quarter of that request. The final theorem now applies to every rational window start above its computed threshold. There is no need to choose a new analytic zero, guess a contour, or supply a separate peak selector for each window. The search returns the violation directly. In contrapositive form, a failed search above the threshold excludes every probe at that required accuracy, and therefore excludes the encoded-zero condition. That is the effective arithmetic ceiling-to-zero-free conversion.",
+      "spoken_text": "Return to the encoded-zero condition: every positive rational request has a suitable rational probe in the fixed region. The arithmetic construction proves that one particular positive request is sufficient. Instantiate the encoded-zero condition at one quarter of that request. The final theorem now applies to every rational window start above its computed threshold. There is no need to choose a new analytic zero, guess a contour, or supply a separate peak selector for each window. The search returns the violation directly. In contrapositive form, a failed search above the threshold excludes every probe at that required accuracy, and therefore excludes the encoded-zero condition. That is the effective arithmetic ceiling-to-zero-free conversion."
+    },
+    {
+      "id": "coding",
+      "chapter": "Encode the finite data by natural numbers",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The Peano Arithmetic proof represents fractions, lists, and complex pairs by natural-number codes. Represent an integer by a sign and a magnitude. Represent a rational by a numerator and a nonzero denominator, with the chosen normalization convention. Finite pairs and lists can themselves be represented by natural-number codes. A rational complex value is then a code for two rational coordinates, and a polynomial is a code for a finite coefficient list. The graphs of the recursive functions become arithmetic relations on those codes. This is how the theorem can be stated using whole-number variables even though its convenient working notation uses richer data. The encoding must preserve the operations and hypotheses used by the proof; merely renaming a fraction as an integer would not suffice.",
+      "spoken_text": "The Peano Arithmetic proof represents fractions, lists, and complex pairs by natural-number codes. Represent an integer by a sign and a magnitude. Represent a rational by a numerator and a nonzero denominator, with the chosen normalization convention. Finite pairs and lists can themselves be represented by natural-number codes. A rational complex value is then a code for two rational coordinates, and a polynomial is a code for a finite coefficient list. The graphs of the recursive functions become arithmetic relations on those codes. This is how the theorem can be stated using whole-number variables even though its convenient working notation uses richer data. The encoding must preserve the operations and hypotheses used by the proof; merely renaming a fraction as an integer would not suffice."
+    },
+    {
+      "id": "induction",
+      "chapter": "A direct proof in Peano Arithmetic",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "We now have a direct mathematical proof in first-order Peano Arithmetic, as well as the machine-checked ACL2 development. The manuscript proves the encoded windowed ceiling theorem by deriving its finite computations and inequalities in arithmetic. Natural-number codes represent integers, rationals, finite lists, polynomials, and computation graphs. Termination and induction are justified using natural-valued measures and ordinary strong induction. Section fourteen supplies the finite Mellin quadrature estimates rather than importing an unproved analytic estimate. Theorem fifteen point two assembles the contour construction, coefficient bounds, threshold, and returned rational witness. The manuscript also proves the correspondence with the classical zeta-function statement. The result is proved in Peano Arithmetic; the manuscript and ACL2 certificates provide the direct arithmetic proof and the machine-checked development.",
+      "spoken_text": "We now have a direct mathematical proof in first-order Peano Arithmetic, as well as the machine-checked A C L two development. The manuscript proves the encoded windowed ceiling theorem by deriving its finite computations and inequalities in arithmetic. Natural-number codes represent integers, rationals, finite lists, polynomials, and computation graphs. Termination and induction are justified using natural-valued measures and ordinary strong induction. Section fourteen supplies the finite Mellin quadrature estimates rather than importing an unproved analytic estimate. Theorem fifteen point two assembles the contour construction, coefficient bounds, threshold, and returned rational witness. The manuscript also proves the correspondence with the classical zeta-function statement. The result is proved in Peano Arithmetic; the manuscript and A C L two certificates provide the direct arithmetic proof and the machine-checked development."
+    },
+    {
+      "id": "audit",
+      "chapter": "What the completion audit checked",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The release checkpoint contains six hundred forty-seven certified ACL2 books and three thousand six hundred forty-nine exported theorems. The certificate files are present and newer than their source files. Loading the final book successfully imports its five hundred fifty-eight-book dependency closure. The source audit found no skipped-proof, custom-axiom, trust-tag, or function-attachment events in the recorded books. The source hashes identify the exact checkpoint behind this film. These checks support reproducibility and reveal the proof path; they do not replace understanding the theorem statement. The direct Peano Arithmetic manuscript and its classical comparison are recorded alongside the ACL2 certificate audit. The proof source is available for independent checking with vanilla ACL2.",
+      "spoken_text": "The release checkpoint contains six hundred forty-seven certified A C L two books and three thousand six hundred forty-nine exported theorems. The certificate files are present and newer than their source files. Loading the final book successfully imports its five hundred fifty-eight-book dependency closure. The source audit found no skipped-proof, custom-axiom, trust-tag, or function-attachment events in the recorded books. The source hashes identify the exact checkpoint behind this film. These checks support reproducibility and reveal the proof path; they do not replace understanding the theorem statement. The direct Peano Arithmetic manuscript and its classical comparison are recorded alongside the A C L two certificate audit. The proof source is available for independent checking with vanilla A C L two."
+    },
+    {
+      "id": "classical",
+      "chapter": "Connect the arithmetic zero and witness to the classical theorem",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The classical comparison proves that the native Euler value differs from the normalized zeta value by at most one quarter of its request. Continuity and rational density turn an actual zero in the interior of a suitable disk into arbitrarily fine rational probes. Conversely, probes in one compact disk with errors tending to zero have a limit point where the normalized zeta value vanishes. The value at one is one, so that limit does not manufacture a zero at the normalization point. The signal enclosure turns the returned positive endpoint into a genuine violation of the classical ceiling. Rational approximation of exponents, heights, constants, and window starts then gives the recurring-window formulation. The manuscript proves this comparison after completing the arithmetic derivation. Both are supplied: the Peano Arithmetic proof of the encoded reduction, and its mathematical identification with the original Landau statement.",
+      "spoken_text": "The classical comparison proves that the native Euler value differs from the normalized zeta value by at most one quarter of its request. Continuity and rational density turn an actual zero in the interior of a suitable disk into arbitrarily fine rational probes. Conversely, probes in one compact disk with errors tending to zero have a limit point where the normalized zeta value vanishes. The value at one is one, so that limit does not manufacture a zero at the normalization point. The signal enclosure turns the returned positive endpoint into a genuine violation of the classical ceiling. Rational approximation of exponents, heights, constants, and window starts then gives the recurring-window formulation. The manuscript proves this comparison after completing the arithmetic derivation. Both are supplied: the Peano Arithmetic proof of the encoded reduction, and its mathematical identification with the original Landau statement."
+    },
+    {
+      "id": "scope",
+      "chapter": "State the completed result at its real scope",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The encoded windowed Landau ceiling reduction is proved in Peano Arithmetic, with the corresponding development certified in vanilla ACL2. It supplies a computed threshold, a proof of search success, and a certified rational witness under the encoded zero hypotheses. The contour and budget constructors discharge the applicability inputs left open in Part Eight, and the manuscript derives their arithmetic guarantees directly. The result handles multiple and clustered zeros through the small-value and count interface. This is one essential conversion in a larger Riemann Hypothesis proof architecture. It does not establish the separate ceiling hypothesis, prove every component of that architecture in Peano Arithmetic, or claim a full arithmetic proof of the Riemann Hypothesis. Those are different questions about further reductions. The value of this result is that this particular bridge now has a concrete arithmetic proof path with its interpretation exposed.",
+      "spoken_text": "The encoded windowed Landau ceiling reduction is proved in Peano Arithmetic, with the corresponding development certified in vanilla A C L two. It supplies a computed threshold, a proof of search success, and a certified rational witness under the encoded zero hypotheses. The contour and budget constructors discharge the applicability inputs left open in Part Eight, and the manuscript derives their arithmetic guarantees directly. The result handles multiple and clustered zeros through the small-value and count interface. This is one essential conversion in a larger Riemann Hypothesis proof architecture. It does not establish the separate ceiling hypothesis, prove every component of that architecture in Peano Arithmetic, or claim a full arithmetic proof of the Riemann Hypothesis. Those are different questions about further reductions. The value of this result is that this particular bridge now has a concrete arithmetic proof path with its interpretation exposed."
+    },
+    {
+      "id": "ending",
+      "chapter": "Read, reproduce and extend the result",
+      "rate": 0.88,
+      "sentence_pause": 0.46,
+      "ellipsis_pause": 0.75,
+      "text": "The repository now connects the Peano Arithmetic manuscript, the final ACL2 theorem, the certificate inventory, and the proof source hashes. The companion lesson book puts the videos beside worked articles and interactive arithmetic examples. Those demos help explain the constructions; they are not substitutes for the ACL2 checker. To reproduce the machine-checked development, use the pinned local toolchain instructions and the certification command. To read the Peano Arithmetic proof, begin with Theorem fifteen point two and its preceding finite derivations in the manuscript. We started with successor, induction, and a finite sum of odd numbers. We finish with a finite proof that a prescribed search must return a window violation. Landau Windows ACL Two: the same Landau conversion, with fewer foundational assumptions.",
+      "spoken_text": "The repository now connects the Peano Arithmetic manuscript, the final A C L two theorem, the certificate inventory, and the proof source hashes. The companion lesson book puts the videos beside worked articles and interactive arithmetic examples. Those demos help explain the constructions; they are not substitutes for the A C L two checker. To reproduce the machine-checked development, use the pinned local toolchain instructions and the certification command. To read the Peano Arithmetic proof, begin with Theorem fifteen point two and its preceding finite derivations in the manuscript. We started with successor, induction, and a finite sum of odd numbers. We finish with a finite proof that a prescribed search must return a window violation. Landau Windows ACL Two: the same Landau conversion, with fewer foundational assumptions."
+    }
+  ]
+}

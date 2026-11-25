@@ -1,0 +1,24 @@
+<p class="lead">An irrational quantity can be surrounded by exact rational bounds. Once the enclosure is justified, a finite calculation can establish an inequality about that quantity without representing it exactly.</p>
+
+<h2 id="enclosures">An interval is information about a value</h2>
+<p>The rational interval <span class="math">[L,U]</span> says that the intended value lies between its endpoints. The ACL2 representation is a dotted pair, <code>(L . U)</code>. That pair is data; the assertion that it encloses the intended value is a separate statement.</p>
+<p>Full width is <span class="math">U−L</span>. If we choose the midpoint as an approximation, half the width bounds its error. If we choose a lower endpoint instead, the safe allowance is the full width. Later sample constructors deliberately use lower endpoints, so we keep these notions separate.</p>
+
+<h2 id="operations">Propagate bounds through arithmetic</h2>
+<div class="equation">[L₁,U₁]+[L₂,U₂]=[L₁+L₂,U₁+U₂]<br>[L₁,U₁]−[L₂,U₂]=[L₁−U₂,U₁−L₂]</div>
+<p>For subtraction, the largest subtracted value gives the smallest result. Scaling by a negative number reverses endpoint order. For example, multiplying <span class="math">[1/3,2/3]</span> by minus two gives <span class="math">[−4/3,−2/3]</span>.</p>
+{{source:video/teaching-part02.lisp:defun:lw-interval-sub}}
+{{source:video/teaching-part02.lisp:defun:lw-interval-scale}}
+{{demo:intervals}}
+
+<h2 id="budgets">Work backward from the requested error</h2>
+<p>If two input intervals have widths at most <span class="math">ε₁</span> and <span class="math">ε₂</span>, their sum or difference has width at most <span class="math">ε₁+ε₂</span>. Multiplication by a known scalar <span class="math">c</span> multiplies the width by <span class="math">|c|</span>.</p>
+<p>Suppose a final sum needs width at most <span class="math">1/100</span>. One possible allocation is <span class="math">1/200</span> to each of two inputs. If the first input is then amplified by ten, that earlier allocation must pay for the amplification. Precision is part of the construction, not an afterthought.</p>
+
+<h2 id="positivity">A positive lower endpoint is a certificate</h2>
+<p>If an enclosure is valid and <span class="math">L&gt;0</span>, its intended value is positive. A positive midpoint alone does not establish that: the interval <span class="math">[−1/10,3/10]</span> still permits a negative value.</p>
+<p>A strict margin protects the conclusion from uncertainty. To force a lower endpoint above a threshold, it is enough for the underlying value to exceed that threshold by more than the possible full-width loss.</p>
+
+<h2 id="exercise">Try a subtraction by hand</h2>
+<div class="exercise"><p>Subtract <span class="math">[1/2,3/4]</span> from <span class="math">[1/3,2/3]</span>. Compute the width. Does the result certify positivity?</p><details><summary>Show the calculation</summary><p>The enclosure is <span class="math">[1/3−3/4,2/3−1/2]=[−5/12,1/6]</span>. Its width is <span class="math">7/12</span>. The negative lower endpoint prevents a positivity conclusion from this enclosure.</p></details></div>
+<p class="further">The <a href="https://github.com/levkropp/landau-windows-acl2/blob/main/video/teaching-part02.lisp">teaching book</a> proves the interval rules. Part Three uses narrow enclosures and strict margins to force a finite search to succeed.</p>

@@ -1,0 +1,34 @@
+<p class="lead">The encoded windowed Landau ceiling reduction is proved in first-order Peano Arithmetic, with the corresponding development certified in vanilla ACL2. It computes a threshold, proves that the finite search succeeds and returns a rational address with a certified positive signal difference.</p>
+
+<h2 id="completed-contract">State the completed contract</h2>
+<p>Fix a rational ceiling constant <span class="math">C≥0</span> and exponent <span class="math">θ=p/q</span> with <span class="math">0≤θ&lt;1</span>. The region data describe a compact disk around <span class="math">252+ih</span>, with rational cap and positive slack satisfying the theorem's restrictions. Its smaller disk lies strictly in the positive half-plane.</p>
+<p>An encoded zero supplies arbitrarily accurate rational small-value probes in that fixed disk. The construction computes a positive request <span class="math">r</span> and a threshold <span class="math">Y₀</span> independently of the later probe coordinates. A passing probe at error at most <span class="math">r/4</span> suffices: every rational <span class="math">Y≥Y₀</span> gives a successful bounded search.</p>
+{{source:acl2/euler-window-encoded-zero.lisp:defun:lw-euler-window-approximate-zerop}}
+<p>The full encoded-zero condition quantifies over positive rational requests and rational coordinate codes. The finite predicate above checks one such request; one coarse small sample alone is not the whole condition.</p>
+
+<h2 id="what-closed">What closed the gaps from Part Eight?</h2>
+<p>The arithmetic development now constructs the contour data instead of asking for their existence as an extra model hypothesis. Real-axis and strict right-half-plane clearance bounds give quantitative room. A finite real-circle scan either reaches a suitable outer empty circle or its first positive successor. Both outcomes generate the required empty-real and positive-modulated pair.</p>
+<p>Uniform floors and coefficient caps are tied to fixed coarse data, so refining factorization precision does not create a circular dependency in the chosen index. The actual Mellin evaluator is compared with the native Euler coefficient family. The plain height-zero coefficient stays in the one-sided estimate and is controlled by the companion real circle.</p>
+<p>Small values and finite counts handle multiple and clustered zeros through the same interface. The proof does not require an externally supplied exact simple isolated zero.</p>
+
+<h2 id="theorem">Read the actual theorem</h2>
+{{source:acl2/euler-window-encoded-zero.lisp:defthm:lw-euler-window-encoded-zero-reduction}}
+<p>The hypotheses make the rational domains, threshold and fine probe explicit. The conclusion calls the actual search, computes its address and asserts both the window bounds and a positive lower endpoint. Proof hints direct the checker to earlier results; they are not extra hypotheses of the theorem.</p>
+
+<h2 id="witness">Inspect the conclusion's exact inequalities</h2>
+<p>The address <span class="math">x</span> is rational, with <span class="math">Y≤x</span> and <span class="math">x²≤Y³</span>. For these nonnegative quantities that is the window <span class="math">[Y,Y<sup>3/2</sup>]</span>, expressed without a rounded square root. The returned interval encloses <span class="math">Gz(x)−C x<sup>p/q</sup></span>; a positive lower endpoint proves a strict ceiling violation.</p>
+{{demo:window-witness}}
+<p>This inspector checks necessary conclusion conditions on your illustrative inputs. It does not evaluate the enormous final threshold, run the window search, or establish the provenance of a supplied interval.</p>
+
+<h2 id="interpretation">The direct proof in Peano Arithmetic</h2>
+<p>The <a href="https://github.com/levkropp/landau-windows-acl2/blob/main/classical/pa-paper.pdf">PA manuscript</a> gives a direct mathematical proof of the encoded reduction in first-order Peano Arithmetic. Integers, rationals, pairs, finite lists and polynomials are coded by natural numbers. Function graphs become arithmetic relations, and ordinary induction proves the finite computations and their inequalities.</p>
+<p>Section 14 derives the finite Mellin quadrature estimates. Theorem 15.2 assembles the construction into the computed threshold and returned rational witness. The corresponding development is machine-checked in ACL2; its recorded dependency audit also checks 347 exported recursive definitions with natural-valued measures and no exceptions.</p>
+<p>The classical comparison identifies the native continuation value with <span class="math">Z(s)=(s−1)ζ(s)</span>, continued with <span class="math">Z(1)=1</span>, up to an error of one quarter of the request. Continuity, rational density and compactness connect actual zeros to fine probes. The signal enclosure and the passage to recurring real windows complete the mathematical comparison.</p>
+
+<h2 id="reproduce">Reproduce the evidence</h2>
+<p>The proof checkpoint contains 647 certified books and 3,649 exported theorems. The final theorem imports a 558-book dependency closure. The source audit records hashes, certificate freshness, the forbidden-trust-event scan and the natural-measure audit evidence.</p>
+<p>Use the <a href="https://github.com/levkropp/landau-windows-acl2/blob/main/acl2/README.md">vanilla ACL2 setup and certification instructions</a>. Read the <a href="https://github.com/levkropp/landau-windows-acl2/blob/main/docs/acl2-interpretation.md">arithmetic and classical interpretation</a> and <a href="https://github.com/levkropp/landau-windows-acl2/blob/main/docs/certification-audit.json">completion audit</a> alongside the theorem.</p>
+<div class="exercise"><p>Why is it important that the threshold is chosen before the encoded-zero condition supplies the rational probe?</p><details><summary>Show the reasoning</summary><p>The zero condition guarantees a probe at any requested precision, but its coordinates may change with the request. Choosing the threshold from the fixed region and ceiling prevents those later coordinates from changing the required threshold and creating a circular selection problem.</p></details></div>
+
+<h2 id="scope">The result's scope</h2>
+<p>The encoded windowed Landau ceiling conversion is proved in Peano Arithmetic. It proves the threshold, successful search and rational witness under the stated zero hypotheses, and the manuscript supplies its classical zeta interpretation. Establishing the ceiling used by a larger RH argument, reducing other components, and finding a full proof of RH in arithmetic are further mathematical questions.</p>

@@ -1,0 +1,12 @@
+{
+  "proofMilestone": "complete",
+  "proofReference": "acl2/euler-window-encoded-zero.lisp",
+  "interpretationReference": "docs/acl2-interpretation.md",
+  "proofCommit": "52aec9e915b5d816ff23a66b942500684643f8f6",
+  "paProofReference": "classical/pa-paper.pdf#page=61",
+  "finalOverviewAsset": "landau-windows-acl2-overview-05.mp4",
+  "publicMediaBase": "https://github.com/levkropp/landau-windows-acl2/releases/download/v1.0.0",
+  "siteUrl": "https://levkropp.github.io/landau-windows-acl2/",
+  "repositoryUrl": "https://github.com/levkropp/landau-windows-acl2",
+  "preferredNarration": "local-no-api-keys"
+}

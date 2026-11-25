@@ -1,0 +1,56 @@
+{
+  "title": "Landau Windows — how much foundation does a proof need?",
+  "version": "Review draft 02",
+  "voice": "M2",
+  "segments": [
+    {
+      "id": "news",
+      "chapter": "A proof checked in Lean",
+      "text": "A proof of the Riemann hypothesis has recently been checked in Lean. Independent programs have accepted the formal proof. It concerns a famous question about the pattern of prime numbers. But it leaves another question. How much mathematical machinery does this proof really need?"
+    },
+    {
+      "id": "toolkit",
+      "chapter": "A very powerful toolkit",
+      "text": "A proof assistant has rules, just as a game does. Lean gives mathematicians a very powerful set of rules. Its logic is different from set theory, but its usual mathematical models use set theory plus enormous infinities, called inaccessible cardinals. Those are powerful foundational assumptions. We do not need those enormous infinities just to state the Riemann hypothesis. There are ways to express it using ordinary whole numbers. That does not promise a proof in arithmetic. It leaves open how much of the proof can be brought down to that level."
+    },
+    {
+      "id": "economy",
+      "chapter": "Why fewer assumptions matter",
+      "text": "Why would that help? Because a theorem proved from fewer assumptions depends on less. A stronger theory can sometimes justify a weaker one. For example, Z F C can prove that Peano arithmetic is consistent. Peano arithmetic, if consistent, cannot establish its own consistency under the usual conditions. So reducing a proof to arithmetic gives us the same result with a smaller foundational commitment."
+    },
+    {
+      "id": "s3_a",
+      "rate": 0.88,
+      "chapter": "The three-step picture",
+      "cues": {"s1": 1, "pair": 2, "right": 4},
+      "text": "To see which part we are studying, return to the picture from the original video. The dots are zeros of the zeta function, and the Riemann hypothesis puts them on the central line. There is a mirror symmetry. An off-centre dot on the left would have a partner on the right. So ruling out dots on the right is enough."
+    },
+    {
+      "id": "s3_b",
+      "rate": 0.92,
+      "chapter": "The Landau bridge",
+      "cues": {"s2": 0, "loud": 1, "poke": 3, "flip": 4, "nowave": 5, "nofloor": 6, "landau": 7},
+      "text": "Now watch the gap: the difference between a weighted prime count and its prediction. If a zero sits too far to the right, it contributes an oscillation that grows too quickly. That extra wave rises and falls. Eventually it would drive the gap above the allowed level. Now suppose we could prove an upper bound that the gap never crosses. Then that troublesome zero could not be there. We only used a ceiling; a matching lower bound was unnecessary. Landau's theorem makes that reasoning rigorous. In the larger proof, another argument supplies the ceiling."
+    },
+    {
+      "id": "focus",
+      "chapter": "This is our part",
+      "text": "This is the bridge we are focusing on. It is a classical theorem with a clear input and a clear output. That makes it a natural place to start reducing the foundations. Constructing the ceiling is a different, much larger task. We are isolating this conversion step."
+    },
+    {
+      "id": "windowed",
+      "chapter": "Make the bridge effective",
+      "text": "Our version only gets the ceiling on recurring stretches of the number line, called windows. A zero in the forbidden region must eventually force a violation in these windows. We want a finite arithmetic proof that also computes where the violation happens, and certifies it with exact bounds."
+    },
+    {
+      "id": "acl2",
+      "chapter": "Meet ACL2",
+      "text": "We will use A C L two. Its name means a computational logic for applicative Common Lisp. Common Lisp is its programming language. The foundational difference lies in the logical rules. Here we work with finite lists, exact fractions, recursive programs, and proofs by induction. Think of induction like dominoes. Prove the first case, then prove that each case gives the next. We can work without Lean's hierarchy of universes. Our target is a proof at roughly Peano arithmetic strength, with that connection made precise."
+    },
+    {
+      "id": "goal",
+      "chapter": "Same result, fewer assumptions",
+      "text": "That is what Landau Windows is for. Take this one bridge, extract its finite content, and prove the whole reduction in A C L two. A checker alone is one piece. We also need to prove the search succeeds under the intended hypotheses. That reduction is still in progress. The aim is simple: the same mathematical result, with fewer assumptions."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "title": "Landau Windows — same theorem, fewer assumptions",
+  "version": "Review draft 01",
+  "voice": "M2",
+  "segments": [
+    {
+      "id": "opening",
+      "chapter": "A closer look at step two",
+      "text": "The reference video makes a striking point: a ceiling alone is enough. This project takes a closer look at that bridge. Can we prove it with fewer foundational assumptions?"
+    },
+    {
+      "id": "scope",
+      "chapter": "The bridge we are extracting",
+      "text": "There are three steps in the picture. Reflect the zeros. Turn a ceiling into a zero free region. Then construct the ceiling. Landau Windows studies the middle step. We are extracting a classical theorem, rather than claiming a proof of the Riemann hypothesis."
+    },
+    {
+      "id": "windows",
+      "chapter": "From existence to an address",
+      "text": "Here, the ceiling is available on recurring windows. A zero beyond the target line forces violations in sufficiently large windows. The effective version must do more than say that a violation exists. It must compute an address, and certify the inequality there using finite arithmetic. The curve shown here is a schematic."
+    },
+    {
+      "id": "foundations",
+      "chapter": "A theorem can need less",
+      "text": "Lean checks the classical mathematics in a powerful foundation. Its universe hierarchy has standard consistency models using inaccessible cardinals. That does not show this number theory needs those cardinals. Our target is an arithmetic proof in A C L two, with a precise interpretation at roughly Peano arithmetic strength."
+    },
+    {
+      "id": "rh",
+      "chapter": "Formulation is only a starting point",
+      "text": "The Riemann hypothesis has elementary arithmetic formulations. That makes weaker foundations a meaningful research question. It does not guarantee that Peano arithmetic can prove it. Each piece needs an actual proof, and the mathematical connection between formulations must also be justified."
+    },
+    {
+      "id": "consistency",
+      "chapter": "Why fewer assumptions matter",
+      "text": "Why care? Under the usual hypotheses, a consistent effective theory containing enough arithmetic cannot prove its own consistency. A stronger theory can sometimes prove the consistency of a weaker one. Z F C can prove the consistency of Peano arithmetic. Reducing a theorem's assumptions makes its foundational commitment smaller."
+    },
+    {
+      "id": "progress",
+      "chapter": "What is established today",
+      "text": "We already have the classical Landau result checked in Lean. In A C L two, we have certified arithmetic evaluators, finite window searches, explicit thresholds, and transport bounds. The analytic coefficient argument, general zero covers, and full composition are still being developed. This is a progress draft."
+    },
+    {
+      "id": "destination",
+      "chapter": "Same theorem, fewer assumptions",
+      "text": "The destination is the full Landau reduction in A C L two, together with its mathematical interpretation. A sound checker is one component. We also need a proof that the search succeeds under the intended hypotheses. That is how we chip away at the foundations, one theorem at a time."
+    }
+  ]
+}

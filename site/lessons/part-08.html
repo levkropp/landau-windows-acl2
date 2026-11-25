@@ -1,0 +1,31 @@
+<p class="lead">A pole can force a coefficient too large to coexist with a ceiling-derived upper bound. The arithmetic chain is conditional on meaningful models, strict geometric gaps and checked comparisons.</p>
+
+<h2 id="pole-coefficients">Read a pole through its coefficients</h2>
+<p>The finite geometric identity gives the coefficient of <span class="math">zʲ</span> in <span class="math">c/(a−z)</span>: it is <span class="math">c/a<sup>j+1</sup></span>. The offset must be nonzero; the analytic expansion is valid for <span class="math">|z|&lt;|a|</span>.</p>
+<p>“Nearest” need not mean “dominant at every index.” In the teaching model <span class="math">1/(2−z)−3/(3−z)</span>, coefficient zero is minus one half. After multiplication by <span class="math">2<sup>j+1</sup></span>, the selected contribution is one while the competitor is <span class="math">3(2/3)<sup>j+1</sup></span>. At index five the result is <span class="math">179/243&gt;1/2</span>.</p>
+
+<h2 id="isolation">Create a strict isolation gap</h2>
+<p>For a finite set of rational points left of a fixed center line, equality of two squared distances gives a linear equation in the center height. There are finitely many candidate tie heights. Repeated interval halving avoids a supplied finite list and returns a rational midpoint.</p>
+<p>In the film's point example, the chosen height is <span class="math">5/8</span>. The squared distances are <span class="math">73/64,233/64,281/64</span>. Averaging the nearest distance with the next one gives squared radius <span class="math">153/64</span>, strictly inside the gap.</p>
+
+<h2 id="boxes">Actual zeros require more than rational markers</h2>
+<p>An actual zero need not have rational coordinates. A box with rational endpoints encloses uncertainty. Interval subtraction, careful interval squaring and addition bound every squared distance from the center to that box.</p>
+<p>The circle checker requires the selected box's upper bound to be below the squared radius and every other box's lower bound to be above it. Its parameter named <code>radius</code> stores a <strong>squared radius</strong>.</p>
+{{source:acl2/box-circles.lisp:defun:lw-circle-check}}
+{{demo:circle}}
+<p>This separate example has center <span class="math">(2,1)</span>. At squared radius three, selected distances are below two and other distances above five. Equality at a boundary would fail the strict test.</p>
+
+<h2 id="cover">Checking a cover does not generate one</h2>
+<p>To isolate an actual zero, we need proof that every relevant zero is covered and that the selected box contains only the selected zero location. A unique location can have multiplicity greater than one. A cluster of distinct locations is a different issue.</p>
+<p>A missing box could hide another zero inside the circle even when all supplied boxes pass. The real geometry theorem retains the complete-cover and uniqueness hypotheses explicitly.</p>
+
+<h2 id="models">Compare constructed models and retain the real anchor</h2>
+<p>The model polynomial adds the selected pole coefficient, the other listed poles and a rescaled regular coefficient. A boundary comparison with the polynomial from the actual Mellin evaluator controls their selected coefficient difference. Agreement is checked, not assumed.</p>
+<p>The one-sided estimate also retains a height-zero plain real reading. A separate model bounds how negative it can be. Only with that anchor can the failed-search inequality produce the required upper bound for the oscillating reading.</p>
+<p>Geometric thresholds choose a large index; explicit tolerances pay for comparison errors. The caps must be compatible uniformly as precision changes. A cap that depends circularly on the requested precision cannot be fixed merely by naming a threshold.</p>
+
+<h2 id="witness">What the conditional conclusion returns</h2>
+<p>Once the model and budget checks pass, lower and upper bounds for the same normalized reading cannot coexist under search failure. The conditional witness theorem therefore returns an actual finite-search result and a rational address <span class="math">x</span>, with <span class="math">Y≤x</span>, <span class="math">x²≤Y³</span>, and a positive lower signal endpoint.</p>
+<p>The full reduction still needs suitable general analytic models, complete zero covers, compatible bounds and its intended Peano Arithmetic interpretation. The current improper-polynomial comparison has the explicit region <span class="math">σ−innerRadius&gt;2</span>; extending a cutoff does not itself establish meromorphic continuation.</p>
+<div class="exercise"><p>Why can a checker that perfectly separates two supplied boxes still fail to isolate an actual zero?</p><details><summary>Show the reasoning</summary><p>Another relevant zero may be missing from the supplied boxes, or the selected box may contain two distinct zeros. The geometric comparisons do not establish complete coverage or uniqueness of location.</p></details></div>
+<p class="further">The <a href="https://github.com/levkropp/landau-windows-acl2/blob/main/video/SOURCES-part08.md">source notes</a> identify the conditional theorem. The <a href="https://github.com/levkropp/landau-windows-acl2/blob/main/docs/reduction-status.md">proof ledger</a> records the remaining obligations. Part Nine is reserved for the completed reduction and interpretation.</p>

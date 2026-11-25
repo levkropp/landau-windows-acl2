@@ -1,0 +1,24 @@
+<p class="lead">A finite scan can return a successful entry only if one is present. This lesson connects a continuous-looking peak to a stored rational interval with a positive lower endpoint.</p>
+
+<h2 id="scan">Start with the actual scan</h2>
+<p>A sample is an enclosure <span class="math">[L,U]</span>. The scan tests whether <span class="math">L</span> is strictly above a threshold, then either returns the current index and interval or continues through the remaining list. It returns the <em>first</em> passing entry.</p>
+{{source:video/teaching-part03.lisp:defun:lw-first-above}}
+<p>A returned index identifies a list position. A grid maps that position to an address. A proof that an address is rational and inside a window is a different result from a proof that its interval encloses the intended function value.</p>
+
+<h2 id="coverage">Cover the point before transporting its margin</h2>
+<p>Suppose the grid covers the region: every relevant point is within distance <span class="math">h</span> of a sampled address. Also suppose a rate bound controls how fast the function can fall:</p>
+<div class="equation">F(a) ≥ F(p) − L|a−p|.</div>
+<p>At a nearby address the value is therefore at least <span class="math">F(p)−Lh</span>. If its enclosure has full width at most <span class="math">w</span>, its lower endpoint is at least another <span class="math">w</span> below that. Thus the strict condition <span class="math">F(p)&gt;threshold+Lh+w</span> forces a passing sample.</p>
+
+<h2 id="worked-example">Follow one example all the way through</h2>
+<p>Use the teaching function <span class="math">F(x)=1−4|x−7/16|</span> on <span class="math">[0,1]</span>. Its peak is one, its rate bound is four, and the grid has spacing <span class="math">1/8</span>. Give each sample an enclosure of full width <span class="math">1/4</span>, centered on its exact teaching value.</p>
+<p>The sufficient margin test is <span class="math">1&gt;4·(1/8)+1/4=3/4</span>. The first passing index is two, with address <span class="math">1/4</span> and enclosure <span class="math">[1/8,3/8]</span>. It need not be the address closest to the peak.</p>
+{{demo:grid}}
+
+<h2 id="what-is-proved">Termination, soundness and success are distinct</h2>
+<p>The finite scan terminates because it consumes a finite list. If it returns an entry and the enclosures are correct, that entry certifies a value above the threshold. To prove that it returns an entry at all, the margin, coverage and rate hypotheses must be supplied.</p>
+<p>The margin inequality is sufficient, not necessary. A coarse grid can happen to hit a good point even when this particular sufficient test fails. Conversely, valid enclosures cannot reveal a peak that an inadequate grid misses entirely.</p>
+
+<h2 id="exercise">Remove one of the guarantees</h2>
+<div class="exercise"><p>Set the demo to one grid subdivision. What happens? Then use two subdivisions. Does success require the sufficient margin test to pass in this example?</p><details><summary>Show the reasoning</summary><p>One subdivision samples only zero and one, where the teaching function is negative. Two subdivisions add one half, close enough to this particular peak to pass the scan. The conservative bound <span class="math">1&gt;4/N+w</span> still fails at <span class="math">N=2</span>, demonstrating that it is not necessary.</p></details></div>
+<p class="further">The <a href="https://github.com/levkropp/landau-windows-acl2/blob/main/video/SOURCES-part03.md">source notes</a> list the exact conditional grid-search theorem. The plotted peak is not a computation of the Landau statistic.</p>
